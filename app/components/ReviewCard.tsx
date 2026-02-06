@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { useState } from "react";
 import { reviews } from "./reviews";
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review }: { review: any }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
