@@ -19,10 +19,10 @@ function IconPlaceholder({ label }: { label: string }) {
 }
 const SERVICES: Service[] = [
   {
-    id: "window-installation",
-    title: "Window Installation",
-    description: "Turn window inquiries to potential customers.",
-    cta: "GET WINDOW LEADS",
+    id: "auto ",
+    title: "Auto Insurance",
+    description: "Get exclusive inbound calls from customers actively searching for auto insurance",
+    cta: "GET Auto LEADS",
     icon: (
       <div className="h-12 w-12 flex items-center justify-center">
         <img

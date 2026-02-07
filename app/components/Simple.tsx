@@ -8,7 +8,7 @@ const Simple = () => {
 
 <div className='flex flex-col xl:flex-row w-full h-full justify-between items-start px-45 py-30 gap-10'>
 <div className="left flex flex-col space-y-5 w-full">
-<h1 className='text-4xl font-bold leading-snug'>
+<h1 className='text-4xl font-bold leading-snug text-gray-900'>
 We generate more calls. You gain new customers and pay per call. Simple!
 </h1>
 <p className='text-gray-500'>There are many businesses competing to get the same customers you are targeting. Why spend so much on clicks? Let’s Result do the hard part, you convert new customers and only pay per potential customer call.

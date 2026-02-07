@@ -23,12 +23,12 @@ export default function Home() {
   return (
   <>
   <Navbar/>
-<ContactSplit/>
+{/* <ContactSplit/> */}
   <Hero/>
   <Business/>
   <Simple/>
   <Work/>
-  <ReviewsCarousel/>
+  {/* <ReviewsCarousel/> */}
   <Visible/>
   <HelpSelector/>
   <Grow/>

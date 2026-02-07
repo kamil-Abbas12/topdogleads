@@ -1,4 +1,5 @@
 "use client";
+import { Heart } from 'lucide-react';
 
 import * as React from "react";
 
@@ -22,7 +23,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: "exploria",
     brand: "Exploria",
     subtitle: "Resorts",
-    logoImg: "/exploria.png",
+    logoImg: "/resorts.png",
     logoBg: "bg-[#F3C969]",
   },
   {
@@ -38,6 +39,20 @@ const CASE_STUDIES: CaseStudy[] = [
     subtitle: "Car Service",
     logoImg: "/jas.png",
     logoBg: "bg-[#D9D9D9]",
+  },
+    {
+    id: "moe",
+    brand: "MOE",
+    subtitle: "Contractor",
+    logoImg: "/mo.png",
+    logoBg: "bg-[#204e82]",
+  },
+  {
+    id: "321",
+    brand: "321 Jetski Rentals",
+    subtitle: "Jetski Rentals",
+    logoImg: "/321.png",
+    logoBg: "bg-[#efe9d1]",
   },
 ];
 
@@ -83,9 +98,22 @@ function ArrowRight({ className = "" }: { className?: string }) {
 }
 
 export default function SuccessStories() {
+  const VISIBLE = 4;
+const [index, setIndex] = React.useState(0);
+const total = CASE_STUDIES.length;
+
+const next = () => {
+  setIndex((prev) => (prev + 1) % total);
+};
+
+const prev = () => {
+  setIndex((prev) => (prev - 1 + total) % total);
+};
+
   return (
     <section className="relative w-full bg-[#0A84FF]">
       <div className="mx-auto max-w-7xl px-6 py-20">
+
         {/* Header */}
         <div className="text-center text-white">
           <div className="text-xs font-semibold tracking-[0.22em] opacity-90">
@@ -96,51 +124,64 @@ export default function SuccessStories() {
           </h2>
         </div>
 
-        {/* Cards */}
-        <div className="relative mt-16">
+        {/* Carousel */}
+        <div className="relative mt-16 overflow-hidden">
+
           {/* Left Arrow */}
-          <button className="absolute -left-16 top-1/2 -translate-y-1/2 text-white">
-            <ArrowLeft className="h-8 w-8" />
+          <button
+            onClick={prev}
+            className="absolute -left-16 top-1/2 -translate-y-1/2 text-white z-10"
+          >
+            ‹
           </button>
 
           {/* Right Arrow */}
-          <button className="absolute -right-16 top-1/2 -translate-y-1/2 text-white">
-            <ArrowRight className="h-8 w-8" />
+          <button
+            onClick={next}
+            className="absolute -right-16 top-1/2 -translate-y-1/2 text-white z-10"
+          >
+            ›
           </button>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
-            {CASE_STUDIES.map((cs) => (
+          {/* TRACK */}
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${(index * 100) / VISIBLE}%)`,
+            }}
+          >
+            {CASE_STUDIES.concat(CASE_STUDIES).map((cs, i) => (
               <div
-                key={cs.id}
-                className="bg-white border border-slate-200"
+                key={i}
+                className="min-w-[25%] px-1"
               >
-                {/* Logo block */}
-                <div
-                  className={`${cs.logoBg} h-[200px] flex items-center justify-center`}
-                >
-                  <img
-                    src={cs.logoImg}
-                    alt={cs.brand}
-                    className="max-h-[70px] max-w-[170px] object-contain"
-                  />
-                </div>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between px-5 py-4 border-t border-slate-200">
-                  <div>
-                    <div className="text-sm font-semibold text-slate-900">
-                      {cs.brand}
-                    </div>
-                    <div className="text-sm text-slate-500">
-                      {cs.subtitle}
-                    </div>
+                <div className="bg-white">
+                  <div
+                    className={`${cs.logoBg} h-[200px] flex items-center justify-center`}
+                  >
+                    <img
+                      src={cs.logoImg}
+                      alt={cs.brand}
+                      className="max-h-[200px] max-w-[170px] object-contain"
+                    />
                   </div>
 
-                  <HeartIcon className="h-5 w-5 text-slate-400" />
+                  <div className="flex items-center justify-between px-5 py-4 border-t border-slate-200">
+                    <div>
+                      <div className="text-sm font-semibold text-slate-900">
+                        {cs.brand}
+                      </div>
+                      <div className="text-sm text-slate-500">
+                        {cs.subtitle}
+                      </div>
+                    </div>
+                    <Heart className="w-5 h-5 text-gray-500" />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

@@ -33,7 +33,7 @@ const slides = [
 
 const Hero = () => {
   return (
-<section className='relative w-full px-10 xl:px-25 py-5 xl:py-13 flex items-center justify-center overflow-hidden'>
+<section className='relative w-full px-10 xl:px-25 py-5 xl:py-13 flex items-center justify-center overflow-hidden bg-white'>
 {/* BACKGROUND CIRCLES */}
 <div className="absolute -z-10 top-15 -left-10 w-50 h-50 bg-yellow-200 rounded-full opacity-40" />
 

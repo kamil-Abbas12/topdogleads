@@ -1,55 +1,44 @@
 "use client";
-
+import Link from "next/link";
 import React from "react";
 import { Phone, ChevronDown } from "lucide-react";
 
 const industryLeft = [
-  "Appliance Repair",
-  "Auto Glass Repair",
   "Auto Insurance",
-  "Criminal Attorney",
-  "Dentist",
-  "Door Installation",
-  "Electrician",
   "Final Expense",
-  "Flooring",
-  "Garage Door Repair",
   "Home Insurance",
   "HVAC",
 ];
 
 const industryRight = [
-  "Locksmith",
   "Medicare Insurance",
   "Motor Vehicle Accident",
   "Pest Control",
-  "Plumbing",
-  "Remodeling",
   "Roofing",
   "Solar",
-  "Tree Service",
-  "Water Damage Restoration",
-  "Window Installation",
 ];
 
 export default function Navbar() {
   return (
-    <nav className="w-full px-10 xl:px-20 py-5 xl:py-13 flex items-center justify-center gap-15">
+    <nav className=" relative w-full px-10 xl:px-10 py-5 xl:py-5 xl:space-x-60 flex items-center justify-center gap-15  bg-white">
       {/* LEFT */}
-      <img
-        src="https://resultcalls.com/images/logo-blue162x32.svg"
-        alt="ResultCalls"
-        className="h-8"
-      />
+     <Link href="/" onClick={() => window.location.reload()}>
+  <img
+    src="/logo.jpg"
+    alt="TopDogLead"
+    className="w-32 h-auto cursor-pointer" 
+  />
+</Link>
+
 
       {/* CENTER */}
       <div className="hidden lg:flex items-center gap-8 text-">
-        <a
+        <Link
           className="text-gray-600 hover:text-blue-600 text-md font-medium"
-          href="#"
+          href="/about"
         >
           About
-        </a>
+        </Link>
 
         {/* SOLUTIONS */}
         <div className="relative group">
@@ -190,31 +179,15 @@ export default function Navbar() {
           </div>
         </div>
 
-        <a
-          className="text-gray-600 hover:text-blue-600 text-md font-medium"
-          href="#"
-        >
-          Pricing
-        </a>
+       
         <a
           className="text-gray-600 hover:text-blue-600 text-md font-medium"
           href="#"
         >
           Case Studies
         </a>
-        <a
-          className="text-gray-600 hover:text-blue-600 text-md font-medium"
-          href="#"
-        >
-          Publishers
-        </a>
-        <a
-          className="text-gray-600 hover:text-blue-600 text-md font-medium"
-          href="#"
-        >
-          Login
-        </a>
-
+       
+       
       {/* RIGHT */}
       <div className="flex items-center gap-2 font-semibold text-gray-900 text-md">
         <Phone size={16} />

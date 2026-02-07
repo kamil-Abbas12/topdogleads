@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 const Business = () => {
   return (
-<section className='relative w-full h-full xl:pt-30  xl:pb-0'>
+<section className='relative w-full h-full xl:pt-30  xl:pb-0 bg-white'>
 <div className='border border-gray-100 w-full'></div>
 <div className='flex flex-col justify-center items-center pt-10'>
 <h2 className='text-gray-800 text-3xl '>Join 2,000+ businesses using TopDogLeads</h2>

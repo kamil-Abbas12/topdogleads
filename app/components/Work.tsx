@@ -3,11 +3,11 @@ import { Star } from "lucide-react";
 
 const Work = () => {
   return (
-    <section className="w-full h-full">
+    <section className="w-full h-full bg-white">
       <div className="flex flex-col px-50 py-20 justify-center items-center text-center space-y-2">
         <h2 className="text-xl text-gray-400 uppercase">How It Works</h2>
 
-        <h1 className="text-4xl font-bold text-center">
+        <h1 className="text-4xl font-bold text-center text-gray-800">
           Don’t Pay for Clicks. Pay for
           <br />
           Customer Calls
@@ -29,33 +29,7 @@ const Work = () => {
         </h3>
       </div>
 
-      <div className="rounded-md mx-80 py-10 mb-20 bg-gray-100">
-        <div className="flex flex-col justify-start items-center space-y-3">
-
-          {/* Google + Reviews */}
-          <div className="flex items-center gap-2">
-            <img src="google.svg" alt="google" width={80} />
-            <h2 className="text-gray-800 text-xl font-semibold">Reviews</h2>
-          </div>
-
-          {/* Rating */}
-          <div className="flex items-center gap-3">
-            <h2 className="text-xl  text-gray-950 ">4.9</h2>
-
-            {/* Stars */}
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={20}
-                  className="text-[#ffb400] fill-[#ffb400]"
-                />
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
+     
     </section>
   );
 };
