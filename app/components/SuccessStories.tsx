@@ -128,59 +128,52 @@ const prev = () => {
         <div className="relative mt-16 overflow-hidden">
 
           {/* Left Arrow */}
-          <button
-            onClick={prev}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 text-white z-10"
-          >
+           <button
+    onClick={prev}
+    className="absolute -left-8 sm:-left-16 top-1/2 -translate-y-1/2 text-white z-10"
+  >
             ‹
           </button>
 
           {/* Right Arrow */}
           <button
-            onClick={next}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 text-white z-10"
-          >
+    onClick={next}
+    className="absolute -right-8 sm:-right-16 top-1/2 -translate-y-1/2 text-white z-10"
+  >
             ›
           </button>
 
           {/* TRACK */}
           <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${(index * 100) / VISIBLE}%)`,
-            }}
+    className="flex transition-transform duration-500 ease-in-out"
+    style={{
+      transform: `translateX(-${(index * 100) / VISIBLE}%)`,
+    }}
+  >
+    {CASE_STUDIES.map((cs, i) => (
+      <div key={i} className="min-w-[25%] px-1">
+        <div className="bg-white">
+          <div
+            className={`${cs.logoBg} h-[200px] flex items-center justify-center`}
           >
-            {CASE_STUDIES.concat(CASE_STUDIES).map((cs, i) => (
-              <div
-                key={i}
-                className="min-w-[25%] px-1"
-              >
-                <div className="bg-white">
-                  <div
-                    className={`${cs.logoBg} h-[200px] flex items-center justify-center`}
-                  >
-                    <img
-                      src={cs.logoImg}
-                      alt={cs.brand}
-                      className="max-h-[200px] max-w-[170px] object-contain"
-                    />
-                  </div>
-
-                  <div className="flex items-center justify-between px-5 py-4 border-t border-slate-200">
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900">
-                        {cs.brand}
-                      </div>
-                      <div className="text-sm text-slate-500">
-                        {cs.subtitle}
-                      </div>
-                    </div>
-                    <Heart className="w-5 h-5 text-gray-500" />
-                  </div>
-                </div>
-              </div>
-            ))}
+            <img
+              src={cs.logoImg}
+              alt={cs.brand}
+              className="max-h-[200px] max-w-[170px] object-contain"
+            />
           </div>
+
+          <div className="flex items-center justify-between px-5 py-4 border-t border-slate-200">
+            <div>
+              <div className="text-sm font-semibold text-slate-900">{cs.brand}</div>
+              <div className="text-sm text-slate-500">{cs.subtitle}</div>
+            </div>
+            <Heart className="w-5 h-5 text-gray-500" />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
 
         </div>
       </div>

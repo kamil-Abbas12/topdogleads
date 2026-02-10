@@ -21,7 +21,7 @@ const Work = () => {
         </p>
       </div>
 
-      <div className="flex justify-start px-40 py-10">
+      <div className="flex justify-start px-40 py-10 text-gray-800">
         <h3 className="text-4xl font-bold">
           Check what our
           <br />

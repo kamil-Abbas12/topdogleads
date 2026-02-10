@@ -22,7 +22,6 @@ import ContactSplit from "./components/ContactSplit";
 export default function Home() {
   return (
   <>
-  <Navbar/>
 {/* <ContactSplit/> */}
   <Hero/>
   <Business/>
@@ -33,7 +32,7 @@ export default function Home() {
   <HelpSelector/>
   <Grow/>
   <Happy/>
-        <CaseStudyHero  />
+        {/* <CaseStudyHero  /> */}
         <Customers/>
 <SuccessStories/>
 

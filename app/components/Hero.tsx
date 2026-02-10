@@ -13,72 +13,70 @@ const slides = [
     title: "Get new customers and only pay per calls.",
     desc: "Pay when a customer calls. No monthly or signup fee required.",
     img: "/banner.jpg",
-    button:"Try ResultCals"
+    button: "Try ResultCalls",
   },
   {
     title: "Join 2,000+ businesses using TopDogLeads.",
     desc: "Get started today and improve your business calls.",
     img: "/banner.jpg",
-        button:"Try ResultCals"
-
+    button: "Try ResultCalls",
   },
   {
     title: "Only pay for customer calls.",
     desc: "Get more customer calls with our pay-per-call Ad campaign.",
     img: "/banner.jpg",
-        button:"Get Started"
-
+    button: "Get Started",
   },
 ];
 
 const Hero = () => {
   return (
-<section className='relative w-full px-10 xl:px-25 py-5 xl:py-13 flex items-center justify-center overflow-hidden bg-white'>
-{/* BACKGROUND CIRCLES */}
-<div className="absolute -z-10 top-15 -left-10 w-50 h-50 bg-yellow-200 rounded-full opacity-40" />
+    <section className="relative w-full px-4 sm:px-6 lg:px-12 xl:px-45 py-10 lg:py-20 flex items-center justify-center overflow-hidden bg-white">
 
-<div className="absolute -z-10 top-30 left-55% w-20 h-20 bg-blue-200 rounded-full opacity-50" />
+      {/* BACKGROUND CIRCLES */}
+      <div className="absolute -z-10 top-10 left-0 w-40 h-40 bg-yellow-200 rounded-full opacity-40" />
+      <div className="absolute -z-10 top-32 left-1/2 w-24 h-24 bg-blue-200 rounded-full opacity-50" />
+      <div className="absolute -z-10 bottom-20 left-1/3 w-20 h-20 bg-red-200 rounded-full opacity-50" />
 
-<div className="absolute -z-10 bottom-20 left-1/3 w-15 h-15 bg-red-200 rounded-full opacity-50" />
-      
       <Swiper
-         modules={[Autoplay]}
-  autoplay={{
-    delay: 3000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  }}
-  speed={800}
-  loop
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        speed={800}
+        loop
         className="w-full"
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            <div className='flex flex-col xl:flex-row justify-between items-center w-full py-10 xl:py-30 gap-20'>
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
               {/* LEFT */}
-              <div className="left flex flex-col justify-center items-start space-y-8 xl:w-1/2 w-full px-25">
-                <h1 className='text-gray-900 text-4xl font-semibold leading-snug'>
+              <div className="flex flex-col items-start space-y-6 w-full lg:w-1/2 text-center lg:text-left">
+                <h1 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-snug">
                   {slide.title}
                 </h1>
 
-                <h6 className='text-gray-600 '>
+                <p className="text-gray-600 text-base sm:text-lg max-w-xl">
                   {slide.desc}
-                </h6>
+                </p>
 
-                <button className='px-8 py-4 bg-blue-500 font-semibold text-white rounded-lg'>
+                <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 transition font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
               </div>
 
               {/* RIGHT */}
-              <div className="right xl:w-1/2 w-full h-full">
+              <div className="w-full lg:w-1/2 flex justify-center">
                 <Image
                   src={slide.img}
-                  width={700}
-                  height={100}
+                  width={600}
+                  height={400}
                   alt="banner"
-                  className="object-contain"
+                  className="object-contain w-full max-w-md lg:max-w-xl"
+                  priority
                 />
               </div>
 
@@ -86,7 +84,6 @@ const Hero = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
     </section>
   );
 };

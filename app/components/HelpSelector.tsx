@@ -139,7 +139,6 @@ const SERVICES: Service[] = [
     ),
   },
 ];
-
 export default function HelpSelector() {
   const [selectedId, setSelectedId] = React.useState<string>("appliance-repair");
 
@@ -154,8 +153,7 @@ export default function HelpSelector() {
   function scrollByCards(direction: "left" | "right") {
     const el = scrollerRef.current;
     if (!el) return;
-
-    const amount = direction === "left" ? -360 : 360;
+    const amount = direction === "left" ? -260 : 260; // smaller scroll for mobile
     el.scrollBy({ left: amount, behavior: "smooth" });
   }
 
@@ -166,21 +164,20 @@ export default function HelpSelector() {
 
   return (
     <section className="w-full bg-[#e5efee]">
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
             How can we help?
           </h1>
 
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xl text-slate-600">
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base text-slate-600">
             <span>I want customer calls in need of</span>
-
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <select
                 value={selectedId}
                 onChange={(e) => setSelectedId(e.target.value)}
-                className="appearance-none border-b border-slate-300 bg-transparent py-1 pl-2 pr-8 text-sm text-slate-800 outline-none focus:border-slate-600"
+                className="appearance-none border-b border-slate-300 bg-transparent py-1 pl-2 pr-8 text-sm sm:text-base text-slate-800 outline-none focus:border-slate-600 w-full sm:w-auto"
                 aria-label="Select a service"
               >
                 {SERVICES.map((s) => (
@@ -190,7 +187,6 @@ export default function HelpSelector() {
                 ))}
               </select>
 
-              {/* dropdown caret */}
               <svg
                 className="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
                 viewBox="0 0 20 20"
@@ -208,94 +204,74 @@ export default function HelpSelector() {
         </div>
 
         {/* Cards strip */}
-        <div className="mt-10">
-          <div className="relative">
-            {/* arrows (overlay) */}
-            <button
-              type="button"
-              onClick={() => scrollByCards("left")}
-              className="absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 shadow hover:bg-white"
-              aria-label="Scroll left"
-            >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 text-slate-700">
-                <path
-                  fillRule="evenodd"
-                  d="M12.78 15.53a.75.75 0 01-1.06 0L6.72 10.53a.75.75 0 010-1.06l5-5a.75.75 0 111.06 1.06L8.31 10l4.47 4.47a.75.75 0 010 1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+        <div className="mt-6 sm:mt-8 relative">
+          {/* arrows */}
+          <button
+            type="button"
+            onClick={() => scrollByCards("left")}
+            className="absolute left-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-1 sm:p-2 shadow hover:bg-white"
+            aria-label="Scroll left"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 sm:h-5 sm:w-5 text-slate-700">
+              <path
+                fillRule="evenodd"
+                d="M12.78 15.53a.75.75 0 01-1.06 0L6.72 10.53a.75.75 0 010-1.06l5-5a.75.75 0 111.06 1.06L8.31 10l4.47 4.47a.75.75 0 010 1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
 
-            <button
-              type="button"
-              onClick={() => scrollByCards("right")}
-              className="absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 shadow hover:bg-white"
-              aria-label="Scroll right"
-            >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 text-slate-700">
-                <path
-                  fillRule="evenodd"
-                  d="M7.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 11-1.06-1.06L11.69 10 7.22 5.53a.75.75 0 010-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+          <button
+            type="button"
+            onClick={() => scrollByCards("right")}
+            className="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-1 sm:p-2 shadow hover:bg-white"
+            aria-label="Scroll right"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 sm:h-5 sm:w-5 text-slate-700">
+              <path
+                fillRule="evenodd"
+                d="M7.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 11-1.06-1.06L11.69 10 7.22 5.53a.75.75 0 010-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
 
-            {/* fade edges */}
-           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#e5efee] to-transparent" />
-<div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#e5efee] to-transparent" />
+          {/* fade edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 sm:w-10 bg-gradient-to-r from-[#e5efee] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 sm:w-10 bg-gradient-to-l from-[#e5efee] to-transparent" />
 
-
-            {/* the ONE scroller */}
-            <div
-              ref={scrollerRef}
-              className="flex gap-4 overflow-x-auto px-1 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            >
-             {SERVICES.map((s) => {
-  const isActive = s.id === selectedId;
-
-  return (
-    <button
-      key={s.id}
-      ref={(node) => {
-        cardRefs.current[s.id] = node;
-      }}
-      type="button"
-      onClick={() => setSelectedId(s.id)}
-      className={[
-        "relative flex w-[220px] shrink-0 flex-col items-center text-center",
-        "rounded-lg border border-slate-200 bg-white px-5 py-10", // increased vertical padding
-        "transition duration-200",
-        "hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-300",
-        isActive ? "z-10 -translate-y-1 bg-slate-100 shadow-xl" : "opacity-90",
-      ].join(" ")}
-      aria-pressed={isActive}
-    >
-      <div className="mb-4 h-30 w-16 flex items-center justify-center"> {/* taller icon */}
-        {s.icon}
-      </div>
-
-      <div className="text-sm font-semibold text-slate-900">{s.title}</div>
-
-      <p className="mt-3 text-xs leading-relaxed text-slate-500">
-        {s.description}
-      </p>
-
-      <span className="mt-5 text-[11px] font-semibold text-sky-600">
-        {s.cta}
-      </span>
-    </button>
-  );
-})}
-
-            </div>
+          {/* cards */}
+          <div
+            ref={scrollerRef}
+            className="flex gap-3 sm:gap-4 overflow-x-auto px-1 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {SERVICES.map((s) => {
+              const isActive = s.id === selectedId;
+              return (
+                <button
+                  key={s.id}
+                  ref={(node) => { cardRefs.current[s.id] = node; }}
+                  type="button"
+                  onClick={() => setSelectedId(s.id)}
+                  className={[
+                    "relative flex w-[180px] sm:w-[220px] md:w-[240px] shrink-0 flex-col items-center text-center bg-white rounded-lg border border-slate-200 px-4 sm:px-5 py-6 sm:py-10 transition duration-200 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-300",
+                    isActive ? "z-10 -translate-y-1 bg-slate-100 shadow-xl" : "opacity-90",
+                  ].join(" ")}
+                  aria-pressed={isActive}
+                >
+                  <div className="mb-3 sm:mb-4 h-20 sm:h-30 w-16 flex items-center justify-center">{s.icon}</div>
+                  <div className="text-sm sm:text-base font-semibold text-gray-900">{s.title}</div>
+                  <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-gray-500">{s.description}</p>
+                  <span className="mt-3 sm:mt-5 text-[11px] sm:text-[11px] font-semibold text-sky-600">{s.cta}</span>
+                </button>
+              );
+            })}
           </div>
+        </div>
 
-          {/* optional selected label */}
-          <div className="mt-4 text-center text-xs text-slate-600">
-            Selected:{" "}
-            <span className="font-semibold text-slate-800">{selected.title}</span>
-          </div>
+        {/* selected label */}
+        <div className="mt-4 text-center text-xs sm:text-sm text-gray-600">
+          Selected: <span className="font-semibold text-gray-800">{selected.title}</span>
         </div>
       </div>
     </section>
