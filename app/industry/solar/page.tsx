@@ -1,5 +1,8 @@
-const Solar = () => {
-  return <div>Solar</div>;
-};
+"use client"
+import React from 'react'
 
-export default Solar;
+export const page = () => {
+  return (
+    <div>page</div>
+  )
+}

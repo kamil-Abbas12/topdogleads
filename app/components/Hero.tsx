@@ -12,19 +12,19 @@ const slides = [
   {
     title: "Get new customers and only pay per calls.",
     desc: "Pay when a customer calls. No monthly or signup fee required.",
-    img: "/banner.jpg",
-    button: "Try ResultCalls",
+    img: "/call1.jpg",
+    button: "Try Top Dog Leads",
   },
   {
     title: "Join 2,000+ businesses using TopDogLeads.",
     desc: "Get started today and improve your business calls.",
-    img: "/banner.jpg",
-    button: "Try ResultCalls",
+    img: "/call2.jpg",
+    button: "Try Top Dog Leads",
   },
   {
     title: "Only pay for customer calls.",
     desc: "Get more customer calls with our pay-per-call Ad campaign.",
-    img: "/banner.jpg",
+    img: "/call3.jpg",
     button: "Get Started",
   },
 ];
@@ -63,7 +63,7 @@ const Hero = () => {
                   {slide.desc}
                 </p>
 
-                <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 transition font-semibold text-white rounded-lg">
+                <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 transition font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
               </div>

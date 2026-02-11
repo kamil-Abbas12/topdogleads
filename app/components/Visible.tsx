@@ -47,7 +47,7 @@ const Visible = () => {
             </div>
           </div>
 
-          <button className='px-5 py-3 sm:py-4 bg-blue-500 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
+          <button className='px-5 py-3 sm:py-4 bg-orange-500 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
             Top Dog Leads
           </button>
         </div>

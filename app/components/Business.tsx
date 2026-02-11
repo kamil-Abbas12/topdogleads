@@ -16,7 +16,7 @@ const Business = () => {
         </h2>
 
         {/* LOGOS GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-8 sm:gap-10 mt-12 items-center">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-8 sm:gap-10 mt-12 items-center">
           <Image src="/client.png" alt="client" width={145} height={55} className="object-contain mx-auto" />
           <Image src="/jetski.png" alt="jetski" width={145} height={55} className="object-contain mx-auto" />
           <Image src="/moe.png" alt="moe" width={145} height={55} className="object-contain mx-auto" />

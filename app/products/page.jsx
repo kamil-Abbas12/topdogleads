@@ -5,7 +5,7 @@ const products = [
   {
     variant: "basic",
     title: "Medicare Leads",
-    price: "$624.99",
+    price: "$624",
     period: "/bundle",
     cta: "Buy Medicare Bundle",
     leads: "25 Leads",
@@ -247,16 +247,7 @@ export default function ProductsPage() {
 
         {/* Reference to design target image */}
         <p className="mt-8 text-xs text-gray-400">
-          Design reference:{" "}
-          <a
-            href="https://www.genspark.ai/api/files/s/0alEDFvv"
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
-            pricing cards screenshot
-          </a>{" "}
-          [Source](https://www.genspark.ai/api/files/s/0alEDFvv)
+         
         </p>
       </section>
     </main>

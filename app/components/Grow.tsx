@@ -14,8 +14,9 @@ const Grow = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const arrowSize = isMobile ? 16 : 18
-  const checkSize = isMobile ? 24 : 30
+  const arrowSize = isMobile ? 14 : 16
+const checkSize = isMobile ? 18 : 22
+
 
   return (
     <section className="w-full flex bg-white">
@@ -62,8 +63,8 @@ const Grow = () => {
 
           {/* Watch Video */}
           <div className="flex items-center gap-2 mt-4 cursor-pointer">
-            <span className="text-blue-500 font-semibold text-sm sm:text-base">Try Topdogleads Call</span>
-            <div className="bg-blue-500 rounded-full p-1 sm:p-2 flex items-center justify-center">
+            <span className="text-orange-500 font-semibold text-sm sm:text-base">Try Top Dog Leads</span>
+            <div className="bg-orange-500 rounded-full p-1 sm:p-1.5 flex items-center justify-center">
               <ArrowRight className="text-white" size={arrowSize} />
             </div>
           </div>

@@ -16,11 +16,11 @@ const Simple = () => {
             There are many businesses competing to get the same customers you are targeting. Why spend so much on clicks? Let’s Result do the hard part, you convert new customers and only pay per potential customer call.
           </p>
           <div className='flex flex-row gap-2 sm:gap-3 items-center'>
-            <span className='text-blue-500 font-semibold text-sm sm:text-base'>
+            <span className='text-orange-500 font-semibold text-sm sm:text-base'>
               Watch Our Video
             </span>
             <span>
-              <ArrowRight className='text-white bg-blue-500 rounded-full p-1 sm:p-2' size={18} />
+              <ArrowRight className='text-white bg-orange-500 rounded-full p-1 sm:p-2' size={26} />
             </span>
           </div>
         </div>
@@ -39,7 +39,7 @@ const Simple = () => {
 
             {/* Soft blue tint */}
             <div
-              className="absolute inset-0 bg-blue-500/30 opacity-0
+              className="absolute inset-0 bg-orange-500/30 opacity-0
                          group-hover:opacity-100
                          transition-opacity duration-300"
             />
@@ -52,7 +52,7 @@ const Simple = () => {
               height={45}
               className="absolute top-1/2 left-1/2 z-10
                          -translate-x-1/2 -translate-y-1/2
-                         text-white bg-blue-500 hover:bg-blue-200 sm:w-[55px] sm:h-[55px]"
+                         text-white bg-orange-500 hover:bg-orange-600 sm:w-[55px] sm:h-[55px]"
             />
           </div>
         </div>

@@ -243,7 +243,7 @@ export default function HelpSelector() {
           {/* cards */}
           <div
             ref={scrollerRef}
-            className="flex gap-3 sm:gap-4 overflow-x-auto px-1 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-3 sm:gap-4 overflow-x-auto px-10 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {SERVICES.map((s) => {
               const isActive = s.id === selectedId;

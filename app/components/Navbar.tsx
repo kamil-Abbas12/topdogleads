@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -22,15 +23,21 @@ export default function Navbar() {
   const [open, setOpen] = useState(false); // desktop dropdown
   const [mobile, setMobile] = useState(false); // mobile menu
   const [mobileDropdown, setMobileDropdown] = useState(false); // mobile Solutions
+const router = useRouter();
 
   return (
     <nav className="relative w-full px-4 sm:px-6 lg:px-45 py-5 flex items-center justify-between bg-white z-50">
       {/* LOGO */}
-      <div className="flex items-center">
-        <Link href="/" onClick={() => window.location.reload()}>
-          <img src="/logo.jpg" alt="TopDogLead" className="w-32 h-auto cursor-pointer" />
-        </Link>
-      </div>
+   <div className="flex items-center">
+  <Link href="/">
+    <img
+      src="/logo.jpg"
+      alt="TopDogLead"
+      className="w-32 h-auto cursor-pointer"
+    />
+  </Link>
+</div>
+
 
       {/* DESKTOP LINKS */}
       <div className="hidden lg:flex items-center gap-8">
@@ -67,12 +74,14 @@ export default function Navbar() {
                         AD
                       </div>
                       <div>
-                        <p className="text-gray-900 font-semibold text-[15px] leading-snug">
-                          Pay Per Call Leads
-                        </p>
+                        <Link href="/solution/pay-per-call">
+                          <p className="text-gray-900 text-md font-semibold hover:text-orange-500 text-[15px] leading-snug">
+                            Pay Per Call Leads
+                          </p>
                         <p className="text-sm text-gray-600 mt-1">
                           Generate more calls with Ad campaign.
                         </p>
+                        </Link>
                       </div>
                     </div>
                   </div>
