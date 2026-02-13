@@ -224,11 +224,11 @@ export default function RoofingSalesPage() {
           <div className="absolute inset-0 bg-black/25" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <h1 className="text-white font-extrabold text-3xl sm:text-4xl">
-              Home
+            Roofing Leads
             </h1>
             <p className="text-white/90 text-sm sm:text-base mt-2">
               <Link href="/" className="underline underline-offset-4">
-                Roofing
+                Home
               </Link>{" "}
               <span className="mx-2">•</span>  Roofing Leads
             </p>

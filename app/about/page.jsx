@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutCallCenter from "../components/AboutCallCenter";
+// import AboutCallCenter from "../components/AboutCallCenter";
 
 export const metadata = {
   title: "About | TopDogLeads",
@@ -126,7 +126,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-              <AboutCallCenter />
+              {/* <AboutCallCenter /> */}
 
     </main>
   );

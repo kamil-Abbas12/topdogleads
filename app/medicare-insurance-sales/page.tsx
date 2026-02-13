@@ -228,7 +228,7 @@ export default function MedicareInsuranceSalesPage() {
             </h1>
             <p className="text-white/90 text-sm sm:text-base mt-2">
               <Link href="/" className="underline underline-offset-4">
-                Medicare
+Home
               </Link>{" "}
               <span className="mx-2">•</span>  Medicare Leads
             </p>

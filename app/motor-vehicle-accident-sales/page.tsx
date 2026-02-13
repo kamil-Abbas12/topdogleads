@@ -228,7 +228,7 @@ export default function PestControlSalesPage() {
             </h1>
             <p className="text-white/90 text-sm sm:text-base mt-2">
               <Link href="/" className="underline underline-offset-4">
-                Motor
+                Home
               </Link>{" "}
               <span className="mx-2">•</span>  Motor Vehicle Accident Leads
             </p>
