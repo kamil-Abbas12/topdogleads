@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /* ---------- COUNT UP HOOK ---------- */
-function useCountUp(target, duration = 2000) {
-  const [count, setCount] = useState(0);
+function useCountUp(target: number, duration: number = 2000) {
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     let start = 0;
@@ -26,6 +26,7 @@ function useCountUp(target, duration = 2000) {
 
   return count;
 }
+
 
 /* ---------- COMPONENT ---------- */
 export default function StatsSection() {
