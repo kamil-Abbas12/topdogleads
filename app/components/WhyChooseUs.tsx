@@ -48,27 +48,34 @@ const WhyChooseUs = () => {
       {/* Optional subtle top wave feel */}
       <div className="pointer-events-none absolute -top-24 left-0 right-0 h-40 rounded-b-[60%] bg-white/5 blur-2xl" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+      <div className="relative mx-auto w-full px-4 sm:px-6 lg:px-8  xl:px-20 py-14 sm:py-16 lg:py-20">
+        <div className="grid items-center gap-10  lg:gap-15 lg:grid-cols-2">
           {/* LEFT: 2x2 cards */}
           <div className="mx-auto w-full max-w-xl">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 ">
               {cards.map((c, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.18)]"
-                >
+              <div
+  key={idx}
+  className="group cursor-pointer rounded-2xl bg-white p-6
+             shadow-[0_20px_50px_rgba(0,0,0,0.18)]
+             hover:bg-blue-800 transition"
+>
                   {/* Icon circle */}
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#EAF7FF] text-[#14B8FF]">
+                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full
+                bg-[#EAF7FF] text-[#14B8FF]
+                group-hover:bg-white/20 group-hover:text-white transition">
                     {c.icon}
                   </div>
-
-                  <h3 className="whitespace-pre-line text-[15px] sm:text-[16px] font-semibold leading-snug text-[#0A2E78]">
+<h3 className="whitespace-pre-line text-[15px] sm:text-[16px]
+               font-semibold leading-snug text-[#0A2E78]
+               group-hover:text-white transition">
                     {c.title}
                   </h3>
 
-                  <p className="mt-2 text-[12px] sm:text-[13px] leading-relaxed text-[#35538F]">
-                    {c.desc}
+<p className="mt-2 text-[12px] sm:text-[13px]
+              leading-relaxed text-[#35538F]
+              group-hover:text-white/90 transition">
+                                    {c.desc}
                   </p>
                 </div>
               ))}
@@ -119,9 +126,9 @@ const WhyChooseUs = () => {
             <button
               className="mt-7 inline-flex items-center justify-center rounded-full
                          border border-white/30 bg-white px-6 py-3
-                         text-xs font-semibold tracking-wide text-[#0A2E78]
+                         text-xs font-semibold tracking-wide text-[#0A2E78] cursor-pointer hover:text-white hover:bg-blue-800
                          shadow-[0_12px_30px_rgba(0,0,0,0.18)]
-                         transition hover:bg-white/90"
+                         transition "
             >
               DISCOVER MORE
             </button>

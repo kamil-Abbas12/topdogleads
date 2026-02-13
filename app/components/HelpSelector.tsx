@@ -19,124 +19,60 @@ function IconPlaceholder({ label }: { label: string }) {
 }
 const SERVICES: Service[] = [
   {
-    id: "auto ",
+    id: "auto-insurance",
     title: "Auto Insurance",
-    description: "Get exclusive inbound calls from customers actively searching for auto insurance",
-    cta: "GET Auto LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="window.png"
-          alt="Window Installation"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    description: "Connect with customers actively searching for auto insurance.",
+    cta: "GET AUTO LEADS",
+    icon: <IconPlaceholder label="AUTO" />,
   },
   {
-    id: "criminal",
-    title: "Criminal Attorney",
-    description: "Criminal defense and offense-related cases.",
-    cta: "CRIMINAL CASE LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="att.png"
-          alt="Criminal Attorney"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "final-expense",
+    title: "Final Expense",
+    description: "Receive qualified calls for final expense insurance.",
+    cta: "GET FINAL EXPENSE LEADS",
+    icon: <IconPlaceholder label="FINAL" />,
   },
   {
-    id: "plumbing",
-    title: "Plumbing",
-    description: "Fix more plumbing and drainage issues with direct calls.",
-    cta: "GET PLUMBING LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="plumber.png"
-          alt="Plumbing"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "home-insurance",
+    title: "Home Insurance",
+    description: "Get exclusive calls from homeowners seeking coverage.",
+    cta: "GET HOME LEADS",
+    icon: <IconPlaceholder label="HOME" />,
   },
   {
-    id: "appliance-repair",
-    title: "Appliance Repair",
-    description: "Get more appliance repair calls from customers near you.",
-    cta: "APPLIANCE REPAIR LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="repair.png"
-          alt="Appliance Repair"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "solar",
+    title: "Solar",
+    description: "Connect with homeowners interested in solar solutions.",
+    cta: "GET SOLAR LEADS",
+    icon: <IconPlaceholder label="SOLAR" />,
   },
   {
-    id: "auto-glass",
-    title: "Auto Glass Repair",
-    description: "Get more calls for auto glass repair and replacements.",
-    cta: "GET AUTO GLASS LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="car.png"
-          alt="Auto Glass Repair"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "medicare",
+    title: "Medicare Insurance",
+    description: "Get inbound calls from Medicare prospects.",
+    cta: "GET MEDICARE LEADS",
+    icon: <IconPlaceholder label="MED" />,
   },
   {
-    id: "dentist",
-    title: "Dentist",
-    description: "Let’s send you more new patient calls.",
-    cta: "GET DENTIST LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="dentist.png"
-          alt="Dentist"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "motor-vehicle-accident",
+    title: "Motor Vehicle Accident",
+    description: "Receive calls from accident claim seekers.",
+    cta: "GET MVA LEADS",
+    icon: <IconPlaceholder label="MVA" />,
   },
   {
-    id: "door-installation",
-    title: "Door Installation",
-    description: "Start getting door replacement and repair calls.",
-    cta: "GET DOOR INSTALL LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="door.png"
-          alt="Door Installation"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "pest-control",
+    title: "Pest Control",
+    description: "Get more calls from customers needing pest removal.",
+    cta: "GET PEST LEADS",
+    icon: <IconPlaceholder label="PEST" />,
   },
   {
-    id: "electrician",
-    title: "Electrician",
-    description: "Get residential and commercial electrician calls.",
-    cta: "GET ELECTRICIAN LEADS",
-    icon: (
-      <div className="h-12 w-12 flex items-center justify-center">
-        <img
-          src="electrical.png"
-          alt="Electrician"
-          className="max-h-full max-w-full object-contain"
-        />
-      </div>
-    ),
+    id: "roofing",
+    title: "Roofing",
+    description: "Connect with homeowners needing roofing services.",
+    cta: "GET ROOFING LEADS",
+    icon: <IconPlaceholder label="ROOF" />,
   },
 ];
 export default function HelpSelector() {
@@ -163,7 +99,7 @@ export default function HelpSelector() {
   }, [selectedId]);
 
   return (
-    <section className="w-full bg-[#e5efee]">
+    <section className="w-full bg-[#e9efff]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
         {/* Header */}
         <div className="text-center">

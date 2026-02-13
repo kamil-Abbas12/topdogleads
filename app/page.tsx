@@ -16,7 +16,6 @@ import CaseStudyHero from "./components/CaseStudyHero";
 import SuccessStories from "./components/SuccessStories";
 import Customers from "./components/Customers";
 import Footer from "./components/Footer";
-import ContactSplit from "./components/ContactSplit";
 
 
 export default function Home() {
@@ -24,7 +23,7 @@ export default function Home() {
   <>
 {/* <ContactSplit/> */}
   <Hero/>
-  <Business/>
+  {/* <Business/> */}
   <Simple/>
   <Work/>
   {/* <ReviewsCarousel/> */}

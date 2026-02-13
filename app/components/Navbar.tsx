@@ -14,7 +14,7 @@ const industryLeft = [
 
 const industryRight = [
   { label: "Medicare Insurance", href: "/industry/medicare-insurance" },
-  { label: "Motor Vehicle Accident", href: "/industry/mva" },
+  { label: "Motor Vehicle Accident", href: "/industry/motor-vehicle-accident" },
   { label: "Pest Control", href: "/industry/pest-control" },
   { label: "Roofing", href: "/industry/roofing" },
 ];
@@ -41,7 +41,7 @@ const router = useRouter();
 
       {/* DESKTOP LINKS */}
       <div className="hidden lg:flex items-center gap-8">
-        <Link href="/about" className="text-gray-600 hover:text-orange-600 text-md font-medium">
+        <Link href="/about" className="text-gray-600 hover:text-blue-600 text-md font-medium">
           About
         </Link>
 
@@ -51,7 +51,7 @@ const router = useRouter();
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
-          <button className="text-orange-500 cursor-pointer text-md font-medium flex items-center gap-1">
+          <button className="text-blue-500 cursor-pointer text-md font-medium flex items-center gap-1">
             Solutions <ChevronDown size={14} />
           </button>
 
@@ -75,7 +75,7 @@ const router = useRouter();
                       </div>
                       <div>
                         <Link href="/solution/pay-per-call">
-                          <p className="text-gray-900 text-md font-semibold hover:text-orange-500 text-[15px] leading-snug">
+                          <p className="text-gray-900 text-md font-semibold hover:text-blue-500 text-[15px] leading-snug">
                             Pay Per Call Leads
                           </p>
                         <p className="text-sm text-gray-600 mt-1">
@@ -105,7 +105,7 @@ const router = useRouter();
                                 e.preventDefault();
                                 window.location.href = item.href;
                               }}
-                              className="hover:text-orange-600 block"
+                              className="hover:text-blue-600 block"
                             >
                               {item.label}
                             </Link>
@@ -121,7 +121,7 @@ const router = useRouter();
                                 e.preventDefault();
                                 window.location.href = item.href;
                               }}
-                              className="hover:text-orange-600 block"
+                              className="hover:text-blue-600 block"
                             >
                               {item.label}
                             </Link>
@@ -133,7 +133,7 @@ const router = useRouter();
                 </div>
 
                 {/* Right CTA */}
-                <div className="col-span-3 bg-orange-50 border-l border-gray-100 px-6 py-4 flex flex-col justify-between">
+                <div className="col-span-3 bg-blue-50 border-l border-gray-100 px-6 py-4 flex flex-col justify-between">
                   <div>
                     <p className="text-gray-900 font-semibold text-[18px] leading-snug">
                       Join 2,000+ businesses using TopDogLeads
@@ -142,7 +142,7 @@ const router = useRouter();
                       No Setup Fee. No Monthly Service Fee. No Cancellation Fee.
                     </p>
                   </div>
-                  <button className="mt-4 inline-flex  items-center justify-center bg-orange-500 hover:bg-orange-700 text-white text-md px-2 py-2.5 rounded transition">
+                  <button className="mt-4 inline-flex  items-center justify-center bg-blue-500 hover:bg-blue-600 text-white text-md px-2 py-2.5 rounded transition">
                     Try TopDogLeads
                   </button>
                 </div>
@@ -151,18 +151,20 @@ const router = useRouter();
           </div>
         </div>
 
-        <Link href="/case-studies" className="text-gray-600 hover:text-orange-600 text-md font-medium">
-          Case Studies
+        <Link href="/blogs" className="text-gray-600 hover:text-blue-600 text-md font-medium">
+Blogs
         </Link>
 
         {/* Phone & CTA */}
+        <Link href="/contact" className="cursor-pointer">
         <div className="flex items-center gap-2 font-semibold text-gray-900 text-md">
           <Phone size={16} />
           <span>1 (310) 295 4421</span>
-          <button className="border-2 border-orange-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-orange-600 hover:text-white transition">
+          <button className="border-2 border-blue-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-blue-600 hover:text-white transition">
             Try TopDogLeads
           </button>
         </div>
+        </Link>
       </div>
 
       {/* MOBILE MENU BUTTON */}
@@ -174,14 +176,14 @@ const router = useRouter();
       {mobile && (
         <div className="absolute top-full left-0 w-full bg-white border-t shadow-md lg:hidden z-40">
           <div className="flex flex-col gap-4 p-6">
-            <Link href="/about" className="text-gray-600 hover:text-orange-600">
+            <Link href="/about" className="text-gray-600 hover:text-blue-500">
               About
             </Link>
 
             {/* Mobile Solutions */}
             <div className="flex flex-col">
               <button
-                className="flex items-center justify-between text-orange-500 font-medium text-md"
+                className="flex items-center justify-between text-blue-500 font-medium text-md"
                 onClick={() => setMobileDropdown(!mobileDropdown)}
               >
                 Solutions <ChevronDown size={14} />
@@ -189,12 +191,12 @@ const router = useRouter();
               {mobileDropdown && (
                 <div className="mt-2 pl-4 flex flex-col gap-2">
                   {industryLeft.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-orange-600">
+                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-blue-500">
                       {item.label}
                     </Link>
                   ))}
                   {industryRight.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-orange-600">
+                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-blue-500">
                       {item.label}
                     </Link>
                   ))}
@@ -202,15 +204,15 @@ const router = useRouter();
               )}
             </div>
 
-            <Link href="/case-studies" className="text-gray-600 hover:text-orange-600">
-              Case Studies
+            <Link href="/blogs" className="text-gray-600 hover:text-blue-500">
+              Blogs
             </Link>
 
             <div className="flex flex-col gap-2 mt-2">
               <span className="flex items-center gap-2 font-semibold text-gray-900">
                 <Phone size={16} /> 1 (310) 295 4421
               </span>
-              <button className="border-2 w-1/2 hover:bg-orange-500 hover:text-white border-orange-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-orange-600 hover:text-white transition">
+              <button className="border-2 w-1/2 hover:bg-blue-500 hover:text-white border-blue-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-blue-600 hover:text-white transition">
                 Try TopDogLeads
               </button>
             </div>

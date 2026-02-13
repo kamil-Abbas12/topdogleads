@@ -4,23 +4,22 @@ import { ArrowRight } from 'lucide-react';
 
 const Simple = () => {
   return (
-    <section className='w-full h-full bg-[#f8fcff] mt-0'>
+    <section className='w-full h-full bg-blue-50 mt-0'>
 
       <div className='flex flex-col xl:flex-row w-full h-full justify-between items-start px-4 sm:px-6 md:px-10 xl:px-45 py-10 sm:py-20 xl:py-30 gap-8 sm:gap-10 xl:gap-10'>
         {/* LEFT SIDE */}
         <div className="left flex flex-col space-y-5 w-full xl:w-1/2">
-          <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold leading-snug text-gray-900'>
-            We generate more calls. You gain new customers and pay per call. Simple!
+          <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold leading-snug text-blue-900'>
+More Calls. More Customers. You Only Pay Per Call.
           </h1>
           <p className='text-gray-500 text-sm sm:text-base'>
-            There are many businesses competing to get the same customers you are targeting. Why spend so much on clicks? Let’s Result do the hard part, you convert new customers and only pay per potential customer call.
-          </p>
+Competition for local customers is fierce. Why overspend on clicks that may never convert? Top Dog Leads handles the heavy lifting—bringing real customers to your business while you only pay when they call.          </p>
           <div className='flex flex-row gap-2 sm:gap-3 items-center'>
-            <span className='text-orange-500 font-semibold text-sm sm:text-base'>
+            <span className='text-blue-500 font-semibold text-sm sm:text-base'>
               Watch Our Video
             </span>
             <span>
-              <ArrowRight className='text-white bg-orange-500 rounded-full p-1 sm:p-2' size={26} />
+              <ArrowRight className='text-white bg-blue-500 rounded-full p-1 sm:p-2' size={26} />
             </span>
           </div>
         </div>
@@ -39,7 +38,7 @@ const Simple = () => {
 
             {/* Soft blue tint */}
             <div
-              className="absolute inset-0 bg-orange-500/30 opacity-0
+              className="absolute inset-0 bg-blue-500/30 opacity-0
                          group-hover:opacity-100
                          transition-opacity duration-300"
             />
@@ -52,7 +51,7 @@ const Simple = () => {
               height={45}
               className="absolute top-1/2 left-1/2 z-10
                          -translate-x-1/2 -translate-y-1/2
-                         text-white bg-orange-500 hover:bg-orange-600 sm:w-[55px] sm:h-[55px]"
+                         text-white bg-blue-500 hover:bg-blue-600 sm:w-[55px] sm:h-[55px]"
             />
           </div>
         </div>

@@ -9,11 +9,10 @@ const Customers = () => {
         {/* Text Content */}
         <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2 xl:pl-20">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
-            We've generated over 250,000 calls for our customers
+Over 300,000 Customer Calls Delivered
           </h1>
           <p className='text-sm sm:text-base xl:text-md text-gray-950 leading-relaxed'>
-            250,000+ calls have been generated through our pay per call marketing program. Avoid lost cost through Ads that don’t convert and buy pay per call leads of customers near you in need of your service.
-          </p>
+Top Dog Leads has connected businesses with more than 250,000 real customer calls through our pay-per-call marketing service. Stop wasting money on ads that don’t convert and get high-quality leads from customers near you who are actively looking for your services.          </p>
 
           <button className='px-5 py-3 sm:py-4 bg-blue-500 font-semibold text-white rounded-lg w-full xl:w-1/3 transition hover:bg-blue-600'>
             Top Dog Leads
@@ -23,7 +22,7 @@ const Customers = () => {
         {/* Image */}
         <div className="relative left w-full xl:w-1/2 flex justify-center mt-8 xl:mt-0">
           <Image
-            src="/touch.png"
+            src="/server.jpg"
             alt='customer calls'
             width={420}
             height={276}

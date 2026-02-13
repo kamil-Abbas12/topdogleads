@@ -46,36 +46,54 @@ export default function FinalExpensePage() {
     return "";
   };
 
-  const handleCtaClick = () => {
-    // STEP 1 -> STEP 2
-    if (!formOpen) {
-      if (!company.trim()) {
-        setCompanyError("Company name is required");
-        return;
-      }
-      setCompanyError("");
-      setStep2Error("");
-      setFormOpen(true);
+  const handleCtaClick = async () => {
+  // STEP 1 → STEP 2
+  if (!formOpen) {
+    if (!company.trim()) {
+      setCompanyError("Company name is required");
       return;
     }
+    setCompanyError("");
+    setStep2Error("");
+    setFormOpen(true);
+    return;
+  }
 
-    // STEP 2 -> Navigate only (NO backend)
-    const msg = validateStep2();
-    if (msg) {
-      setStep2Error(msg);
-      return;
+  // STEP 2 VALIDATION
+  const msg = validateStep2();
+  if (msg) {
+    setStep2Error(msg);
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        industry: "final-expense",
+        company,
+        email,
+        buyerName,
+        leadType,
+        phone,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      router.push("/final-expense-sales");
+    } else {
+      setStep2Error(data.message || "Failed to submit");
     }
-
-    // Optionally store lead locally (temporary) so you don’t lose it
-    const leadData = { company, email, buyerName, leadType, phone };
-    try {
-      localStorage.setItem("tempLead", JSON.stringify(leadData));
-    } catch (e) {
-      // ignore storage errors
-    }
-
-    router.push("/products");
-  };
+  } catch (err) {
+    console.error(err);
+    setStep2Error("Server error. Try again.");
+  }
+};
 
   return (
     <section className="w-full bg-white">
@@ -91,7 +109,7 @@ export default function FinalExpensePage() {
               <div className="relative w-full overflow-hidden rounded-md aspect-[3/2] sm:aspect-[16/10]">
                 <Image
                   src="/lead.jpg"
-                  alt="Final Expense Leads"
+                  alt="FinalExpense Leads"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 600px"
@@ -108,8 +126,7 @@ export default function FinalExpensePage() {
             </h2>
 
             <p className="text-gray-600 mb-8 sm:mb-10 max-w-md">
-              Join 3,000+ agents using Top Dog leads to get high-intent final
-              expense leads delivered straight to your phone
+              Join 3,000+ agents using Top Dog leads to get high-intent Final Expense  leads delivered straight to your phone
             </p>
 
             {/* FORM */}
@@ -118,11 +135,11 @@ export default function FinalExpensePage() {
               {!formOpen && (
                 <div className="space-y-5 sm:space-y-6">
                   <select
-                    defaultValue="final-expense"
+                    defaultValue="FinalExpense"
                     disabled
                     className="w-full h-12 rounded-md border border-gray-300 px-4 bg-white text-gray-700 cursor-not-allowed appearance-none"
                   >
-                    <option value="final-expense">Final Expense</option>
+                    <option value="FinalExpense">Final Expense </option>
                   </select>
 
                   <div>
@@ -135,11 +152,11 @@ export default function FinalExpensePage() {
                         if (companyError) setCompanyError("");
                       }}
                       className={`${inputBase} ${
-                        companyError ? "border-red-500" : ""
+                        companyError ? "border-blue-500" : ""
                       }`}
                     />
                     {companyError && (
-                      <p className="text-sm text-red-600 mt-1">{companyError}</p>
+                      <p className="text-sm text-blue-600 mt-1">{companyError}</p>
                     )}
                   </div>
 
@@ -147,7 +164,7 @@ export default function FinalExpensePage() {
                     <button
                       type="button"
                       onClick={handleCtaClick}
-                      className="w-full sm:w-1/2 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-full transition"
+                      className="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition"
                     >
                       Get Calls
                     </button>
@@ -233,7 +250,7 @@ export default function FinalExpensePage() {
                     />
 
                     {step2Error && (
-                      <p className="text-sm text-red-600">{step2Error}</p>
+                      <p className="text-sm text-blue-600">{step2Error}</p>
                     )}
                   </div>
 
@@ -242,7 +259,7 @@ export default function FinalExpensePage() {
                       <button
                         type="button"
                         onClick={handleCtaClick}
-                        className="w-full sm:w-1/2 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-full transition"
+                        className="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition"
                       >
                         Next
                       </button>

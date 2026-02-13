@@ -7,23 +7,21 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 type FooterLink = { label: string; href: string };
 
 const resources: FooterLink[] = [
-  { label: "Login", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Publishers", href: "#" },
-  { label: "Try Topdogleads", href: "#" },
-  { label: "Listings Optimization", href: "#" },
-  { label: "Ad Campaign", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "Solutions", href: "#" },
+  { label: "Blog", href: "#" },
+  { label: "Contact", href: "/contact" },
+  { label: "Try TopDogLeads", href: "#" },
 ];
 
 const info: FooterLink[] = [
-  { label: "How We Work", href: "#" },
-  { label: "Reviews", href: "#" },
-  { label: "Success Stories", href: "#" },
-  { label: "FAQ", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms and Condition", href: "#" },
+  { label: "Auto Insurance", href: "/industry/auto-insurance" },
+  { label: "Final Expense", href: "/industry/final-expense" },
+  { label: "Home Insurance", href: "/industry/home-insurance" },
+  { label: "Medicare Insurance", href: "/industry/medicare-insurance" },
+  { label: "Motor Vehicle Accident", href: "/industry/motor-vehicle-accident" },
+  { label: "Pest Control", href: "/industry/pest-control" },
+  { label: "Roofing", href: "/industry/roofing" },
 ];
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
@@ -94,20 +92,18 @@ export default function Footer() {
         <div className="mt-10 grid gap-10 lg:grid-cols-4">
           {/* Column 1 */}
           <div>
-            <FooterColTitle>Better Exposure. Pay for Results.</FooterColTitle>
+            <FooterColTitle>Top Dog Leads</FooterColTitle>
 
             <p className="mt-4 max-w-sm text-[12px] leading-6 text-slate-200/70">
-              ResultCalls uses programmatic tools and unique processes to help
-              businesses improve their exposure, gain new customers, and pay
-              based on results.
+              Top Dog Leads is a pay-per-call lead generation platform that connects local businesses with high-intent customers. We deliver exclusive, real-time leads that convert. 
             </p>
 
             <div className="mt-5 space-y-1 text-[12px]">
               <Link
-                href="mailto:ask@resultcalls.com"
+                href="mailto:Support@topdoglead.com"
                 className="block text-sky-300 hover:text-sky-200"
               >
-                ask@resultcalls.com
+                support@topdoglead.com
               </Link>
 
               <Link
@@ -120,12 +116,12 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-5 text-[11px] text-slate-200/70">
               <div className="flex items-center gap-2">
-                <span className="h-5 w-5 rounded-full bg-orange-500/90" />
-                Capterra
+                <span className="h-5 w-5 rounded-full bg-green-500/90" />
+                Customer Verified
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-5 w-5 rounded-full bg-green-500/90" />
-                Trustpilot
+                <span className="h-5 w-5 rounded-full bg-orange-500/90" />
+                Fast Payouts
               </div>
             </div>
           </div>
@@ -161,7 +157,7 @@ export default function Footer() {
 
 
   <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
-    Use ResultCalls to get new customers and only pay-per-call.
+    Use Top Dog Leads to get new customers and only pay-per-call.
   </p>
 </div>
 
@@ -190,7 +186,7 @@ export default function Footer() {
       {/* COPYRIGHT */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-4 text-center text-[11px] text-slate-200/70">
-          Copyright Result LLC, 2026. All rights reserved.
+All rights reserved.Top Dog Leads © {new Date().getFullYear()}
         </div>
       </div>
     </footer>

@@ -19,35 +19,32 @@ const Visible = () => {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2">
+        <div className="right flex flex-col space-y-6 sm:space-y-4 xl:space-y-6 w-full xl:w-1/2">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
-            Visibility is crucial <br/> to your business's growth
-          </h1>
+Get Your Business Seen <br/> by the Right Customers          </h1>
           <h2 className='text-base sm:text-lg font-medium text-gray-950 leading-relaxed'>
-            Visibility brings exposure to local customers looking for your business. Better exposure means more customers.
-          </h2>
+Being visible online is key to growing your business. When local customers can easily find you          </h2>
 
           <div className='flex flex-col gap-4 sm:gap-5'>
             <div className='flex gap-2 items-center'>
-             <div className="text-sky-500 text-[25px] sm:text-[30px]">
+             <div className="text-blue-800 text-[25px] sm:text-[30px]">
   <CircleCheck className="w-4 h-4 sm:w-8 sm:h-8" strokeWidth={1.5} />
 </div>
               <h3 className='text-gray-700 text-sm sm:text-base'>
-                We take care of the legwork and ensure maximum exposure
-              </h3>
+We help you gain maximum online exposure              </h3>
             </div>
 
             <div className='flex gap-2 items-center'>
-           <div className="text-sky-500 text-[25px] sm:text-[30px]">
+           <div className="text-blue-800 text-[25px] sm:text-[30px]">
   <CircleCheck className="w-4 h-4 sm:w-8 sm:h-8" strokeWidth={1.5} />
 </div>
               <h3 className='text-gray-700 text-sm sm:text-base'>
-                We take care of the legwork and ensure maximum exposure
+ We promote your services to the right local audience
               </h3>
             </div>
           </div>
 
-          <button className='px-5 py-3 sm:py-4 bg-orange-500 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
+          <button className='px-5 py-3 sm:py-4 bg-blue-500 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
             Top Dog Leads
           </button>
         </div>

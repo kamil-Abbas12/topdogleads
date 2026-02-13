@@ -10,25 +10,24 @@ import "swiper/css";
 
 const slides = [
   {
-    title: "Get new customers and only pay per calls.",
-    desc: "Pay when a customer calls. No monthly or signup fee required.",
+    title: "More Calls, More Customers Pay Only Per Call",
+    desc: "Stop paying for ads that don’t convert. Only pay when a real customer calls.",
     img: "/call1.jpg",
     button: "Try Top Dog Leads",
   },
   {
-    title: "Join 2,000+ businesses using TopDogLeads.",
-    desc: "Get started today and improve your business calls.",
+    title: "Trusted by 5,000+ Local Businesses",
+    desc: "Join hundreds of businesses already boosting their customer calls with Top Dog Leads.",
     img: "/call2.jpg",
     button: "Try Top Dog Leads",
   },
   {
-    title: "Only pay for customer calls.",
-    desc: "Get more customer calls with our pay-per-call Ad campaign.",
+    title: "Turn Calls into Customers No Waste, No Risk",
+    desc: "Our pay-per-call campaigns bring qualified leads directly to your business.",
     img: "/call3.jpg",
     button: "Get Started",
   },
 ];
-
 const Hero = () => {
   return (
     <section className="relative w-full px-4 sm:px-6 lg:px-12 xl:px-45 py-10 lg:py-20 flex items-center justify-center overflow-hidden bg-white">
@@ -63,7 +62,7 @@ const Hero = () => {
                   {slide.desc}
                 </p>
 
-                <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 transition font-semibold text-white rounded-lg">
+                <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 transition font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
               </div>
