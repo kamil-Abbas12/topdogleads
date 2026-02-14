@@ -14,7 +14,7 @@ Over 300,000 Customer Calls Delivered
           <p className='text-sm sm:text-base xl:text-md text-gray-950 leading-relaxed'>
 Top Dog Leads has connected businesses with more than 250,000 real customer calls through our pay-per-call marketing service. Stop wasting money on ads that don’t convert and get high-quality leads from customers near you who are actively looking for your services.          </p>
 
-          <button className='px-5 py-3 sm:py-4 bg-blue-500 font-semibold text-white rounded-lg w-full xl:w-1/3 transition hover:bg-blue-600'>
+          <button className='px-5 py-3 sm:py-4 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 font-semibold text-white rounded-lg w-full xl:w-1/3 transition hover:bg-blue-600'>
             Top Dog Leads
           </button>
         </div>

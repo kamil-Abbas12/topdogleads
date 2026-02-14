@@ -16,6 +16,7 @@ import CaseStudyHero from "./components/CaseStudyHero";
 import SuccessStories from "./components/SuccessStories";
 import Customers from "./components/Customers";
 import Footer from "./components/Footer";
+import Blog from "./components/Blog";
 
 
 export default function Home() {
@@ -31,9 +32,10 @@ export default function Home() {
   <HelpSelector/>
   <Grow/>
   <Happy/>
+  <Blog/>
         {/* <CaseStudyHero  /> */}
         <Customers/>
-<SuccessStories/>
+{/* <SuccessStories/> */}
 
   </>
   );

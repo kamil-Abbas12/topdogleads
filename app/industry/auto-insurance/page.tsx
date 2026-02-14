@@ -164,7 +164,8 @@ export default function AutoInsurancePage() {
                     <button
                       type="button"
                       onClick={handleCtaClick}
-                      className="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition"
+                      className="w-30 sm:w-50 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90
+                       text-white font-semibold py-3 rounded-md transition"
                     >
                       Get Calls
                     </button>
@@ -259,7 +260,7 @@ export default function AutoInsurancePage() {
                       <button
                         type="button"
                         onClick={handleCtaClick}
-                        className="w-full sm:w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition"
+                        className="w-full sm:w-1/2 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-white font-semibold py-3 rounded-md transition"
                       >
                         Next
                       </button>

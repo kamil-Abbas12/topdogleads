@@ -157,8 +157,7 @@ export default function Footer() {
 
 
   <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
-    Use Top Dog Leads to get new customers and only pay-per-call.
-  </p>
+TopDogLeads connects you with high-intent customers through a pure pay-per-call model.  </p>
 </div>
 
         </div>

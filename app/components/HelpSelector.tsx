@@ -21,7 +21,7 @@ const SERVICES: Service[] = [
   {
     id: "auto-insurance",
     title: "Auto Insurance",
-    description: "Connect with customers actively searching for auto insurance.",
+    description: "Connect with customers searching for auto insurance.",
     cta: "GET AUTO LEADS",
     icon: <IconPlaceholder label="AUTO" />,
   },

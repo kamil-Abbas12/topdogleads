@@ -39,12 +39,12 @@ We help you gain maximum online exposure              </h3>
   <CircleCheck className="w-4 h-4 sm:w-8 sm:h-8" strokeWidth={1.5} />
 </div>
               <h3 className='text-gray-700 text-sm sm:text-base'>
- We promote your services to the right local audience
+ We promote your services to the right local audience 
               </h3>
             </div>
           </div>
 
-          <button className='px-5 py-3 sm:py-4 bg-blue-500 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
+          <button className='px-5 py-3 sm:py-4 bg-[#1c2d56] cursor-pointer hover:bg-[#1c2d56]/90 font-semibold text-white rounded-lg w-full sm:w-2/3 xl:w-1/3 text-sm sm:text-base'>
             Top Dog Leads
           </button>
         </div>

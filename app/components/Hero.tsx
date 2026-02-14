@@ -10,20 +10,21 @@ import "swiper/css";
 
 const slides = [
   {
-    title: "More Calls, More Customers Pay Only Per Call",
-    desc: "Stop paying for ads that don’t convert. Only pay when a real customer calls.",
+    title: "Results That Ring. Pay Only For People.",
+    desc: "Stop funding clicks that go nowhere. Only pay when a live lead is on the line.",
     img: "/call1.jpg",
     button: "Try Top Dog Leads",
   },
   {
     title: "Trusted by 5,000+ Local Businesses",
-    desc: "Join hundreds of businesses already boosting their customer calls with Top Dog Leads.",
+    desc: "Join 100+ Businesses Dominating their Market with Top Dog Leads. Scale your growth and start capturing high-intent calls while your competitors are still chasing clicks.",
+
     img: "/call2.jpg",
     button: "Try Top Dog Leads",
   },
   {
-    title: "Turn Calls into Customers No Waste, No Risk",
-    desc: "Our pay-per-call campaigns bring qualified leads directly to your business.",
+    title: "Close More. Risk Nothing.Real Leads, Ready to Buy",
+    desc: ".Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
     img: "/call3.jpg",
     button: "Get Started",
   },
@@ -62,7 +63,7 @@ const Hero = () => {
                   {slide.desc}
                 </p>
 
-                <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 transition font-semibold text-white rounded-lg">
+                <button className="px-6 py-4 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
               </div>

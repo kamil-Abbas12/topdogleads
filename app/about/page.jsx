@@ -10,12 +10,12 @@ export default function AboutPage() {
   return (
     <main className="w-full bg-white">
       {/* HERO (blue header like your screenshot) */}
-      <section className="w-full bg-sky-500">
+      <section className="w-full bg-[#1c2d56]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="text-white">
               <p className="text-xs sm:text-sm tracking-widest font-semibold uppercase opacity-90">
-                what we do
+How We Make It Happen             
               </p>
 
               <h1 className="mt-3 text-3xl sm:text-5xl font-bold leading-tight">
@@ -23,8 +23,8 @@ export default function AboutPage() {
               </h1>
 
               <p className="mt-5 max-w-xl text-white/90 text-base sm:text-lg leading-relaxed">
-                We help businesses generate more qualified inbound calls using
-                performance marketing and intent-driven lead delivery.
+              We drive growth through intent-based acquisition and performance marketing, delivering a consistent stream of qualified inbound calls.
+
               </p>
             </div>
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
     width={600}
     height={400}
     alt="banner"
-    className="w-full h-auto object-contain"
+    className="w-full h-auto object-contain lg:mt-5 lg:ml-5"
     priority
   />
               </div>
@@ -61,16 +61,13 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-5 text-gray-600 leading-relaxed text-base">
                 <p>
-                  TopDogLeads is a marketing technology company that uses
-                  programmatic tools and proven processes to help businesses
-                  generate inbound calls from high-intent customers.
-                </p>
-
-                <p>
-                  We utilize multiple marketing platforms to drive potential
-                  customer calls. Our goal is simple: deliver conversations that
-                  convert.
-                </p>
+               TopDogLeads is a MarTech firm leveraging programmatic precision and proven frameworks to drive high-intent inbound calls.
+ </p>
+<p className="mt-2">
+  
+We optimize across multiple digital channels to ensure one outcome: conversations that convert.
+</p>
+               
               </div>
 
               <div className="mt-8">
@@ -87,34 +84,37 @@ export default function AboutPage() {
             <div className="w-full">
               <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 sm:p-8">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  What we help you do
-                </h3>
+                  What We Help You Do
+   </h3>
 
                 <ul className="mt-5 space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
-                    <span>Increase qualified inbound calls</span>
+                    <span>Scale Qualified Inbound Volume
+</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
-                    <span>Route leads to your phone in real time</span>
+                    <span>Instant Real-Time Routing
+</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
-                    <span>Improve conversion with better intent</span>
+                    <span>Maximize Conversion Potential</span>
                   </li>
                 </ul>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   <a
                     href="/blog"
-                    className="inline-flex justify-center rounded-full bg-blue-600 px-6 py-3 text-white font-semibold hover:bg-blue-700 transition"
+                    className="inline-flex justify-center rounded-full bg-[#1c2d56] hover:bg-[#1c2d56]/90 px-6 py-3 text-white font-semibold hover:bg-blue-700 transition"
                   >
                     View Our Blog
                   </a>
                   <a
                     href="/"
-                    className="inline-flex justify-center rounded-full border border-blue-600 px-6 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition"
+                    className="inline-flex justify-center rounded-full border border-blue-600 px-6 py-3 
+                     hover:bg-[#1c2d56] text-blue-700 font-semibold  hover:text-white transition"
                   >
                     Back to Home
                   </a>

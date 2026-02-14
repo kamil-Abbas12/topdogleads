@@ -28,12 +28,12 @@ const router = useRouter();
   return (
     <nav className="relative w-full px-4 sm:px-6 lg:px-45 py-5 flex items-center justify-between bg-white z-50">
       {/* LOGO */}
-   <div className="flex items-center">
+   <div className="flex items-center cues-pointer" onClick={() => router.push("/")}>
   <Link href="/">
     <img
       src="/logo.jpg"
       alt="TopDogLead"
-      className="w-32 h-auto cursor-pointer"
+      className="w-40 h-auto cursor-pointer"
     />
   </Link>
 </div>
@@ -41,7 +41,7 @@ const router = useRouter();
 
       {/* DESKTOP LINKS */}
       <div className="hidden lg:flex items-center gap-8">
-        <Link href="/about" className="text-gray-600 hover:text-blue-600 text-md font-medium">
+        <Link href="/about" className="text-gray-900 hover:text-blue-600 text-md font-medium">
           About
         </Link>
 
@@ -142,7 +142,8 @@ const router = useRouter();
                       No Setup Fee. No Monthly Service Fee. No Cancellation Fee.
                     </p>
                   </div>
-                  <button className="mt-4 inline-flex  items-center justify-center bg-blue-500 hover:bg-blue-600 text-white text-md px-2 py-2.5 rounded transition">
+                  <button className="mt-4 inline-flex  items-center justify-center
+                   bg-[#1c2d56] hover:bg-[#1c2d56] text-white text-md px-2 py-2.5 rounded transition">
                     Try TopDogLeads
                   </button>
                 </div>
@@ -160,7 +161,7 @@ Blogs
         <div className="flex items-center gap-2 font-semibold text-gray-900 text-md">
           <Phone size={16} />
           <span>1 (310) 295 4421</span>
-          <button className="border-2 border-blue-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-blue-600 hover:text-white transition">
+          <button className="border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md text-md hover:bg-[#1c2d56]/90 transition">
             Try TopDogLeads
           </button>
         </div>
@@ -212,7 +213,8 @@ Blogs
               <span className="flex items-center gap-2 font-semibold text-gray-900">
                 <Phone size={16} /> 1 (310) 295 4421
               </span>
-              <button className="border-2 w-1/2 hover:bg-blue-500 hover:text-white border-blue-500 text-gray-600 px-4 py-2 rounded-md text-md hover:bg-blue-600 hover:text-white transition">
+              <button className="border-2 w-1/2 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90
+               hover:text-white border-[#1c2d56] text-white px-4 py-2 rounded-md text-md transition">
                 Try TopDogLeads
               </button>
             </div>
