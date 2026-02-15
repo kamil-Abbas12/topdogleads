@@ -6,10 +6,14 @@ type InterestOption = { label: string; value: string };
 
 const INTERESTS: InterestOption[] = [
   { label: "Select a Service", value: "" },
-  { label: "Appliance Repair", value: "appliance-repair" },
-  { label: "Plumbing", value: "plumbing" },
-  { label: "Window Installation", value: "window-installation" },
-  { label: "Auto Glass Repair", value: "auto-glass-repair" },
+  { label: "Final Expense", value: "final-expense" },
+  { label: "Medicare Insurance", value: "medicare-insurance" },
+  { label: "Motor Vehicle Accident", value: "motor-vehicle-accident" },
+  { label: "Home Insurance", value: "home-insurance" },
+  { label: "Auto Insurance", value: "auto-insurance" },
+  { label: "Pest Control", value: "pest-control" },
+  { label: "Roofing", value: "roofing" },
+  { label: "Solar", value: "solar" },
 ];
 
 export default function ContactSplit() {
@@ -27,10 +31,36 @@ export default function ContactSplit() {
     setForm((p) => ({ ...p, [name]: value }));
   }
 
-  function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    console.log(form);
+async function onSubmit(e: React.FormEvent) {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
+      setForm({
+        name: "",
+        email: "",
+        interest: "",
+        message: "",
+      });
+    } else {
+      alert(data.message || "Failed to send");
+    }
+  } catch (error) {
+    alert("Something went wrong");
   }
+}
+
 
   return (
     <section className="min-h-screen bg-white text-black">
@@ -154,8 +184,8 @@ export default function ContactSplit() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex h-11 w-40 items-center justify-center bg-blue-500 
-                 text-xs font-semibold tracking-[0.22em] rounde-2xl text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-black/20"
+                className="inline-flex h-11 w-40 items-center justify-center bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition
+                 text-xs font-semibold tracking-[0.22em] rounded-md cursor-pointer text-white focus:outline-none focus:ring-2 focus:ring-black/20"
               >
                 SEND
               </button>

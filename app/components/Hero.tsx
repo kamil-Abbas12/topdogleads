@@ -31,7 +31,8 @@ const slides = [
 ];
 const Hero = () => {
   return (
-    <section className="relative w-full px-4 sm:px-6 lg:px-12 xl:px-45 py-10 lg:py-20 flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative w-full px-4 sm:px-6
+     lg:px-12 xl:px-45 py-10 lg:py-20 flex items-center justify-center overflow-hidden bg-white">
 
       {/* BACKGROUND CIRCLES */}
       <div className="absolute -z-10 top-10 left-0 w-40 h-40 bg-yellow-200 rounded-full opacity-40" />
@@ -63,7 +64,8 @@ const Hero = () => {
                   {slide.desc}
                 </p>
 
-                <button className="px-6 py-4 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition font-semibold text-white rounded-lg">
+                <button className="px-6 py-4 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition 
+                font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
               </div>

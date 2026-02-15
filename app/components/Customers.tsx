@@ -26,7 +26,7 @@ Top Dog Leads has connected businesses with more than 250,000 real customer call
             alt='customer calls'
             width={420}
             height={276}
-            className='object-contain'
+            className='object-contain transition-transform duration-300 hover:scale-105'
           />
         </div>
 

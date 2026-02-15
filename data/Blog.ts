@@ -8,6 +8,7 @@ const Blogs = [
     author: "Top Dog Leads Team",
     date: "15 Jan 2026",
   },
+  
   {
     id: 2,
     title: "5 Proven Strategies to Generate High-Quality Leads Online",

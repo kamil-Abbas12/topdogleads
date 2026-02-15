@@ -38,7 +38,7 @@ Competition for local customers is fierce. Why overspend on clicks that may neve
 
             {/* Soft blue tint */}
             <div
-              className="absolute inset-0 bg-blue-500/30 opacity-0
+              className="absolute inset-0  opacity-0
                          group-hover:opacity-100
                          transition-opacity duration-300"
             />

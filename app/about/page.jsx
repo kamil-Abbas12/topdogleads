@@ -43,7 +43,7 @@ How We Make It Happen
             </div>
           </div>
         </div>
-//      </section>
+     </section>
 
       {/* BODY */}
       <section className="w-full">

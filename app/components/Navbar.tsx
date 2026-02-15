@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { roboto, poppins } from "@/lib/fonts";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -26,11 +27,13 @@ export default function Navbar() {
 const router = useRouter();
 
   return (
-    <nav className="relative w-full px-4 sm:px-6 lg:px-45 py-5 flex items-center justify-between bg-white z-50">
+ <nav className={`${roboto.className} relative font-medium w-full px-4 sm:px-6
+  lg:px-12 xl:px-20 py-5 flex items-center justify-between bg-white z-50`}>
       {/* LOGO */}
    <div className="flex items-center cues-pointer" onClick={() => router.push("/")}>
   <Link href="/">
     <img
+
       src="/logo.jpg"
       alt="TopDogLead"
       className="w-40 h-auto cursor-pointer"
@@ -41,7 +44,7 @@ const router = useRouter();
 
       {/* DESKTOP LINKS */}
       <div className="hidden lg:flex items-center gap-8">
-        <Link href="/about" className="text-gray-900 hover:text-blue-600 text-md font-medium">
+        <Link href="/about" className="text-gray-800 hover:text-blue-600 text-md font-medium">
           About
         </Link>
 
@@ -51,7 +54,7 @@ const router = useRouter();
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
-          <button className="text-blue-500 cursor-pointer text-md font-medium flex items-center gap-1">
+          <button className="text-gray-800  hover:text-blue-600 cursor-pointer text-md font-medium flex items-center gap-1">
             Solutions <ChevronDown size={14} />
           </button>
 
@@ -66,7 +69,8 @@ const router = useRouter();
                 {/* Left: Solutions + Industry */}
                 <div className="col-span-9 grid grid-cols-12 gap-4">
                   <div className="col-span-4">
-                    <p className="text-[11px] tracking-wider font-semibold text-gray-600 uppercase mb-6 pb-3">
+                    <p className="text-[11px] tracking-wider font-semibold text-gray-600
+                     uppercase mb-6 pb-3">
                       Solutions
                     </p>
                     <div className="flex gap-2">
@@ -142,8 +146,8 @@ const router = useRouter();
                       No Setup Fee. No Monthly Service Fee. No Cancellation Fee.
                     </p>
                   </div>
-                  <button className="mt-4 inline-flex  items-center justify-center
-                   bg-[#1c2d56] hover:bg-[#1c2d56] text-white text-md px-2 py-2.5 rounded transition">
+                  <button className="mt-4 inline-flex  items-center justify-center cursor-pointer font-semibold text-md
+                   bg-[#1c2d56] hover:bg-[#1c2d56]/90  text-white text-md px-2 py-2.5 rounded transition">
                     Try TopDogLeads
                   </button>
                 </div>
@@ -152,75 +156,90 @@ const router = useRouter();
           </div>
         </div>
 
-        <Link href="/blogs" className="text-gray-600 hover:text-blue-600 text-md font-medium">
+        <Link href="/blogs" className="text-gray-800 hover:text-blue-600 text-md font-medium">
 Blogs
         </Link>
 
         {/* Phone & CTA */}
-        <Link href="/contact" className="cursor-pointer">
-        <div className="flex items-center gap-2 font-semibold text-gray-900 text-md">
-          <Phone size={16} />
-          <span>1 (310) 295 4421</span>
-          <button className="border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md text-md hover:bg-[#1c2d56]/90 transition">
-            Try TopDogLeads
-          </button>
-        </div>
-        </Link>
+       <div className="flex items-center gap-3">
+  <Link href="/contact" className="flex items-center gap-2 font-semibold text-gray-800 hover:text-blue-600">
+    <Phone size={16} />
+    <span>1 (310) 295 4421</span>
+  </Link>
+
+  <Link href="/contact">
+    <button className="cursor-pointer border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md hover:bg-[#1c2d56]/90">
+      Try TopDogLeads
+    </button>
+  </Link>
+</div>
+
       </div>
 
       {/* MOBILE MENU BUTTON */}
-      <button className="block lg:hidden" onClick={() => setMobile(!mobile)}>
+      <button className="block lg:hidden text-gray-900" onClick={() => setMobile(!mobile)}>
         {mobile ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {/* MOBILE MENU */}
-      {mobile && (
-        <div className="absolute top-full left-0 w-full bg-white border-t shadow-md lg:hidden z-40">
-          <div className="flex flex-col gap-4 p-6">
-            <Link href="/about" className="text-gray-600 hover:text-blue-500">
-              About
-            </Link>
+   {mobile && (
+  <div className="fixed inset-0 bg-white z-50 lg:hidden">
+    <div className="flex flex-col gap-6 p-6 pt-24">
+      
+      <Link
+        href="/about"
+        className="text-lg font-medium text-gray-900"
+        onClick={() => setMobile(false)}
+      >
+        About
+      </Link>
 
-            {/* Mobile Solutions */}
-            <div className="flex flex-col">
-              <button
-                className="flex items-center justify-between text-blue-500 font-medium text-md"
-                onClick={() => setMobileDropdown(!mobileDropdown)}
+      {/* Mobile Solutions */}
+      <div className="flex flex-col">
+        <button
+          className="flex items-center justify-between text-lg font-medium text-blue-600"
+          onClick={() => setMobileDropdown(!mobileDropdown)}
+        >
+          Solutions <ChevronDown size={18} />
+        </button>
+
+        {mobileDropdown && (
+          <div className="mt-4 pl-4 flex flex-col gap-3">
+            {[...industryLeft, ...industryRight].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-gray-800"
+                onClick={() => setMobile(false)}
               >
-                Solutions <ChevronDown size={14} />
-              </button>
-              {mobileDropdown && (
-                <div className="mt-2 pl-4 flex flex-col gap-2">
-                  {industryLeft.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-blue-500">
-                      {item.label}
-                    </Link>
-                  ))}
-                  {industryRight.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-gray-600 hover:text-blue-500">
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <Link href="/blogs" className="text-gray-600 hover:text-blue-500">
-              Blogs
-            </Link>
-
-            <div className="flex flex-col gap-2 mt-2">
-              <span className="flex items-center gap-2 font-semibold text-gray-900">
-                <Phone size={16} /> 1 (310) 295 4421
-              </span>
-              <button className="border-2 w-1/2 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90
-               hover:text-white border-[#1c2d56] text-white px-4 py-2 rounded-md text-md transition">
-                Try TopDogLeads
-              </button>
-            </div>
+                {item.label}
+              </Link>
+            ))}
           </div>
-        </div>
-      )}
+        )}
+      </div>
+
+      <Link
+        href="/blogs"
+        className="text-lg font-medium text-gray-900"
+        onClick={() => setMobile(false)}
+      >
+        Blogs
+      </Link>
+
+      <div className="flex flex-col gap-4 mt-4">
+        <span className="flex items-center gap-2 font-semibold text-gray-900">
+          <Phone size={18} /> 1 (310) 295 4421
+        </span>
+
+        <button className="w-full bg-[#1c2d56] text-white py-3 rounded-md font-medium">
+          Try TopDogLeads
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </nav>
   );
 }
