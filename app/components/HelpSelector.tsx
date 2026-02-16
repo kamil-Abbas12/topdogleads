@@ -173,8 +173,9 @@ export default function HelpSelector() {
           </button>
 
           {/* fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 sm:w-10 bg-gradient-to-r from-[#e5efee] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 sm:w-10 bg-gradient-to-l from-[#e5efee] to-transparent" />
+        
+<div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 sm:w-10 bg-gradient-to-r from-[#e9efff] to-transparent" />
+<div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 sm:w-10 bg-gradient-to-l from-[#e9efff] to-transparent" />
 
           {/* cards */}
           <div
