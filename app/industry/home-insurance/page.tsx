@@ -173,7 +173,7 @@ export default function HomeInsurancePage() {
                     <p className="text-sm sm:text-md text-gray-600">
                       Questions?{" "}
                       <span className="font-semibold text-gray-900">
-                        (310) 295-4421
+                        +1 678 462 8013
                       </span>
                     </p>
                   </div>

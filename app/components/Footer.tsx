@@ -113,7 +113,7 @@ export default function Footer() {
                 href="tel:+13102954421"
                 className="block text-white/90 hover:text-white"
               >
-                (310) 295-4421
++1 678 462 8013
               </Link>
             </div>
 
