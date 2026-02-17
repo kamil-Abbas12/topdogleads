@@ -13,20 +13,20 @@ const slides = [
   {
     title: "Results That Ring. Pay Only For People.",
     desc: "Stop wasting budget on empty clicks. Connect with verified prospects who are ready to talk — and pay only when a qualified lead calls you.",
-    img: "/call1.jpg",
+    img: "/results that. ring.webp",
     button: "Try Top Dog Leads",
   },
   {
     title: "Trusted by 5,000+ Local Businesses",
     desc: "Join 100+ Businesses Dominating their Market with Top Dog Leads. Scale your growth and start capturing high-intent calls while your competitors are still chasing clicks.",
 
-    img: "/call2.jpg",
+    img: "/trusted by 5000.webp",
     button: "Try Top Dog Leads",
   },
   {
     title: "Stop Chasing Leads. Start Closing Deals.",
     desc: "Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
-    img: "/call3.jpg",
+    img: "/stop chasing deals.webp",
     button: "Get Started",
   },
 ];
