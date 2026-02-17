@@ -2,16 +2,17 @@
 
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import { manrope } from "@/lib/fonts";
 
 const slides = [
   {
     title: "Results That Ring. Pay Only For People.",
-    desc: "Stop funding clicks that go nowhere. Only pay when a live lead is on the line.",
+    desc: "Stop wasting budget on empty clicks. Connect with verified prospects who are ready to talk — and pay only when a qualified lead calls you.",
     img: "/call1.jpg",
     button: "Try Top Dog Leads",
   },
@@ -23,8 +24,8 @@ const slides = [
     button: "Try Top Dog Leads",
   },
   {
-    title: "Close More. Risk Nothing.Real Leads, Ready to Buy",
-    desc: ".Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
+    title: "Stop Chasing Leads. Start Closing Deals.",
+    desc: "Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
     img: "/call3.jpg",
     button: "Get Started",
   },
@@ -60,14 +61,16 @@ const Hero = () => {
                   {slide.title}
                 </h1>
 
-                <p className="text-gray-600 text-base sm:text-lg max-w-xl">
+                <p className={'${manrope.className} text-gray-600 text-base sm:text-lg max-w-xl'}>
                   {slide.desc}
                 </p>
-
+<Link href="/contact">
                 <button className="px-6 py-4 cursor-pointer bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition 
                 font-semibold text-white rounded-lg">
                   {slide.button}
                 </button>
+                </Link>
+
               </div>
 
               {/* RIGHT */}

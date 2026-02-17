@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react';
+import { manrope } from '@/lib/fonts';
 
 const Simple = () => {
   return (
@@ -10,10 +11,10 @@ const Simple = () => {
         {/* LEFT SIDE */}
         <div className="left flex flex-col space-y-5 w-full xl:w-1/2">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold leading-snug text-blue-900'>
-More Calls. More Customers. You Only Pay Per Call.
+Calls That Convert, Customers That Stay.
           </h1>
-          <p className='text-gray-500 text-sm sm:text-base'>
-Competition for local customers is fierce. Why overspend on clicks that may never convert? Top Dog Leads handles the heavy lifting—bringing real customers to your business while you only pay when they call.          </p>
+          <p className={`${manrope.className} text-gray-900 text-sm sm:text-base`}>
+Local competition is cutthroat. So why waste budget on clicks that never convert? With Top Dog Leads, you skip the guesswork. We do the heavy lifting, delivering real customers straight to your business. And the best part? You only pay when the phone rings.         </p>
           <div className='flex flex-row gap-2 sm:gap-3 items-center'>
             <span className='text-blue-500 font-semibold text-sm sm:text-base'>
               Watch Our Video

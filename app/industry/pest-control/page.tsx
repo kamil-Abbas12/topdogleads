@@ -102,7 +102,7 @@ export default function PestControlPage() {
           {/* LEFT */}
           <div className="space-y-6 lg:space-y-8">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-              Live Leads. Live Calls. Start Today
+              Live Leads.Live Calls.Start Today
             </h1>
 
             <div className="relative w-full max-w-xl">

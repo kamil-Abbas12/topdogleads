@@ -16,7 +16,17 @@ const INTERESTS: InterestOption[] = [
   { label: "Solar", value: "solar" },
 ];
 
+
 export default function ContactSplit() {
+  const [toast, setToast] = React.useState<{
+  show: boolean;
+  message: string;
+  type: "success" | "error";
+}>({
+  show: false,
+  message: "",
+  type: "success",
+});
   const [form, setForm] = React.useState({
     name: "",
     email: "",
@@ -46,7 +56,12 @@ async function onSubmit(e: React.FormEvent) {
     const data = await res.json();
 
     if (data.success) {
-      alert("Message sent successfully!");
+      setToast({
+        show: true,
+        message: "Message sent successfully!",
+        type: "success",
+      });
+
       setForm({
         name: "",
         email: "",
@@ -54,11 +69,23 @@ async function onSubmit(e: React.FormEvent) {
         message: "",
       });
     } else {
-      alert(data.message || "Failed to send");
+      setToast({
+        show: true,
+        message: data.message || "Failed to send",
+        type: "error",
+      });
     }
   } catch (error) {
-    alert("Something went wrong");
+    setToast({
+      show: true,
+      message: "Something went wrong!",
+      type: "error",
+    });
   }
+
+  setTimeout(() => {
+    setToast((t) => ({ ...t, show: false }));
+  }, 4000);
 }
 
 
@@ -193,6 +220,29 @@ async function onSubmit(e: React.FormEvent) {
           </form>
         </div>
       </div>
+      {/* TOAST */}
+{toast.show && (
+  <div className="fixed top-6 right-6 z-50 animate-toast">
+    <div
+      className={`flex items-center gap-3 px-5 py-4 rounded-lg shadow-lg text-white
+      ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+    >
+      {/* Icon */}
+      {toast.type === "success" ? (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      ) : (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      )}
+
+      <p className="font-medium">{toast.message}</p>
+    </div>
+  </div>
+)}
+
     </section>
   );
 }

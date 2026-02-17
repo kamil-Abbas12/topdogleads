@@ -1,3 +1,4 @@
+import { manrope } from "@/lib/fonts";
 import React from "react";
 
 const Happy = () => {
@@ -16,8 +17,9 @@ const Happy = () => {
         </h1>
 
         {/* Paragraph */}
-        <p className="text-center text-sm sm:text-base xl:text-lg text-gray-600 mt-6 sm:mt-8 xl:mt-10 max-w-3xl xl:max-w-4xl">
-          Top Dog Leads specializes in pay-per-call marketing for local businesses. Tired of spending heavily on Google Ads, social media campaigns, or SEO that don’t bring results? You’re not alone. With us, you only pay when a real customer calls.
+        <p className={`${manrope.className} text-gray-800 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
+     Top Dog Leads: Pay‑Per‑Call Marketing That Delivers  <br/>
+Tired of pouring money into Google Ads, social campaigns, or SEO strategies that don’t bring results? You’re not alone. With Top Dog Leads, you skip the guesswork and wasted spend—you only pay when a real customer picks up the phone and calls your business.
         </p>
       </div>
     </section>

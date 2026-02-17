@@ -1,5 +1,6 @@
 "use client";
 import Blogs from "@/data/Blog";
+import { manrope } from "@/lib/fonts";
 import Image from "next/image";
 import React from "react";
 
@@ -8,7 +9,7 @@ const Blog = () => {
     <section className="w-full bg-white px-5 py-16 md:py-20 xl:px-20">
       
       {/* SECTION HEADER */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 flex flex-col items-center">
         <h2 className="text-blue-900 font-semibold text-lg tracking-wide uppercase">
           Our Blog
         </h2>
@@ -17,7 +18,8 @@ const Blog = () => {
           Insights to Help You <br /> Grow Your Business
         </h1>
 
-        <p className="text-gray-500 mt-5 max-w-2xl mx-auto">
+        <p className={`${manrope.className} text-gray-500 flex justify-center max-w-3xl text-center
+         text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
           Explore expert tips, marketing strategies, and industry insights
           designed to help your business generate more leads and increase
           customer calls.

@@ -1,9 +1,10 @@
 import Image from "next/image";
 // import AboutCallCenter from "../components/AboutCallCenter";
+import { manrope } from "@/lib/fonts";
 
 export const metadata = {
-  title: "About | TopDogLeads",
-  description: "Learn more about TopDogLeads and what we do.",
+  title: "About | Top Dog Leads",
+  description: "Learn more about Top Dog Leads and what we do.",
 };
 
 export default function AboutPage() {
@@ -19,10 +20,10 @@ How We Make It Happen
               </p>
 
               <h1 className="mt-3 text-3xl sm:text-5xl font-bold leading-tight">
-                About <span className="opacity-95">TopDogLeads</span>
+                About <span className="opacity-95">Top Dog Leads</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-white/90 text-base sm:text-lg leading-relaxed">
+              <p className={' ${manrope.className} mt-5 max-w-xl text-white/90 text-base sm:text-lg leading-relaxed'}>
               We drive growth through intent-based acquisition and performance marketing, delivering a consistent stream of qualified inbound calls.
 
               </p>
@@ -51,7 +52,7 @@ How We Make It Happen
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Left text */}
             <div>
-              <p className="text-xs tracking-widest font-semibold text-gray-400 uppercase">
+              <p className="text-xs tracking-widest font-semibold text-gray-900 uppercase">
                 We Are
               </p>
 
@@ -59,11 +60,14 @@ How We Make It Happen
                 A Casper, Wyoming-based Company
               </h2>
 
-              <div className="mt-6 space-y-5 text-gray-600 leading-relaxed text-base">
-                <p>
-               TopDogLeads is a MarTech firm leveraging programmatic precision and proven frameworks to drive high-intent inbound calls.
+              <div className="mt-6 space-y-5 text-blue-900 leading-relaxed lg:text-lg">
+                <p className={`${manrope.className} text-gray-700`}>
+                  <b className="mr-2 ">
+ Top Dog Leads
+                  </b>
+                 is a MarTech firm leveraging programmatic precision and proven frameworks to drive high-intent inbound calls.
  </p>
-<p className="mt-2">
+<p className={`${manrope.className} text-gray-700`}>
   
 We optimize across multiple digital channels to ensure one outcome: conversations that convert.
 </p>
@@ -75,7 +79,7 @@ We optimize across multiple digital channels to ensure one outcome: conversation
                   href="/"
                   className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition"
                 >
-                  Try TopDogLeads for free <span aria-hidden="true">→</span>
+                  Try Top Dog Leads for free <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>

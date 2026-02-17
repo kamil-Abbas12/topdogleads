@@ -12,7 +12,7 @@ type Service = {
 
 function IconPlaceholder({ label }: { label: string }) {
   return (
-    <div className="grid h-10 w-10 place-items-center rounded-md border border-slate-200 bg-white text-slate-500">
+    <div className="grid h-10 w-10 place-items-center rounded-md border border-slate-800 bg-white text-slate-800">
       <span className="text-[10px] font-semibold leading-none">{label}</span>
     </div>
   );
@@ -108,7 +108,9 @@ export default function HelpSelector() {
           </h1>
 
           <div className="mt-3 flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base text-slate-600">
-            <span>I want customer calls in need of</span>
+            <span>
+I want calls from customers who need my services.
+            </span>
             <div className="relative w-full sm:w-auto">
               <select
                 value={selectedId}

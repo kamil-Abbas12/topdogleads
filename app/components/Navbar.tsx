@@ -156,20 +156,24 @@ const router = useRouter();
           </div>
         </div>
 
-        <Link href="/blogs" className="text-gray-800 hover:text-blue-600 text-md font-medium">
+        <Link href="/blog" className="text-gray-800 hover:text-blue-600 text-md font-medium">
 Blogs
         </Link>
 
         {/* Phone & CTA */}
        <div className="flex items-center gap-3">
-  <Link href="/contact" className="flex items-center gap-2 font-semibold text-gray-800 hover:text-blue-600">
-    <Phone size={16} />
-    <span>1 (310) 295 4421</span>
-  </Link>
+ <a
+  href="tel:+16784628013"
+  className="flex items-center gap-2 font-semibold text-gray-800 hover:text-blue-600"
+>
+  <Phone size={16} />
+  <span>+1 678 462 8013</span>
+</a>
+
 
   <Link href="/contact">
     <button className="cursor-pointer border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md hover:bg-[#1c2d56]/90">
-      Try TopDogLeads
+      Try Top Dog Leads
     </button>
   </Link>
 </div>

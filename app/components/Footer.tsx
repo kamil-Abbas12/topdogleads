@@ -8,21 +8,24 @@ type FooterLink = { label: string; href: string };
 
 const resources: FooterLink[] = [
   { label: "Home", href: "/" },
-  { label: "Solutions", href: "#" },
-  { label: "Blog", href: "#" },
+  { label: "About", href: "/about" },
+  { label: "Pay Per Call Leads", href: "/solution/pay-per-call" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact" },
-  { label: "Try TopDogLeads", href: "#" },
 ];
+
 
 const info: FooterLink[] = [
   { label: "Auto Insurance", href: "/industry/auto-insurance" },
   { label: "Final Expense", href: "/industry/final-expense" },
   { label: "Home Insurance", href: "/industry/home-insurance" },
+  { label: "Solar", href: "/industry/solar" },
   { label: "Medicare Insurance", href: "/industry/medicare-insurance" },
   { label: "Motor Vehicle Accident", href: "/industry/motor-vehicle-accident" },
   { label: "Pest Control", href: "/industry/pest-control" },
   { label: "Roofing", href: "/industry/roofing" },
 ];
+
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
   return <h3 className="text-sm font-semibold text-white">{children}</h3>;
@@ -47,7 +50,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-10 pt-10">
         {/* TOP ROW: Logo (left) + Social (right) */}
         <div className="flex items-center justify-between">
-          <Link href="/" onClick={() => window.location.reload()} className="inline-flex">
+          <Link href="/" className="inline-flex">
             <img
               src="/logo.jpg"
               alt="TopDogLead"
