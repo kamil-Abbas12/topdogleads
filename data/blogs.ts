@@ -28,5 +28,24 @@ At Top Dog Leads LLC, we believe protection should go beyond paperwork. That’s
     date: "Feb 15, 2026",
     author: "Top Dog Leads LLC",
   },
+   {
+    slug: "insurance-leads-growth",
+    title: "How Insurance Leads Drive Business Growth",
+    caption: ["Learn how inbound leads transform insurance sales."],
+    content: "Insurance leads are the backbone of growth...",
+    image: "/b1.jpg",
+    date: "Feb 10, 2026",
+    author: "Top Dog Leads LLC",
+  },
+
+  {
+    slug: "digital-marketing-insurance",
+    title: "Digital Marketing Strategies for Insurance",
+    caption: ["Modern strategies for lead generation."],
+    content: "Digital marketing has changed the insurance industry...",
+    image: "/b3.jpg",
+    date: "Feb 5, 2026",
+    author: "Top Dog Leads LLC",
+  },
   // Add more blogs in the same format
 ];

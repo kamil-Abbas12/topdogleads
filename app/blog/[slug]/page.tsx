@@ -1,10 +1,29 @@
-import { blogs } from "@/data/blogs";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { Facebook, X, Linkedin, Video } from "lucide-react";
-
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Facebook, X, Linkedin, Video } from "lucide-react";
+
+import { blogs } from "@/data/blogs";
 import CommentForm from "./CommentForm";
+
+export async function generateStaticParams() {
+  return blogs.map(b => ({ slug: b.slug }));
+}
+
+export async function generateMetadata({ params }: { params: { slug?: string } }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const raw = resolvedParams?.slug;
+  if (!raw) return { title: "Blog", description: "Top Dog Leads blog" };
+
+  const slug = decodeURIComponent(raw);
+  const blog = blogs.find(b => b.slug === slug);
+  if (!blog) return { title: "Blog Not Found" };
+
+  return { title: blog.title, description: blog.caption?.[0] ?? "" };
+}
+
+
 function Sidebar() {
   const recent = blogs.slice(0, 3);
 
@@ -44,12 +63,12 @@ function Sidebar() {
           {recent.map((b) => (
             <Link
               key={b.slug}
-              href={`/blog/${b.slug}`}
+              href={`/blog/${encodeURIComponent(b.slug)}`}
               className="grid grid-cols-[54px_1fr] gap-3 items-center"
             >
               <Image
                 src={b.image}
-                alt=""
+                alt={b.title}
                 width={108}
                 height={108}
                 className="h-[54px] w-[54px] rounded-xl object-cover"
@@ -71,7 +90,10 @@ function Sidebar() {
 
         <div className="mt-4 space-y-3">
           {categories.map((c) => (
-            <div key={c.name} className="flex items-center justify-between text-sm">
+            <div
+              key={c.name}
+              className="flex items-center justify-between text-sm"
+            >
               <span className="text-gray-700">{c.name}</span>
               <span className="min-w-8 text-center rounded-full bg-white border border-gray-200 px-2 py-1 text-xs text-gray-600">
                 {String(c.count).padStart(2, "0")}
@@ -101,17 +123,37 @@ function Sidebar() {
       <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
         <h3 className="text-base font-extrabold text-slate-900">Social</h3>
 
-         <div className="mt-4 flex gap-2">
-          <a href="https://facebook.com" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100">
+        <div className="mt-4 flex gap-2">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noreferrer"
+            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
+          >
             <Facebook size={18} />
           </a>
-          <a href="https://twitter.com" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noreferrer"
+            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
+          >
             <X size={18} />
           </a>
-          <a href="https://linkedin.com" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
+          >
             <Linkedin size={18} />
           </a>
-          <a href="https://vimeo.com" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100">
+          <a
+            href="https://vimeo.com"
+            target="_blank"
+            rel="noreferrer"
+            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
+          >
             <Video size={18} />
           </a>
         </div>
@@ -140,52 +182,54 @@ function Sidebar() {
   );
 }
 
+export default async function BlogDetail({ params }: { params: { slug: string } }) {
+  const resolvedParams = await params; // unwrap promise
+  const raw = resolvedParams.slug;
+  const slug = decodeURIComponent(raw).replace(/\/$/, "");
+  const blog = blogs.find(b => b.slug.replace(/\/$/, "") === slug);
+  if (!blog) notFound();
 
-export default async function BlogDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const blog = blogs.find((b) => b.slug === slug);
-  if (!blog) return notFound();
 
   return (
-    <section className="bg-white min-h-screen py-12 px-6">
+    <section className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.55fr_0.85fr] gap-10 items-start">
-
-        {/* LEFT: Article */}
         <article className="space-y-6">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
             {blog.title}
           </h1>
-{/* Caption */}
+
+          {/* Caption */}
           <div className="text-md text-gray-700 font-medium space-y-2">
             {blog.caption.map((line, index) => (
               <p key={index}>{line}</p>
             ))}
           </div>
-          
 
           <Image
             src={blog.image}
             alt={blog.title}
             width={1200}
             height={650}
-            className="w-full rounded-2xl object-cover"
+            className="w-full rounded-2xl object-cover max-h-[440px]"
             priority
           />
 
-          
-<div className="text-sm text-gray-500">
+          <div className="text-sm text-gray-500">
             {blog.date} • {blog.author}
           </div>
-          {/* Full Content */}
+
           <div className="prose max-w-none whitespace-pre-line text-gray-700 prose-headings:text-slate-900">
             {blog.content}
           </div>
 
           {/* Comments */}
           <div className="pt-6 border-t border-gray-100">
-            <h3 className="text-xl font-extrabold text-slate-900">Leave a Comment</h3>
+            <h3 className="text-xl font-extrabold text-slate-900">
+              Leave a Comment
+            </h3>
             <p className="text-sm text-gray-600 mt-2">
-              Your email address will not be published. Required fields are marked *
+              Your email address will not be published. Required fields are
+              marked *
             </p>
             <div className="mt-4">
               <CommentForm slug={slug} />
@@ -193,7 +237,6 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
           </div>
         </article>
 
-        {/* RIGHT: Sidebar */}
         <Sidebar />
       </div>
     </section>

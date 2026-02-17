@@ -1,14 +1,15 @@
 "use client";
-import Blogs from "@/data/Blog";
+
+import { blogs } from "@/data/blogs";
 import { manrope } from "@/lib/fonts";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 const Blog = () => {
   return (
     <section className="w-full bg-white px-5 py-16 md:py-20 xl:px-20">
       
-      {/* SECTION HEADER */}
+      {/* HEADER */}
       <div className="text-center mb-12 flex flex-col items-center">
         <h2 className="text-blue-900 font-semibold text-lg tracking-wide uppercase">
           Our Blog
@@ -18,25 +19,23 @@ const Blog = () => {
           Insights to Help You <br /> Grow Your Business
         </h1>
 
-        <p className={`${manrope.className} text-gray-500 flex justify-center max-w-3xl text-center
-         text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
+        <p className={`${manrope.className} text-gray-500 max-w-3xl text-center text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
           Explore expert tips, marketing strategies, and industry insights
-          designed to help your business generate more leads and increase
-          customer calls.
+          designed to help your business generate more leads.
         </p>
       </div>
 
       {/* BLOG GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {Blogs.map((blog) => (
+        {blogs.map((blog) => (
           <div
-            key={blog.id}
+            key={blog.slug}
             className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
           >
             {/* IMAGE */}
             <div className="relative w-full h-[230px] overflow-hidden">
               <Image
-                src={blog.featureImage}
+                src={blog.image}
                 alt={blog.title}
                 fill
                 className="object-cover group-hover:scale-105 transition duration-500"
@@ -45,6 +44,7 @@ const Blog = () => {
 
             {/* CONTENT */}
             <div className="p-6 flex flex-col">
+
               {/* META */}
               <div className="flex gap-3 mb-3 text-sm">
                 <span className="bg-blue-900 text-white px-3 py-1 rounded-full">
@@ -61,14 +61,18 @@ const Blog = () => {
               </h3>
 
               {/* DESCRIPTION */}
-              <p className="text-gray-500 mt-3 text-sm leading-relaxed">
-                {blog.description}
+              <p className="text-gray-500 mt-3 text-sm leading-relaxed line-clamp-3">
+                {blog.caption[0]}
               </p>
 
               {/* READ MORE */}
-              <button className="mt-5 text-blue-900 font-semibold hover:underline w-fit">
+              <Link
+                href={`/blog/${blog.slug}`}
+                className="mt-5 text-blue-900 font-semibold hover:underline w-fit"
+              >
                 Read More →
-              </button>
+              </Link>
+
             </div>
           </div>
         ))}
