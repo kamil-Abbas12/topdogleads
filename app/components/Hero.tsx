@@ -74,16 +74,22 @@ const Hero = () => {
               </div>
 
               {/* RIGHT */}
-              <div className="w-full lg:w-1/2 flex justify-center">
-                <Image
-                  src={slide.img}
-                  width={600}
-                  height={400}
-                  alt="banner"
-                  className="object-contain w-full max-w-md lg:max-w-xl"
-                  priority
-                />
-              </div>
+              {/* RIGHT */}
+<div className="w-full lg:w-1/2 flex justify-center">
+  {/* fixed frame so every slide image is same size */}
+  <div className="relative w-full max-w-md lg:max-w-xl h-[260px] sm:h-[320px] lg:h-[380px]">
+    <Image
+      src={slide.img}
+      alt="banner"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+      className="object-contain"
+      priority={i === 0}
+      quality={90}
+    />
+  </div>
+</div>
+
 
             </div>
           </SwiperSlide>

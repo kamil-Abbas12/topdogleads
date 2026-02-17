@@ -1,7 +1,7 @@
 const Blogs = [
   {
     id: 1,
-    title: "How Pay-Per-Call Marketing Helps Local Businesses Grow Faster",
+    title: "Protection Beyond the Moment: Finding Peace of Mind in Auto Coverage",
     description:
       "Discover how pay-per-call campaigns connect you directly with ready-to-buy customers and improve conversion rates.",
     featureImage: "/b1.jpg",

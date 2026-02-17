@@ -33,7 +33,7 @@ How We Make It Happen
             <div className="relative w-full">
               <div className="relative ml-auto w-full max-w-xl aspect-[16/9]">
                <Image
-    src="/about.jpg"
+    src="/about1.jpg"
     width={600}
     height={400}
     alt="banner"
