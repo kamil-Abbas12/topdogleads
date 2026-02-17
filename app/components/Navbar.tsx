@@ -156,9 +156,12 @@ const router = useRouter();
           </div>
         </div>
 
-        <Link href="/blog" className="text-gray-800 hover:text-blue-600 text-md font-medium">
-Blogs
-        </Link>
+       <a
+                    href="/blog"
+                    className=" text-gray-800 hover:text-blue-600 text-md font-medium"
+                  >
+                    Blogs
+                  </a>
 
         {/* Phone & CTA */}
        <div className="flex items-center gap-3">
@@ -171,11 +174,11 @@ Blogs
 </a>
 
 
-  <Link href="/contact">
+  <a href="/contact">
     <button className="cursor-pointer border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md hover:bg-[#1c2d56]/90">
       Try Top Dog Leads
     </button>
-  </Link>
+  </a>
 </div>
 
       </div>
@@ -190,13 +193,13 @@ Blogs
   <div className="fixed inset-0 bg-white z-50 lg:hidden">
     <div className="flex flex-col gap-6 p-6 pt-24">
       
-      <Link
+      <a
         href="/about"
         className="text-lg font-medium text-gray-900"
         onClick={() => setMobile(false)}
       >
         About
-      </Link>
+      </a>
 
       {/* Mobile Solutions */}
       <div className="flex flex-col">
@@ -223,22 +226,24 @@ Blogs
         )}
       </div>
 
-      <Link
-        href="/blogs"
+      <a
+        href="/blog"
         className="text-lg font-medium text-gray-900"
         onClick={() => setMobile(false)}
       >
         Blogs
-      </Link>
+      </a>
 
       <div className="flex flex-col gap-4 mt-4">
         <span className="flex items-center gap-2 font-semibold text-gray-900">
           <Phone size={18} /> 1 (310) 295 4421
         </span>
+  <a href="/contact">
 
         <button className="w-full bg-[#1c2d56] text-white py-3 rounded-md font-medium">
           Try TopDogLeads
         </button>
+  </a>
       </div>
     </div>
   </div>
