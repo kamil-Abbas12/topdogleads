@@ -13,7 +13,7 @@ const slides = [
   {
     title: "Results That Ring. Pay Only For People.",
     desc: "Stop wasting budget on empty clicks. Connect with verified prospects who are ready to talk — and pay only when a qualified lead calls you.",
-    img: "/results that. ring.webp",
+    img: "/ring.png",
     button: "Try Top Dog Leads",
   },
   {
