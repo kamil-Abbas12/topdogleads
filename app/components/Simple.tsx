@@ -34,7 +34,7 @@ Local competition is cutthroat. So why waste budget on clicks that never convert
               src="/convert.jpg"
               alt="convert"
               fill
-              className="object-contain w-full h-[300px] lg:h-[400px] transition-transform duration-300 group-hover:scale-105"
+              className="object-cover w-full h-[300px] lg:h-[400px] transition-transform duration-300 group-hover:scale-105"
             />
 
             {/* Soft blue tint */}
