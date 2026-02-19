@@ -1,9 +1,13 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react';
 import { manrope } from '@/lib/fonts';
+import { useState } from 'react';
 
 const Simple = () => {
+  const [open, setopen] = useState(false)
+
   return (
     <section className='w-full h-full bg-blue-50 mt-0'>
 
@@ -26,36 +30,54 @@ Local competition is cutthroat. So why waste budget on clicks that never convert
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="right w-full xl:w-1/2 flex justify-center cursor-pointer">
-          <div className="relative w-full max-w-[540px] h-[200px] sm:h-[240px] xl:h-[269px] group overflow-hidden rounded-md">
-            
-            {/* Laptop image */}
-            <Image
-              src="/convert.jpg"
-              alt="convert"
-              fill
-              className="object-cover w-full h-[300px] lg:h-[400px] transition-transform duration-300 group-hover:scale-105"
-            />
+       <div className="right w-full xl:w-1/2 flex justify-center">
+  <div className="relative w-full max-w-[540px] h-[200px] sm:h-[240px] xl:h-[269px] overflow-hidden rounded-md">
 
-            {/* Soft blue tint */}
-            <div
-              className="absolute inset-0  opacity-0
-                         group-hover:opacity-100
-                         transition-opacity duration-300"
-            />
+    {open ? (
+      // VIDEO MODE
+      <>
+        <video
+          src="/video.mp4"
+          controls
+          autoPlay
+          className="w-full h-full object-cover"
+        />
 
-            {/* Play button */}
-            <Image
-              src="/play.png"
-              alt="play"
-              width={45}
-              height={45}
-              className="absolute top-1/2 left-1/2 z-10
-                         -translate-x-1/2 -translate-y-1/2
-                         text-white bg-blue-500 hover:bg-blue-600 sm:w-[55px] sm:h-[55px]"
-            />
-          </div>
+        {/* Close overlay */}
+        <div
+          onClick={() => setopen(false)}
+          className="absolute top-3 right-3 bg-black/60 text-white px-3 py-1 rounded cursor-pointer z-20"
+        >
+          ✕
         </div>
+      </>
+    ) : (
+      // THUMBNAIL MODE
+      <>
+        <Image
+          src="/tab.png"   // your thumbnail image
+          alt="video preview"
+          fill
+          className="object-cover"
+        />
+
+        {/* Play button */}
+        <Image
+          src="/play.png"
+          alt="play"
+          width={60}
+          height={60}
+          onClick={() => setopen(true)}
+          className="absolute top-1/2 left-1/2 z-10
+                     -translate-x-1/2 -translate-y-1/2
+                     cursor-pointer hover:scale-110 transition"
+        />
+      </>
+    )}
+
+  </div>
+</div>
+
       </div>
 
       <div className='border border-gray-300 w-full'></div>
