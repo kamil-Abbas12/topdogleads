@@ -64,7 +64,10 @@ Track success with our live, easy‑to‑use dashboard
 
           {/* Watch Video */}
           <div className="flex items-center gap-2 mt-4 cursor-pointer">
+              <a href="/contact">
+
             <span className="text-blue-500 font-semibold text-sm sm:text-base">Try Top Dog Leads</span>
+            </a>
             <div className="bg-blue-500 rounded-full p-1 sm:p-1.5 flex items-center justify-center">
               <ArrowRight className="text-white" size={arrowSize} />
             </div>
@@ -74,11 +77,11 @@ Track success with our live, easy‑to‑use dashboard
         {/* Right Image */}
         <div className="w-full xl:w-1/2 flex justify-center mt-6 xl:mt-0">
           <Image
-            src="/grow.jpg"
-            alt="Grow Business"
+            src="/fuel.jpeg"
+            alt="Fuel Your Business"
             width={420}
-            height={276}
-            className="object-contain w-full max-w-[420px]"
+            height={200}
+            className="object-contain w-full lg:h-[400px] transition-transform duration-300 hover:scale-105"
           />
         </div>
 

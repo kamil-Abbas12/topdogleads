@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Facebook, X, Linkedin, Video } from "lucide-react";
+import dbConnect from "@/lib/mongodb";
+import Comment from "@/models/Comment";
 
 import { blogs } from "@/data/blogs";
 import CommentForm from "./CommentForm";
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   return blogs.map(b => ({ slug: b.slug }));
@@ -188,6 +191,11 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
   const slug = decodeURIComponent(raw).replace(/\/$/, "");
   const blog = blogs.find(b => b.slug.replace(/\/$/, "") === slug);
   if (!blog) notFound();
+await dbConnect();
+
+const comments = await Comment.find({ slug })
+  .sort({ createdAt: -1 })
+  .lean();
 
 
   return (
@@ -233,6 +241,25 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
             </p>
             <div className="mt-4">
               <CommentForm slug={slug} />
+              {/* COMMENTS LIST */}
+<div className="mt-10 space-y-6">
+  <h3 className="text-xl font-bold">
+    {comments.length} Comments
+  </h3>
+
+  {comments.length === 0 && (
+    <p className="text-gray-500">No comments yet.</p>
+  )}
+
+  {comments.map((c: any) => (
+    <div key={c._id.toString()} className="border-b pb-4">
+      <p className="font-semibold text-slate-900">{c.name}</p>
+      <p className="text-xs text-gray-500">{c.email}</p>
+      <p className="mt-2 text-gray-700">{c.comment}</p>
+    </div>
+  ))}
+</div>
+
             </div>
           </div>
         </article>

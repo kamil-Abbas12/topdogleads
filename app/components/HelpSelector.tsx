@@ -162,8 +162,8 @@ I want calls from customers who need my services.
           <button
             type="button"
             onClick={() => scrollByCards("right")}
-            className="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-1 sm:p-2 shadow hover:bg-white"
-            aria-label="Scroll right"
+            className="absolute right-2 sm:right-4 lg:-right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-1 sm:p-2 shadow hover:bg-white"
+
           >
             <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 sm:h-5 sm:w-5 text-slate-700">
               <path

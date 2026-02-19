@@ -101,37 +101,33 @@ const router = useRouter();
                     </p>
                     <div className="grid grid-cols-2 gap-x-8">
                       <ul className="space-y-2 text-[13px] text-gray-600">
-                        {industryLeft.map((item) => (
-                          <li key={item.label}>
-                            <Link
-                              href={item.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = item.href;
-                              }}
-                              className="hover:text-blue-600 block"
-                            >
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+  {industryLeft.map((item) => (
+    <li key={item.label}>
+      <Link
+        href={item.href}
+        className="hover:text-blue-600 block"
+        onClick={() => setOpen(false)}
+      >
+        {item.label}
+      </Link>
+    </li>
+  ))}
+</ul>
+
                       <ul className="space-y-2 text-[13px] text-gray-600">
-                        {industryRight.map((item) => (
-                          <li key={item.label}>
-                            <Link
-                              href={item.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = item.href;
-                              }}
-                              className="hover:text-blue-600 block"
-                            >
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+  {industryRight.map((item) => (
+    <li key={item.label}>
+      <Link
+        href={item.href}
+        className="hover:text-blue-600 block"
+        onClick={() => setOpen(false)}
+      >
+        {item.label}
+      </Link>
+    </li>
+  ))}
+</ul>
+
                     </div>
                   </div>
                 </div>
@@ -188,11 +184,18 @@ const router = useRouter();
         {mobile ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* MOBILE MENU */}
-   {mobile && (
+ {/* MOBILE MENU */}
+{mobile && (
   <div className="fixed inset-0 bg-white z-50 lg:hidden">
+    {/* Close button at top-right */}
+    <button
+      className="absolute top-5 right-5 text-gray-900"
+      onClick={() => setMobile(false)}
+    >
+      <X size={28} />
+    </button>
+
     <div className="flex flex-col gap-6 p-6 pt-24">
-      
       <a
         href="/about"
         className="text-lg font-medium text-gray-900"
@@ -226,28 +229,29 @@ const router = useRouter();
         )}
       </div>
 
-      <a
-        href="/blog"
-        className="text-lg font-medium text-gray-900"
-        onClick={() => setMobile(false)}
-      >
+      <a href="/blog" className=" text-lg font-medium text-gray-900" onClick={() => setMobile(false)}>
         Blogs
       </a>
 
       <div className="flex flex-col gap-4 mt-4">
-        <span className="flex items-center gap-2 font-semibold text-gray-900">
+        <a
+          href="tel:+16784628013"
+          className="flex items-center gap-2 font-semibold text-gray-900"
+          onClick={() => setMobile(false)}
+        >
           <Phone size={18} /> 1 (310) 295 4421
-        </span>
-  <a href="/contact">
+        </a>
 
-        <button className="w-full bg-[#1c2d56] text-white py-3 rounded-md font-medium">
-          Try TopDogLeads
-        </button>
-  </a>
+        <a href="/contact" onClick={() => setMobile(false)}>
+          <button className="w-full bg-[#1c2d56] text-white py-3 rounded-md font-medium">
+            Try TopDogLeads
+          </button>
+        </a>
       </div>
     </div>
   </div>
 )}
+
 
     </nav>
   );

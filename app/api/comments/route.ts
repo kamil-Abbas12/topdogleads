@@ -1,22 +1,18 @@
 import { NextResponse } from "next/server";
+import dbConnect from "@/lib/mongodb";
+import Comment from "@/models/Comment";
 
-export async function POST(req: Request) {
-  const body = await req.json().catch(() => null);
-  if (!body) return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+export async function GET(req: Request) {
+  await dbConnect();
 
-  const { slug, name, email, comment } = body as {
-    slug?: string;
-    name?: string;
-    email?: string;
-    comment?: string;
-  };
+  const { searchParams } = new URL(req.url);
+  const slug = searchParams.get("slug");
 
-  if (!slug || !name || !email || !comment) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+  if (!slug) {
+    return NextResponse.json([]);
   }
 
-  // TODO: Save to database. For now, just log.
-  console.log("COMMENT_SUBMITTED", { slug, name, email, comment });
+  const comments = await Comment.find({ slug }).sort({ createdAt: -1 });
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json(comments);
 }

@@ -27,8 +27,8 @@ Stop wasting money on ads that don’t convert. With our pay‑per‑call market
         {/* Image */}
         <div className="relative left w-full xl:w-1/2 flex justify-center mt-8 xl:mt-0">
           <Image
-            src="/server.jpg"
-            alt='customer calls'
+            src="/calls.jpg"
+            alt='calls'
             width={420}
             height={276}
             className='object-contain transition-transform duration-300 hover:scale-105'

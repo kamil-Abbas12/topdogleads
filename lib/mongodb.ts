@@ -1,28 +1,15 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI as string;
+const MONGODB_URI = process.env.MONGODB_URI!;
+if (!MONGODB_URI) throw new Error("Missing MONGODB_URI");
 
-if (!MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI in .env.local");
-}
+let cached = (global as any).mongoose as
+  | { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null }
+  | undefined;
 
-type MongooseCache = {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
-};
+if (!cached) cached = (global as any).mongoose = { conn: null, promise: null };
 
-// eslint-disable-next-line no-var
-declare global {
-  var mongoose: MongooseCache | undefined;
-}
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-export default async function dbConnect() {
+export async function dbConnect() {
   if (cached!.conn) return cached!.conn;
 
   if (!cached!.promise) {
@@ -32,7 +19,5 @@ export default async function dbConnect() {
   }
 
   cached!.conn = await cached!.promise;
-  console.log("MONGO URI FOUND:", !!process.env.MONGODB_URI);
-
   return cached!.conn;
 }

@@ -10,11 +10,11 @@ const Visible = () => {
         {/* LEFT IMAGE */}
         <div className="relative left w-full xl:w-1/2 flex justify-center">
           <Image
-            src="/business1.jpg"
-            alt='cheer'
+            src="/customer.jpg"
+            alt='customer'
             width={420}
-            height={276}
-            className='object-contain'
+            height={290}
+            className='object-contain h-[300px] lg:h-[400px] transition-transform duration-300 hover:scale-105'
           />
         </div>
 
