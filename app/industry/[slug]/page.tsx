@@ -204,13 +204,27 @@ if (!slug) {
 
               {/* PHONE INPUT */}
               <PhoneInput
-                country="us"
-                value={phone}
-                onChange={setPhone}
-                enableSearch
-                countryCodeEditable={false}
-                inputStyle={{ width: "100%", height: "48px" }}
-              />
+  country="us"
+  value={phone}
+  onChange={setPhone}
+  enableSearch
+  countryCodeEditable={false}
+  inputStyle={{
+    width: "100%",
+    height: "48px",
+    color: "#243678", // <-- text color
+    fontSize: "16px",
+    backgroundColor: "#ffffff", // optional
+  }}
+  buttonStyle={{
+    backgroundColor: "#ffffff", // make country button visible
+    border: "1px solid #d1d5db", // optional border
+  }}
+  dropdownStyle={{
+    backgroundColor: "#ffffff",
+    color: "#243678", // dropdown text color
+  }}
+/>
 
               {step2Error && (
                 <p className="text-sm text-blue-600">{step2Error}</p>
