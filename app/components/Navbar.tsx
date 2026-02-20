@@ -216,20 +216,36 @@ const router = useRouter();
           Solutions <ChevronDown size={18} />
         </button>
 
-        {mobileDropdown && (
-          <div className="mt-4 pl-4 flex flex-col gap-3">
-            {[...industryLeft, ...industryRight].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-gray-800"
-                onClick={() => setMobile(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        )}
+       {mobileDropdown && (
+  <div className="mt-4 pl-4 flex flex-col gap-4">
+    {/* Solutions CTA */}
+    <Link
+      href="/solution/pay-per-call"
+      className="flex flex-col gap-1 text-gray-800"
+      onClick={() => setMobile(false)}
+    >
+      <span className="text-md font-semibold hover:text-blue-600">Pay Per Call Leads</span>
+      <span className="text-sm text-gray-600">
+        Generate more calls with Ad campaign.
+      </span>
+    </Link>
+
+    {/* Divider */}
+    <div className="border-t border-gray-200 my-2" />
+
+    {/* Industries */}
+    {[...industryLeft, ...industryRight].map((item) => (
+      <Link
+        key={item.label}
+        href={item.href}
+        className="text-gray-800 hover:text-blue-600"
+        onClick={() => setMobile(false)}
+      >
+        {item.label}
+      </Link>
+    ))}
+  </div>
+)}
       </div>
 
       <a href="/blog" className=" text-lg font-medium text-gray-900" onClick={() => setMobile(false)}>
@@ -242,7 +258,7 @@ const router = useRouter();
           className="flex items-center gap-2 font-semibold text-gray-900"
           onClick={() => setMobile(false)}
         >
-          <Phone size={18} /> 1 (310) 295 4421
+          <Phone size={18} /> +1 678 462 8013
         </a>
 
         <a href="/contact" onClick={() => setMobile(false)}>

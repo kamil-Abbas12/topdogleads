@@ -10,7 +10,7 @@ const resources: FooterLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Pay Per Call Leads", href: "/solution/pay-per-call" },
-  { label: "Blogs", href: "/blogs" },
+  { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

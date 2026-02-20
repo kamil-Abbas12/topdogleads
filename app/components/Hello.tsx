@@ -29,13 +29,15 @@ const Hello = () => {
             />
 
             {/* Desktop Button */}
-            <button className="hidden sm:block px-8 py-3 text-sm font-semibold text-white bg-gradient-to-r from-sky-400 to-blue-600">
+            <button className="hidden sm:block px-8 py-3 text-sm font-semibold text-white rounded-full 
+          bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition rounded-md ">
               Sign Up
             </button>
           </div>
 
           {/* Mobile Button */}
-          <button className="sm:hidden w-full mt-4 px-8 py-3 text-sm font-semibold text-white rounded-full bg-gradient-to-r from-sky-400 to-blue-600">
+          <button className="sm:hidden w-full mt-4 px-8 py-3 text-sm font-semibold text-white rounded-full 
+          bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition rounded-md">
             Sign Up
           </button>
 
