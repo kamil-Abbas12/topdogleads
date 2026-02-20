@@ -39,7 +39,7 @@ const PayPerCall = () => {
 
             {/* Input + Buttons */}
             <div className="w-full max-w-md mt-4 mx-auto lg:mx-0">
-              <div className="flex flex-col sm:flex-row items-center bg-white border border-gray-200 rounded-full overflow-hidden shadow-sm">
+              <div className="flex flex-col sm:flex-row items-center bg-gray-100 border border-gray-200 text-gray-900  rounded-full overflow-hidden shadow-sm">
                 <input
                   type="url"
                   placeholder="http://yoursite.com"

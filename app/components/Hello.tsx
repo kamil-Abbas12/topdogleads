@@ -21,7 +21,7 @@ const Hello = () => {
         <div className="w-full max-w-xl mt-8">
           
           {/* Input */}
-          <div className="flex items-center bg-white border border-gray-200 rounded-full overflow-hidden shadow-sm">
+          <div className="flex items-center bg-white  bg-gray-100 border border-gray-200 text-gray-900 rounded-full overflow-hidden shadow-sm">
             <input
               type="url"
               placeholder="http://yoursite.com"
