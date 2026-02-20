@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-
+import { useRouter } from "next/navigation";
 type Service = {
   id: string;
   title: string;
@@ -75,7 +75,18 @@ const SERVICES: Service[] = [
     icon: <IconPlaceholder label="ROOF" />,
   },
 ];
+const SERVICE_ROUTES: Record<string, string> = {
+  "auto-insurance": "/industry/auto-insurance",
+  "final-expense": "/industry/final-expense",
+  "home-insurance": "/industry/home-insurance",
+  "solar": "/industry/solar",
+  "medicare": "/industry/medicare-insurance",
+  "motor-vehicle-accident": "/industry/motor-vehicle-accident",
+  "pest-control": "/industry/pest-control",
+  "roofing": "/industry/roofing",
+};
 export default function HelpSelector() {
+  const router = useRouter();
   const [selectedId, setSelectedId] = React.useState<string>("appliance-repair");
 
   const scrollerRef = React.useRef<HTMLDivElement | null>(null);
@@ -114,8 +125,11 @@ I want calls from customers who need my services.
             <div className="relative w-full sm:w-auto">
               <select
                 value={selectedId}
-                onChange={(e) => setSelectedId(e.target.value)}
-                className="appearance-none border-b border-slate-300 bg-transparent py-1 pl-2 pr-8 text-sm sm:text-base text-slate-800 outline-none focus:border-slate-600 w-full sm:w-auto"
+onChange={(e) => {
+  const id = e.target.value;
+  setSelectedId(id);
+  router.push(SERVICE_ROUTES[id]);
+}}                className="appearance-none border-b border-slate-300 bg-transparent py-1 pl-2 pr-8 text-sm sm:text-base text-slate-800 outline-none focus:border-slate-600 w-full sm:w-auto"
                 aria-label="Select a service"
               >
                 {SERVICES.map((s) => (
@@ -191,8 +205,10 @@ I want calls from customers who need my services.
                   key={s.id}
                   ref={(node) => { cardRefs.current[s.id] = node; }}
                   type="button"
-                  onClick={() => setSelectedId(s.id)}
-                  className={[
+onClick={() => {
+  setSelectedId(s.id);
+  router.push(SERVICE_ROUTES[s.id]);
+}}                  className={[
                     "relative flex w-[180px] sm:w-[220px] md:w-[240px] shrink-0 flex-col items-center text-center bg-white rounded-lg border border-slate-200 px-4 sm:px-5 py-6 sm:py-10 transition duration-200 hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-300",
                     isActive ? "z-10 -translate-y-1 bg-slate-100 shadow-xl" : "opacity-90",
                   ].join(" ")}

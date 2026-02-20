@@ -4,11 +4,12 @@ import { CircleCheck } from 'lucide-react';
 import Link from 'next/link';
 const Visible = () => {
   return (
-    <section className='w-full h-full flex bg-white'>
-      <div className='flex flex-col xl:flex-row justify-between items-center gap-6 sm:gap-8 xl:gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-30 py-10 sm:py-16 xl:py-20'>
+    <section className='w-full h-full flex bg-white lg:mt-0 lg:pt-0'>
+      <div className='flex flex-col lg:flex-row justify-between
+       items-center gap-6 sm:gap-8 xl:gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-30 py-10 sm:py-16 lg:pb-20'>
         
         {/* LEFT IMAGE */}
-        <div className="relative left w-full xl:w-1/2 flex justify-center">
+        <div className="relative left w-full lg:w-1/2 flex justify-center">
           <Image
             src="/customer.jpg"
             alt='customer'
@@ -19,7 +20,7 @@ const Visible = () => {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="right flex flex-col space-y-6 sm:space-y-4 xl:space-y-6 w-full xl:w-1/2">
+        <div className="right flex flex-col space-y-6 sm:space-y-4 xl:space-y-6 w-full lg:w-1/2">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
 Get Seen by the Right Customers  
           </h1>

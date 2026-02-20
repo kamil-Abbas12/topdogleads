@@ -31,7 +31,7 @@ At Top Dog Leads LLC, we believe protection should go beyond paperwork. That’s
    {
     slug: "insurance-leads-growth",
     title: "How Insurance Leads Drive Business Growth",
-    caption: ["Learn how inbound leads transform insurance sales."],
+    caption: ["Learn how inbound leads transform insurance sales. It should feel like strength in stillness, a safety net that steadies "],
     content: "Insurance leads are the backbone of growth...",
     image: "/b1.jpg",
     date: "Feb 10, 2026",
@@ -41,7 +41,7 @@ At Top Dog Leads LLC, we believe protection should go beyond paperwork. That’s
   {
     slug: "digital-marketing-insurance",
     title: "Digital Marketing Strategies for Insurance",
-    caption: ["Modern strategies for lead generation."],
+    caption: ["Protection beyond the moment means peace of mind, even when the road ahead is unclear.  there’s strength."],
     content: "Digital marketing has changed the insurance industry...",
     image: "/b3.jpg",
     date: "Feb 5, 2026",

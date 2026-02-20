@@ -95,9 +95,14 @@ async function onSubmit(e: React.FormEvent) {
         {/* LEFT */}
         <div>
           <div className="text-xs text-black/60">
+          <a href="/" className="hover:text-black/80">
+
             <span className="hover:text-black/80">Home</span>
+            </a>
             <span className="mx-1">/</span>
+            <a href="/contact" className="hover:text-black/80">
             <span className="text-black/80">Contact</span>
+            </a>
           </div>
 
           <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold leading-[1.02] text-blue-900 tracking-tight sm:text-6xl lg:text-7xl">

@@ -58,37 +58,37 @@ export default function Footer() {
             />
           </Link>
 
-          <div className="flex items-star gap-4 xl:pr-40">
-            <Link
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-              className="text-white/80 hover:text-white transition"
-            >
-              <Facebook className="h-5 w-5" />
-            </Link>
+        <div className="flex items-center gap-4 xl:pr-40">
+  <Link
+    href="https://www.facebook.com/TopDogLeadsLLC"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="text-blue-500/80 hover:text-white transition"
+  >
+    <Facebook className="h-5 w-5" />
+  </Link>
 
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-              className="text-white/80 hover:text-white transition"
-            >
-              <Instagram className="h-5 w-5" />
-            </Link>
+  <Link
+    href="https://www.instagram.com/top.dogleadsllc/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="text-pink-500/80 hover:text-white transition"
+  >
+    <Instagram className="h-5 w-5" />
+  </Link>
 
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="text-white/80 hover:text-white transition"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </div>
+  <Link
+    href="https://www.linkedin.com/company/top-dog-leads-llc/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="text-blue-500/80 hover:text-white transition"
+  >
+    <Linkedin className="h-5 w-5" />
+  </Link>
+</div>
         </div>
 
         {/* MAIN GRID */}

@@ -20,10 +20,10 @@ const checkSize = isMobile ? 18 : 22
 
   return (
     <section className="w-full flex bg-white">
-      <div className="flex flex-col xl:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-40 py-10 sm:py-16 xl:py-20">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-40 py-10 sm:py-16 xl:py-20">
         
         {/* Left Content */}
-        <div className="flex flex-col space-y-5 w-full xl:w-1/2">
+        <div className="flex flex-col space-y-5 w-full lg:w-1/2">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-snug">
       Fuel Your Business with Ready‑to‑Buy Customers
 
@@ -64,18 +64,18 @@ Track success with our live, easy‑to‑use dashboard
 
           {/* Watch Video */}
           <div className="flex items-center gap-2 mt-4 cursor-pointer">
-              <a href="/contact">
+              <a href="/solution/pay-per-call" className="flex items-center gap-2 text-sm sm:text-base">
 
-            <span className="text-blue-500 font-semibold text-sm sm:text-base">Try Top Dog Leads</span>
+            <span className="text-[#1c2d56] hover:text-[#1c2d56]/90 font-semibold text-sm sm:text-base">Try Top Dog Leads</span>
             </a>
-            <div className="bg-blue-500 rounded-full p-1 sm:p-1.5 flex items-center justify-center">
+            <div className="bg-[#1c2d56] rounded-full p-1 sm:p-1.5 flex items-center justify-center">
               <ArrowRight className="text-white" size={arrowSize} />
             </div>
           </div>
         </div>
 
         {/* Right Image */}
-        <div className="w-full xl:w-1/2 flex justify-center mt-6 xl:mt-0">
+        <div className="w-full lg:w-1/2 flex justify-center mt-6 xl:mt-0">
           <Image
             src="/fuel.jpeg"
             alt="Fuel Your Business"

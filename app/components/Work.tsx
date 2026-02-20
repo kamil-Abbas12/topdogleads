@@ -5,8 +5,9 @@ import { manrope } from "@/lib/fonts";
 
 const Work = () => {
   return (
-    <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 py-12 md:py-16 lg:py-20 justify-center items-center text-center space-y-4">
+    <section className="w-full bg-white mb-0">
+      <div className="max-w-7xl h-full mx-auto flex flex-col  px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 py-12 md:py-16 
+      lg:pb-0 justify-center items-center text-center space-y-4">
         
         <h2 className="text-sm sm:text-base md:text-lg text-gray-900 font-bold uppercase tracking-wider">
           How It Works

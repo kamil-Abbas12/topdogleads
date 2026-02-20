@@ -112,18 +112,20 @@ if (!slug) {
             Live Leads.Live Calls.Start Today
           </h1>
 
-          <Image
-            src={industry.image}
-            alt={industry.name}
-            width={600}
-            height={400}
-            className="rounded-lg object-cover"
-          />
+        <div className="w-full max-w-lg">
+  <Image
+    src={industry.image}
+    alt={industry.name}
+    width={600}
+    height={400}
+    className="rounded-lg object-cover w-full h-auto"
+  />
+</div>
         </div>
 
         {/* RIGHT SIDE FORM */}
         <div>
-          <h2 className="text-3xl mb-4">Stop Dialing. Start Talking</h2>
+          <h2 className="text-3xl text-gray-900 mb-4">Stop Dialing. Start Talking</h2>
 
           <p className="text-gray-600 mb-8 max-w-md">
             Join thousands of agents using Top Dog Leads to get high-intent

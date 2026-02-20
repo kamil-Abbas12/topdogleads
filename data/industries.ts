@@ -14,13 +14,13 @@ export const industries = [
   {
     slug: "home-insurance",
     name: "Home Insurance",
-    image: "/home1.jpg",
+    image: "/forest.jpg",
     phone: "+1 678 462 8013",
   },
   {
     slug: "medicare-insurance",
     name: "Medicare Insurance",
-    image: "/medicare.png",
+    image: "/med.jpg",
     phone: "+1 678 462 8013",
   },
   {
@@ -38,7 +38,7 @@ export const industries = [
   {
     slug: "final-expense",
     name: "Final Expense",
-    image: "/final.png",
+    image: "/finalexpense.jpg",
     phone: "+1 678 462 8013",
   },
   {

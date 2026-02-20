@@ -12,10 +12,11 @@ const PayPerCall = () => {
     <>
       {/* Hero Section */}
       <section className="w-full bg-white">
-        <div className="flex flex-col xl:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-40 py-10 sm:py-16 xl:py-20">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40
+         py-10 sm:py-16 xl:py-20">
           
           {/* Left Content */}
-          <div className="flex flex-col space-y-3 w-full xl:w-1/2 text-center xl:text-left">
+          <div className="flex flex-col space-y-3 w-full lg:w-1/2 text-center lg:text-left">
             
             <h3 className="text-md sm:text-lg md:text-xl uppercase text-blue-900 leading-snug">
               Welcome to Top Dog Leads
@@ -38,7 +39,7 @@ const PayPerCall = () => {
             </h1>
 
             {/* Input + Button */}
-            <div className="w-full max-w-md mt-4 mx-auto xl:mx-0">
+            <div className="w-full max-w-md mt-4 mx-auto lg:mx-0">
               <div className="flex flex-col sm:flex-row items-center bg-white border border-gray-200 rounded-full overflow-hidden shadow-sm">
                 <input
                   type="url"
@@ -57,7 +58,7 @@ const PayPerCall = () => {
           </div>
 
           {/* Right Image */}
-          <div className="w-full xl:w-1/2 flex justify-center mt-6 xl:mt-0">
+          <div className="w-full lg:w-1/2 flex justify-center mt-6 xl:mt-0">
             <Image
               src="/new.jpg"
               alt="Grow Business"

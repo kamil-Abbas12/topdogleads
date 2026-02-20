@@ -1,7 +1,7 @@
 import Image from "next/image";
 // import AboutCallCenter from "../components/AboutCallCenter";
 import { manrope } from "@/lib/fonts";
-
+import Link from "next/link";
 export const metadata = {
   title: "About | Top Dog Leads",
   description: "Learn more about Top Dog Leads and what we do.",
@@ -75,12 +75,12 @@ We optimize across multiple digital channels to ensure one outcome: conversation
               </div>
 
               <div className="mt-8">
-                <a
-                  href="/"
-                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition"
+                <Link
+                  href="/solution/pay-per-call"
+                  className="inline-flex items-center gap-2 text-[#1c2d56] font-semibold hover:text-blue-700 transition"
                 >
                   Try Top Dog Leads for free <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </div>
             </div>
 

@@ -52,7 +52,7 @@ export default function StatsSection() {
           </div>
 
           {/* RIGHT STATS */}
-          <div className="w-full space-y-10 text-center lg:text-left">
+          <div className="w-full space-y-10 text-center lg:text-left lg:pl-20">
             
             {/* STAT 1 */}
             <div>

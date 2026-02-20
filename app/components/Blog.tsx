@@ -26,11 +26,11 @@ const Blog = () => {
       </div>
 
       {/* BLOG GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {blogs.map((blog) => (
           <div
             key={blog.slug}
-            className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+            className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full"
           >
             {/* IMAGE */}
             <div className="relative w-full h-[230px] overflow-hidden">
@@ -43,7 +43,7 @@ const Blog = () => {
             </div>
 
             {/* CONTENT */}
-            <div className="p-6 flex flex-col">
+            <div className="p-6 flex flex-col flex-1">
 
               {/* META */}
               <div className="flex gap-3 mb-3 text-sm">
@@ -55,8 +55,8 @@ const Blog = () => {
                 </span>
               </div>
 
-              {/* TITLE */}
-              <h3 className="text-lg font-semibold text-gray-900 leading-snug group-hover:text-blue-900 transition">
+              {/* TITLE (fixed height for alignment) */}
+              <h3 className="text-lg font-semibold text-gray-900 leading-snug group-hover:text-blue-900 transition min-h-[56px]">
                 {blog.title}
               </h3>
 
@@ -68,7 +68,7 @@ const Blog = () => {
               {/* READ MORE */}
               <Link
                 href={`/blog/${blog.slug}`}
-                className="mt-5 text-blue-900 font-semibold hover:underline w-fit"
+                className="mt-auto pt-6 text-blue-900 font-semibold hover:underline w-fit"
               >
                 Read More →
               </Link>

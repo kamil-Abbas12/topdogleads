@@ -142,10 +142,13 @@ const router = useRouter();
                       No Setup Fee. No Monthly Service Fee. No Cancellation Fee.
                     </p>
                   </div>
+                  <Link href="/contact">
                   <button className="mt-4 inline-flex  items-center justify-center cursor-pointer font-semibold text-md
                    bg-[#1c2d56] hover:bg-[#1c2d56]/90  text-white text-md px-2 py-2.5 rounded transition">
-                    Try TopDogLeads
+                    Try Top Dog Leads
                   </button>
+                                    </Link>
+
                 </div>
               </div>
             </div>
