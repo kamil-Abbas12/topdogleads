@@ -217,7 +217,7 @@ onClick={() => {
                   <div className="mb-3 sm:mb-4 h-20 sm:h-30 w-16 flex items-center justify-center">{s.icon}</div>
                   <div className="text-sm sm:text-base font-semibold text-gray-900">{s.title}</div>
                   <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-gray-500">{s.description}</p>
-                  <span className="mt-3 sm:mt-5 text-[11px] sm:text-[11px] font-semibold text-sky-600">{s.cta}</span>
+                  <span className="mt-3 sm:mt-5 text-[11px] sm:text-[11px] font-semibold text-[#1c2d56]">{s.cta}</span>
                 </button>
               );
             })}

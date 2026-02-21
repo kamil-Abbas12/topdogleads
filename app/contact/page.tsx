@@ -16,17 +16,13 @@ const INTERESTS: InterestOption[] = [
   { label: "Solar", value: "solar" },
 ];
 
-
 export default function ContactSplit() {
   const [toast, setToast] = React.useState<{
-  show: boolean;
-  message: string;
-  type: "success" | "error";
-}>({
-  show: false,
-  message: "",
-  type: "success",
-});
+    show: boolean;
+    message: string;
+    type: "success" | "error";
+  }>({ show: false, message: "", type: "success" });
+
   const [form, setForm] = React.useState({
     name: "",
     email: "",
@@ -41,213 +37,117 @@ export default function ContactSplit() {
     setForm((p) => ({ ...p, [name]: value }));
   }
 
-async function onSubmit(e: React.FormEvent) {
-  e.preventDefault();
-
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
       setToast({
         show: true,
-        message: "Message sent successfully!",
-        type: "success",
+        message: data.success ? "Message sent successfully!" : data.message || "Failed to send",
+        type: data.success ? "success" : "error",
       });
-
-      setForm({
-        name: "",
-        email: "",
-        interest: "",
-        message: "",
-      });
-    } else {
-      setToast({
-        show: true,
-        message: data.message || "Failed to send",
-        type: "error",
-      });
+      if (data.success) {
+        setForm({ name: "", email: "", interest: "", message: "" });
+      }
+    } catch {
+      setToast({ show: true, message: "Something went wrong!", type: "error" });
     }
-  } catch (error) {
-    setToast({
-      show: true,
-      message: "Something went wrong!",
-      type: "error",
-    });
+    setTimeout(() => setToast((t) => ({ ...t, show: false })), 4000);
   }
-
-  setTimeout(() => {
-    setToast((t) => ({ ...t, show: false }));
-  }, 4000);
-}
-
 
   return (
     <section className="min-h-screen bg-white text-black">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-6 py-16 lg:grid-cols-2 lg:gap-20 lg:py-20">
-        {/* LEFT */}
-        <div>
-          <div className="text-xs text-black/60">
-          <a href="/" className="hover:text-black/80">
-
-            <span className="hover:text-black/80">Home</span>
-            </a>
-            <span className="mx-1">/</span>
-            <a href="/contact" className="hover:text-black/80">
-            <span className="text-black/80">Contact</span>
-            </a>
-          </div>
-
-          <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold leading-[1.02] text-blue-900 tracking-tight sm:text-6xl lg:text-7xl">
-            Let’s make <br />
-            great things <br />
-            happen.
-          </h1>
-        </div>
-
-        {/* RIGHT */}
-        <div className="lg:pt-2">
-          <h2 className="text-lg font-medium tracking-tight sm:text-xl">
-            Why don’t we start with your name?
-          </h2>
-
-          <form onSubmit={onSubmit} className="mt-10 space-y-8">
-            {/* Name */}
-            <div>
-              <label className="sr-only" htmlFor="name">
-                Your Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                value={form.name}
-                onChange={onChange}
-                placeholder="Your Name"
-                className="w-full bg-transparent pb-3 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
-              />
-            </div>
-
-            {/* Email */}
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">
-                EMAIL ADDRESS*
-              </div>
-              <label className="sr-only" htmlFor="email">
-                Your Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={onChange}
-                placeholder="Your Email Address"
-                className="mt-3 w-full bg-transparent pb-3 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
-              />
-            </div>
-
-            {/* Interest */}
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">
-                INTEREST*
-              </div>
-              <label className="sr-only" htmlFor="interest">
-                Select a Service
-              </label>
-
-              <div className="relative mt-3">
-                <select
-                  id="interest"
-                  name="interest"
-                  value={form.interest}
-                  onChange={onChange}
-                  className="w-full appearance-none bg-transparent pb-3 pr-10 text-sm text-black outline-none border-b border-black/20 focus:border-black/70"
-                >
-                  {INTERESTS.map((o) => (
-                    <option key={o.value} value={o.value} className="text-black">
-                      {o.label}
-                    </option>
-                  ))}
-                </select>
-
-                {/* caret */}
-                <svg
-                  className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-black/60"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            {/* Message */}
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">
-                WHAT’S ON YOUR MIND?
-              </div>
-              <label className="sr-only" htmlFor="message">
-                Tell us about your business
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={form.message}
-                onChange={onChange}
-                placeholder="Tell us about your business"
-                rows={3}
-                className="mt-3 w-full resize-none bg-transparent pb-3 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
-              />
-            </div>
-
-            {/* Button */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="inline-flex h-11 w-40 items-center justify-center bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition
-                 text-xs font-semibold tracking-[0.22em] rounded-md cursor-pointer text-white focus:outline-none focus:ring-2 focus:ring-black/20"
-              >
-                SEND
-              </button>
-            </div>
-          </form>
-        </div>
+  <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 py-16 items-start">
+    {/* LEFT */}
+    <div className="flex flex-col justify-start">
+      <div className="text-xs text-black/60">
+        <a href="/" className="hover:text-black/80">Home</a>
+        <span className="mx-1">/</span>
+        <a href="tel:+16784628013" className="hover:text-black/80">Contact</a>
       </div>
-      {/* TOAST */}
-{toast.show && (
-  <div className="fixed top-6 right-6 z-50 animate-toast">
-    <div
-      className={`flex items-center gap-3 px-5 py-4 rounded-lg shadow-lg text-white
-      ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
-    >
-      {/* Icon */}
-      {toast.type === "success" ? (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      ) : (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      )}
 
-      <p className="font-medium">{toast.message}</p>
+      <h1 className="mt-2 max-w-[12ch] text-5xl font-semibold leading-tight text-blue-900 sm:text-6xl lg:text-7xl">
+        Let’s make <br />
+        great things <br />
+        happen.
+      </h1>
+    </div>
+
+    {/* RIGHT FORM */}
+    <div className="flex flex-col justify-start lg:pt-0">
+      <h2 className="text-lg font-medium tracking-tight sm:text-xl mb-4">
+        Why don’t we start with your name?
+      </h2>
+
+      <form onSubmit={onSubmit} className="space-y-5">
+        {/* Name */}
+        <input
+          id="name"
+          name="name"
+          value={form.name}
+          onChange={onChange}
+          placeholder="Your Name"
+          className="w-full bg-transparent pb-2 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
+        />
+
+        {/* Email */}
+        <div>
+          <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">EMAIL ADDRESS*</div>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={onChange}
+            placeholder="Your Email Address"
+            className="mt-1 w-full bg-transparent pb-2 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
+          />
+        </div>
+
+        {/* Interest */}
+        <div>
+          <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">INTEREST*</div>
+          <select
+            id="interest"
+            name="interest"
+            value={form.interest}
+            onChange={onChange}
+            className="mt-1 w-full bg-transparent pb-2 pr-8 text-sm text-black outline-none border-b border-black/20 focus:border-black/70"
+          >
+            {INTERESTS.map((o) => (
+              <option key={o.value} value={o.value} className="text-black">{o.label}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Message */}
+        <div>
+          <div className="text-[11px] font-semibold tracking-[0.14em] text-black/70">WHAT’S ON YOUR MIND?</div>
+          <textarea
+            id="message"
+            name="message"
+            value={form.message}
+            onChange={onChange}
+            placeholder="how can we help you?"
+            className="mt-1 w-full h-15 resize-none bg-transparent pb-2 text-sm text-black placeholder:text-black/40 outline-none border-b border-black/20 focus:border-black/70"
+          />
+        </div>
+
+        {/* Button */}
+        <button
+          type="submit"
+          className="inline-flex h-11 w-40 items-center justify-center bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-xs font-semibold tracking-[0.22em] rounded-md text-white transition"
+        >
+          SEND
+        </button>
+      </form>
     </div>
   </div>
-)}
-
-    </section>
+</section>
   );
 }

@@ -14,7 +14,7 @@ const Work = () => {
         </h2>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 leading-tight">
-Stop Paying for Empty Traffic—Start Paying for Real Results. 
+Stop Paying for Empty Traffic-Start Paying for Real Results. 
         </h1>
 
         <p className={`${manrope.className} text-gray-900 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>

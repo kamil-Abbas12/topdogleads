@@ -26,7 +26,7 @@ Get Seen by the Right Customers
           </h1>
           <h2 className='text-base sm:text-lg font-medium text-gray-950 leading-relaxed'>
 Visibility online isn’t just important. It’s essential for growth. When local customers can easily find you, your business thrives.
-At Top Dog Leads, we make sure you’re not just visible—you’re unforgettable.  </h2>
+At Top Dog Leads, we make sure you’re not just visible-you’re unforgettable.  </h2>
 
           <div className='flex flex-col gap-4 sm:gap-5'>
             <div className='flex gap-2 items-center'>
