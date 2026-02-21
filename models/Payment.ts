@@ -12,7 +12,9 @@ const PaymentSchema = new Schema(
 
     amountTotal: Number,
     currency: String,
-
+    paymentMethod: String,
+    receiptUrl: String,
+    customerName: String,
     customerEmail: String,
     customerId: String,
 
