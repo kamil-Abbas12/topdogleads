@@ -13,26 +13,26 @@ const slides = [
   {
     title: "Results That Ring. Pay Only For People.",
     desc: "Stop wasting budget on empty clicks. Connect with verified prospects who are ready to talk — and pay only when a qualified lead calls you.",
-    img: "/ring.png",
+    Image: "/ring.png",
     button: "Try Top Dog Leads",
   },
   {
     title: "Trusted by 5,000+ Local Businesses",
     desc: "Join 100+ Businesses Dominating their Market with Top Dog Leads. Scale your growth and start capturing high-intent calls while your competitors are still chasing clicks.",
-    img: "/trusted by 5000.webp",
+    Image: "/trusted by 5000.webp",
     button: "Try Top Dog Leads",
   },
   {
     title: "Stop Chasing Leads. Start Closing Deals.",
     desc: "Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
-    img: "/stop chasing deals.webp",
+    Image: "/stop chasing deals.webp",
     button: "Get Started",
   },
 ];
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-x-hidden bg-white px-4 sm:px-6 lg:px-12 xl:px-24 py-12 lg:py-20">
+    <section className="relative w-full overflow-x-hidden bg-white px-4 sm:px-6 lg:px-12 xl:px-25 py-12 lg:py-20">
 
       <Swiper
         modules={[Autoplay]}
@@ -62,7 +62,7 @@ const Hero = () => {
                 </p>
 
                 <Link href="/contact">
-                  <button className="px-7 py-4 bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition font-semibold text-white rounded-lg">
+                  <button className="px-7 py-4 bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition cursor-pointer font-semibold text-white rounded-lg">
                     {slide.button}
                   </button>
                 </Link>
@@ -73,12 +73,12 @@ const Hero = () => {
               <div className="w-full lg:w-1/2 flex justify-center">
                 <div className="relative w-full max-w-md lg:max-w-xl h-[260px] sm:h-[320px] lg:h-[400px]">
                   <Image
-                    src={slide.img}
+                    src={slide.Image}
                     alt="hero banner"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                     className="object-contain"
-                    priority={i === 0}
+loading={i === 0 ? "eager" : "lazy"}
                     quality={90}
                   />
                 </div>

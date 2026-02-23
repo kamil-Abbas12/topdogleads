@@ -47,7 +47,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0B2350]">
-      <div className="mx-auto max-w-6xl px-10 pt-10">
+      <div className="mx-auto max-w-7xl px-10 xl:px-20  pt-10">
         {/* TOP ROW: Logo (left) + Social (right) */}
         <div className="flex items-center justify-between">
           <Link href="/" className="inline-flex">

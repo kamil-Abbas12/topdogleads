@@ -20,7 +20,7 @@ const checkSize = isMobile ? 18 : 22
 
   return (
     <section className="w-full flex bg-white">
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-40 py-10 sm:py-16 xl:py-20">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-25 py-10 sm:py-16 xl:py-20">
         
         {/* Left Content */}
         <div className="flex flex-col space-y-5 w-full lg:w-1/2">

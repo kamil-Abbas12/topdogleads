@@ -11,7 +11,7 @@ const Simple = () => {
   return (
     <section className='w-full h-full bg-blue-50 mt-0'>
 
-      <div className='flex flex-col lg:flex-row w-full h-full justify-between items-start px-4 sm:px-6 md:px-10 xl:px-45 py-10 sm:py-20 xl:py-30 gap-8 sm:gap-10 xl:gap-10'>
+      <div className='flex flex-col lg:flex-row w-full h-full justify-between items-start px-4 sm:px-6 md:px-10 xl:px-25 py-10 sm:py-20 xl:py-30 gap-8 sm:gap-10 xl:gap-10'>
         {/* LEFT SIDE */}
         <div className="left flex flex-col space-y-5 w-full xl:w-1/2">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold leading-snug text-blue-900'>

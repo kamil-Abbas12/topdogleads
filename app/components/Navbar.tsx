@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { roboto, poppins } from "@/lib/fonts";
+import Image from "next/image";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -32,12 +33,14 @@ const router = useRouter();
       {/* LOGO */}
    <div className="flex items-center cues-pointer" onClick={() => router.push("/")}>
   <Link href="/">
-    <img
-
-      src="/logo.jpg"
-      alt="TopDogLead"
-      className="w-40 h-auto cursor-pointer"
-    />
+   <Image
+  src="/logo.jpg"
+  alt="TopDogLead"
+  width={160}
+  height={160}
+  priority
+  className="w-40 h-auto"
+/>
   </Link>
 </div>
 

@@ -118,6 +118,8 @@ if (!slug) {
     alt={industry.name}
     width={600}
     height={400}
+      fetchPriority="high"
+
     className="rounded-lg object-cover w-full h-auto"
   />
 </div>

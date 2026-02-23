@@ -98,7 +98,7 @@ function ProductCard({ p, slug }: { p: Plan; slug: string }) {
       <div className="mt-auto pt-6">
         {p.isCustom ? (
           <Link href="/contact">
-            <button className="w-full h-12 flex items-center justify-center rounded-lg bg-orange-600 text-white font-semibold hover:bg-orange-700 transition">
+            <button className="w-full h-12 cursor-pointer flex items-center justify-center rounded-lg bg-orange-600 text-white font-semibold hover:bg-orange-700 transition">
               Contact Sales
             </button>
           </Link>
@@ -106,7 +106,7 @@ function ProductCard({ p, slug }: { p: Plan; slug: string }) {
           <BuyButton
             slug={slug}
             planId={p.id}
-            className={`w-full h-12 flex items-center justify-center rounded-lg font-semibold transition ${buttonClass}`}
+            className={`w-full h-12 cursor-pointer flex items-center justify-center rounded-lg font-semibold transition ${buttonClass}`}
           />
         )}
 

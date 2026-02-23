@@ -6,7 +6,7 @@ const Visible = () => {
   return (
     <section className='w-full h-full flex bg-white lg:mt-0 lg:pt-0'>
       <div className='flex flex-col lg:flex-row justify-between
-       items-center gap-6 sm:gap-8 xl:gap-10 w-full px-4 sm:px-6 md:px-10 xl:px-30 py-10 sm:py-16 lg:pb-20'>
+       items-center gap-6 sm:gap-8 xl:gap-15 w-full px-4 sm:px-6 md:px-10 xl:px-20 py-10 sm:py-16 lg:pb-20'>
         
         {/* LEFT IMAGE */}
         <div className="relative left w-full lg:w-1/2 flex justify-center">

@@ -5,10 +5,10 @@ import Link from 'next/link'
 const Customers = () => {
   return (
     <section className='w-full h-full flex bg-white'>
-      <div className='flex flex-col lg:flex-row justify-between items-center gap-8 w-full px-6 sm:px-10 md:px-20 xl:px-30 py-12 sm:py-16 xl:py-20'>
+      <div className='flex flex-col lg:flex-row justify-between items-center gap-8 w-full px-6 sm:px-10 md:px-10 xl:px-25 py-12 sm:py-16 xl:py-20'>
 
         {/* Text Content */}
-        <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2 xl:pl-20">
+        <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2 ">
           <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
 Over 300,000 Customer Calls Delivered
           </h1>
