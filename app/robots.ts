@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://topdogleads.com/sitemap.xml",
+    sitemap: "https://topdoglead.com/sitemap.xml",
   };
 }
