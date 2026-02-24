@@ -90,7 +90,7 @@ if (!slug) {
       const data = await res.json();
 
       if (data.success) {
-        router.push(`/industry/${slug}/sales`);
+router.push(`/industry/${slug}/sales?email=${email}&company=${company}`);
       } else {
         setStep2Error(data.message || "Submission failed");
       }

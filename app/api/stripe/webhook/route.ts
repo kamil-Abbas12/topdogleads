@@ -54,31 +54,33 @@ export async function POST(req: Request) {
           paymentMethod = intent.payment_method_types?.[0] || null;
         }
 
-        await Payment.create({
-          stripeEventId: event.id,
+       await Payment.create({
+  stripeEventId: event.id,
 
-          stripeCheckoutSessionId: session.id,
-          stripePaymentIntentId: session.payment_intent || null,
+  stripeCheckoutSessionId: session.id,
+  stripePaymentIntentId: session.payment_intent || null,
 
-          industrySlug: session.metadata?.industrySlug,
-          planId: session.metadata?.planId,
+  industrySlug: session.metadata?.industrySlug,
+  planId: session.metadata?.planId,
 
-          // ⭐ convert cents → dollars
-          amountTotal: session.amount_total / 100,
-          currency: session.currency,
+  // ⭐ ADD THESE FOR DASHBOARD
+  customerEmail: session.metadata?.email || session.customer_details?.email,
+  customerName: session.customer_details?.name,
+  company: session.metadata?.company || null,
 
-          customerName: session.customer_details?.name,
-          customerEmail: session.customer_details?.email,
-          customerId: session.customer || null,
+  amountTotal: session.amount_total / 100,
+  currency: session.currency,
 
-          paymentMethod,
-          receiptUrl,
+  customerId: session.customer || null,
 
-          status: session.payment_status,
-          mode: session.mode,
+  paymentMethod,
+  receiptUrl,
 
-          raw: session,
-        });
+  status: session.payment_status,
+  mode: session.mode,
+
+  raw: session,
+});
 
         break;
       }

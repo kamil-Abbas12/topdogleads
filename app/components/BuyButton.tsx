@@ -5,22 +5,36 @@ import { useState } from "react";
 export function BuyButton({
   slug,
   planId,
+  email,
+  company,
   className,
 }: {
   slug: string;
   planId: string;
+  email: string;
+  company: string;
   className: string;
 }) {
   const [loading, setLoading] = useState(false);
 
   async function onBuy() {
+    if (!email) {
+      alert("Missing email. Please fill form first.");
+      return;
+    }
+
     try {
       setLoading(true);
 
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, planId }),
+        body: JSON.stringify({
+          slug,
+          planId,
+          email,
+          company,
+        }),
       });
 
       const data = await res.json();

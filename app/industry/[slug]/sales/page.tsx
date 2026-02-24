@@ -45,7 +45,18 @@ function CheckBullet({
   );
 }
 
-function ProductCard({ p, slug }: { p: Plan; slug: string }) {
+/* ⭐ UPDATED — now receives email + company */
+function ProductCard({
+  p,
+  slug,
+  email,
+  company,
+}: {
+  p: Plan;
+  slug: string;
+  email: string;
+  company: string;
+}) {
   const isDark = p.variant === "pro" || p.variant === "enterprise";
 
   const cardClass =
@@ -98,7 +109,7 @@ function ProductCard({ p, slug }: { p: Plan; slug: string }) {
       <div className="mt-auto pt-6">
         {p.isCustom ? (
           <Link href="/contact">
-            <button className="w-full h-12 cursor-pointer flex items-center justify-center rounded-lg bg-orange-600 text-white font-semibold hover:bg-orange-700 transition">
+            <button className="w-full h-12 rounded-lg bg-orange-600 text-white font-semibold hover:bg-orange-700 transition">
               Contact Sales
             </button>
           </Link>
@@ -106,7 +117,9 @@ function ProductCard({ p, slug }: { p: Plan; slug: string }) {
           <BuyButton
             slug={slug}
             planId={p.id}
-            className={`w-full h-12 cursor-pointer flex items-center justify-center rounded-lg font-semibold transition ${buttonClass}`}
+            email={email}
+            company={company}
+            className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
           />
         )}
 
@@ -128,72 +141,69 @@ function ProductCard({ p, slug }: { p: Plan; slug: string }) {
   );
 }
 
+/* =========================
+   ⭐ MAIN PAGE — FIXED
+   ========================= */
 
-// ✅ IMPORTANT: params is a Promise in your Next version
 export default async function SalesPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ email?: string; company?: string }>;
 }) {
   const { slug } = await params;
+  const query = await searchParams;
+
+  const email = query.email || "";
+  const company = query.company || "";
 
   const productIndustry = productIndustries.find((i) => i.slug === slug);
   if (!productIndustry) return notFound();
 
   const meta = metaIndustries.find((i) => i.slug === slug);
 
-  // If your /public/solar.jpg doesn't exist, use productIndustry.image instead.
-// ✅ Always use the product image (purple.jpg)
-const heroImage = productIndustry.image;
+  const heroImage = productIndustry.image;
   const heroTitle = productIndustry.name;
 
-  const plans: Plan[] = Array.isArray(productIndustry.plans) ? (productIndustry.plans as Plan[]) : [];
+  const plans: Plan[] = Array.isArray(productIndustry.plans)
+    ? (productIndustry.plans as Plan[])
+    : [];
 
   return (
     <main className="w-full bg-white">
       <section className="relative w-full">
         <div className="relative w-full h-[180px] sm:h-[220px] lg:h-[260px] overflow-hidden">
-          <Image
-            src={heroImage}
-            alt={heroTitle}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
+          <Image src={heroImage} alt={heroTitle} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-white font-extrabold text-3xl sm:text-4xl">
-              {heroTitle}
-            </h1>
+            <h1 className="text-white font-extrabold text-3xl sm:text-4xl">{heroTitle}</h1>
 
             <p className="text-white/90 text-sm sm:text-base mt-2">
-              <Link href="/" className="underline underline-offset-4">
-                Home
-              </Link>
+              <Link href="/" className="underline">Home</Link>
               <span className="mx-2">•</span>
-              <Link href={`/industry/${slug}`} className="underline underline-offset-4">
+              <Link href={`/industry/${slug}`} className="underline">
                 {meta?.name ?? "Industry"}
               </Link>
               <span className="mx-2">•</span> Sales
             </p>
-
-            {meta?.phone && (
-              <p className="mt-3 text-white/90 text-sm">
-                Questions? <span className="font-semibold">{meta.phone}</span>
-              </p>
-            )}
           </div>
         </div>
       </section>
-<section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch">
-    {plans.map((plan) => (
-      <ProductCard key={plan.id} p={plan} slug={slug} />
-    ))}
-  </div>
-</section>
 
+      <section className="mx-auto max-w-7xl px-4 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {plans.map((plan) => (
+            <ProductCard
+              key={plan.id}
+              p={plan}
+              slug={slug}
+              email={email}
+              company={company}
+            />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

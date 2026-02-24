@@ -5,23 +5,28 @@ import { industries as productIndustries } from "@/data/products";
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-  const { slug, planId } = await req.json();
+  const { slug, planId, email, company } = await req.json();
 
   const industry = productIndustries.find((i) => i.slug === slug);
-  if (!industry) return NextResponse.json({ error: "Invalid slug" }, { status: 400 });
+  if (!industry) {
+    return NextResponse.json({ error: "Invalid slug" }, { status: 400 });
+  }
 
   const plan = (industry.plans || []).find((p: any) => p.id === planId);
-  if (!plan) return NextResponse.json({ error: "Invalid planId" }, { status: 400 });
+  if (!plan) {
+    return NextResponse.json({ error: "Invalid planId" }, { status: 400 });
+  }
 
   if (plan.price == null) {
-    return NextResponse.json({ error: "Custom plans cannot be purchased" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Custom plans cannot be purchased" },
+      { status: 400 }
+    );
   }
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL!;
   const amount = Math.round(Number(plan.price) * 100);
 
-  // RECOMMENDED (production): use Stripe Price IDs instead of price_data
-  // If you add `stripePriceId` into your plan object, switch to line_items: [{ price: plan.stripePriceId, quantity: 1 }]
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
@@ -40,13 +45,18 @@ export async function POST(req: Request) {
       },
     ],
 
-    // Put identifiers here so webhook can store them reliably:
+    // ⭐ VERY IMPORTANT — used by dashboard
     metadata: {
       industrySlug: String(slug),
       planId: String(planId),
+      email: String(email),
+      company: String(company),
     },
 
-    success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+    // also prefill Stripe email UI
+    customer_email: email,
+
+    success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&email=${email}`,
     cancel_url: `${appUrl}/checkout/cancel`,
   });
 
