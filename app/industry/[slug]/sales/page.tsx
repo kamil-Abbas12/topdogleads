@@ -119,6 +119,7 @@ function ProductCard({
             planId={p.id}
             email={email}
             company={company}
+            name={p.title}
             className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
           />
         )}
