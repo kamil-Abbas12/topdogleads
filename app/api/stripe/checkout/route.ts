@@ -5,7 +5,7 @@ import { industries as productIndustries } from "@/data/products";
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-  const { slug, planId, email, company } = await req.json();
+const { slug, planId, email, company, name } = await req.json();
 
   const industry = productIndustries.find((i) => i.slug === slug);
   if (!industry) {
@@ -47,11 +47,12 @@ export async function POST(req: Request) {
 
     // ⭐ VERY IMPORTANT — used by dashboard
     metadata: {
-      industrySlug: String(slug),
-      planId: String(planId),
-      email: String(email),
-      company: String(company),
-    },
+  industrySlug: String(slug),
+  planId: String(planId),
+  email: String(email),
+  company: String(company),
+  name: String(name),
+},
 
     // also prefill Stripe email UI
     customer_email: email,

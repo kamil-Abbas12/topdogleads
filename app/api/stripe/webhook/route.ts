@@ -64,8 +64,10 @@ export async function POST(req: Request) {
   planId: session.metadata?.planId,
 
   // ⭐ ADD THESE FOR DASHBOARD
+  // app/api/stripe/webhook/route.ts
+customerName: session.metadata?.name || session.customer_details?.name,
+
   customerEmail: session.metadata?.email || session.customer_details?.email,
-  customerName: session.customer_details?.name,
   company: session.metadata?.company || null,
 
   amountTotal: session.amount_total / 100,

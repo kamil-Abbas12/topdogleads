@@ -2,18 +2,13 @@
 
 import { useState } from "react";
 
-export function BuyButton({
-  slug,
-  planId,
-  email,
-  company,
-  className,
-}: {
+export function BuyButton({ slug, planId, email, company, name, className }: {
   slug: string;
-  planId: string;
-  email: string;
-  company: string;
-  className: string;
+   planId: string;
+    email: string;
+   company: string; 
+   name: string;
+    className: string;
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -34,6 +29,7 @@ export function BuyButton({
           planId,
           email,
           company,
+          name,
         }),
       });
 
