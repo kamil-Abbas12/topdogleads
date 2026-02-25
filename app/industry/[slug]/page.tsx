@@ -90,8 +90,11 @@ if (!slug) {
       const data = await res.json();
 
       if (data.success) {
-router.push(`/industry/${slug}/sales?email=${email}&company=${company}`);
-      } else {
+router.push(
+  `/industry/${slug}/sales?email=${encodeURIComponent(email)}&company=${encodeURIComponent(company)}&buyerName=${encodeURIComponent(buyerName)}`
+);
+
+;      } else {
         setStep2Error(data.message || "Submission failed");
       }
     } catch {

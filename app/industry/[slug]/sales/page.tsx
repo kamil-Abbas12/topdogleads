@@ -51,12 +51,15 @@ function ProductCard({
   slug,
   email,
   company,
+  buyerName,
 }: {
   p: Plan;
   slug: string;
   email: string;
   company: string;
+  buyerName: string;
 }) {
+
   const isDark = p.variant === "pro" || p.variant === "enterprise";
 
   const cardClass =
@@ -115,13 +118,15 @@ function ProductCard({
           </Link>
         ) : (
           <BuyButton
-            slug={slug}
-            planId={p.id}
-            email={email}
-            company={company}
-            name={p.title}
-            className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
-          />
+  slug={slug}
+  planId={p.id}
+  email={email}
+  company={company}
+  buyerName={buyerName}     // ✅ buyer name
+  planTitle={p.title}       // ✅ optional if you want it in Stripe metadata
+  className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
+/>
+
         )}
 
         <div className={`h-px my-6 ${divider}`} />
@@ -151,11 +156,11 @@ export default async function SalesPage({
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ email?: string; company?: string }>;
+searchParams: Promise<{ email?: string; company?: string; buyerName?: string }>;
 }) {
   const { slug } = await params;
   const query = await searchParams;
-
+const buyerName = query.buyerName || "";
   const email = query.email || "";
   const company = query.company || "";
 
@@ -196,12 +201,14 @@ export default async function SalesPage({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {plans.map((plan) => (
             <ProductCard
-              key={plan.id}
-              p={plan}
-              slug={slug}
-              email={email}
-              company={company}
-            />
+  key={plan.id}
+  p={plan}
+  slug={slug}
+  email={email}
+  company={company}
+  buyerName={buyerName}
+/>
+
           ))}
         </div>
       </section>

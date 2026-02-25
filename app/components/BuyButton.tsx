@@ -2,14 +2,24 @@
 
 import { useState } from "react";
 
-export function BuyButton({ slug, planId, email, company, name="", className }: {
+export function BuyButton({
+  slug,
+  planId,
+  email,
+  company,
+  buyerName,
+  planTitle,
+  className,
+}: {
   slug: string;
-   planId: string;
-    email: string;
-   company: string; 
-   name?: string;
-    className: string;
+  planId: string;
+  email: string;
+  company: string;
+  buyerName: string;
+  planTitle?: string;
+  className: string;
 }) {
+
   const [loading, setLoading] = useState(false);
 
   async function onBuy() {
@@ -24,13 +34,14 @@ export function BuyButton({ slug, planId, email, company, name="", className }: 
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          slug,
-          planId,
-          email,
-          company,
-          name,
-        }),
+       body: JSON.stringify({
+  slug,
+  planId,
+  email,
+  company,
+  buyerName,
+  planTitle,
+}),
       });
 
       const data = await res.json();

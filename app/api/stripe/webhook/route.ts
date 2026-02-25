@@ -65,7 +65,7 @@ export async function POST(req: Request) {
 
   // ⭐ ADD THESE FOR DASHBOARD
   // app/api/stripe/webhook/route.ts
-customerName: session.metadata?.name || session.customer_details?.name,
+customerName: session.metadata?.buyerName || session.customer_details?.name,
 
   customerEmail: session.metadata?.email || session.customer_details?.email,
   company: session.metadata?.company || null,
