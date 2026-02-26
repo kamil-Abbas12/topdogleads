@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import rehypeRaw from "rehype-raw";
+
 import { notFound } from "next/navigation";
 import { Facebook, X, Linkedin, Video } from "lucide-react";
 import dbConnect from "@/lib/mongodb";
 import Comment from "@/models/Comment";
-
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 import { blogs } from "@/data/blogs";
 import CommentForm from "./CommentForm";
 export const dynamic = "force-dynamic";
@@ -69,13 +73,15 @@ function Sidebar() {
               href={`/blog/${encodeURIComponent(b.slug)}`}
               className="grid grid-cols-[54px_1fr] gap-3 items-center"
             >
-              <Image
-                src={b.image}
-                alt={b.title}
-                width={108}
-                height={108}
-                className="h-[54px] w-[54px] rounded-xl object-cover"
-              />
+              {b.image && (
+                <Image
+                  src={b.image}
+                  alt={b.title}
+                  width={108}
+                  height={108}
+                  className="h-[54px] w-[54px] rounded-xl object-cover"
+                />
+              )}
               <div>
                 <div className="text-sm font-bold text-slate-900 leading-snug line-clamp-2">
                   {b.title}
@@ -213,22 +219,27 @@ const comments = await Comment.find({ slug })
             ))}
           </div>
 
-          <Image
-            src={blog.image}
-            alt={blog.title}
-            width={1200}
-            height={650}
-            className="w-full rounded-2xl object-cover max-h-[440px]"
-            priority
-          />
+          {blog.image && (
+            <Image
+              src={blog.image}
+              alt={blog.title}
+              width={1200}
+              height={650}
+              className="w-full rounded-2xl object-cover max-h-[440px]"
+              priority
+            />
+          )}
 
           <div className="text-sm text-gray-500">
             {blog.date} • {blog.author}
           </div>
 
-          <div className="prose max-w-none whitespace-pre-line text-gray-700 prose-headings:text-slate-900">
-            {blog.content}
-          </div>
+<div className="prose max-w-none text-gray-700 prose-headings:text-slate-900 prose-h2:mt-10 prose-h3:mt-8 prose-p:leading-relaxed">
+  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+    {blog.content}
+  </ReactMarkdown>
+</div>
+
 
           {/* Comments */}
           <div className="pt-6 border-t border-gray-100">
