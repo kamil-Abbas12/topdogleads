@@ -1,65 +1,59 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
-import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"], // choose weights you need
-  variable: "--font-roboto",
-});
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Top Dog Leads | Digital Marketing Agency",
-  description:
-    "Top Dog Leads helps businesses grow with high-quality digital leads, marketing, and web solutions.",
-  keywords: ["Top Dog Leads", "Digital Marketing", "Lead Generation"],
-  authors: [{ name: "Top Dog Leads" }],
   metadataBase: new URL("https://topdoglead.com"),
+
+  title: {
+    default: "Top Dog Lead | Lead Generation & Digital Marketing Agency",
+    template: "%s | Top Dog Lead",
+  },
+
+  description:
+    "Top Dog Lead is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
+
+  keywords: [
+    "Top Dog Lead",
+    "lead generation agency",
+    "digital marketing agency",
+    "SEO services",
+    "online lead generation",
+    "marketing agency Pakistan"
+  ],
+
+  authors: [{ name: "Top Dog Lead" }],
+  creator: "Top Dog Lead",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   openGraph: {
-    title: "Top Dog Leads",
-    description: "Grow your business with premium leads.",
+    title: "Top Dog Lead | Digital Marketing & Lead Generation",
+    description:
+      "We help businesses generate high-quality leads using SEO, ads, and marketing strategies.",
     url: "https://topdoglead.com",
-    siteName: "Top Dog Leads",
+    siteName: "Top Dog Lead",
     images: [
       {
         url: "/logo.png",
         width: 512,
         height: 512,
+        alt: "Top Dog Lead Logo",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Dog Lead",
+    description: "High-quality lead generation for businesses.",
+    images: ["/logo.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
-
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    
-    <html lang="en">
-       <body className={roboto.variable}>
-
-          <Navbar/>
-
-        {children}
-        <Footer/>
-
-      </body>
-    </html>
-  );
-}
