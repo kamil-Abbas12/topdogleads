@@ -2,33 +2,41 @@ import React from 'react'
 import Image from 'next/image'
 import { manrope } from '@/lib/fonts'
 import Link from 'next/link'
+
 const Customers = () => {
   return (
-    <section className='w-full h-full flex bg-white'>
+    <section
+      aria-label="Top Dog Leads has delivered over 300,000 customer calls to local businesses"
+      className='w-full h-full flex bg-white'
+    >
       <div className='flex flex-col lg:flex-row justify-between items-center gap-8 w-full px-6 sm:px-10 md:px-10 xl:px-25 py-12 sm:py-16 xl:py-20'>
 
         {/* Text Content */}
-        <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2 ">
-          <h1 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
-Over 300,000 Customer Calls Delivered
-          </h1>
-        <p className={`${manrope.className} text-gray-800 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
-Top Dog Leads Has delivered Over 250,000 Real Customer Calls.<br/>  
-Stop wasting money on ads that don’t convert. With our pay‑per‑call marketing service, you get high‑quality leads from nearby customers who are actively searching for your services.          </p>
+        <div className="right flex flex-col space-y-6 sm:space-y-8 xl:space-y-10 w-full xl:w-1/2">
+          <h2 className='text-2xl sm:text-3xl xl:text-4xl font-bold text-gray-800 leading-snug'>
+            Over 300,000 Customer Calls Delivered
+          </h2>
 
-  
-  <Link href="/contact">
-    <button className="cursor-pointer border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md hover:bg-[#1c2d56]/90">
-      Try Top Dog Leads
-    </button>
-  </Link>
+          <p className={`${manrope.className} text-gray-800 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed mt-4`}>
+            Top Dog Leads has delivered over 250,000 real customer calls.<br />
+            Stop wasting money on ads that don't convert. With our pay‑per‑call marketing service, you get high‑quality leads from nearby customers who are actively searching for your services.
+          </p>
+
+          <Link
+            href="/contact"
+            aria-label="Try Top Dog Leads — get high-quality pay-per-call leads for your business"
+          >
+            <button className="cursor-pointer border-2 bg-[#1c2d56] text-white px-4 py-2 rounded-md hover:bg-[#1c2d56]/90">
+              Try Top Dog Leads
+            </button>
+          </Link>
         </div>
 
         {/* Image */}
         <div className="relative left w-full xl:w-1/2 flex justify-center mt-8 xl:mt-0">
           <Image
             src="/calls.jpg"
-            alt='calls'
+            alt="Over 300,000 customer calls delivered by Top Dog Leads pay-per-call marketing"
             width={420}
             height={276}
             className='object-contain transition-transform duration-300 hover:scale-105'

@@ -1,4 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import "./globals.css"; // adjust path if needed
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://topdoglead.com"),
@@ -17,7 +20,7 @@ export const metadata: Metadata = {
     "digital marketing agency",
     "SEO services",
     "online lead generation",
-    "marketing agency Pakistan"
+    "marketing agency Pakistan",
   ],
 
   authors: [{ name: "Top Dog Lead" }],
@@ -57,3 +60,20 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
+
+// ✅ THIS WAS MISSING — Next.js App Router requires a default export
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Navbar/>
+        {children}
+        <Footer/>
+        </body>
+    </html>
+  );
+}

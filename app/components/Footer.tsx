@@ -14,18 +14,16 @@ const resources: FooterLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-
 const info: FooterLink[] = [
-  { label: "Auto Insurance", href: "/industry/auto-insurance" },
-  { label: "Final Expense", href: "/industry/final-expense" },
-  { label: "Home Insurance", href: "/industry/home-insurance" },
-  { label: "Solar", href: "/industry/solar" },
-  { label: "Medicare Insurance", href: "/industry/medicare-insurance" },
-  { label: "Motor Vehicle Accident", href: "/industry/motor-vehicle-accident" },
-  { label: "Pest Control", href: "/industry/pest-control" },
-  { label: "Roofing", href: "/industry/roofing" },
+  { label: "Auto Insurance Leads", href: "/industry/auto-insurance" },
+  { label: "Final Expense Leads", href: "/industry/final-expense" },
+  { label: "Home Insurance Leads", href: "/industry/home-insurance" },
+  { label: "Solar Leads", href: "/industry/solar" },
+  { label: "Medicare Insurance Leads", href: "/industry/medicare-insurance" },
+  { label: "Motor Vehicle Accident Leads", href: "/industry/motor-vehicle-accident" },
+  { label: "Pest Control Leads", href: "/industry/pest-control" },
+  { label: "Roofing Leads", href: "/industry/roofing" },
 ];
-
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
   return <h3 className="text-sm font-semibold text-white">{children}</h3>;
@@ -46,93 +44,92 @@ export default function Footer() {
   const onBackToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative bg-[#0B2350]">
-      <div className="mx-auto max-w-7xl px-10 xl:px-20  pt-10">
-        {/* TOP ROW: Logo (left) + Social (right) */}
+    <footer className="relative bg-[#0B2350]" aria-label="Top Dog Leads footer">
+      <div className="mx-auto max-w-7xl px-10 xl:px-20 pt-10">
+
+        {/* TOP ROW */}
         <div className="flex items-center justify-between">
-          <Link href="/" className="inline-flex">
+          <Link href="/" aria-label="Top Dog Leads home">
             <img
               src="/logo.jpg"
-              alt="TopDogLead"
+              alt="Top Dog Leads — Pay-Per-Call Lead Generation"
               className="w-8 h-auto cursor-pointer"
             />
           </Link>
 
-        <div className="flex items-center gap-4 xl:pr-40">
-  <Link
-    href="https://www.facebook.com/TopDogLeadsLLC"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-    className="text-blue-500/80 hover:text-white transition"
-  >
-    <Facebook className="h-5 w-5" />
-  </Link>
+          <div className="flex items-center gap-4 xl:pr-40">
+            <Link
+              href="https://www.facebook.com/TopDogLeadsLLC"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Top Dog Leads on Facebook"
+              className="text-blue-500/80 hover:text-white transition"
+            >
+              <Facebook className="h-5 w-5" aria-hidden="true" />
+            </Link>
 
-  <Link
-    href="https://www.instagram.com/top.dogleadsllc/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    className="text-pink-500/80 hover:text-white transition"
-  >
-    <Instagram className="h-5 w-5" />
-  </Link>
+            <Link
+              href="https://www.instagram.com/top.dogleadsllc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Top Dog Leads on Instagram"
+              className="text-pink-500/80 hover:text-white transition"
+            >
+              <Instagram className="h-5 w-5" aria-hidden="true" />
+            </Link>
 
-  <Link
-    href="https://www.linkedin.com/company/top-dog-leads-llc/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="text-blue-500/80 hover:text-white transition"
-  >
-    <Linkedin className="h-5 w-5" />
-  </Link>
-</div>
+            <Link
+              href="https://www.linkedin.com/company/top-dog-leads-llc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Top Dog Leads on LinkedIn"
+              className="text-blue-500/80 hover:text-white transition"
+            >
+              <Linkedin className="h-5 w-5" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
 
         {/* MAIN GRID */}
         <div className="mt-10 grid gap-10 lg:grid-cols-4">
-          {/* Column 1 */}
+
+          {/* Column 1 — Brand info with schema-friendly contact details */}
           <div>
             <FooterColTitle>Top Dog Leads</FooterColTitle>
-
             <p className="mt-4 max-w-sm text-[12px] leading-6 text-slate-200/70">
-              Top Dog Leads is a pay-per-call lead generation platform that connects local businesses with high-intent customers. We deliver exclusive, real-time leads that convert. 
+              Top Dog Leads is a pay-per-call lead generation platform that connects local businesses with high-intent customers. We deliver exclusive, real-time leads that convert.
             </p>
-
-            <div className="mt-5 space-y-1 text-[12px]">
+            <address className="mt-5 space-y-1 text-[12px] not-italic">
               <Link
-                href="mailto:Support@topdoglead.com"
+                href="mailto:support@topdoglead.com"
                 className="block text-sky-300 hover:text-sky-200"
               >
                 support@topdoglead.com
               </Link>
-
               <Link
-                href="tel:+13102954421"
+                href="tel:+16784628013"
                 className="block text-white/90 hover:text-white"
+                aria-label="Call Top Dog Leads at +1 678 462 8013"
               >
-+1 678 462 8013
+                +1 678 462 8013
               </Link>
-            </div>
-
+            </address>
             <div className="mt-6 flex items-center gap-5 text-[11px] text-slate-200/70">
               <div className="flex items-center gap-2">
-                <span className="h-5 w-5 rounded-full bg-green-500/90" />
+                <span className="h-5 w-5 rounded-full bg-green-500/90" aria-hidden="true" />
                 Customer Verified
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-5 w-5 rounded-full bg-orange-500/90" />
+                <span className="h-5 w-5 rounded-full bg-orange-500/90" aria-hidden="true" />
                 Fast Payouts
               </div>
             </div>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2 — Resources nav */}
           <div>
             <FooterColTitle>Resources</FooterColTitle>
-            <nav className="mt-4">
+            <nav aria-label="Footer resources navigation" className="mt-4">
               {resources.map((l) => (
                 <FooterA key={l.label} href={l.href}>
                   {l.label}
@@ -141,10 +138,10 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3 */}
+          {/* Column 3 — Industries nav */}
           <div>
-            <FooterColTitle>Information</FooterColTitle>
-            <nav className="mt-4">
+            <FooterColTitle>Industries We Serve</FooterColTitle>
+            <nav aria-label="Footer industries navigation" className="mt-4">
               {info.map((l) => (
                 <FooterA key={l.label} href={l.href}>
                   {l.label}
@@ -154,15 +151,12 @@ export default function Footer() {
           </div>
 
           {/* Column 4 */}
-        <div>
-          
-  <FooterColTitle>Need more calls?</FooterColTitle>
-
-
-  <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
-TopDogLeads connects you with high-intent customers through a pure pay-per-call model.  </p>
-</div>
-
+          <div>
+            <FooterColTitle>Need More Calls?</FooterColTitle>
+            <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
+              Top Dog Leads connects you with high-intent customers through a pure pay-per-call model.
+            </p>
+          </div>
         </div>
 
         {/* BACK TO TOP */}
@@ -170,9 +164,9 @@ TopDogLeads connects you with high-intent customers through a pure pay-per-call 
           <button
             onClick={onBackToTop}
             className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-[#0A84FF] p-3 text-white hover:bg-[#0A84FF]/90"
-            aria-label="Back to top"
+            aria-label="Back to top of page"
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
               <path
                 d="M7 14l5-5 5 5"
                 stroke="currentColor"
@@ -188,7 +182,7 @@ TopDogLeads connects you with high-intent customers through a pure pay-per-call 
       {/* COPYRIGHT */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-4 text-center text-[11px] text-slate-200/70">
-All rights reserved.Top Dog Leads © {new Date().getFullYear()}
+          <span>All rights reserved. Top Dog Leads © {new Date().getFullYear()}</span>
         </div>
       </div>
     </footer>

@@ -14,26 +14,31 @@ const slides = [
     title: "Results That Ring. Pay Only For People.",
     desc: "Stop wasting budget on empty clicks. Connect with verified prospects who are ready to talk — and pay only when a qualified lead calls you.",
     Image: "/ring.png",
+    alt: "Pay-per-call lead generation - Top Dog Leads connects you with verified prospects",
     button: "Try Top Dog Leads",
   },
   {
     title: "Trusted by 5,000+ Local Businesses",
     desc: "Join 100+ Businesses Dominating their Market with Top Dog Leads. Scale your growth and start capturing high-intent calls while your competitors are still chasing clicks.",
     Image: "/trusted by 5000.webp",
+    alt: "Over 5,000 local businesses trust Top Dog Leads for pay-per-call marketing",
     button: "Try Top Dog Leads",
   },
   {
     title: "Stop Chasing Leads. Start Closing Deals.",
     desc: "Our performance-driven campaigns bridge the gap between 'Interest' and 'Sold'.",
     Image: "/stop chasing deals.webp",
+    alt: "Performance-driven lead generation campaigns that convert interest into closed deals",
     button: "Get Started",
   },
 ];
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-x-hidden bg-white px-4 sm:px-6 lg:px-12 xl:px-25 py-12 lg:py-20">
-
+    <section
+      aria-label="Top Dog Leads — Pay-Per-Call Lead Generation"
+      className="relative w-full overflow-x-hidden bg-white px-4 sm:px-6 lg:px-12 xl:px-25 py-12 lg:py-20"
+    >
       <Swiper
         modules={[Autoplay]}
         loop
@@ -43,7 +48,7 @@ const Hero = () => {
           disableOnInteraction: false,
           pauseOnMouseEnter: false,
         }}
-        style={{ transform: "translate3d(0,0,0)" }} // 🔥 fixes left line bug
+        style={{ transform: "translate3d(0,0,0)" }}
         className="w-full"
       >
         {slides.map((slide, i) => (
@@ -61,7 +66,7 @@ const Hero = () => {
                   {slide.desc}
                 </p>
 
-                <Link href="/contact">
+                <Link href="/contact" aria-label={`${slide.button} — Top Dog Leads`}>
                   <button className="px-7 py-4 bg-[#1c2d56] hover:bg-[#1c2d56]/90 transition cursor-pointer font-semibold text-white rounded-lg">
                     {slide.button}
                   </button>
@@ -74,11 +79,12 @@ const Hero = () => {
                 <div className="relative w-full max-w-md lg:max-w-xl h-[260px] sm:h-[320px] lg:h-[400px]">
                   <Image
                     src={slide.Image}
-                    alt="hero banner"
+                    alt={slide.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                     className="object-contain"
-loading={i === 0 ? "eager" : "lazy"}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    priority={i === 0}
                     quality={90}
                   />
                 </div>
