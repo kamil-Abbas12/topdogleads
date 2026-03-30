@@ -1,282 +1,203 @@
+// app/blog/[slug]/page.tsx
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import rehypeRaw from "rehype-raw";
-
-import { notFound } from "next/navigation";
-import { Facebook, X, Linkedin, Video } from "lucide-react";
-import dbConnect from "@/lib/mongodb";
-import Comment from "@/models/Comment";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkBreaks from "remark-breaks";
 import { blogs } from "@/data/blogs";
-import CommentForm from "./CommentForm";
-export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  return blogs.map(b => ({ slug: b.slug }));
+// ✅ Dynamic per-post metadata — each blog gets its own title, description, and OG image
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const blog = blogs.find((b) => b.slug === params.slug);
+  if (!blog) return {};
+
+  return {
+    title: blog.metaTitle ?? `${blog.title} | Top Dog Leads`,
+    description: blog.metaDescription ?? blog.caption?.[0],
+    openGraph: {
+      title: blog.metaTitle ?? blog.title,
+      description: blog.metaDescription ?? blog.caption?.[0],
+      url: `https://topdoglead.com/blog/${blog.slug}`,
+      siteName: "Top Dog Leads",
+      images: [
+        {
+          url: blog.image,
+          alt: blog.imageAlt ?? blog.title,
+        },
+      ],
+      type: "article",
+      publishedTime: blog.dateISO,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.metaTitle ?? blog.title,
+      description: blog.metaDescription ?? blog.caption?.[0],
+      images: [blog.image],
+    },
+    alternates: {
+      canonical: `https://topdoglead.com/blog/${blog.slug}`,
+    },
+  };
 }
 
-export async function generateMetadata({ params }: { params: { slug?: string } }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const raw = resolvedParams?.slug;
-  if (!raw) return { title: "Blog", description: "Top Dog Leads blog" };
-
-  const slug = decodeURIComponent(raw);
-  const blog = blogs.find(b => b.slug === slug);
-  if (!blog) return { title: "Blog Not Found" };
-
-  return { title: blog.title, description: blog.caption?.[0] ?? "" };
+// ✅ Static generation — tells Next.js all valid slugs at build time
+export function generateStaticParams() {
+  return blogs.map((b) => ({ slug: b.slug }));
 }
 
-
-function Sidebar() {
-  const recent = blogs.slice(0, 3);
-
-  const categories = [
-    { name: "Insurance", count: blogs.length },
-    { name: "Marketing", count: 0 },
-    { name: "Digital", count: 0 },
-    { name: "Sales", count: 0 },
-  ];
-
-  const tags = ["Insurance", "Inbound Calls", "Leads", "Coverage", "Protection"];
-
-  return (
-    <aside className="space-y-6">
-      {/* Search */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <div className="flex items-center gap-3">
-          <input
-            placeholder="Type Something..."
-            className="w-full rounded-xl bg-white border border-gray-200 px-4 py-3 text-sm outline-none"
-          />
-          <button
-            className="h-11 w-11 rounded-xl bg-[#1c2d56] text-white font-bold hover:bg-[#1c2d56]/90"
-            type="button"
-            aria-label="Search"
-          >
-            ⌕
-          </button>
-        </div>
-      </div>
-
-      {/* Recent Post */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <h3 className="text-base font-extrabold text-slate-900">Recent Post</h3>
-
-        <div className="mt-4 space-y-4">
-          {recent.map((b) => (
-            <Link
-              key={b.slug}
-              href={`/blog/${encodeURIComponent(b.slug)}`}
-              className="grid grid-cols-[54px_1fr] gap-3 items-center"
-            >
-              {b.image && (
-                <Image
-                  src={b.image}
-                  alt={b.title}
-                  width={108}
-                  height={108}
-                  className="h-[54px] w-[54px] rounded-xl object-cover"
-                />
-              )}
-              <div>
-                <div className="text-sm font-bold text-slate-900 leading-snug line-clamp-2">
-                  {b.title}
-                </div>
-                <div className="text-xs text-gray-500 mt-1">{b.date}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Categories */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <h3 className="text-base font-extrabold text-slate-900">Categories</h3>
-
-        <div className="mt-4 space-y-3">
-          {categories.map((c) => (
-            <div
-              key={c.name}
-              className="flex items-center justify-between text-sm"
-            >
-              <span className="text-gray-700">{c.name}</span>
-              <span className="min-w-8 text-center rounded-full bg-white border border-gray-200 px-2 py-1 text-xs text-gray-600">
-                {String(c.count).padStart(2, "0")}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Tags */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <h3 className="text-base font-extrabold text-slate-900">Tags</h3>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-lg bg-white border border-gray-200 px-3 py-1 text-xs text-gray-700"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Social */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <h3 className="text-base font-extrabold text-slate-900">Social</h3>
-
-        <div className="mt-4 flex gap-2">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noreferrer"
-            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
-          >
-            <Facebook size={18} />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer"
-            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
-          >
-            <X size={18} />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a
-            href="https://vimeo.com"
-            target="_blank"
-            rel="noreferrer"
-            className="h-10 w-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
-          >
-            <Video size={18} />
-          </a>
-        </div>
-      </div>
-
-      {/* Newsletter */}
-      <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
-        <h3 className="text-base font-extrabold text-slate-900">Newsletter</h3>
-        <p className="text-xs text-gray-500 mt-2">
-          Register Now To Get Latest Updates On Promotions &amp; Coupons.
-        </p>
-
-        <input
-          placeholder="Type your email..."
-          className="mt-4 w-full rounded-xl bg-white border border-gray-200 px-4 py-3 text-sm outline-none"
-        />
-
-        <button
-          className="mt-3 w-full rounded-xl bg-[#1c2d56] py-3 text-sm font-bold text-white hover:bg-[#1c2d56]/90"
-          type="button"
-        >
-          Subscribe
-        </button>
-      </div>
-    </aside>
-  );
-}
-
-export default async function BlogDetail({ params }: { params: { slug: string } }) {
-  const resolvedParams = await params; // unwrap promise
-  const raw = resolvedParams.slug;
-  const slug = decodeURIComponent(raw).replace(/\/$/, "");
-  const blog = blogs.find(b => b.slug.replace(/\/$/, "") === slug);
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const blog = blogs.find((b) => b.slug === params.slug);
   if (!blog) notFound();
-await dbConnect();
 
-const comments = await Comment.find({ slug })
-  .sort({ createdAt: -1 })
-  .lean();
-
+  // Related posts (exclude current)
+  const related = blogs.filter((b) => b.slug !== blog.slug).slice(0, 2);
 
   return (
-    <section className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.55fr_0.85fr] gap-10 items-start">
-        <article className="space-y-6">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
+    <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+
+        {/* ✅ Breadcrumb — helps Google understand site structure */}
+        <nav aria-label="Breadcrumb" className="mb-6 text-xs text-gray-500">
+          <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
+            <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
+              <Link href="/" itemProp="item" className="hover:text-blue-600">
+                <span itemProp="name">Home</span>
+              </Link>
+              <meta itemProp="position" content="1" />
+            </li>
+            <span aria-hidden="true">/</span>
+            <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
+              <Link href="/blog" itemProp="item" className="hover:text-blue-600">
+                <span itemProp="name">Blog</span>
+              </Link>
+              <meta itemProp="position" content="2" />
+            </li>
+            <span aria-hidden="true">/</span>
+            <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
+              <span itemProp="name" className="text-gray-700 line-clamp-1">{blog.title}</span>
+              <meta itemProp="position" content="3" />
+            </li>
+          </ol>
+        </nav>
+
+        {/* ✅ Article schema — wraps the full post */}
+        <article itemScope itemType="https://schema.org/BlogPosting">
+
+          {/* ✅ H1 — one per page, keyword-rich */}
+          <h1
+            className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4"
+            itemProp="headline"
+          >
             {blog.title}
           </h1>
 
-          {/* Caption */}
-          <div className="text-md text-gray-700 font-medium space-y-2">
-            {blog.caption.map((line, index) => (
-              <p key={index}>{line}</p>
-            ))}
+          {/* ✅ Meta row with schema datePublished + author */}
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
+            <time dateTime={blog.dateISO} itemProp="datePublished">{blog.date}</time>
+            <span aria-hidden="true">•</span>
+            <span itemProp="author" itemScope itemType="https://schema.org/Organization">
+              <span itemProp="name">{blog.author}</span>
+            </span>
+            {blog.category && (
+              <>
+                <span aria-hidden="true">•</span>
+                <span itemProp="articleSection">{blog.category}</span>
+              </>
+            )}
           </div>
 
-          {blog.image && (
+          {/* ✅ Hero image with keyword alt */}
+          <div className="rounded-2xl overflow-hidden mb-8">
             <Image
               src={blog.image}
-              alt={blog.title}
+              alt={blog.imageAlt ?? blog.title}
               width={1200}
               height={650}
-              className="w-full rounded-2xl object-cover max-h-[440px]"
+              className="w-full h-[280px] sm:h-[380px] object-cover"
               priority
+              itemProp="image"
             />
+          </div>
+
+          {/* ✅ Tags — keyword signals for the post topic */}
+          {blog.tags && blog.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-8" role="list" aria-label="Article tags">
+              {blog.tags.map((tag) => (
+                <span
+                  key={tag}
+                  role="listitem"
+                  className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-800"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
 
-          <div className="text-sm text-gray-500">
-            {blog.date} • {blog.author}
-          </div>
+          {/* ✅ Article body */}
+          <div
+            className="prose prose-slate max-w-none"
+            itemProp="articleBody"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
 
-<div className="prose max-w-none text-gray-700 prose-headings:text-slate-900 prose-h2:mt-10 prose-h3:mt-8 prose-p:leading-relaxed">
-  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-    {blog.content}
-  </ReactMarkdown>
-</div>
-
-
-          {/* Comments */}
-          <div className="pt-6 border-t border-gray-100">
-            <h3 className="text-xl font-extrabold text-slate-900">
-              Leave a Comment
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">
-              Your email address will not be published. Required fields are
-              marked *
-            </p>
-            <div className="mt-4">
-              <CommentForm slug={slug} />
-              {/* COMMENTS LIST */}
-<div className="mt-10 space-y-6">
-  <h3 className="text-xl font-bold">
-    {comments.length} Comments
-  </h3>
-
-  {comments.length === 0 && (
-    <p className="text-gray-500">No comments yet.</p>
-  )}
-
-  {comments.map((c: any) => (
-    <div key={c._id.toString()} className="border-b pb-4">
-      <p className="font-semibold text-slate-900">{c.name}</p>
-      <p className="text-xs text-gray-500">{c.email}</p>
-      <p className="mt-2 text-gray-700">{c.comment}</p>
-    </div>
-  ))}
-</div>
-
-            </div>
-          </div>
         </article>
 
-        <Sidebar />
+        {/* ✅ Related posts — internal links boost crawl depth */}
+        {related.length > 0 && (
+          <section className="mt-16" aria-label="Related articles">
+            <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Related Articles</h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/blog/${r.slug}`}
+                  className="group block rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition"
+                  aria-label={`Read: ${r.title}`}
+                >
+                  <Image
+                    src={r.image}
+                    alt={r.imageAlt ?? r.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-[160px] object-cover group-hover:scale-105 transition duration-300"
+                  />
+                  <div className="p-4">
+                    <time dateTime={r.dateISO} className="text-xs text-gray-400">{r.date}</time>
+                    <p className="text-sm font-bold text-slate-900 mt-1 leading-snug line-clamp-2 group-hover:text-blue-700 transition">
+                      {r.title}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ✅ CTA — internal link to conversion page */}
+        <section
+          className="mt-16 rounded-2xl bg-[#1c2d56] p-8 text-center"
+          aria-label="Get pay-per-call leads from Top Dog Leads"
+        >
+          <h2 className="text-2xl font-extrabold text-white">
+            Ready to Get High-Quality Leads?
+          </h2>
+          <p className="text-blue-200 mt-2 text-sm">
+            Top Dog Leads delivers verified pay-per-call leads. You only pay when the phone rings.
+          </p>
+          <Link
+            href="/contact"
+            aria-label="Try Top Dog Leads — start receiving pay-per-call leads"
+            className="mt-6 inline-block bg-white text-[#1c2d56] font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition"
+          >
+            Try Top Dog Leads
+          </Link>
+        </section>
+
       </div>
-    </section>
+    </main>
   );
 }
