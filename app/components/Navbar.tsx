@@ -35,14 +35,14 @@ export default function Navbar() {
       {/* LOGO */}
       <div className="flex items-center cursor-pointer" onClick={() => router.push("/")}>
         <Link href="/" aria-label="Top Dog Leads — Pay-Per-Call Lead Generation Home">
-          <Image
-            src="/logo.png"
-            alt="Top Dog Leads - Pay-Per-Call Lead Generation Agency"
-            width={160}
-            height={40}
-            priority
-            className="w-40 h-30"
-          />
+         <Image
+  src="/logo.png"
+  alt="Top Dog Leads - Pay-Per-Call Lead Generation Agency"
+  width={140}
+  height={40}
+  priority
+  className="h-20 w-auto object-contain"
+/>
         </Link>
       </div>
 

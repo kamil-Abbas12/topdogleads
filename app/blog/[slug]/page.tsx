@@ -9,9 +9,10 @@ import { blogs } from "@/data/blogs";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const blog = blogs.find((b) => b.slug === params.slug);
+  const { slug } = await params;
+  const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return {};
 
   return {
@@ -48,8 +49,9 @@ export function generateStaticParams() {
   return blogs.map((b) => ({ slug: b.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const blog = blogs.find((b) => b.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const blog = blogs.find((b) => b.slug === slug);
   if (!blog) notFound();
 
   // Related posts (exclude current)
