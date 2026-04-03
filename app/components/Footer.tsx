@@ -14,6 +14,12 @@ const resources: FooterLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+const services: FooterLink[] = [
+  { label: "Inbound Call Marketing", href: "/services/inbound-call-marketing" },
+  { label: "Insurance Leads", href: "/services/insurances-leads" },
+  { label: "Live Transfer Leads", href: "/services/live-transfer-leads" },
+];
+
 const info: FooterLink[] = [
   { label: "Auto Insurance Leads", href: "/industry/auto-insurance" },
   { label: "Final Expense Leads", href: "/industry/final-expense" },
@@ -90,11 +96,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* MAIN GRID */}
-        <div className="mt-10 grid gap-10 lg:grid-cols-4">
+        {/* MAIN GRID — now 5 columns to accommodate Services */}
+        <div className="mt-10 grid gap-10 lg:grid-cols-5">
 
-          {/* Column 1 — Brand info with schema-friendly contact details */}
-          <div>
+          {/* Column 1 — Brand info */}
+          <div className="lg:col-span-1">
             <FooterColTitle>Top Dog Leads</FooterColTitle>
             <p className="mt-4 max-w-sm text-[12px] leading-6 text-slate-200/70">
               Top Dog Leads is a pay-per-call lead generation platform that connects local businesses with high-intent customers. We deliver exclusive, real-time leads that convert.
@@ -138,7 +144,19 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3 — Industries nav */}
+          {/* Column 3 — Services nav (new) */}
+          <div>
+            <FooterColTitle>Services</FooterColTitle>
+            <nav aria-label="Footer services navigation" className="mt-4">
+              {services.map((l) => (
+                <FooterA key={l.label} href={l.href}>
+                  {l.label}
+                </FooterA>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 4 — Industries nav */}
           <div>
             <FooterColTitle>Industries We Serve</FooterColTitle>
             <nav aria-label="Footer industries navigation" className="mt-4">
@@ -150,7 +168,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 4 */}
+          {/* Column 5 — CTA */}
           <div>
             <FooterColTitle>Need More Calls?</FooterColTitle>
             <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
