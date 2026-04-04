@@ -59,7 +59,7 @@ const faqJsonLd = {
 
 export default function InsurancesLeadsPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-16">
+    <main className="max-w-7xl mx-auto px-6 py-16 bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

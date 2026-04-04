@@ -22,7 +22,7 @@ const faqs = [
 
 export default function InboundCallPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-16">
+    <main className="max-w-7xl mx-auto px-6 py-16 bg-white">
       {/* HERO */}
       <section className="grid gap-10 lg:grid-cols-2 items-center">
         <div>
