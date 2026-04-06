@@ -162,6 +162,33 @@ export default function PayPerCallPage() {
     url: "https://topdoglead.com/solution/pay-per-call",
   };
 
+  // ✅ SEO NEW: LocalBusiness schema for AI search (ChatGPT, Gemini, AI Overview)
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Top Dog Leads",
+    url: "https://topdoglead.com",
+    telephone: "+1-678-462-8013",
+    description:
+      "Top Dog Leads provides exclusive pay per call lead generation services for insurance agents, solar companies, roofers, and local service businesses across the USA.",
+    areaServed: "United States",
+    sameAs: [
+      "https://topdoglead.com",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Pay Per Call Lead Services",
+      itemListElement: industries.map((i) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: i.label,
+          url: `https://topdoglead.com${i.href}`,
+        },
+      })),
+    },
+  };
+
   return (
     <main className="w-full bg-white text-gray-900">
       <Script
@@ -179,11 +206,24 @@ export default function PayPerCallPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {/* ✅ SEO NEW: LocalBusiness schema */}
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
 
       {/* HERO */}
       <section className="w-full bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 py-12 sm:py-16 xl:py-20 grid lg:grid-cols-2 gap-10 items-center">
           <div className="w-full text-center lg:text-left">
+            {/* ✅ SEO NEW: Visible breadcrumb nav for users + crawlers */}
+            <nav aria-label="Breadcrumb" className="text-xs text-black/50 mb-4">
+              <Link href="/" className="hover:text-black/70">Home</Link>
+              <span className="mx-1">/</span>
+              <span className="text-black/70">Pay Per Call Lead Generation</span>
+            </nav>
+
             <p className="text-sm sm:text-base font-semibold uppercase tracking-[0.18em] text-blue-900">
               Top Dog Leads
             </p>

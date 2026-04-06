@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css"; // adjust path if needed
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://topdoglead.com"),
 

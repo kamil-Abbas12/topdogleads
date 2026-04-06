@@ -7,6 +7,40 @@ import { BuyButton } from "@/app/components/BuyButton";
 import { industries as productIndustries } from "@/data/products";
 import { industries as metaIndustries } from "@/data/industries";
 
+// ✅ SEO: generateMetadata for each sales page
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const meta = metaIndustries.find((i) => i.slug === slug);
+  const productIndustry = productIndustries.find((i) => i.slug === slug);
+  if (!meta || !productIndustry) return {};
+
+  return {
+    title: `Buy ${meta.name} Leads & Live Calls | Top Dog Leads`,
+    description: `Choose a ${meta.name} leads plan. Get high-intent live transfer calls delivered straight to your phone. Verified prospects, real-time delivery.`,
+    keywords: `buy ${meta.name} leads, ${meta.name} live transfer leads, ${meta.name} lead generation, exclusive ${meta.name} leads`,
+    openGraph: {
+      title: `${meta.name} Lead Plans | Top Dog Leads`,
+      description: `High-intent ${meta.name} leads. Pick your plan and start getting live calls today.`,
+      url: `https://topdoglead.com/industry/${slug}/sales`,
+      siteName: "Top Dog Leads",
+      images: [{ url: `https://topdoglead.com${productIndustry.image}` }],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${meta.name} Lead Plans | Top Dog Leads`,
+      description: `Live ${meta.name} leads — pick your plan and start today.`,
+    },
+    alternates: {
+      canonical: `https://topdoglead.com/industry/${slug}/sales`,
+    },
+  };
+}
+
 type Plan = {
   id: string;
   variant: "basic" | "pro" | "enterprise" | "custom";
@@ -45,7 +79,6 @@ function CheckBullet({
   );
 }
 
-/* ⭐ UPDATED — now receives email + company */
 function ProductCard({
   p,
   slug,
@@ -59,7 +92,6 @@ function ProductCard({
   company: string;
   buyerName: string;
 }) {
-
   const isDark = p.variant === "pro" || p.variant === "enterprise";
 
   const cardClass =
@@ -118,15 +150,14 @@ function ProductCard({
           </Link>
         ) : (
           <BuyButton
-  slug={slug}
-  planId={p.id}
-  email={email}
-  company={company}
-  buyerName={buyerName}     // ✅ buyer name
-  planTitle={p.title}       // ✅ optional if you want it in Stripe metadata
-  className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
-/>
-
+            slug={slug}
+            planId={p.id}
+            email={email}
+            company={company}
+            buyerName={buyerName}
+            planTitle={p.title}
+            className={`w-full h-12 rounded-lg font-semibold transition ${buttonClass}`}
+          />
         )}
 
         <div className={`h-px my-6 ${divider}`} />
@@ -147,20 +178,16 @@ function ProductCard({
   );
 }
 
-/* =========================
-   ⭐ MAIN PAGE — FIXED
-   ========================= */
-
 export default async function SalesPage({
   params,
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-searchParams: Promise<{ email?: string; company?: string; buyerName?: string }>;
+  searchParams: Promise<{ email?: string; company?: string; buyerName?: string }>;
 }) {
   const { slug } = await params;
   const query = await searchParams;
-const buyerName = query.buyerName || "";
+  const buyerName = query.buyerName || "";
   const email = query.email || "";
   const company = query.company || "";
 
@@ -176,8 +203,38 @@ const buyerName = query.buyerName || "";
     ? (productIndustry.plans as Plan[])
     : [];
 
+  // ✅ SEO: JSON-LD schema for AI search + Google rich results
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${heroTitle} Leads & Live Transfer Calls`,
+    provider: {
+      "@type": "Organization",
+      name: "Top Dog Leads",
+      url: "https://topdoglead.com",
+    },
+    description: `Buy exclusive ${heroTitle} leads with live transfer calls. High-intent prospects delivered in real time to insurance agents and contractors across the US.`,
+    areaServed: "US",
+    url: `https://topdoglead.com/industry/${slug}/sales`,
+    offers: plans
+      .filter((p) => p.price != null)
+      .map((p) => ({
+        "@type": "Offer",
+        name: p.title,
+        price: p.price,
+        priceCurrency: "USD",
+        description: p.desc,
+      })),
+  };
+
   return (
     <main className="w-full bg-white">
+      {/* ✅ SEO: JSON-LD injected into page head area */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <section className="relative w-full">
         <div className="relative w-full h-[180px] sm:h-[220px] lg:h-[260px] overflow-hidden">
           <Image src={heroImage} alt={heroTitle} fill className="object-cover" priority />
@@ -201,14 +258,13 @@ const buyerName = query.buyerName || "";
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {plans.map((plan) => (
             <ProductCard
-  key={plan.id}
-  p={plan}
-  slug={slug}
-  email={email}
-  company={company}
-  buyerName={buyerName}
-/>
-
+              key={plan.id}
+              p={plan}
+              slug={slug}
+              email={email}
+              company={company}
+              buyerName={buyerName}
+            />
           ))}
         </div>
       </section>

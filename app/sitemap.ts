@@ -1,28 +1,30 @@
 import { MetadataRoute } from "next";
+import { industries } from "@/data/industries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://topdoglead.com";
 
+  const industryPages = industries.map((i) => ({
+    url: `${baseUrl}/industry/${i.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  const salesPages = industries.map((i) => ({
+    url: `${baseUrl}/industry/${i.slug}/sales`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: new Date(),
-      priority: 0.9,
-    },
+    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/solution/pay-per-call`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    ...industryPages,
+    ...salesPages,
   ];
 }
