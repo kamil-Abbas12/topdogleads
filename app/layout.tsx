@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import "./globals.css";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://topdoglead.com"),
 
@@ -14,16 +17,17 @@ export const metadata: Metadata = {
     "Top Dog Lead is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
 
   keywords: [
-    "Top Dog Lead",
+    "Top Dog Leads ",
+    "llc",
     "lead generation agency",
     "digital marketing agency",
     "SEO services",
-    "online lead generation",
-    "marketing agency Pakistan",
+    "online leads generation",
+    "marketing agency USA",
   ],
 
-  authors: [{ name: "Top Dog Lead" }],
-  creator: "Top Dog Lead",
+  authors: [{ name: "Top Dog Leads" }],
+  creator: "Top Dog Leads",
 
   robots: {
     index: true,
@@ -31,11 +35,11 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Top Dog Lead | Digital Marketing & Lead Generation",
+    title: "Top Dog Leads | Digital Marketing & Lead Generation",
     description:
       "We help businesses generate high-quality leads using SEO, ads, and marketing strategies.",
     url: "https://topdoglead.com",
-    siteName: "Top Dog Lead",
+    siteName: "Top Dog Leads",
     images: [
       {
         url: "/logo.png",
@@ -50,7 +54,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Top Dog Lead",
+    title: "Top Dog Leads",
     description: "High-quality lead generation for businesses.",
     images: ["/logo.png"],
   },
