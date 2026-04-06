@@ -5,6 +5,23 @@ export const blogs = [
     metaTitle: "Auto Insurance Leads — Protection Beyond the Moment | Top Dog Leads",
     metaDescription:
       "Discover how quality auto insurance leads connect agents with customers who need real coverage. Top Dog Leads delivers verified pay-per-call auto insurance leads.",
+    keywords: [
+      "auto insurance leads",
+      "buy auto insurance leads",
+      "exclusive auto insurance leads",
+      "live auto insurance leads",
+      "pay per call auto insurance leads",
+      "verified auto insurance leads",
+      "car insurance leads",
+      "car insurance inbound calls",
+      "auto insurance lead generation",
+      "insurance lead generation services",
+      "high intent auto insurance leads",
+      "real time auto insurance leads",
+      "inbound auto insurance calls",
+      "auto insurance prospects",
+      "insurance marketing leads"
+    ],
     caption: [
       "Breakdowns don't ask permission. They arrive quietly, reminding us how fragile stability can feel.",
       "Auto insurance isn't just paperwork tucked away until needed. It's peace of mind. It's the quiet reassurance that when risk shows up uninvited, you're not alone.",
@@ -33,7 +50,18 @@ At Top Dog Leads LLC, we believe protection should go beyond paperwork. That's w
     dateISO: "2026-02-15",
     author: "Top Dog Leads LLC",
     category: "Auto Insurance",
-    tags: ["auto insurance leads", "pay-per-call", "insurance lead generation", "inbound calls"],
+    tags: [
+      "auto insurance leads",
+      "pay-per-call",
+      "insurance lead generation",
+      "inbound calls",
+      "car insurance leads",
+      "exclusive insurance leads",
+      "live transfer insurance leads",
+      "real-time insurance leads",
+      "high-intent insurance leads",
+      "auto insurance marketing"
+    ],
   },
   {
     slug: "lead-generation-myths-busted",
@@ -41,6 +69,23 @@ At Top Dog Leads LLC, we believe protection should go beyond paperwork. That's w
     metaTitle: "Lead Generation Myths Busted — Insurance Lead Generation Facts | Top Dog Leads",
     metaDescription:
       "Stop chasing the wrong strategies. Top Dog Leads breaks down the biggest lead generation myths and explains what actually drives high-quality inbound calls for your business.",
+    keywords: [
+      "lead generation myths",
+      "insurance lead generation",
+      "pay per call marketing",
+      "inbound lead generation",
+      "how to generate insurance leads",
+      "quality leads for insurance agents",
+      "high intent leads",
+      "digital marketing for insurance",
+      "lead generation strategies",
+      "qualified inbound calls",
+      "exclusive insurance leads",
+      "organic lead generation",
+      "performance marketing leads",
+      "best lead generation company",
+      "insurance marketing strategies"
+    ],
     caption: [
       "Lead generation is the heartbeat of business growth. Yet, it's also one of the most misunderstood areas of marketing. Over time, myths have crept in, clouding judgment and steering teams toward wasted effort. Today, we're busting those myths wide open so you can focus on what actually works.",
     ],
@@ -75,7 +120,18 @@ And people respond to brands that listen, engage, and care.
     dateISO: "2026-02-26",
     author: "Top Dog Leads LLC",
     category: "Marketing",
-    tags: ["lead generation", "insurance leads", "pay-per-call marketing", "inbound leads"],
+    tags: [
+      "lead generation",
+      "insurance leads",
+      "pay-per-call marketing",
+      "inbound leads",
+      "organic lead generation",
+      "qualified leads",
+      "high-intent prospects",
+      "digital marketing strategy",
+      "insurance agent leads",
+      "performance-based marketing"
+    ],
   },
   {
     slug: "high-intent-leads-scalable-growth",
@@ -83,6 +139,23 @@ And people respond to brands that listen, engage, and care.
     metaTitle: "High-Intent Leads vs Clicks — Scalable Lead Generation Growth | Top Dog Leads",
     metaDescription:
       "Learn why high-intent pay-per-call leads outperform ad clicks for scalable business growth. Top Dog Leads connects you with customers ready to buy — not just browse.",
+    keywords: [
+      "high intent leads",
+      "pay per call leads",
+      "scalable lead generation",
+      "qualified sales leads",
+      "exclusive inbound calls",
+      "buyers ready to convert",
+      "commercial intent keywords",
+      "high converting leads",
+      "lead generation for business growth",
+      "real time inbound leads",
+      "performance lead generation",
+      "sales qualified leads",
+      "conversion focused marketing",
+      "long tail commercial keywords",
+      "business growth leads"
+    ],
     caption: [
       "In the world of digital marketing, there's a massive difference between window shoppers and people who have their credit cards out. If you're tired of seeing high traffic numbers that never turn into revenue, it's time to stop chasing volume and start chasing intent.",
     ],
@@ -131,6 +204,17 @@ Focus on the intent, and the results will follow.`,
     dateISO: "2026-03-02",
     author: "Top Dog Leads LLC",
     category: "Sales",
-    tags: ["high-intent leads", "pay-per-call leads", "lead generation strategy", "scalable growth"],
+    tags: [
+      "high-intent leads",
+      "pay-per-call leads",
+      "lead generation strategy",
+      "scalable growth",
+      "commercial intent keywords",
+      "sales qualified leads",
+      "conversion optimization",
+      "high-converting traffic",
+      "business growth strategy",
+      "qualified inbound leads"
+    ],
   },
 ];

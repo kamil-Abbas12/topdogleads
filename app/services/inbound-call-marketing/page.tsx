@@ -46,7 +46,8 @@ export default function InboundCallPage() {
             </Link>
             <Link
               href="/services/live-transfer-leads"
-              className="inline-flex items-center rounded-md border border-gray-300 px-6 py-3 text-gray-900 font-semibold hover:border-blue-600 hover:text-blue-600"
+              className="inline-flex items-center rounded-md border
+               border-gray-300 px-6 py-3 text-gray-900 font-semibold hover:border-blue-600 hover:text-blue-600"
             >
               View Live Transfer Leads
             </Link>

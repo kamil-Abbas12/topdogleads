@@ -333,12 +333,14 @@ export default function LiveTransferPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-orange-500 hover:bg-orange-400 text-white font-bold px-8 py-4 rounded-lg text-lg transition-all shadow-lg shadow-orange-500/30 hover:shadow-orange-400/40 hover:-translate-y-0.5"
+                className="bg-white hover:bg-orange-400 text-gray-900
+                 font-bold px-8 py-4 rounded-lg text-lg transition-all shadow-lg shadow-white/30 
+                 hover:shadow-orange-400/40 hover:-translate-y-0.5"
               >
                 Get Live Transfers Today →
               </Link>
               <a
-                href="tel:+18005550000"
+                href="tel:+16784628013"
                 className="border border-white/30 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:bg-white/5"
               >
                 📞 Call Us Now
@@ -446,7 +448,7 @@ export default function LiveTransferPage() {
               <div key={step.step} className="relative">
                 {/* Connector line */}
                 {i < howItWorks.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-orange-500/50 to-transparent z-10" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-px  to-transparent z-10" />
                 )}
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors h-full">
                   <div className="text-5xl font-black text-orange-500/30 leading-none mb-3">
@@ -652,15 +654,15 @@ export default function LiveTransferPage() {
 
               <Link
                 href="/contact"
-                className="mt-8 block text-center bg-orange-500 hover:bg-orange-400 text-white font-bold px-6 py-4 rounded-xl transition-colors shadow-lg shadow-orange-500/30"
+                className="mt-8 block text-center bg-white hover:bg-orange-400 text-gray-900 font-bold px-6 py-4 rounded-xl transition-colors shadow-lg shadow-orange-500/30"
               >
                 Start Getting Live Transfers →
               </Link>
 
               <p className="mt-4 text-center text-xs text-gray-500">
                 Or call us:{" "}
-                <a href="tel:+18005550000" className="text-orange-400 font-semibold hover:underline">
-                  1-800-555-0000
+                <a href="tel:+16784628013" className="text-orange-400 font-semibold hover:underline">
+                  1-678-462-8013
                 </a>
               </p>
             </div>
@@ -900,12 +902,12 @@ export default function LiveTransferPage() {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-orange-500 to-orange-600 text-white py-20">
+      <section className="bg-slate-50 text-gray-900 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl lg:text-5xl font-black leading-tight">
             Stop Chasing Cold Leads.<br />Start Closing Live Transfer Leads.
           </h2>
-          <p className="mt-6 text-orange-100 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Join hundreds of insurance agents, Medicare brokers, solar companies, and
             financial services agencies who've replaced cold outreach with warm,
             live, pre-qualified phone connections. Setup takes 24 hours.
@@ -913,18 +915,19 @@ export default function LiveTransferPage() {
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-orange-600 font-black px-10 py-5 rounded-xl text-lg hover:bg-orange-50 transition-colors shadow-xl"
+              className="bg-blue-900 text-white font-black px-10 py-5 rounded-xl text-lg hover:bg-blue-900/50  transition-colors shadow-xl"
             >
               Get Live Transfer Leads Now →
             </Link>
             <a
-              href="tel:+18005550000"
-              className="border-2 border-white/50 hover:border-white text-white font-bold px-10 py-5 rounded-xl text-lg transition-colors"
+              href="tel:+16784628013"
+              className="border-2 border-white/50 bg-gray-900 hover:border-white
+               text-white font-bold px-10 py-5 rounded-xl text-lg transition-colors"
             >
               📞 Speak to Our Team
             </a>
           </div>
-          <p className="mt-6 text-orange-200 text-sm">
+          <p className="mt-6 text-gray-900 text-sm">
             No contracts · Custom lead filters · TCPA compliant · 24-hour setup · Replacement guarantee
           </p>
         </div>
@@ -954,7 +957,7 @@ export default function LiveTransferPage() {
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "sales",
-                telephone: "+1-800-555-0000",
+                telephone: "+1 678 462 8013",
                 areaServed: "US",
                 availableLanguage: "English",
               },
