@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://topdoglead.com"),
 
   title: {
-    default: "Top Dog Lead | Lead Generation & Digital Marketing Agency",
-    template: "%s | Top Dog Lead",
+    default: "Top Dog Leads | Leads Generation & Digital Marketing Agency",
+    template: "%s | Top Dog Leads",
   },
 
   description:
-    "Top Dog Lead is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
+    "Top Dog Leads is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
 
   keywords: [
     "Top Dog Leads ",
     "llc",
-    "lead generation agency",
+    "leads generation agency",
     "digital marketing agency",
     "SEO services",
     "online leads generation",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Top Dog Leads | Digital Marketing & Lead Generation",
+    title: "Top Dog Leads | Digital Marketing & Leads Generation",
     description:
       "We help businesses generate high-quality leads using SEO, ads, and marketing strategies.",
     url: "https://topdoglead.com",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Top Dog Leads",
-    description: "High-quality lead generation for businesses.",
+    description: "High-quality leads generation for businesses.",
     images: ["/logo.png"],
   },
 

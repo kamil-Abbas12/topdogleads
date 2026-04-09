@@ -6,11 +6,11 @@ import { Facebook, Twitter, Linkedin, Video } from "lucide-react";
 
 // ✅ Rich, keyword-targeted metadata for the blog index page
 export const metadata: Metadata = {
-  title: "Lead Generation Blog — Insurance & Pay-Per-Call Marketing Insights",
+  title: "Leads Generation Blog — Insurance & Pay-Per-Call Marketing Insights",
   description:
-    "Read expert articles on insurance lead generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
+    "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
   openGraph: {
-    title: "Lead Generation Blog | Top Dog Leads",
+    title: "Leads Generation Blog | Top Dog Leads",
     description:
       "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
     url: "https://topdoglead.com/blog",
