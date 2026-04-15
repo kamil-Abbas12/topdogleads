@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* ✅ Article body */}
           <div
-            className="prose prose-slate max-w-none"
+            className="prose prose-slate max-w-none text-gray-900"
             itemProp="articleBody"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
