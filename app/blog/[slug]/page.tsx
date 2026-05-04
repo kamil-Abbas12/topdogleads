@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { blogs } from "@/data/blogs";
 
-// ✅ Dynamic per-post metadata — each blog gets its own title, description, and OG image
 export async function generateMetadata({
   params,
 }: {
@@ -23,12 +22,7 @@ export async function generateMetadata({
       description: blog.metaDescription ?? blog.caption?.[0],
       url: `https://topdoglead.com/blog/${blog.slug}`,
       siteName: "Top Dog Leads",
-      images: [
-        {
-          url: blog.image,
-          alt: blog.imageAlt ?? blog.title,
-        },
-      ],
+      images: [{ url: blog.image, alt: blog.imageAlt ?? blog.title }],
       type: "article",
       publishedTime: blog.dateISO,
     },
@@ -44,7 +38,6 @@ export async function generateMetadata({
   };
 }
 
-// ✅ Static generation — tells Next.js all valid slugs at build time
 export function generateStaticParams() {
   return blogs.map((b) => ({ slug: b.slug }));
 }
@@ -54,14 +47,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) notFound();
 
-  // Related posts (exclude current)
   const related = blogs.filter((b) => b.slug !== blog.slug).slice(0, 2);
 
   return (
     <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
 
-        {/* ✅ Breadcrumb — helps Google understand site structure */}
+        {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 text-xs text-gray-500">
           <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
@@ -76,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <span itemProp="name">Blog</span>
               </Link>
               <meta itemProp="position" content="2" />
-            </li>
+            </li> 
             <span aria-hidden="true">/</span>
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
               <span itemProp="name" className="text-gray-700 line-clamp-1">{blog.title}</span>
@@ -85,10 +77,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </ol>
         </nav>
 
-        {/* ✅ Article schema — wraps the full post */}
         <article itemScope itemType="https://schema.org/BlogPosting">
 
-          {/* ✅ H1 — one per page, keyword-rich */}
           <h1
             className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4"
             itemProp="headline"
@@ -96,7 +86,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {blog.title}
           </h1>
 
-          {/* ✅ Meta row with schema datePublished + author */}
           <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
             <time dateTime={blog.dateISO} itemProp="datePublished">{blog.date}</time>
             <span aria-hidden="true">•</span>
@@ -111,7 +100,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )}
           </div>
 
-          {/* ✅ Hero image with keyword alt */}
           <div className="rounded-2xl overflow-hidden mb-8">
             <Image
               src={blog.image}
@@ -124,7 +112,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             />
           </div>
 
-          {/* ✅ Tags — keyword signals for the post topic */}
           {blog.tags && blog.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-8" role="list" aria-label="Article tags">
               {blog.tags.map((tag) => (
@@ -139,16 +126,65 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           )}
 
-          {/* ✅ Article body */}
+          {/*
+            Article body.
+            Key: prose styles h2, but <mark> inside h2 needs its own rule.
+            We use a style tag scoped to this component to guarantee the
+            yellow-highlight renders regardless of whether @tailwindcss/typography
+            is installed or purging correctly.
+          */}
+         <style>{`
+  .blog-content h2 {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .blog-content h2 mark {
+    color: #0f172a;
+    background: transparent; /* ✅ remove yellow */
+    padding: 0;              /* optional: remove spacing */
+    border-radius: 0;        /* optional: clean look */
+  }
+
+  .blog-content p {
+    color: #374151;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content strong {
+    color: #0f172a;
+  }
+
+  .blog-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content ul li {
+    color: #374151;
+    line-height: 1.75;
+  }
+
+  .blog-content em {
+    font-style: italic;
+  }
+`}</style>
+
           <div
-            className="prose prose-slate max-w-none text-gray-900"
+            className="blog-content max-w-none"
             itemProp="articleBody"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
         </article>
 
-        {/* ✅ Related posts — internal links boost crawl depth */}
+        {/* Related posts */}
         {related.length > 0 && (
           <section className="mt-16" aria-label="Related articles">
             <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Related Articles</h2>
@@ -179,7 +215,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </section>
         )}
 
-        {/* ✅ CTA — internal link to conversion page */}
+        {/* CTA */}
         <section
           className="mt-16 rounded-2xl bg-[#1c2d56] p-8 text-center"
           aria-label="Get pay-per-call leads from Top Dog Leads"
