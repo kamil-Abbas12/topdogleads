@@ -47,7 +47,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) notFound();
 
-  const related = blogs.filter((b) => b.slug !== blog.slug).slice(0, 2);
+const related = [...blogs]
+  .filter((b) => b.slug !== blog.slug)
+  .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime())
+  .slice(0, 2);
+
 
   return (
     <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
