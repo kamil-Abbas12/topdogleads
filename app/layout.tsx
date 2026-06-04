@@ -76,6 +76,13 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer/>
+          <Script
+          id="google-adsense"
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
+          crossOrigin="anonymous"
+        />
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="JkhARxLMNh+CptEmB0KYzw"
