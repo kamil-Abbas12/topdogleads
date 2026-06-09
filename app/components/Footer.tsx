@@ -10,7 +10,8 @@ const resources: FooterLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Pay Per Call Leads", href: "/solution/pay-per-call" },
-  { label: "Blogs", href: "/blog" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -20,7 +21,7 @@ const services: FooterLink[] = [
   { label: "Live Transfer Leads", href: "/services/live-transfer-leads" },
 ];
 
-const info: FooterLink[] = [
+const industries: FooterLink[] = [
   { label: "Auto Insurance Leads", href: "/industry/auto-insurance" },
   { label: "Final Expense Leads", href: "/industry/final-expense" },
   { label: "Home Insurance Leads", href: "/industry/home-insurance" },
@@ -39,7 +40,7 @@ function FooterA({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="block text-[12px] leading-7 text-slate-200/80 hover:text-white"
+      className="block text-[12px] leading-7 text-slate-200/80 hover:text-white transition-colors"
     >
       {children}
     </Link>
@@ -96,25 +97,27 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* MAIN GRID — now 5 columns to accommodate Services */}
+        {/* MAIN GRID */}
         <div className="mt-10 grid gap-10 lg:grid-cols-5">
 
           {/* Column 1 — Brand info */}
           <div className="lg:col-span-1">
             <FooterColTitle>Top Dog Leads</FooterColTitle>
             <p className="mt-4 max-w-sm text-[12px] leading-6 text-slate-200/70">
-              Top Dog Leads is a pay-per-call lead generation platform that connects local businesses with high-intent customers. We deliver exclusive, real-time leads that convert.
+              Top Dog Leads is a pay-per-call lead generation platform that connects
+              local businesses with high-intent customers. We deliver exclusive,
+              real-time leads that convert.
             </p>
             <address className="mt-5 space-y-1 text-[12px] not-italic">
               <Link
                 href="mailto:support@topdoglead.com"
-                className="block text-sky-300 hover:text-sky-200"
+                className="block text-sky-300 hover:text-sky-200 transition-colors"
               >
                 support@topdoglead.com
               </Link>
               <Link
                 href="tel:+16784628013"
-                className="block text-white/90 hover:text-white"
+                className="block text-white/90 hover:text-white transition-colors"
                 aria-label="Call Top Dog Leads at +1 678 462 8013"
               >
                 +1 678 462 8013
@@ -132,7 +135,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Resources nav */}
+          {/* Column 2 — Resources */}
           <div>
             <FooterColTitle>Resources</FooterColTitle>
             <nav aria-label="Footer resources navigation" className="mt-4">
@@ -144,7 +147,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3 — Services nav (new) */}
+          {/* Column 3 — Services */}
           <div>
             <FooterColTitle>Services</FooterColTitle>
             <nav aria-label="Footer services navigation" className="mt-4">
@@ -153,14 +156,24 @@ export default function Footer() {
                   {l.label}
                 </FooterA>
               ))}
+
+              {/* FAQ callout inside services column */}
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <FooterColTitle>Help</FooterColTitle>
+                <div className="mt-2">
+                  <FooterA href="/faq">Frequently Asked Questions</FooterA>
+                  <FooterA href="/blog">Blog & Guides</FooterA>
+                  <FooterA href="/contact">Contact Support</FooterA>
+                </div>
+              </div>
             </nav>
           </div>
 
-          {/* Column 4 — Industries nav */}
+          {/* Column 4 — Industries */}
           <div>
             <FooterColTitle>Industries We Serve</FooterColTitle>
             <nav aria-label="Footer industries navigation" className="mt-4">
-              {info.map((l) => (
+              {industries.map((l) => (
                 <FooterA key={l.label} href={l.href}>
                   {l.label}
                 </FooterA>
@@ -172,8 +185,34 @@ export default function Footer() {
           <div>
             <FooterColTitle>Need More Calls?</FooterColTitle>
             <p className="mt-4 text-[12px] leading-6 text-slate-200/70">
-              Top Dog Leads connects you with high-intent customers through a pure pay-per-call model.
+              Top Dog Leads connects you with high-intent customers through a
+              pure pay-per-call model. No setup fee. No monthly fee.
             </p>
+            <Link
+              href="/contact"
+              className="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white text-[12px] font-semibold px-4 py-2 rounded-lg transition"
+              aria-label="Get a free quote from Top Dog Leads"
+            >
+              Get a Free Quote →
+            </Link>
+
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <FooterColTitle>Quick Answers</FooterColTitle>
+              <div className="mt-2 space-y-1">
+                <Link href="/faq#pricing" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
+                  → How much do leads cost?
+                </Link>
+                <Link href="/faq#quality" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
+                  → Are calls exclusive?
+                </Link>
+                <Link href="/faq#getting-started" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
+                  → How fast can I start?
+                </Link>
+                <Link href="/faq#organic-vs-paid" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
+                  → Organic vs paid traffic
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -181,7 +220,7 @@ export default function Footer() {
         <div className="relative mt-10 pb-10">
           <button
             onClick={onBackToTop}
-            className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-[#0A84FF] p-3 text-white hover:bg-[#0A84FF]/90"
+            className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-[#0A84FF] p-3 text-white hover:bg-[#0A84FF]/90 transition"
             aria-label="Back to top of page"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -201,6 +240,12 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-4 text-center text-[11px] text-slate-200/70">
           <span>All rights reserved. Top Dog Leads © {new Date().getFullYear()}</span>
+          <span className="mx-2">·</span>
+          <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+          <span className="mx-2">·</span>
+          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+          <span className="mx-2">·</span>
+          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
         </div>
       </div>
     </footer>

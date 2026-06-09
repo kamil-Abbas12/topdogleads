@@ -22,16 +22,23 @@ const industryRight = [
 
 const servicesLinks = [
   { label: "Inbound Call Marketing", href: "/services/inbound-call-marketing" },
-  { label: "Insurances Leads", href: "/services/insurances-leads" },
+  { label: "Insurance Leads", href: "/services/insurances-leads" },
   { label: "Live Transfer Leads", href: "/services/live-transfer-leads" },
+];
+
+const resourceLinks = [
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
   const [mobileServicesDropdown, setMobileServicesDropdown] = useState(false);
+  const [mobileResourcesDropdown, setMobileResourcesDropdown] = useState(false);
   const router = useRouter();
 
   return (
@@ -99,7 +106,7 @@ export default function Navbar() {
                         AD
                       </div>
                       <div>
-                        <Link href="/solution/pay-per-call">
+                        <Link href="/solution/pay-per-call" onClick={() => setOpen(false)}>
                           <p className="text-gray-900 text-md font-semibold hover:text-blue-500 text-[15px] leading-snug">
                             Pay Per Call Leads
                           </p>
@@ -159,7 +166,7 @@ export default function Navbar() {
                       No Setup Fee. No Monthly Service Fee. No Cancellation Fee.
                     </p>
                   </div>
-                  <Link href="/contact" aria-label="Try Top Dog Leads — start generating pay-per-call leads">
+                  <Link href="/contact" onClick={() => setOpen(false)} aria-label="Try Top Dog Leads — start generating pay-per-call leads">
                     <button className="mt-4 inline-flex items-center justify-center cursor-pointer font-semibold text-md bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-white px-2 py-2.5 rounded transition">
                       Try Top Dog Leads
                     </button>
@@ -197,7 +204,6 @@ export default function Navbar() {
                 <p className="text-[11px] tracking-wider font-semibold text-gray-600 uppercase mb-4">
                   Services
                 </p>
-
                 <ul className="space-y-3 text-[14px] text-gray-700">
                   {servicesLinks.map((item) => (
                     <li key={item.label}>
@@ -216,9 +222,65 @@ export default function Navbar() {
           </div>
         </div>
 
-        <Link href="/blog" className="text-gray-800 hover:text-blue-600 text-md font-medium">
-          Blogs
-        </Link>
+        {/* RESOURCES DROPDOWN — Blog + FAQ */}
+        <div
+          className="relative"
+          onMouseEnter={() => setResourcesOpen(true)}
+          onMouseLeave={() => setResourcesOpen(false)}
+        >
+          <button
+            className="text-gray-800 hover:text-blue-600 cursor-pointer text-md font-medium flex items-center gap-1"
+            aria-haspopup="true"
+            aria-expanded={resourcesOpen}
+            aria-label="Resources dropdown"
+          >
+            Resources <ChevronDown size={14} aria-hidden="true" />
+          </button>
+
+          <div
+            className={`absolute left-1/2 top-full mt-4 -translate-x-1/2 w-[220px] transition-all duration-150 z-50 ${
+              resourcesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+            role="region"
+            aria-label="Resources options"
+          >
+            <div className="bg-white border border-gray-100 rounded-md shadow-lg overflow-hidden">
+              <div className="px-6 py-5">
+                <p className="text-[11px] tracking-wider font-semibold text-gray-600 uppercase mb-4">
+                  Resources
+                </p>
+                <ul className="space-y-3 text-[14px] text-gray-700">
+                  <li>
+                    <Link
+                      href="/blog"
+                      className="flex items-center gap-2 hover:text-blue-600 transition"
+                      onClick={() => setResourcesOpen(false)}
+                    >
+                      <span className="text-gray-400" aria-hidden="true">✍️</span>
+                      <div>
+                        <p className="font-medium text-gray-900">Blog</p>
+                        <p className="text-xs text-gray-500">Tips & lead gen guides</p>
+                      </div>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/faq"
+                      className="flex items-center gap-2 hover:text-blue-600 transition"
+                      onClick={() => setResourcesOpen(false)}
+                    >
+                      <span className="text-gray-400" aria-hidden="true">❓</span>
+                      <div>
+                        <p className="font-medium text-gray-900">FAQ</p>
+                        <p className="text-xs text-gray-500">Pricing, quality & how it works</p>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Phone & CTA */}
         <div className="flex items-center gap-3">
@@ -252,7 +314,7 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       {mobile && (
         <div
-          className="fixed inset-0 bg-white z-50 lg:hidden"
+          className="fixed inset-0 bg-white z-50 lg:hidden overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -339,13 +401,32 @@ export default function Navbar() {
               )}
             </div>
 
-            <a
-              href="/blog"
-              className="text-lg font-medium text-gray-900"
-              onClick={() => setMobile(false)}
-            >
-              Blogs
-            </a>
+            {/* Mobile Resources */}
+            <div className="flex flex-col">
+              <button
+                className="flex items-center justify-between text-lg font-medium text-gray-900"
+                onClick={() => setMobileResourcesDropdown(!mobileResourcesDropdown)}
+                aria-expanded={mobileResourcesDropdown}
+                aria-label="Toggle Resources dropdown"
+              >
+                Resources <ChevronDown size={18} aria-hidden="true" />
+              </button>
+
+              {mobileResourcesDropdown && (
+                <div className="mt-4 pl-4 flex flex-col gap-4">
+                  {resourceLinks.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="text-gray-800 hover:text-blue-600"
+                      onClick={() => setMobile(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="flex flex-col gap-4 mt-4">
               <a
