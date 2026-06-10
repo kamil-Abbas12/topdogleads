@@ -56,6 +56,10 @@ async redirects() {
       { source: '/contact-us', destination: '/contact', permanent: true },
       { source: '/about-us', destination: '/about', permanent: true },
       { source: '/blog/:slug*/feed/', destination: '/blog/:slug*', permanent: true },
+
+      // ── Duplicate/unwanted industry pages (not part of site, CEO doesn't want them) ──
+      { source: '/industry/health-insurance', destination: '/industry/home-insurance', permanent: true },
+      { source: '/industry/life-insurance', destination: '/industry/final-expense', permanent: true },
     ];
   },
   images: {
@@ -66,6 +70,10 @@ async redirects() {
         protocol: "https",
         hostname: "topdoglead.com",
         pathname: "/wp-content/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
   },

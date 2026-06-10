@@ -154,11 +154,11 @@ function Sidebar({ sortedBlogs }: { sortedBlogs: typeof blogs }) {
 
 function Pagination({ page, totalPages }: { page: number; totalPages: number }) {
   return (
-    <nav aria-label="Blog pagination" className="flex items-center gap-3 justify-center pt-8">
+    <nav aria-label="Blog pagination" className="flex items-center gap-3 justify-center pt-8 ">
       <Link
         href={`/blog?page=${Math.max(1, page - 1)}`}
         aria-label="Go to previous page"
-        className={`rounded-xl border px-4 py-2 text-sm font-semibold ${
+        className={`rounded-xl border border-gray-900 bg-white text-gray-800 px-4 py-2 text-sm font-semibold ${
           page <= 1 ? "pointer-events-none opacity-50" : "hover:bg-gray-50"
         }`}
       >
@@ -173,7 +173,7 @@ function Pagination({ page, totalPages }: { page: number; totalPages: number }) 
       <Link
         href={`/blog?page=${Math.min(totalPages, page + 1)}`}
         aria-label="Go to next page"
-        className={`rounded-xl border px-4 py-2 text-sm font-semibold ${
+        className={`rounded-xl border border-gray-900 bg-white text-gray-800  px-4 py-2 text-sm font-semibold ${
           page >= totalPages ? "pointer-events-none opacity-50" : "hover:bg-gray-50"
         }`}
       >
