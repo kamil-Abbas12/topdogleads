@@ -131,9 +131,9 @@ export const blogs = [
   {
     slug: "high-intent-leads-scalable-growth",
     title: "Stop Chasing Clicks: Why High-Intent Leads Are the Secret to Scalable Growth",
-    metaTitle: "High-Intent Leads vs Clicks — Scalable Lead Generation Growth | Top Dog Leads",
-    metaDescription:
-      "Learn why high-intent pay-per-call leads outperform ad clicks for scalable business growth. Top Dog Leads connects you with customers ready to buy — not just browse.",
+   metaTitle: "Pay-Per-Call Lead Generation: Only Pay for Calls That Convert | Top Dog Leads",
+metaDescription:
+  "Clicks don't pay bills — conversations do. Learn how Pay-Per-Call delivers high-intent inbound leads with zero wasted ad spend. Get a free consultation today.",
     keywords: [
       "high intent leads",
       "pay per call leads",
@@ -285,10 +285,9 @@ trail" into a predictable stream of live conversations. </em></p>
  {
     slug: "outsourcing-lead-generation-experts",
     title: "The Benefits of Outsourcing Lead Generation to Experts",
-    metaTitle:
-      "Outsourcing Lead Generation to Experts | Top Dog Leads",
-    metaDescription:
-      "Discover how outsourcing lead generation helps businesses scale faster with better data, qualified leads, and stronger sales pipelines.",
+    metaTitle: "Outsourcing Lead Generation in 2026: Save Time & Close More Deals | Top Dog Leads",
+metaDescription:
+  "Tired of a leaky sales pipeline? See why 100s of B2B businesses outsource lead generation to experts — and start filling your calendar in 2 weeks, not months.",
     keywords: [
       "outsourcing lead generation",
       "lead generation experts",
@@ -373,9 +372,9 @@ trail" into a predictable stream of live conversations. </em></p>
     {
     slug: "high-quality-inbound-leads-quality-over-quantity",
     title: "The Power of High-Quality Inbound Leads: Why Quality Beats Quantity",
-    metaTitle: "High-Quality Inbound Leads — Why Quality Beats Quantity | Top Dog Leads",
-    metaDescription:
-      "Discover why chasing lead volume burns out your sales team and wastes budget. Top Dog Leads explains how high-quality inbound leads transform your pipeline, close rates, and customer retention.",
+   metaTitle: "High-Quality Inbound Leads: Why 10 Great Leads Beat 500 Bad Ones | Top Dog Leads",
+metaDescription:
+  "Your sales team is burning out on junk leads. Discover how high-quality inbound leads cut your sales cycle, boost close rates, and grow customer lifetime value.",
     keywords: [
       "high quality inbound leads",
       "quality leads over quantity",
@@ -462,9 +461,9 @@ trail" into a predictable stream of live conversations. </em></p>
     {
     slug: "grow-business-ppc-houston",
     title: "How Pay-Per-Call Can Drive High-Quality Leads to Your Business",
-    metaTitle: "Grow Your Business with PPC in Houston, TX — Pay-Per-Call Leads | Top Dog Leads",
-    metaDescription:
-      "Stop chasing fake form fills and dead phone numbers. Learn how Pay-Per-Call connects Houston businesses with high-intent customers ready to talk and buy.",
+   metaTitle: "Pay-Per-Call Leads in Houston TX: Only Pay for Real Conversations | Top Dog Leads",
+metaDescription:
+  "Stop paying for dead form fills. Houston businesses use Pay-Per-Call to connect with high-intent buyers ready to talk. Only pay when a qualified call comes in.",
     keywords: [
       "pay per call houston",
       "ppc houston tx",

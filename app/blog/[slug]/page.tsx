@@ -51,11 +51,48 @@ const related = [...blogs]
   .filter((b) => b.slug !== blog.slug)
   .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime())
   .slice(0, 2);
+ const isOutsourcingBlog = slug === "outsourcing-lead-generation-experts";
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is outsourced lead generation?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Outsourced lead generation means hiring an external agency to find and qualify potential customers for your business, so your sales team only talks to ready buyers.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How quickly can outsourced lead gen start delivering results?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Top outsourced agencies like Top Dog Leads can go live in as little as two weeks — far faster than hiring in-house SDRs which takes 3–4 months.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is outsourcing lead generation worth it for small businesses?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Small businesses benefit the most because they get access to enterprise-level tools, data, and talent without the overhead of a full in-house team.",
+        },
+      },
+    ],
+  };
 
   return (
     <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
+{isOutsourcingBlog && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
 
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 text-xs text-gray-500">

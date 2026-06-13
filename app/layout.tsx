@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -64,7 +63,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ THIS WAS MISSING — Next.js App Router requires a default export
 export default function RootLayout({
   children,
 }: {
@@ -73,22 +71,40 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
-          <Script
+        <Footer />
+
+        {/* ✅ Google Analytics GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YCKFKX373P"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YCKFKX373P');
+          `}
+        </Script>
+
+        {/* ✅ Google AdSense */}
+        <Script
           id="google-adsense"
           async
           strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
           crossOrigin="anonymous"
         />
+
+        {/* ✅ Ahrefs Analytics */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="JkhARxLMNh+CptEmB0KYzw"
           strategy="afterInteractive"
         />
-        </body>
+      </body>
     </html>
   );
 }
