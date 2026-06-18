@@ -717,7 +717,7 @@ export default function InboundCallPage() {
           </Link>
 
           <Link
-            href="/services/insurance-call-leads"
+            href="/services/insurances-leads"
             className="rounded-2xl bg-white border border-gray-200 p-6 hover:border-blue-600 transition"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-600">
