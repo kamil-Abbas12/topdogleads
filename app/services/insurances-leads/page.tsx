@@ -7,14 +7,14 @@ export const metadata = {
   description:
     "Buy high-intent insurance call leads for auto, health, life, Medicare, final expense, and home insurance campaigns. Top Dog Leads helps businesses connect with ready-to-talk prospects through inbound call lead generation.",
   alternates: {
-    canonical: "https://topdogleads.com/services/insurance-call-leads",
+    canonical: "https://topdogleads.com/services/insurances-leads",
   },
   openGraph: {
     title:
       "Insurance Call Leads USA | Exclusive Inbound Insurance Leads | Top Dog Leads",
     description:
       "Get exclusive inbound insurance call leads from consumers actively searching for coverage, quotes, and policy guidance.",
-    url: "https://topdogleads.com/services/insurance-call-leads",
+    url: "https://topdogleads.com/services/insurances-leads",
     siteName: "Top Dog Leads",
     type: "website",
   },
@@ -65,7 +65,7 @@ const serviceJsonLd = {
   areaServed: "US",
   description:
     "Inbound insurance call lead generation for agencies, marketers, and businesses seeking high-intent insurance buyers.",
-  url: "https://topdogleads.com/services/insurance-call-leads",
+  url: "https://topdogleads.com/services/insurances-leads",
 };
 
 const faqJsonLd = {
@@ -101,13 +101,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 3,
       name: "Insurance Call Leads",
-      item: "https://topdogleads.com/services/insurance-call-leads",
+      item: "https://topdogleads.com/services/insurances-leads",
     },
   ],
 };
 
 const tocLinks = [
-  { id: "what-are-insurance-call-leads", label: "What Are Insurance Call Leads" },
+  { id: "what-are-insurances-leads", label: "What Are Insurance Call Leads" },
   { id: "why-they-convert", label: "Why Insurance Call Leads Convert" },
   { id: "insurance-verticals", label: "Insurance Verticals We Support" },
   { id: "how-it-works", label: "How Insurance Call Lead Generation Works" },
@@ -260,7 +260,7 @@ export default function InsuranceCallLeadsPage() {
       </section>
 
       {/* WHAT ARE INSURANCE CALL LEADS */}
-      <section id="what-are-insurance-call-leads" className="mt-20 max-w-5xl">
+      <section id="what-are-insurances-leads" className="mt-20 max-w-5xl">
         <h2 className="text-3xl font-bold text-gray-900">
           What Are Insurance Call Leads?
         </h2>

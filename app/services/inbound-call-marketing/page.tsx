@@ -288,7 +288,7 @@ export default function InboundCallPage() {
             </Link>{" "}
             or want stronger performance from pages like{" "}
             <Link
-              href="/services/insurance-call-leads"
+              href="/services/insurances-leads"
               className="text-blue-600 font-semibold hover:underline"
             >
               insurance call leads
@@ -503,7 +503,7 @@ export default function InboundCallPage() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Link
-            href="/services/insurance-call-leads"
+            href="/services/insurances-leads"
             className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
           >
             <h3 className="text-xl font-semibold text-gray-900">
@@ -606,7 +606,7 @@ export default function InboundCallPage() {
             </Link>
             ,{" "}
             <Link
-              href="/services/insurance-call-leads"
+              href="/services/insurances-leads"
               className="text-blue-600 font-semibold hover:underline"
             >
               Insurance Call Leads
@@ -661,7 +661,7 @@ export default function InboundCallPage() {
           </Link>
 
           <Link
-            href="/services/insurance-call-leads"
+            href="/services/insurances-leads"
             className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
           >
             <h3 className="text-xl font-semibold text-gray-900">
