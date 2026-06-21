@@ -154,6 +154,17 @@ export default function Navbar() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* NEW: View All Industries */}
+                    <div className="mt-4 pt-3 border-t border-gray-100">
+                      <Link
+                        href="/industry"
+                        className="text-[13px] font-semibold text-blue-600 hover:text-blue-700"
+                        onClick={() => setOpen(false)}
+                      >
+                        View All Industries →
+                      </Link>
+                    </div>
                   </div>
                 </div>
 
@@ -216,6 +227,16 @@ export default function Navbar() {
                       </Link>
                     </li>
                   ))}
+                  {/* NEW: View All Services */}
+                  <li className="pt-3 mt-1 border-t border-gray-100">
+                    <Link
+                      href="/services"
+                      className="block font-semibold text-blue-600 hover:text-blue-700 transition"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      View All Services →
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -370,6 +391,15 @@ export default function Navbar() {
                       {item.label}
                     </Link>
                   ))}
+
+                  {/* NEW: View All Industries */}
+                  <Link
+                    href="/industry"
+                    className="text-blue-600 font-semibold"
+                    onClick={() => setMobile(false)}
+                  >
+                    View All Industries →
+                  </Link>
                 </div>
               )}
             </div>
@@ -397,6 +427,15 @@ export default function Navbar() {
                       {item.label}
                     </Link>
                   ))}
+
+                  {/* NEW: View All Services */}
+                  <Link
+                    href="/services"
+                    className="text-blue-600 font-semibold"
+                    onClick={() => setMobile(false)}
+                  >
+                    View All Services →
+                  </Link>
                 </div>
               )}
             </div>
