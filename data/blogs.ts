@@ -2,7 +2,7 @@ export const blogs = [
   {
     slug: "auto-insurance-leads-peace-of-mind",
     title: "Auto Insurance Leads: Finding Peace of Mind in Coverage",
-    metaTitle: "Auto Insurance Leads — Protection Beyond the Moment | Top Dog Leads",
+    metaTitle: "Auto Insurance Leads — Protection Beyond the Moment",
     metaDescription:
       "Discover how quality auto insurance leads connect agents with customers who need real coverage. Top Dog Leads delivers verified pay-per-call auto insurance leads.",
     keywords: [
@@ -63,7 +63,7 @@ export const blogs = [
   {
     slug: "lead-generation-myths-busted",
     title: "Lead Generation Myths Busted: Separating Fact from Fiction",
-    metaTitle: "Lead Generation Myths Busted — Insurance Lead Generation Facts | Top Dog Leads",
+    metaTitle: "Lead Generation Myths Busted — Insurance Lead Generation Facts ",
     metaDescription:
       "Stop chasing the wrong strategies. Top Dog Leads breaks down the biggest lead generation myths and explains what actually drives high-quality inbound calls for your business.",
     keywords: [
@@ -131,7 +131,7 @@ export const blogs = [
   {
     slug: "high-intent-leads-scalable-growth",
     title: "Stop Chasing Clicks: Why High-Intent Leads Are the Secret to Scalable Growth",
-   metaTitle: "Pay-Per-Call Lead Generation: Only Pay for Calls That Convert | Top Dog Leads",
+   metaTitle: "Pay-Per-Call Lead Generation: Only Pay for Calls That Convert ",
 metaDescription:
   "Clicks don't pay bills — conversations do. Learn how Pay-Per-Call delivers high-intent inbound leads with zero wasted ad spend. Get a free consultation today.",
     keywords: [
@@ -204,7 +204,7 @@ metaDescription:
   {
     slug: "pay-per-call-lead-generation",
     title: "Why Pay-Per-Call Lead Generation is a Game-Changer for Businesses",
-    metaTitle: "Pay-Per-Call Lead Generation — High Intent Leads That Convert | Top Dog Leads",
+    metaTitle: "Pay-Per-Call Lead Generation — High Intent Leads That Convert ",
     metaDescription:
       "Discover why pay-per-call lead generation delivers high-intent leads, better ROI, and real conversations that convert into customers.",
     keywords: [
@@ -285,7 +285,7 @@ trail" into a predictable stream of live conversations. </em></p>
  {
     slug: "outsourcing-lead-generation-experts",
     title: "The Benefits of Outsourcing Lead Generation to Experts",
-    metaTitle: "Outsourcing Lead Generation in 2026: Save Time & Close More Deals | Top Dog Leads",
+    metaTitle: "Outsourcing Lead Generation in 2026: Save Time & Close More Deals",
 metaDescription:
   "Tired of a leaky sales pipeline? See why 100s of B2B businesses outsource lead generation to experts — and start filling your calendar in 2 weeks, not months.",
     keywords: [
@@ -372,7 +372,7 @@ metaDescription:
     {
     slug: "high-quality-inbound-leads-quality-over-quantity",
     title: "The Power of High-Quality Inbound Leads: Why Quality Beats Quantity",
-   metaTitle: "High-Quality Inbound Leads: Why 10 Great Leads Beat 500 Bad Ones | Top Dog Leads",
+   metaTitle: "High-Quality Inbound Leads: Why 10 Great Leads Beat 500 Bad Ones ",
 metaDescription:
   "Your sales team is burning out on junk leads. Discover how high-quality inbound leads cut your sales cycle, boost close rates, and grow customer lifetime value.",
     keywords: [
@@ -461,7 +461,7 @@ metaDescription:
     {
     slug: "grow-business-ppc-houston",
     title: "How Pay-Per-Call Can Drive High-Quality Leads to Your Business",
-   metaTitle: "Pay-Per-Call Leads in Houston TX: Only Pay for Real Conversations | Top Dog Leads",
+   metaTitle: "Pay-Per-Call Leads in Houston TX: Only Pay for Real Conversations",
 metaDescription:
   "Stop paying for dead form fills. Houston businesses use Pay-Per-Call to connect with high-intent buyers ready to talk. Only pay when a qualified call comes in.",
     keywords: [
@@ -557,7 +557,7 @@ metaDescription:
  {
     slug: "lead-generation-strategy-that-drives-results",
     title: "Creating a Lead Generation Strategy That Drives Results",
-    metaTitle: "Lead Generation Strategy 2026: The Framework That Drives Results | Top Dog Leads",
+    metaTitle: "Lead Generation Strategy 2026: The Framework That Drives Results",
     metaDescription:
       "The old lead gen playbook is broken. Discover the 2026 framework for signal-based outbound, website intelligence, and interactive lead magnets that convert.",
     keywords: [

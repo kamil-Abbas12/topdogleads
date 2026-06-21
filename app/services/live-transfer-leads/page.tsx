@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Live Transfer Leads Services USA | Real-Time Qualified Calls | Top Dog Leads",
+  title: "Live Transfer Leads Services USA | Real-Time Qualified Calls",
   description:
     "Buy live transfer leads for insurance, Medicare, solar, auto, and final expense. Pre-qualified prospects transferred directly to your sales agents in real time. 90%+ contact rate, TCPA compliant, no contracts. Start receiving calls in 24 hours.",
   keywords: [
@@ -75,13 +75,13 @@ export const metadata = {
     "lead transfer service",
   ].join(", "),
   alternates: {
-    canonical: "https://topdoglead.com/service/live-transfer-leads",
+    canonical: "https://topdoglead.com/services/live-transfer-leads",
   },
   openGraph: {
     title: "Live Transfer Leads Services USA | Real-Time Qualified Calls | Top Dog Leads",
     description:
       "Connect instantly with pre-screened buyers through real-time call transfers. No cold calling. No wasted time. Just live, ready-to-buy prospects for insurance, Medicare, solar & more.",
-    url: "https://topdoglead.com/service/live-transfer-leads",
+    url: "https://topdoglead.com/services/live-transfer-leads",
     type: "website",
     siteName: "Top Dog Leads",
   },
@@ -254,8 +254,8 @@ export default function LiveTransferPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://topdoglead.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://topdoglead.com/service" },
-              { "@type": "ListItem", position: 3, name: "Live Transfer Leads", item: "https://topdoglead.com/service/live-transfer-leads" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://topdoglead.com/services" },
+              { "@type": "ListItem", position: 3, name: "Live Transfer Leads", item: "https://topdoglead.com/services/live-transfer-leads" },
             ],
           }),
         }}
@@ -269,7 +269,7 @@ export default function LiveTransferPage() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Live Transfer Leads Services USA | Top Dog Leads",
-            url: "https://topdoglead.com/service/live-transfer-leads",
+            url: "https://topdoglead.com/services/live-transfer-leads",
             description:
               "Buy real-time live transfer leads for insurance, Medicare, solar, auto insurance, final expense, debt relief, and home services in the USA. Pre-qualified, TCPA-compliant warm transfer calls delivered to your sales team.",
             keywords:

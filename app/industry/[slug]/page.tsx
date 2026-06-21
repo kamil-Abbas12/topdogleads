@@ -12,11 +12,11 @@ export async function generateMetadata({
   if (!industry) return {};
 
   return {
-    title: `Buy ${industry.name} Leads | Live Calls | Top Dog Leads`,
+    title: `Buy ${industry.name} Leads | Live Calls `,
     description: `Get high-intent ${industry.name} leads delivered live to your phone. Real-time calls, verified prospects. Start today with Top Dog Leads.`,
     keywords: `${industry.name} leads, live ${industry.name} calls, buy ${industry.name} leads, ${industry.name} lead generation`,
     openGraph: {
-      title: `${industry.name} Leads – Live Calls | Top Dog Leads`,
+      title: `${industry.name} Leads – Live Calls `,
       description: `High-intent ${industry.name} leads. Real buyers, real calls.`,
       url: `https://topdoglead.com/industry/${industry.slug}`,
       siteName: "Top Dog Leads",
@@ -25,7 +25,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${industry.name} Leads | Top Dog Leads`,
+      title: `${industry.name} Leads `,
       description: `Live ${industry.name} leads delivered to your phone.`,
     },
     alternates: {

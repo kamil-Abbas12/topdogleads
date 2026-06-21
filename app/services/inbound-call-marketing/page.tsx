@@ -6,13 +6,13 @@ export const metadata = {
   description:
     "Drive high-intent inbound phone calls through targeted campaigns, landing page optimization, call tracking, and conversion-focused strategy from Top Dog Leads.",
   alternates: {
-    canonical: "https://topdogleads.com/services/inbound-call-marketing",
+    canonical: "https://topdoglead.com/services/inbound-call-marketing",
   },
   openGraph: {
     title: "Inbound Call Marketing Services USA | High-Intent Call Campaigns | Top Dog Leads",
     description:
       "Generate qualified inbound phone calls with better targeting, landing pages, call routing, and campaign optimization.",
-    url: "https://topdogleads.com/services/inbound-call-marketing",
+    url: "https://topdoglead.com/services/inbound-call-marketing",
     siteName: "Top Dog Leads",
     type: "website",
   },
@@ -58,10 +58,10 @@ const serviceJsonLd = {
   provider: {
     "@type": "Organization",
     name: "Top Dog Leads",
-    url: "https://topdogleads.com",
+    url: "https://topdoglead.com",
   },
   areaServed: "US",
-  url: "https://topdogleads.com/services/inbound-call-marketing",
+  url: "https://topdoglead.com/services/inbound-call-marketing",
   description:
     "Inbound call marketing services that help businesses generate qualified phone calls through targeted digital campaigns, landing page optimization, call routing, and tracking.",
 };
@@ -87,19 +87,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://topdogleads.com",
+      item: "https://topdoglead.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Services",
-      item: "https://topdogleads.com/services",
+      item: "https://topdoglead.com/services",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Inbound Call Marketing",
-      item: "https://topdogleads.com/services/inbound-call-marketing",
+      item: "https://topdoglead.com/services/inbound-call-marketing",
     },
   ],
 };

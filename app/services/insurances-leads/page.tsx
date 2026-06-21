@@ -3,18 +3,18 @@ import Image from "next/image";
 
 export const metadata = {
   title:
-    "Insurance Call Leads USA | Exclusive Inbound Insurance Leads | Top Dog Leads",
+    "Insurance Call Leads USA | Exclusive Inbound Insurance Leads",
   description:
     "Buy high-intent insurance call leads for auto, health, life, Medicare, final expense, and home insurance campaigns. Top Dog Leads helps businesses connect with ready-to-talk prospects through inbound call lead generation.",
   alternates: {
-    canonical: "https://topdogleads.com/services/insurances-leads",
+    canonical: "https://topdoglead.com/services/insurances-leads",
   },
   openGraph: {
     title:
-      "Insurance Call Leads USA | Exclusive Inbound Insurance Leads | Top Dog Leads",
+      "Insurance Call Leads USA | Exclusive Inbound Insurance Leads",
     description:
       "Get exclusive inbound insurance call leads from consumers actively searching for coverage, quotes, and policy guidance.",
-    url: "https://topdogleads.com/services/insurances-leads",
+    url: "https://topdoglead.com/services/insurances-leads",
     siteName: "Top Dog Leads",
     type: "website",
   },
@@ -60,12 +60,12 @@ const serviceJsonLd = {
   provider: {
     "@type": "Organization",
     name: "Top Dog Leads",
-    url: "https://topdogleads.com",
+    url: "https://topdoglead.com",
   },
   areaServed: "US",
   description:
     "Inbound insurance call lead generation for agencies, marketers, and businesses seeking high-intent insurance buyers.",
-  url: "https://topdogleads.com/services/insurances-leads",
+  url: "https://topdoglead.com/services/insurances-leads",
 };
 
 const faqJsonLd = {
@@ -89,19 +89,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://topdogleads.com",
+      item: "https://topdoglead.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Services",
-      item: "https://topdogleads.com/services",
+      item: "https://topdoglead.com/services",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Insurance Call Leads",
-      item: "https://topdogleads.com/services/insurances-leads",
+      item: "https://topdoglead.com/services/insurances-leads",
     },
   ],
 };
