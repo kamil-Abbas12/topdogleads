@@ -9,13 +9,21 @@ export const metadata: Metadata = {
   title: "Leads Generation Blog — Insurance & Pay-Per-Call Marketing Insights",
   description:
     "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
-  openGraph: {
+ openGraph: {
     title: "Leads Generation Blog | Top Dog Leads",
     description:
       "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
     url: "https://topdoglead.com/blog",
     siteName: "Top Dog Leads",
     type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Top Dog Leads",
+      },
+    ],
   },
   alternates: {
     canonical: "https://topdoglead.com/blog",

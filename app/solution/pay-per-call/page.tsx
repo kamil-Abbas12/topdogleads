@@ -37,9 +37,9 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Pay Per Call Lead Generation Services USA | Top Dog Leads",
+title: "Pay Per Call Lead Generation Services USA",
   description:
-    "Top Dog Leads delivers pay per call lead generation services for local businesses across the USA. Get exclusive inbound calls, high-intent leads, and better ROI from qualified customer conversations.",
+    "Top Dog Leads delivers pay per call lead generation for local businesses across the USA. Get exclusive inbound calls and high-intent leads.",
   keywords: [
     "pay per call lead generation",
     "pay per call marketing",

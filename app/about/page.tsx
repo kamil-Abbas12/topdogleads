@@ -3,9 +3,9 @@ import Link from "next/link";
 import { manrope } from "@/lib/fonts";
 
 export const metadata = {
-  title: "About Top Dog Leads | Pay Per Call Lead Generation Experts USA",
+title: "About Us | Pay Per Call Lead Generation Experts USA",
   description:
-    "Top Dog Leads is a performance marketing agency specializing in pay per call lead generation, inbound call traffic, and high-converting leads for insurance and service businesses.",
+    "Top Dog Leads is a performance marketing agency specializing in pay per call lead generation and high-converting leads for insurance businesses.",
   keywords: [
     "pay per call lead generation",
     "inbound call marketing",
@@ -14,13 +14,21 @@ export const metadata = {
     "performance marketing agency USA",
     "call generation services",
   ],
-  openGraph: {
+openGraph: {
     title: "Top Dog Leads - Pay Per Call Experts",
     description:
       "Scale your business with high-intent inbound calls using Top Dog Leads.",
     url: "https://topdoglead.com/about",
     siteName: "Top Dog Leads",
     type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/about1.jpg",
+        width: 1200,
+        height: 800,
+        alt: "Top Dog Leads pay per call lead generation",
+      },
+    ],
   },
 };
 

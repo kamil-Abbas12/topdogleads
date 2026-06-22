@@ -278,8 +278,8 @@ export async function generateMetadata({
   return {
     title:
       currentPage === 1
-        ? "FAQ — Pay-Per-Call Leads, Pricing & How It Works | Top Dog Leads"
-        : `FAQ Page ${currentPage}: ${sectionNames} | Top Dog Leads`,
+        ? "FAQ — Pay-Per-Call Leads, Pricing & How It Works "
+        : `FAQ Page ${currentPage}: ${sectionNames} `,
     description:
       "Get answers about buying pay-per-call leads for insurance, solar, roofing, and Medicare. Pricing, call quality, exclusivity, and how to get started explained.",
     alternates: {

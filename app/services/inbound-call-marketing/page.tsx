@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Inbound Call Marketing Services USA | High-Intent Call Campaigns | Top Dog Leads",
+  title: "Inbound Call Marketing Services USA | High-Intent Call Campaigns",
   description:
     "Drive high-intent inbound phone calls through targeted campaigns, landing page optimization, call tracking, and conversion-focused strategy from Top Dog Leads.",
   alternates: {
@@ -15,8 +15,16 @@ export const metadata = {
     url: "https://topdoglead.com/services/inbound-call-marketing",
     siteName: "Top Dog Leads",
     type: "website",
-  },
-};
+    images: [
+      {
+        url: "https://topdoglead.com/inbound-call-marketing-hero.webp",
+        width: 1200,
+        height: 900,
+        alt: "Inbound call marketing dashboard showing call volume and campaign performance",
+      },
+    ],
+  }
+}
 
 const faqs = [
   {

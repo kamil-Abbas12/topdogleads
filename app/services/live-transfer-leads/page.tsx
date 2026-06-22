@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Live Transfer Leads Services USA | Real-Time Qualified Calls",
   description:
-    "Buy live transfer leads for insurance, Medicare, solar, auto, and final expense. Pre-qualified prospects transferred directly to your sales agents in real time. 90%+ contact rate, TCPA compliant, no contracts. Start receiving calls in 24 hours.",
+    "Buy live transfer leads for insurance, Medicare, solar, and auto. Pre-qualified prospects transferred live to your sales agents. TCPA compliant, no contracts.",
   keywords: [
     // ── Core / Short-tail
     "live transfer leads",
@@ -84,6 +84,14 @@ export const metadata = {
     url: "https://topdoglead.com/services/live-transfer-leads",
     type: "website",
     siteName: "Top Dog Leads",
+    images: [
+      {
+        url: "https://topdoglead.com/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Top Dog Leads",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

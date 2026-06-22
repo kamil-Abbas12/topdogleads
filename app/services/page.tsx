@@ -6,13 +6,21 @@ export const metadata = {
   description:
     "Explore Top Dog Leads' lead generation services — insurance call leads, live transfer leads, and inbound call marketing campaigns built around real, high-intent conversations.",
   alternates: { canonical: "https://topdoglead.com/services" },
-  openGraph: {
+ openGraph: {
     title: "Lead Generation Services | Top Dog Leads",
     description:
       "Insurance call leads, live transfer leads, and inbound call marketing — built around real conversations, not clicks.",
     url: "https://topdoglead.com/services",
     siteName: "Top Dog Leads",
     type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Top Dog Leads",
+      },
+    ],
   },
 };
 

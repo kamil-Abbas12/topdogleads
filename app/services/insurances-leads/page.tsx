@@ -5,11 +5,11 @@ export const metadata = {
   title:
     "Insurance Call Leads USA | Exclusive Inbound Insurance Leads",
   description:
-    "Buy high-intent insurance call leads for auto, health, life, Medicare, final expense, and home insurance campaigns. Top Dog Leads helps businesses connect with ready-to-talk prospects through inbound call lead generation.",
+    "Buy high-intent insurance call leads for auto, health, life, Medicare, and final expense. Connect with ready-to-talk prospects fast.",
   alternates: {
     canonical: "https://topdoglead.com/services/insurances-leads",
   },
-  openGraph: {
+ openGraph: {
     title:
       "Insurance Call Leads USA | Exclusive Inbound Insurance Leads",
     description:
@@ -17,6 +17,14 @@ export const metadata = {
     url: "https://topdoglead.com/services/insurances-leads",
     siteName: "Top Dog Leads",
     type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/insurance-call-leads-hero.webp",
+        width: 1200,
+        height: 900,
+        alt: "Insurance call leads service illustration",
+      },
+    ],
   },
 };
 
