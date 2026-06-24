@@ -788,29 +788,29 @@ metaDescription:
     </thead>
     <tbody>
       <tr>
-        <td class="border border-gray-300 px-4 py-3 font-bold">Leads Generated</td>
+        <td class="border border-gray-300 px-4 py-3 font-bold text-gray-900">Leads Generated</td>
         <td class="border border-gray-300 px-4 py-3">200 leads</td>
         <td class="border border-gray-300 px-4 py-3">40 leads</td>
       </tr>
       <tr>
-        <td class="border border-gray-300 px-4 py-3 font-bold">Upfront Cost Per Lead</td>
-        <td class="border border-gray-300 px-4 py-3">$40</td>
-        <td class="border border-gray-300 px-4 py-3">$85</td>
+        <td class="border border-gray-300 px-4 py-3 font-bold text-gray-900">Upfront Cost Per Lead</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$40</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$85</td>
       </tr>
       <tr>
-        <td class="border border-gray-300 px-4 py-3 font-bold">Total Ad Spend</td>
-        <td class="border border-gray-300 px-4 py-3">$8,000</td>
-        <td class="border border-gray-300 px-4 py-3">$3,400</td>
+        <td class="border border-gray-300 px-4 py-3 font-bold text-gray-900">Total Ad Spend</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$8,000</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$3,400</td>
       </tr>
       <tr>
-        <td class="border border-gray-300 px-4 py-3 font-bold">Conversion Rate to Sale</td>
-        <td class="border border-gray-300 px-4 py-3">2% (4 Customers)</td>
-        <td class="border border-gray-300 px-4 py-3">12% (5 Customers)</td>
+        <td class="border border-gray-300 px-4 py-3 font-bold text-gray-900">Conversion Rate to Sale</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">2% (4 Customers)</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">12% (5 Customers)</td>
       </tr>
       <tr>
-        <td class="border border-gray-300 px-4 py-3 font-bold">Final CAC</td>
-        <td class="border border-gray-300 px-4 py-3">$2,000 per customer</td>
-        <td class="border border-gray-300 px-4 py-3">$680 per customer</td>
+        <td class="border border-gray-300 px-4 py-3 font-bold text-gray-900">Final CAC</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$2,000 per customer</td>
+        <td class="border border-gray-300 px-4 py-3 text-gray-900">$680 per customer</td>
       </tr>
     </tbody>
   </table>
