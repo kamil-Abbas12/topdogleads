@@ -6,7 +6,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/industry/*/sales?*"],
+        disallow: ["/api/"], // Only block API routes
+        // Remove /industry/*/sales?* — you want these pages crawled
       },
     ],
     sitemap: "https://topdoglead.com/sitemap.xml",
