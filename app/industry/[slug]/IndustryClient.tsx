@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter, useParams, usePathname } from "next/navigation";
 import { industries } from "@/data/industries";
@@ -152,18 +153,25 @@ export default function IndustryClient() {
                 <p className="text-sm text-blue-600">{companyError}</p>
               )}
 
-              <div className="flex flex-col lg:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
                 <button
                   onClick={handleCtaClick}
-                  className="bg-[#1c2d56] text-white px-6 py-3 lg:px-12 rounded-md cursor-pointer"
+                  className="bg-[#1c2d56] text-white px-6 py-3 lg:px-12 rounded-md cursor-pointer hover:bg-[#141f3f] transition font-semibold"
                 >
                   Get Calls
                 </button>
-                <p className="text-sm text-gray-600">
-                  Questions?{" "}
-                  <span className="font-semibold">{industry.phone}</span>
-                </p>
+                
+                <Link 
+                  href={`/industry/${slug}/sales`}
+                  className="text-blue-600 hover:text-blue-700 underline font-semibold"
+                >
+                  View Pricing Plans →
+                </Link>
               </div>
+
+              <p className="text-sm text-gray-600">
+                Questions? <span className="font-semibold">{industry.phone}</span>
+              </p>
             </div>
           )}
 
@@ -224,7 +232,7 @@ export default function IndustryClient() {
 
               <button
                 onClick={handleCtaClick}
-                className="bg-[#1c2d56] text-white px-6 lg:px-10 cursor-pointer py-3 rounded-md"
+                className="bg-[#1c2d56] text-white px-6 lg:px-10 cursor-pointer py-3 rounded-md hover:bg-[#141f3f] transition font-semibold w-full"
               >
                 Next
               </button>
