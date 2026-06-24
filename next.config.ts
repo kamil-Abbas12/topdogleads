@@ -26,6 +26,13 @@ async redirects() {
       { source: '/product/mva-premium-bundle/feed/', destination: '/industry/motor-vehicle-accident', permanent: true },
       { source: '/product/mva-premium-bundle', destination: '/industry/motor-vehicle-accident', permanent: true },
       { source: '/product/:slug*', destination: '/solution/pay-per-call', permanent: true },
+// Add these specific ones:
+{ source: '/product/50-medicare-leads', destination: '/industry/medicare-insurance', permanent: true },
+{ source: '/product/medicare-leads', destination: '/industry/medicare-insurance', permanent: true },
+{ source: '/product/final-expense-leads', destination: '/industry/final-expense', permanent: true },
+{ source: '/product/auto-insurance-leads', destination: '/industry/auto-insurance', permanent: true },
+{ source: '/product/solar-leads', destination: '/industry/solar', permanent: true },
+{ source: '/product/:slug*', destination: '/solution/pay-per-call', permanent: true },
 
       // ── WordPress feed URLs (fixes 308 validation failures) ──────
       { source: '/portfolio-category/:slug*/feed/', destination: '/', permanent: true },
