@@ -196,23 +196,7 @@ export default function Footer() {
               Get a Free Quote →
             </Link>
 
-            <div className="mt-6 pt-4 border-t border-white/10">
-              <FooterColTitle>Quick Answers</FooterColTitle>
-              <div className="mt-2 space-y-1">
-                <Link href="/faq#pricing" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
-                  → How much do leads cost?
-                </Link>
-                <Link href="/faq#quality" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
-                  → Are calls exclusive?
-                </Link>
-                <Link href="/faq#getting-started" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
-                  → How fast can I start?
-                </Link>
-                <Link href="/faq#organic-vs-paid" className="block text-[11px] text-slate-200/60 hover:text-white transition-colors">
-                  → Organic vs paid traffic
-                </Link>
-              </div>
-            </div>
+       
           </div>
         </div>
 
