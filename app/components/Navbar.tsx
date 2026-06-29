@@ -53,10 +53,10 @@ export default function Navbar() {
       >
         <Link href="/" aria-label="Top Dog Leads — Pay-Per-Call Lead Generation Home">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Top Dog Leads - Pay-Per-Call Lead Generation Agency"
-            width={140}
-            height={40}
+            width={120}
+            height={25}
             priority
             className="h-20 w-auto object-contain"
           />

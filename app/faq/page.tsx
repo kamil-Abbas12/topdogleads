@@ -261,7 +261,7 @@ const colorMap: Record<string, { bg: string; text: string; border: string; dot: 
   indigo: { bg: "bg-indigo-50", text: "text-indigo-700", border: "border-indigo-200", dot: "bg-indigo-500" },
 };
 
-// ─── METADATA ─────────────────────────────────────────────────────────────────
+// ─── METADATA (FIXED - unique descriptions per page) ─────────────────────────
 export async function generateMetadata({
   searchParams,
 }: {
@@ -275,13 +275,19 @@ export async function generateMetadata({
   );
   const sectionNames = pageSections.map((s) => s.heading).join(" & ");
 
+  // ✅ UNIQUE descriptions per page (fixes duplicate flagging)
+  const descriptionMap: Record<number, string> = {
+    1: "Pay-per-call lead generation FAQs: How it works, pricing, call quality, and getting started with Top Dog Leads for auto insurance, Medicare, solar, roofing, and more.",
+    2: "Answers about pricing, fees, contracts, budgets, and volume discounts for pay-per-call leads from Top Dog Leads.",
+    3: "Call quality, compliance, TCPA guidelines, call recordings, and exclusivity guarantees for Top Dog Leads pay-per-call campaigns.",
+  };
+
   return {
     title:
       currentPage === 1
-        ? "FAQ — Pay-Per-Call Leads, Pricing & How It Works "
-        : `FAQ Page ${currentPage}: ${sectionNames} `,
-    description:
-      "Get answers about buying pay-per-call leads for insurance, solar, roofing, and Medicare. Pricing, call quality, exclusivity, and how to get started explained.",
+        ? "FAQ — Pay-Per-Call Leads, Pricing & How It Works"
+        : `FAQ Page ${currentPage}: ${sectionNames}`,
+    description: descriptionMap[currentPage] || "Frequently asked questions about Top Dog Leads pay-per-call lead generation.",
     alternates: {
       canonical:
         currentPage === 1
@@ -422,7 +428,7 @@ export default async function FAQPage({
                         {"link" in faq && (faq as any).link && (
                           <Link
                             href={(faq as any).link.href}
-                            className={`inline-flex items-center gap-1 mt-3 text-sm font-medium ${c.text} hover:underline`}
+                            className={`inline-flex items-center gap-1 mt-3 text-sm font-medium text-teal-700 hover:underline`}
                           >
                             {(faq as any).link.label} →
                           </Link>

@@ -19,7 +19,7 @@ export async function generateMetadata({
   if (!meta || !productIndustry) return {};
 
   return {
-    title: `Buy ${meta.name} Leads & Live Calls | Top Dog Leads`,
+    title: `Buy ${meta.name} Leads & Live Calls `,
     description: `Choose a ${meta.name} leads plan. Get high-intent live transfer calls delivered straight to your phone. Verified prospects, real-time delivery.`,
     keywords: `buy ${meta.name} leads, ${meta.name} live transfer leads, ${meta.name} lead generation, exclusive ${meta.name} leads`,
     openGraph: {
@@ -255,6 +255,10 @@ export default async function SalesPage({
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12">
+       <h2 className="text-2xl font-bold text-gray-900 mb-8">
+        Choose Your {meta?.name} Leads Plan
+      </h2>
+      
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {plans.map((plan) => (
             <ProductCard
