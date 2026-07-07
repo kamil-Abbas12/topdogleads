@@ -79,43 +79,34 @@ export default function HospitalIndemnityInsurancePage() {
       </section>
 
       {/* BODY */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-0 py-12 sm:py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-0 py-12 sm:py-16">
         {/* Intro */}
         <p className="text-gray-700 text-base leading-relaxed mb-6">
-          Even a quick trip to the hospital can result in unexpected expenses that your
-          existing health coverage may or may not cover.
+          Standard health insurance doesn't cover everything. We cover the gaps.
         </p>
         <p className="text-gray-700 text-base leading-relaxed mb-12">
-          This is where hospital indemnity insurance may help, by giving you a payment to
-          help cover expenses that result from a hospital visit and unexpected emergencies.
+          Unexpected hospital visits come with unexpected expenses. Hospital indemnity insurance provides direct cash payouts to help handle deductibles, copays, or daily living expenses while you recover giving you total financial peace of mind when you need it most.
         </p>
 
         {/* Defined */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          Hospital indemnity insurance defined
+          How Hospital Indemnity Insurance Protects Your Wallet ?
         </h2>
         <p className="text-gray-700 text-base leading-relaxed mb-12">
-          Hospital indemnity insurance is a supplemental insurance offering that pays
-          directly to the insured person, not to medical providers, for covered
-          occurrences. Once the money is in your hands, you can spend it however you see
-          fit.
+        Unlike standard health coverage, hospital indemnity insurance cuts a check directly to you, not the medical provider. There are no restrictions and no fine print on how you use it. Once you receive the cash, you can spend it on medical bills, rent, or everyday expenses.
         </p>
 
         {/* Who needs it */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          Who may need hospital indemnity insurance?
+Who is Vulnerable to Out-of-Pocket Hospital Costs?
         </h2>
         <p className="text-gray-700 text-base leading-relaxed mb-4">
-          It&apos;s easy to be caught off guard by the variety of hospitalization-related
-          expenses that aren&apos;t covered by medical insurance — from co-pays and
-          deductibles to groceries and childcare. We may also underestimate how expensive
-          it is. The average cost of a three-day hospital stay is around{" "}
-          <span className="text-blue-600 font-medium">$30,000</span>.
+          Don't Let a Surprise Hospital Visit Drain Your Savings
+Did you know the average cost of just a three-day hospital stay is around $30,000? Even with major medical insurance, you can easily be caught off guard by a wave of uncovered expenses including steep deductibles, copays, and lost wages.
+ 
         </p>
         <p className="text-gray-700 text-base leading-relaxed mb-12">
-          These costs can add up quickly and may negatively impact a tight household
-          budget. Hospital indemnity insurance can help cover these unforeseen costs and
-          provide some financial relief.
+         Hospital indemnity insurance bridges this gap by paying cash benefits directly to you. It gives you an instant financial cushion so you can focus on healing, not medical bills.
         </p>
 
         {/* What it can be used for */}
@@ -123,9 +114,7 @@ export default function HospitalIndemnityInsurancePage() {
           What can hospital indemnity insurance be used for?
         </h2>
         <p className="text-gray-700 text-base leading-relaxed mb-4">
-          Payments from a hospital indemnity plan can cover costs from an extended
-          hospital stay, transportation to and from follow-up appointments, and more.
-          Here are a few expenses you might want to use it for:
+          Hospital indemnity cash benefits are designed to absorb the financial shock of a medical crisis. Because the money goes straight to you, you have the flexibility to cover both medical and everyday costs, including:
         </p>
         <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-12">
           {usesList.map((item) => (
@@ -135,13 +124,10 @@ export default function HospitalIndemnityInsurancePage() {
 
         {/* Benefits */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          What are the benefits of hospital indemnity insurance?
+          The Financial Perks of a Hospital Indemnity Plan
         </h2>
         <p className="text-gray-700 text-base leading-relaxed mb-10">
-          Hospital indemnity insurance can offer financial support to you or your family
-          for an unforeseen large expense or during an emergency and help keep your
-          family&apos;s finances on track. Plus, paying a monthly premium that&apos;s
-          deducted from your paycheck can make financial planning easier than you think.
+          An unexpected medical emergency shouldn’t derail your family's financial future. Hospital indemnity insurance delivers an instant cash safety net right when you need it most, keeping your household budget completely on track. Plus, with small, predictable monthly premiums, securing this peace of mind fits seamlessly into your existing budget.
         </p>
 
         <div className="space-y-10 mb-12">
@@ -150,51 +136,38 @@ export default function HospitalIndemnityInsurancePage() {
               1. You can use the benefit payment as you see fit
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              When you make a qualifying claim on your hospital indemnity insurance
-              policy, you receive a payment from your plan that&apos;s paid directly to
-              you. You can use these funds in any way that might help you and your family
-              with both unexpected and planned expenses — food deliveries, childcare,
-              hospital co-pays, or other essential bills.
+             When you file a qualifying claim, your cash benefit is paid directly to you not the hospital. Whether you need to cover high medical deductibles, order food deliveries, pay for childcare, or take care of everyday household bills, the choice is entirely yours. Once the money hits your account, it’s 100% yours to use exactly where you need it most.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              2. Coverage is typically guaranteed, and payments are easy
-            </h3>
+2. Guaranteed Acceptance, Hassle-Free Payouts            </h3>
             <p className="text-gray-700 leading-relaxed">
-              Unlike other insurance policies that may involve a medical screening,
-              hospital indemnity insurance is typically a voluntary benefit that&apos;s
-              guaranteed without the need for a medical exam or health questionnaire.
-              Premiums are also often handled directly through payroll deductions if the
-              policy is provided by your employer.
+             Unlike traditional health insurance that requires endless medical screenings and long health questionnaires, hospital indemnity insurance is typically guaranteed-issue. That means you are automatically approved without a medical exam.
+Managing your coverage is just as effortless. Payments can be set up as simple, automated monthly deductions, ensuring your policy never lapses. You get an immediate financial safety net for unexpected hospital stays, with zero added stress.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              3. You may be able to take your benefits with you if you change jobs
+              3. Protecting Your Family, No Matter Where You Work
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Although most hospital indemnity coverage plans are provided through an
-              employer, you can often take your plan with you if your employment status
-              changes. As long as you continue making your premium payments — and your
-              employer doesn&apos;t terminate the group policy — you&apos;ll be covered
-              whenever you might need to use it.
+              Your financial protection isn't tied to your desk. Even if you change careers or leave your current employer, you can easily take your hospital indemnity plan with you. As long as you maintain your simple monthly premium payments, your cash safety net stays active giving you seamless, uninterrupted peace of mind wherever life takes you next.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              4. It&apos;s a smart step in financial planning
+              4. A Simple Upgrade to Your Financial Security
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Even the savviest of budgeters can run into unforeseen expenses. Although
-              health insurance may cover a portion of hospital bills, it may not cover an
-              entire stay. Plus, there are other costs to consider that can affect you
-              financially, like childcare when you&apos;re in the hospital and recovering
-              at home, transportation costs, additional healthcare needs like physical
-              rehabilitation, and even grocery and food delivery costs.
+      
+ 
+Even the Best Budgets Can’t Predict a Medical Crisis
+Standard health insurance pays the doctors but it leaves behind a massive trail of out-of-pocket costs. From high deductibles to everyday expenses like childcare, food delivery, and transportation while you recover, the bills mount fast. Hospital indemnity insurance bridges this gap by delivering direct cash to your bank account, giving you the immediate financial support needed to handle all the costs of your recovery.
+ 
             </p>
           </div>
         </div>
@@ -205,8 +178,7 @@ export default function HospitalIndemnityInsurancePage() {
           Hospital indemnity insurance FAQs
         </h2>
         <p className="text-gray-700 leading-relaxed mb-8">
-          To learn more about hospital indemnity insurance, review the following
-          frequently asked questions.
+        Explore our frequently asked questions below to learn exactly how hospital indemnity insurance protects your wallet and pairs with your current health coverage.
         </p>
 
         <div className="space-y-8">
