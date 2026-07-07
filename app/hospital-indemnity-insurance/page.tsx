@@ -1,6 +1,7 @@
 import { roboto } from "@/lib/fonts";
 import Image from "next/image";
 import { Facebook, Twitter, Linkedin, Mail } from "lucide-react";
+import HospitalLeadForm from "../components/HospitalLeadForm";
 
 export const metadata = {
   title: "What Is Hospital Indemnity Insurance? Coverage & Benefits | Top Dog Leads",
@@ -197,6 +198,7 @@ export default function HospitalIndemnityInsurancePage() {
             </p>
           </div>
         </div>
+        <HospitalLeadForm />
 
         {/* FAQ */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
