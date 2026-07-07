@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { roboto } from "@/lib/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,6 +28,7 @@ const servicesLinks = [
 const resourceLinks = [
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
+  { label: "Hospital Indemnity Insurance", href: "/hospital-indemnity-insurance" },
 ];
 
 export default function Navbar() {
@@ -39,7 +39,6 @@ export default function Navbar() {
   const [mobileDropdown, setMobileDropdown] = useState(false);
   const [mobileServicesDropdown, setMobileServicesDropdown] = useState(false);
   const [mobileResourcesDropdown, setMobileResourcesDropdown] = useState(false);
-  const router = useRouter();
 
   return (
     <nav
@@ -47,21 +46,20 @@ export default function Navbar() {
       aria-label="Top Dog Leads main navigation"
     >
       {/* LOGO */}
-      <div
-        className="flex items-center cursor-pointer"
-        onClick={() => router.push("/")}
-      >
-        <Link href="/" aria-label="Top Dog Leads — Pay-Per-Call Lead Generation Home">
-          <Image
-            src="/logo.webp"
-            alt="Top Dog Leads - Pay-Per-Call Lead Generation Agency"
-            width={120}
-            height={25}
-            priority
-            className="h-20 w-auto object-contain"
-          />
-        </Link>
-      </div>
+ <Link
+  href="/"
+  className="flex items-center"
+  aria-label="Top Dog Leads — Pay-Per-Call Lead Generation Home"
+>
+  <Image
+    src="/logo.webp"
+    alt="Top Dog Leads - Pay-Per-Call Lead Generation Agency"
+    width={120}
+    height={25}
+    priority
+    className="h-20 w-auto object-contain"
+  />
+</Link>
 
       {/* DESKTOP LINKS */}
       <div className="hidden lg:flex items-center gap-8">
@@ -155,7 +153,6 @@ export default function Navbar() {
                       </ul>
                     </div>
 
-                    {/* NEW: View All Industries */}
                     <div className="mt-4 pt-3 border-t border-gray-100">
                       <Link
                         href="/industry"
@@ -227,7 +224,6 @@ export default function Navbar() {
                       </Link>
                     </li>
                   ))}
-                  {/* NEW: View All Services */}
                   <li className="pt-3 mt-1 border-t border-gray-100">
                     <Link
                       href="/services"
@@ -243,7 +239,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* RESOURCES DROPDOWN — Blog + FAQ */}
+        {/* RESOURCES DROPDOWN */}
         <div
           className="relative"
           onMouseEnter={() => setResourcesOpen(true)}
@@ -277,10 +273,12 @@ export default function Navbar() {
                       className="flex items-center gap-2 hover:text-blue-600 transition"
                       onClick={() => setResourcesOpen(false)}
                     >
-                      <span className="text-gray-400" aria-hidden="true">✍️</span>
+                      <span className="text-gray-400" aria-hidden="true">
+                        ✍️
+                      </span>
                       <div>
                         <p className="font-medium text-gray-900">Blog</p>
-                        <p className="text-xs text-gray-500">Tips & lead gen guides</p>
+                        <p className="text-xs text-gray-500">Tips &amp; lead gen guides</p>
                       </div>
                     </Link>
                   </li>
@@ -290,10 +288,27 @@ export default function Navbar() {
                       className="flex items-center gap-2 hover:text-blue-600 transition"
                       onClick={() => setResourcesOpen(false)}
                     >
-                      <span className="text-gray-400" aria-hidden="true">❓</span>
+                      <span className="text-gray-400" aria-hidden="true">
+                        ❓
+                      </span>
                       <div>
                         <p className="font-medium text-gray-900">FAQ</p>
-                        <p className="text-xs text-gray-500">Pricing, quality & how it works</p>
+                        <p className="text-xs text-gray-500">Pricing, quality &amp; how it works</p>
+                      </div>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/hospital-indemnity-insurance"
+                      className="flex items-center gap-2 hover:text-blue-600 transition"
+                      onClick={() => setResourcesOpen(false)}
+                    >
+                      <span className="text-gray-400" aria-hidden="true">
+                        🏥
+                      </span>
+                      <div>
+                        <p className="font-medium text-gray-900">Hospital Indemnity Insurance</p>
+                        <p className="text-xs text-gray-500">Coverage &amp; benefits guide</p>
                       </div>
                     </Link>
                   </li>
@@ -349,13 +364,13 @@ export default function Navbar() {
           </button>
 
           <div className="flex flex-col gap-6 p-6 pt-24">
-            <a
+            <Link
               href="/about"
               className="text-lg font-medium text-gray-900"
               onClick={() => setMobile(false)}
             >
               About
-            </a>
+            </Link>
 
             {/* Mobile Solutions */}
             <div className="flex flex-col">
@@ -392,7 +407,6 @@ export default function Navbar() {
                     </Link>
                   ))}
 
-                  {/* NEW: View All Industries */}
                   <Link
                     href="/industry"
                     className="text-blue-600 font-semibold"
@@ -428,7 +442,6 @@ export default function Navbar() {
                     </Link>
                   ))}
 
-                  {/* NEW: View All Services */}
                   <Link
                     href="/services"
                     className="text-blue-600 font-semibold"
@@ -477,11 +490,11 @@ export default function Navbar() {
                 <Phone size={18} aria-hidden="true" /> +1 678 462 8013
               </a>
 
-              <a href="/contact" onClick={() => setMobile(false)}>
+              <Link href="/contact" onClick={() => setMobile(false)}>
                 <button className="w-full bg-[#1c2d56] text-white py-3 rounded-md font-medium">
                   Try Top Dog Leads
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
