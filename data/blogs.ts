@@ -942,8 +942,7 @@ metaDescription:
   {
   slug: "maximizing-conversions-pay-per-call-tips-best-practices",
   title: "Maximizing Conversions with Pay-Per-Call: Tips and Best Practices",
-  metaTitle: "Maximizing Conversions with Pay-Per-Call 
-",
+  metaTitle: "Maximizing Conversions with Pay-Per-Call ",
   metaDescription:
     "Sloppy PPCall strategy burns ad spend fast. Learn the non-negotiable best practices — dayparting, IVR setup, buffer time, and call analytics — to maximize conversions.",
   keywords: [
