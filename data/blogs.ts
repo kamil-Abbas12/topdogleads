@@ -63,7 +63,7 @@ export const blogs = [
   {
     slug: "lead-generation-myths-busted",
     title: "Lead Generation Myths Busted: Separating Fact from Fiction",
-    metaTitle: "Lead Generation Myths Busted — Insurance Lead Generation Facts ",
+    metaTitle: "Lead Generation Myths Busted ",
     metaDescription:
       "Stop chasing the wrong strategies. Top Dog Leads breaks down the biggest lead generation myths and explains what actually drives high-quality inbound calls for your business.",
     keywords: [
@@ -131,7 +131,7 @@ export const blogs = [
   {
     slug: "high-intent-leads-scalable-growth",
     title: "Stop Chasing Clicks: Why High-Intent Leads Are the Secret to Scalable Growth",
-   metaTitle: "Pay-Per-Call Lead Generation: Only Pay for Calls That Convert ",
+   metaTitle: "Pay-Per-Call Lead Generation That Converts | Top Dog Leads",
 metaDescription:
   "Clicks don't pay bills — conversations do. Learn how Pay-Per-Call delivers high-intent inbound leads with zero wasted ad spend. Get a free consultation today.",
     keywords: [
@@ -204,7 +204,7 @@ metaDescription:
   {
     slug: "pay-per-call-lead-generation",
     title: "Why Pay-Per-Call Lead Generation is a Game-Changer for Businesses",
-    metaTitle: "Pay-Per-Call Lead Generation — High Intent Leads That Convert ",
+    metaTitle: "High-Intent Pay-Per-Call Leads ",
     metaDescription:
       "Discover why pay-per-call lead generation delivers high-intent leads, better ROI, and real conversations that convert into customers.",
     keywords: [
@@ -461,7 +461,7 @@ metaDescription:
     {
     slug: "grow-business-ppc-houston",
     title: "How Pay-Per-Call Can Drive High-Quality Leads to Your Business",
-   metaTitle: "Pay-Per-Call Leads in Houston TX: Only Pay for Real Conversations",
+   metaTitle: "Pay-Per-Call Leads in Houston, TX ",
 metaDescription:
   "Stop paying for dead form fills. Houston businesses use Pay-Per-Call to connect with high-intent buyers ready to talk. Only pay when a qualified call comes in.",
     keywords: [
@@ -557,7 +557,7 @@ metaDescription:
  {
     slug: "lead-generation-strategy-that-drives-results",
     title: "Creating a Lead Generation Strategy That Drives Results",
-    metaTitle: "Lead Generation Strategy 2026: The Framework That Drives Results",
+    metaTitle: "Lead Generation Strategy 2026 ",
     metaDescription:
       "The old lead gen playbook is broken. Discover the 2026 framework for signal-based outbound, website intelligence, and interactive lead magnets that convert.",
     keywords: [
@@ -698,7 +698,7 @@ metaDescription:
   },
   {
   slug: "vanity-metrics-vs-high-intent-leads-roi",
-  title: "The Vanity Metric Trap: Why More Leads are Killing Your ROI (and How to Fix It)",
+  title: "The Vanity Metric Trap: More Leads ≠ Better ROI",
   metaTitle:
     "The Vanity Metric Trap: Why More Leads Are Killing Your ROI (and How to Fix It)",
   metaDescription:
@@ -942,7 +942,8 @@ metaDescription:
   {
   slug: "maximizing-conversions-pay-per-call-tips-best-practices",
   title: "Maximizing Conversions with Pay-Per-Call: Tips and Best Practices",
-  metaTitle: "Maximizing Conversions with Pay-Per-Call: Tips & Best Practices",
+  metaTitle: "Maximizing Conversions with Pay-Per-Call 
+",
   metaDescription:
     "Sloppy PPCall strategy burns ad spend fast. Learn the non-negotiable best practices — dayparting, IVR setup, buffer time, and call analytics — to maximize conversions.",
   keywords: [
