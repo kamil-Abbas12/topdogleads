@@ -25,7 +25,7 @@ export const industries = [
   },
   {
     slug: "roofing",
-    name: "roofing",
+    name: "Roofing",
     image: "/roofing.png",
     phone: "+1 678 462 8013",
   },

@@ -14,17 +14,19 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const meta = metaIndustries.find((i) => i.slug === slug);
   const productIndustry = productIndustries.find((i) => i.slug === slug);
-  if (!meta || !productIndustry) return {};
+  if (!productIndustry) return {};
+
+  const meta = metaIndustries.find((i) => i.slug === slug);
+  const name = meta?.name ?? productIndustry.name;
 
   return {
-    title: `Buy ${meta.name} Leads & Live Calls `,
-    description: `Choose a ${meta.name} leads plan. Get high-intent live transfer calls delivered straight to your phone. Verified prospects, real-time delivery.`,
-    keywords: `buy ${meta.name} leads, ${meta.name} live transfer leads, ${meta.name} lead generation, exclusive ${meta.name} leads`,
+    title: `Buy ${name} Leads & Live Calls`,
+    description: `Choose a ${name} leads plan. Get high-intent live transfer calls delivered straight to your phone. Verified prospects, real-time delivery.`,
+    keywords: `buy ${name} leads, ${name} live transfer leads, ${name} lead generation, exclusive ${name} leads`,
     openGraph: {
-      title: `${meta.name} Lead Plans | Top Dog Leads`,
-      description: `High-intent ${meta.name} leads. Pick your plan and start getting live calls today.`,
+      title: `${name} Lead Plans | Top Dog Leads`,
+      description: `High-intent ${name} leads. Pick your plan and start getting live calls today.`,
       url: `https://topdoglead.com/industry/${slug}/sales`,
       siteName: "Top Dog Leads",
       images: [{ url: `https://topdoglead.com${productIndustry.image}` }],
@@ -32,8 +34,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${meta.name} Lead Plans | Top Dog Leads`,
-      description: `Live ${meta.name} leads — pick your plan and start today.`,
+      title: `${name} Lead Plans | Top Dog Leads`,
+      description: `Live ${name} leads — pick your plan and start today.`,
     },
     alternates: {
       canonical: `https://topdoglead.com/industry/${slug}/sales`,
@@ -204,28 +206,28 @@ export default async function SalesPage({
     : [];
 
   // ✅ SEO: JSON-LD schema for AI search + Google rich results
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${heroTitle} Leads & Live Transfer Calls`,
-    provider: {
-      "@type": "Organization",
-      name: "Top Dog Leads",
-      url: "https://topdoglead.com",
-    },
-    description: `Buy exclusive ${heroTitle} leads with live transfer calls. High-intent prospects delivered in real time to insurance agents and contractors across the US.`,
-    areaServed: "US",
-    url: `https://topdoglead.com/industry/${slug}/sales`,
-    offers: plans
-      .filter((p) => p.price != null)
-      .map((p) => ({
-        "@type": "Offer",
-        name: p.title,
-        price: p.price,
-        priceCurrency: "USD",
-        description: p.desc,
-      })),
-  };
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: `${heroTitle} & Live Transfer Calls`,
+  provider: {
+    "@type": "Organization",
+    name: "Top Dog Leads",
+    url: "https://topdoglead.com",
+  },
+  description: `Buy exclusive ${heroTitle} with live transfer calls. High-intent prospects delivered in real time to insurance agents and contractors across the US.`,
+  areaServed: "US",
+  url: `https://topdoglead.com/industry/${slug}/sales`,
+  offers: plans
+    .filter((p) => p.price != null)
+    .map((p) => ({
+      "@type": "Offer",
+      name: p.title,
+      price: p.price,
+      priceCurrency: "USD",
+      description: p.desc,
+    })),
+};
 
   return (
     <main className="w-full bg-white">
