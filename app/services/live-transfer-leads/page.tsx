@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Live Transfer Leads Services USA | Real-Time Qualified Calls",
+title: "Live Transfer Leads USA",
   description:
     "Buy live transfer leads for insurance, Medicare, solar, and auto. Pre-qualified prospects transferred live to your sales agents. TCPA compliant, no contracts.",
   keywords: [

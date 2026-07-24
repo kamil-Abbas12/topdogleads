@@ -4,9 +4,8 @@ import { Facebook, Twitter, Linkedin, Mail } from "lucide-react";
 import HospitalLeadForm from "../components/HospitalLeadForm";
 
 export const metadata = {
-  title: "What Is Hospital Indemnity Insurance? Coverage & Benefits | Top Dog Leads",
-  description:
-    "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
+title: "Hospital Indemnity Insurance Explained | Top Dog Leads",
+  description: "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
 };
 
 const usesList = [

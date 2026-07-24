@@ -2,9 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Inbound Call Marketing Services USA | High-Intent Call Campaigns",
-  description:
-    "Drive high-intent inbound phone calls through targeted campaigns, landing page optimization, call tracking, and conversion-focused strategy from Top Dog Leads.",
+title: "Inbound Call Marketing Services" ,
+  description: "Drive high-intent inbound phone calls through targeted campaigns, landing page optimization, call tracking, and conversion-focused strategy from Top Dog Leads.",
   alternates: {
     canonical: "https://topdoglead.com/services/inbound-call-marketing",
   },

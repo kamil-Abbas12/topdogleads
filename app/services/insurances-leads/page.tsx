@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title:
-    "Insurance Call Leads USA | Exclusive Inbound Insurance Leads",
+  title: "Insurance Call Leads USA ",
   description:
     "Buy high-intent insurance call leads for auto, health, life, Medicare, and final expense. Connect with ready-to-talk prospects fast.",
   alternates: {

@@ -273,7 +273,6 @@ export async function generateMetadata({
     (currentPage - 1) * SECTIONS_PER_PAGE,
     currentPage * SECTIONS_PER_PAGE
   );
-  const sectionNames = pageSections.map((s) => s.heading).join(" & ");
 
   // ✅ UNIQUE descriptions per page (fixes duplicate flagging)
   const descriptionMap: Record<number, string> = {
@@ -282,11 +281,11 @@ export async function generateMetadata({
     3: "Call quality, compliance, TCPA guidelines, call recordings, and exclusivity guarantees for Top Dog Leads pay-per-call campaigns.",
   };
 
-  return {
+ return {
     title:
       currentPage === 1
-        ? "FAQ — Pay-Per-Call Leads, Pricing & How It Works"
-        : `FAQ Page ${currentPage}: ${sectionNames}`,
+       ? "Pay-Per-Call Lead Generation FAQs | Top Dog Leads"
+       : `Pay-Per-Call FAQs – Page ${currentPage} | Top Dog Leads`,
     description: descriptionMap[currentPage] || "Frequently asked questions about Top Dog Leads pay-per-call lead generation.",
     alternates: {
       canonical:

@@ -131,7 +131,7 @@ export const blogs = [
   {
     slug: "high-intent-leads-scalable-growth",
     title: "Stop Chasing Clicks: Why High-Intent Leads Are the Secret to Scalable Growth",
-   metaTitle: "Pay-Per-Call Lead Generation That Converts | Top Dog Leads",
+metaTitle: "Pay-Per-Call Leads That Convert ",
 metaDescription:
   "Clicks don't pay bills — conversations do. Learn how Pay-Per-Call delivers high-intent inbound leads with zero wasted ad spend. Get a free consultation today.",
     keywords: [
@@ -285,7 +285,7 @@ trail" into a predictable stream of live conversations. </em></p>
  {
     slug: "outsourcing-lead-generation-experts",
     title: "The Benefits of Outsourcing Lead Generation to Experts",
-    metaTitle: "Outsourcing Lead Generation in 2026: Save Time & Close More Deals",
+metaTitle: "Outsource Lead Generation to Experts ",
 metaDescription:
   "Tired of a leaky sales pipeline? See why 100s of B2B businesses outsource lead generation to experts — and start filling your calendar in 2 weeks, not months.",
     keywords: [
@@ -372,7 +372,7 @@ metaDescription:
     {
     slug: "high-quality-inbound-leads-quality-over-quantity",
     title: "The Power of High-Quality Inbound Leads: Why Quality Beats Quantity",
-   metaTitle: "High-Quality Inbound Leads: Why 10 Great Leads Beat 500 Bad Ones ",
+metaTitle: "Why Lead Quality Beats Quantity ",
 metaDescription:
   "Your sales team is burning out on junk leads. Discover how high-quality inbound leads cut your sales cycle, boost close rates, and grow customer lifetime value.",
     keywords: [
@@ -699,8 +699,7 @@ metaDescription:
   {
   slug: "vanity-metrics-vs-high-intent-leads-roi",
   title: "The Vanity Metric Trap: More Leads ≠ Better ROI",
-  metaTitle:
-    "The Vanity Metric Trap: Why More Leads Are Killing Your ROI (and How to Fix It)",
+ metaTitle: "More Leads Won't Fix Your ROI ",
   metaDescription:
     "Learn why chasing more leads can hurt your marketing ROI. Discover high-intent lead generation strategies, CAC optimization, inbound calls, SEO, PPC, and conversion-focused marketing.",
   keywords: [
@@ -845,7 +844,7 @@ metaDescription:
 {
     slug: "boost-business-high-intent-leads",
     title: "Boost Your Business with High-Intent Leads",
-    metaTitle: "Boost Your Business with High-Intent Leads | Top Dog Leads",
+    metaTitle: "Boost Your Business with High-Intent Leads",
     metaDescription:
       "Stop chasing empty volume. Learn what makes a lead truly high-intent, how to capture buyers already showing purchase signals, and why intent-driven lead gen shrinks your sales cycle.",
     keywords: [
@@ -1067,9 +1066,8 @@ metaDescription:
 {
   slug: "top-dog-leads-approach-turning-visitors-into-customers",
   title: "The Top Dog Leads Approach: Turning Website Visitors into Customers",
-  metaTitle: "The Top Dog Leads Approach — Turn Website Visitors into Customers",
-  metaDescription:
-    "95% of website visitors leave without converting. Learn the Top Dog Leads 4-step playbook — visitor intelligence, interactive engagement, signal-based outreach, and friction reduction — to turn anonymous traffic into high-value customers.",
+metaTitle: "Turn Website Visitors Into Customers ",
+  metaDescription:"95% of website visitors leave without converting. Learn the Top Dog Leads 4-step playbook — visitor intelligence, interactive engagement, signal-based outreach, and friction reduction — to turn anonymous traffic into high-value customers.",
   keywords: [
     "website visitor intelligence",
     "conversion rate optimization",
@@ -1156,7 +1154,7 @@ metaDescription:
 {
   slug: "5-strategies-to-generate-web-leads-that-actually-convert",
   title: "5 Strategies to Generate Web Leads That Actually Convert",
-  metaTitle: "5 Strategies to Generate Web Leads That Actually Convert | Top Dog Leads",
+ metaTitle: "5 Web Lead Strategies That Convert ",
   metaDescription:
     "Learn 5 proven strategies to generate web leads that actually convert, from multi-step funnels and answer-first landing pages to behavioral triggers and faster speed-to-lead workflows.",
   keywords: [
