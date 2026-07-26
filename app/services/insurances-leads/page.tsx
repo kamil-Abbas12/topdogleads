@@ -342,31 +342,31 @@ export default function InsuranceCallLeadsPage() {
             </p>
           </Link>
 
-          <Link
-            href="/industry/health-insurance"
-            className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
-          >
-            <h3 className="text-xl font-semibold text-gray-900">
-              Health Insurance Leads
-            </h3>
-            <p className="mt-3 text-gray-700 leading-7">
-              Connect with consumers comparing plan options, networks, monthly
-              costs, and enrollment support.
-            </p>
-          </Link>
+         <Link
+  href="/industry/home-insurance"
+  className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
+>
+  <h3 className="text-xl font-semibold text-gray-900">
+    Health Insurance Leads
+  </h3>
+  <p className="mt-3 text-gray-700 leading-7">
+    Connect with consumers comparing plan options, networks, monthly
+    costs, and enrollment support.
+  </p>
+</Link>
 
           <Link
-            href="/industry/life-insurance"
-            className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
-          >
-            <h3 className="text-xl font-semibold text-gray-900">
-              Life Insurance Leads
-            </h3>
-            <p className="mt-3 text-gray-700 leading-7">
-              Engage buyers researching long-term protection, term life, whole
-              life, and affordability.
-            </p>
-          </Link>
+  href="/industry/final-expense"
+  className="rounded-2xl border border-gray-200 p-6 hover:border-blue-600 transition"
+>
+  <h3 className="text-xl font-semibold text-gray-900">
+    Life Insurance Leads
+  </h3>
+  <p className="mt-3 text-gray-700 leading-7">
+    Engage buyers researching long-term protection, term life, whole
+    life, and affordability.
+  </p>
+</Link>
 
           <Link
             href="/industry/medicare-insurance"

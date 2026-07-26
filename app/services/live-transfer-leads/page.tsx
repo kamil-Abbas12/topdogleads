@@ -886,15 +886,15 @@ export default function LiveTransferPage() {
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { href: "/service/insurance-leads", label: "Insurance Leads", desc: "Health, auto & life insurance leads" },
-            { href: "/service/medicare-leads", label: "Medicare Leads", desc: "Exclusive Medicare Advantage & supplement leads" },
-            { href: "/service/solar-leads", label: "Solar Leads", desc: "Homeowner solar installation leads" },
-            { href: "/service/final-expense-leads", label: "Final Expense Leads", desc: "Aged 50–85 final expense live transfers" },
-            { href: "/service/aged-leads", label: "Aged Leads", desc: "High-volume aged insurance & solar leads" },
-            { href: "/service/internet-leads", label: "Internet Leads", desc: "Fresh web-form leads for all verticals" },
-            { href: "/service/auto-insurance-leads", label: "Auto Insurance Leads", desc: "Real-time auto insurance quote leads" },
-            { href: "/service/debt-relief-leads", label: "Debt Relief Leads", desc: "Pre-qualified $10K+ debt settlement leads" },
-          ].map((link) => (
+  { href: "/services/insurances-leads", label: "Insurance Leads", desc: "Health, auto & life insurance leads" },
+  { href: "/industry/medicare-insurance", label: "Medicare Leads", desc: "Exclusive Medicare Advantage & supplement leads" },
+  { href: "/industry/solar", label: "Solar Leads", desc: "Homeowner solar installation leads" },
+  { href: "/industry/final-expense", label: "Final Expense Leads", desc: "Aged 50–85 final expense live transfers" },
+  { href: "/services/live-transfer-leads", label: "Aged Leads", desc: "High-volume aged insurance & solar leads" },
+  { href: "/services/inbound-call-marketing", label: "Internet Leads", desc: "Fresh web-form leads for all verticals" },
+  { href: "/industry/auto-insurance", label: "Auto Insurance Leads", desc: "Real-time auto insurance quote leads" },
+  { href: "/services/insurances-leads", label: "Debt Relief Leads", desc: "Pre-qualified $10K+ debt settlement leads" },
+].map((link) => (
             <Link
               key={link.href}
               href={link.href}
