@@ -3,8 +3,8 @@ export const blogs = [
     slug: "auto-insurance-leads-peace-of-mind",
     title: "Auto Insurance Leads: Finding Peace of Mind in Coverage",
     metaTitle: "Auto Insurance Leads — Protection Beyond the Moment",
-    metaDescription:
-      "Discover how quality auto insurance leads connect agents with customers who need real coverage. Top Dog Leads delivers verified pay-per-call auto insurance leads.",
+   metaDescription:
+  "Discover how quality auto insurance leads connect agents with customers who need real coverage — verified pay-per-call leads from Top Dog Leads.",
     keywords: [
       "auto insurance leads",
       "buy auto insurance leads",
@@ -65,7 +65,7 @@ export const blogs = [
     title: "Lead Generation Myths Busted: Separating Fact from Fiction",
     metaTitle: "Lead Generation Myths Busted ",
     metaDescription:
-      "Stop chasing the wrong strategies. Top Dog Leads breaks down the biggest lead generation myths and explains what actually drives high-quality inbound calls for your business.",
+  "Stop chasing the wrong strategies. Top Dog Leads breaks down the biggest lead generation myths and what actually drives quality inbound calls.",
     keywords: [
       "lead generation myths",
       "insurance lead generation",
@@ -701,7 +701,7 @@ metaDescription:
   title: "The Vanity Metric Trap: More Leads ≠ Better ROI",
  metaTitle: "More Leads Won't Fix Your ROI ",
   metaDescription:
-    "Learn why chasing more leads can hurt your marketing ROI. Discover high-intent lead generation strategies, CAC optimization, inbound calls, SEO, PPC, and conversion-focused marketing.",
+  "Learn why chasing more leads can hurt your marketing ROI, and how high-intent lead generation and CAC optimization improve conversions.",
   keywords: [
     "ROI optimization",
     "high intent leads",
@@ -943,7 +943,7 @@ metaDescription:
   title: "Maximizing Conversions with Pay-Per-Call: Tips and Best Practices",
   metaTitle: "Maximizing Conversions with Pay-Per-Call ",
   metaDescription:
-    "Sloppy PPCall strategy burns ad spend fast. Learn the non-negotiable best practices — dayparting, IVR setup, buffer time, and call analytics — to maximize conversions.",
+  "Sloppy PPCall strategy burns ad spend fast. Learn the best practices — dayparting, IVR setup, buffer time, and call analytics — to maximize conversions.",
   keywords: [
     "pay per call best practices",
     "maximizing conversions pay per call",
@@ -1067,7 +1067,8 @@ metaDescription:
   slug: "top-dog-leads-approach-turning-visitors-into-customers",
   title: "The Top Dog Leads Approach: Turning Website Visitors into Customers",
 metaTitle: "Turn Website Visitors Into Customers ",
-  metaDescription:"95% of website visitors leave without converting. Learn the Top Dog Leads 4-step playbook — visitor intelligence, interactive engagement, signal-based outreach, and friction reduction — to turn anonymous traffic into high-value customers.",
+metaDescription:
+  "95% of website visitors leave without converting. Learn the Top Dog Leads 4-step playbook to turn anonymous traffic into high-value customers.",
   keywords: [
     "website visitor intelligence",
     "conversion rate optimization",
@@ -1155,8 +1156,8 @@ metaTitle: "Turn Website Visitors Into Customers ",
   slug: "5-strategies-to-generate-web-leads-that-actually-convert",
   title: "5 Strategies to Generate Web Leads That Actually Convert",
  metaTitle: "5 Web Lead Strategies That Convert ",
-  metaDescription:
-    "Learn 5 proven strategies to generate web leads that actually convert, from multi-step funnels and answer-first landing pages to behavioral triggers and faster speed-to-lead workflows.",
+ metaDescription:
+  "Learn 5 proven strategies to generate web leads that actually convert — from multi-step funnels to answer-first landing pages and behavioral triggers.",
   keywords: [
     "web leads",
     "lead generation strategies",
@@ -1303,7 +1304,7 @@ metaTitle: "Turn Website Visitors Into Customers ",
   title: "How to Actually Benchmark Your Sales Conversion Rates",
   metaTitle: "How to Benchmark Sales Conversion Rates",
   metaDescription:
-    "Comparing your conversion rate to a generic industry average is misleading. Learn how to segment by vertical, price point, and funnel stage to benchmark accurately.",
+  "Comparing your conversion rate to a generic industry average is misleading. Learn to segment by vertical, price, and funnel stage accurately.",
   keywords: [
     "sales conversion rate benchmark",
     "conversion rate by industry",

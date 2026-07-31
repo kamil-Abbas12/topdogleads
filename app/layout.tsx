@@ -90,13 +90,13 @@ export default function RootLayout({
         </Script>
 
         {/* ✅ Google AdSense */}
-        <Script
-          id="google-adsense"
-          async
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
-          crossOrigin="anonymous"
-        />
+       {/* ✅ Google AdSense — deferred further since it's not needed for first paint */}
+<Script
+  id="google-adsense"
+  strategy="lazyOnload"
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
+  crossOrigin="anonymous"
+/>
 
         {/* ✅ Ahrefs Analytics */}
         <Script

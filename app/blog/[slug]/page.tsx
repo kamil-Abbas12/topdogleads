@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { blogs } from "@/data/blogs";
-
+import styles from "./PostContent.module.css";
 export async function generateMetadata({
   params,
 }: {
@@ -47,11 +47,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) notFound();
 
-const related = [...blogs]
-  .filter((b) => b.slug !== blog.slug)
-  .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime())
-  .slice(0, 2);
- const isOutsourcingBlog = slug === "outsourcing-lead-generation-experts";
+  const related = [...blogs]
+    .filter((b) => b.slug !== blog.slug)
+    .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime())
+    .slice(0, 2);
+  const isOutsourcingBlog = slug === "outsourcing-lead-generation-experts";
+
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -85,9 +86,9 @@ const related = [...blogs]
   };
 
   return (
-    <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+   <main className="bg-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-{isOutsourcingBlog && (
+        {isOutsourcingBlog && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -118,12 +119,8 @@ const related = [...blogs]
           </ol>
         </nav>
 
-        <article itemScope itemType="https://schema.org/BlogPosting">
-
-          <h1
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4"
-            itemProp="headline"
-          >
+           <article itemScope itemType="https://schema.org/BlogPosting">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4" itemProp="headline">
             {blog.title}
           </h1>
 
@@ -147,6 +144,7 @@ const related = [...blogs]
               alt={blog.imageAlt ?? blog.title}
               width={1200}
               height={650}
+              sizes="(max-width: 768px) 100vw, 768px" // ✅ added
               className="w-full h-[280px] sm:h-[380px] object-cover"
               priority
               itemProp="image"
@@ -167,65 +165,17 @@ const related = [...blogs]
             </div>
           )}
 
-          {/*
-            Article body.
-            Key: prose styles h2, but <mark> inside h2 needs its own rule.
-            We use a style tag scoped to this component to guarantee the
-            yellow-highlight renders regardless of whether @tailwindcss/typography
-            is installed or purging correctly.
-          */}
-         <style>{`
-  .blog-content h2 {
-    font-size: 1.375rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-top: 2.25rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.35;
-  }
-
-  .blog-content h2 mark {
-    color: #0f172a;
-    background: transparent; /* ✅ remove yellow */
-    padding: 0;              /* optional: remove spacing */
-    border-radius: 0;        /* optional: clean look */
-  }
-
-  .blog-content p {
-    color: #374151;
-    line-height: 1.85;
-    margin-bottom: 1rem;
-  }
-
-  .blog-content strong {
-    color: #0f172a;
-  }
-
-  .blog-content ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .blog-content ul li {
-    color: #374151;
-    line-height: 1.75;
-  }
-
-  .blog-content em {
-    font-style: italic;
-  }
-`}</style>
+          {/* ✅ inline <style> block removed — now imported as a CSS Module above */}
 
           <div
-            className="blog-content max-w-none"
+            className={`${styles.blogContent} max-w-none`} // ✅ using module class
             itemProp="articleBody"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
-
         </article>
 
         {/* Related posts */}
+       {/* Related posts */}
         {related.length > 0 && (
           <section className="mt-16" aria-label="Related articles">
             <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Related Articles</h2>
@@ -242,6 +192,7 @@ const related = [...blogs]
                     alt={r.imageAlt ?? r.title}
                     width={600}
                     height={300}
+                    sizes="(max-width: 640px) 100vw, 360px" // ✅ added
                     className="w-full h-[160px] object-cover group-hover:scale-105 transition duration-300"
                   />
                   <div className="p-4">

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
 title: "Lead Generation Services | Top Dog Leads",
-  description: "Explore Top Dog Leads' lead generation services — insurance call leads, live transfer leads, and inbound call marketing campaigns built around real, high-intent conversations.",
+description: "Explore Top Dog Leads' lead generation services — insurance call leads, live transfer leads, and inbound call marketing built around real conversations.",
   alternates: { canonical: "https://topdoglead.com/services" },
  openGraph: {
     title: "Lead Generation Services | Top Dog Leads",

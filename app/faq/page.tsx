@@ -269,32 +269,46 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await searchParams;
   const currentPage = Math.max(1, Math.min(Number(page) || 1, totalPages));
-  const pageSections = sections.slice(
-    (currentPage - 1) * SECTIONS_PER_PAGE,
-    currentPage * SECTIONS_PER_PAGE
-  );
 
   // ✅ UNIQUE descriptions per page (fixes duplicate flagging)
   const descriptionMap: Record<number, string> = {
-    1: "Pay-per-call lead generation FAQs: How it works, pricing, call quality, and getting started with Top Dog Leads for auto insurance, Medicare, solar, roofing, and more.",
+    1: "Pay-per-call lead generation FAQs: how it works, pricing, call quality, and getting started with Top Dog Leads for insurance, solar, roofing, and more.",
     2: "Answers about pricing, fees, contracts, budgets, and volume discounts for pay-per-call leads from Top Dog Leads.",
     3: "Call quality, compliance, TCPA guidelines, call recordings, and exclusivity guarantees for Top Dog Leads pay-per-call campaigns.",
   };
 
- return {
-    title:
-      currentPage === 1
-       ? "Pay-Per-Call Lead Generation FAQs | Top Dog Leads"
-       : `Pay-Per-Call FAQs – Page ${currentPage} | Top Dog Leads`,
-    description: descriptionMap[currentPage] || "Frequently asked questions about Top Dog Leads pay-per-call lead generation.",
+  const title =
+    currentPage === 1
+      ? "Pay-Per-Call Lead Generation FAQs | Top Dog Leads"
+      : `Pay-Per-Call FAQs – Page ${currentPage} | Top Dog Leads`;
+
+  const description =
+    descriptionMap[currentPage] ||
+    "Frequently asked questions about Top Dog Leads pay-per-call lead generation.";
+
+  // ✅ Single source of truth for the URL — used by both canonical and og:url
+  const canonicalUrl =
+    currentPage === 1
+      ? "https://topdoglead.com/faq"
+      : `https://topdoglead.com/faq?page=${currentPage}`;
+
+  return {
+    title,
+    description,
     alternates: {
-      canonical:
-        currentPage === 1
-          ? "https://topdoglead.com/faq"
-          : `https://topdoglead.com/faq?page=${currentPage}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "Top Dog Leads",
+      type: "website",
     },
   };
 }
+
+
 
 // ─── JSON-LD (page 1 only — all FAQs for Google rich results) ────────────────
 const allFaqs = sections.flatMap((s) => s.faqs);
