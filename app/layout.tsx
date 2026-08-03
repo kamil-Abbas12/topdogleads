@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
 import "./globals.css";
+import ChunkErrorHandler from "./chunk-error-handler";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://topdoglead.com"),
@@ -71,6 +72,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+                <ChunkErrorHandler />
+
         <Navbar />
         {children}
         <Footer />
