@@ -846,7 +846,7 @@ metaDescription:
     title: "Boost Your Business with High-Intent Leads",
     metaTitle: "Boost Your Business with High-Intent Leads",
     metaDescription:
-      "Stop chasing empty volume. Learn what makes a lead truly high-intent, how to capture buyers already showing purchase signals, and why intent-driven lead gen shrinks your sales cycle.",
+      "Stop chasing empty volume. Learn what makes a lead truly high-intent and why intent-driven lead gen shrinks your sales cycle.",
     keywords: [
       "high intent leads",
       "high intent lead generation",

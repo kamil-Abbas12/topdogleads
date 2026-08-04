@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Industries We Serve | Pay-Per-Call Leads by Industry",
   description:
-    "Top Dog Leads generates high-intent pay-per-call leads across auto insurance, home insurance, Medicare, final expense, solar, roofing, pest control, and motor vehicle accident verticals.",
+    "High-intent pay-per-call leads across auto insurance, home insurance, Medicare, final expense, solar, roofing, pest control, and accident law.", 
   alternates: { canonical: "https://topdoglead.com/industry" },
   openGraph: {
     title: "Industries We Serve | Top Dog Leads",

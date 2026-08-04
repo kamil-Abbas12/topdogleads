@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
   // ── Redirects ─────────────────────────────────────────────────
   async redirects() {
     return [
+      // ── Canonical domain — www → apex in a single hop ────────────
+      // Matches www.topdoglead.com regardless of http/https, so a
+      // request never has to bounce through an intermediate hop
+      // before landing on the final https://topdoglead.com/ URL.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.topdoglead.com" }],
+        destination: "https://topdoglead.com/:path*",
+        permanent: true,
+      },
+
       // ── Old WordPress pages ──────────────────────────────────────
       { source: "/portfolio/feed", destination: "/", permanent: true },
       { source: "/portfolio", destination: "/about", permanent: true },
@@ -92,30 +103,30 @@ const nextConfig: NextConfig = {
 
   // ── Headers for Performance ───────────────────────────────────
   async headers() {
-  return [
-    // ✅ Next.js build assets — hashed filenames, safe to cache forever
-    {
-      source: "/_next/static/:path*",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
-    },
-    // ✅ Your own static/public assets (logo, favicon, fonts you host yourself)
-    {
-      source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
-    },
-    // Everything else (HTML pages) — short cache is correct here, content changes
-    {
-      source: "/:path*",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
-      ],
-    },
-  ];
-},
+    return [
+      // ✅ Next.js build assets — hashed filenames, safe to cache forever
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      // ✅ Your own static/public assets (logo, favicon, fonts you host yourself)
+      {
+        source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      // Everything else (HTML pages) — short cache is correct here, content changes
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

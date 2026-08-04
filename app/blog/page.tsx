@@ -6,9 +6,10 @@ import { Facebook, Twitter, Linkedin, Video } from "lucide-react";
 
 // ✅ Rich, keyword-targeted metadata for the blog index page
 export const metadata: Metadata = {
- title: "Insurance & Pay-Per-Call Leads Blog | Top Dog Leads",
-  description:"Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
- openGraph: {
+  title: "Insurance & Pay-Per-Call Leads Blog | Top Dog Leads",
+  description:
+    "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
+  openGraph: {
     title: "Leads Generation Blog | Top Dog Leads",
     description:
       "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
     canonical: "https://topdoglead.com/blog",
   },
 };
+
+// ✅ ISR — regenerate at most once per hour instead of rendering fresh on every request
+export const revalidate = 3600;
 
 const PAGE_SIZE = 4;
 
@@ -79,6 +83,7 @@ function Sidebar({ sortedBlogs }: { sortedBlogs: typeof blogs }) {
                   alt={b.imageAlt ?? b.title}
                   width={108}
                   height={108}
+                  sizes="54px"
                   className="h-[54px] w-[54px] rounded-xl object-cover"
                 />
                 <div>
@@ -158,7 +163,6 @@ function Sidebar({ sortedBlogs }: { sortedBlogs: typeof blogs }) {
   );
 }
 
-
 function Pagination({ page, totalPages }: { page: number; totalPages: number }) {
   return (
     <nav aria-label="Blog pagination" className="flex items-center gap-3 justify-center pt-8 ">
@@ -193,7 +197,7 @@ function Pagination({ page, totalPages }: { page: number; totalPages: number }) 
 export default async function BlogPage({
   searchParams,
 }: {
-  searchParams?: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
   const page = Math.max(1, Number(resolvedSearchParams?.page ?? "1") || 1);
@@ -219,7 +223,7 @@ export default async function BlogPage({
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.55fr_0.85fr] gap-10 items-start">
         <div className="space-y-12">
-          {items.map((blog) => {
+          {items.map((blog, index) => {
             const href = `/blog/${encodeURIComponent(blog.slug)}`;
 
             return (
@@ -236,8 +240,10 @@ export default async function BlogPage({
                       alt={blog.imageAlt ?? blog.title}
                       width={1200}
                       height={650}
+                      sizes="(max-width: 1024px) 100vw, 640px"
                       className="w-full h-[260px] sm:h-[300px] md:h-[320px] object-cover"
                       itemProp="image"
+                      priority={index === 0}
                     />
                   </div>
                 </Link>

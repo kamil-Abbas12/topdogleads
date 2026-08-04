@@ -256,11 +256,11 @@ const jsonLd = {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-       <h2 className="text-2xl font-bold text-gray-900 mb-8">
-        Choose Your {meta?.name} Leads Plan
-      </h2>
-      
+     <section className="mx-auto max-w-7xl px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">
+          Choose Your {meta?.name} Leads Plan
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {plans.map((plan) => (
             <ProductCard
@@ -272,6 +272,52 @@ const jsonLd = {
               buyerName={buyerName}
             />
           ))}
+        </div>
+
+        {/* --- Section 1: Other Lead Types --- */}
+        <div className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">
+            Other Lead Types You Might Need
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {productIndustries
+              .filter((i) => i.slug !== slug)
+              .slice(0, 8)
+              .map((i) => {
+                const iMeta = metaIndustries.find((m) => m.slug === i.slug);
+                return (
+                  <Link
+                    key={i.slug}
+                    href={`/industry/${i.slug}/sales`}
+                    className="rounded-xl border border-gray-200 p-4 text-sm font-semibold text-gray-800 hover:border-violet-300 hover:text-violet-700 transition"
+                  >
+                    Buy {iMeta?.name ?? i.name} Leads →
+                  </Link>
+                );
+              })}
+          </div>
+        </div>
+
+        {/* --- Section 2: Related Blog Content --- */}
+        <div className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">
+            Learn More About {meta?.name} Lead Generation
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* swap in real related posts once you import `blogs` here */}
+            <Link
+              href="/blog/high-quality-inbound-leads-quality-over-quantity"
+              className="rounded-xl border border-gray-200 p-4 text-sm font-semibold text-gray-800 hover:border-violet-300 hover:text-violet-700 transition"
+            >
+              Why Lead Quality Beats Quantity →
+            </Link>
+            <Link
+              href="/blog/maximizing-conversions-pay-per-call-tips-best-practices"
+              className="rounded-xl border border-gray-200 p-4 text-sm font-semibold text-gray-800 hover:border-violet-300 hover:text-violet-700 transition"
+            >
+              Maximizing Conversions with Pay-Per-Call →
+            </Link>
+          </div>
         </div>
       </section>
     </main>

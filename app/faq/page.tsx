@@ -291,8 +291,7 @@ export async function generateMetadata({
     currentPage === 1
       ? "https://topdoglead.com/faq"
       : `https://topdoglead.com/faq?page=${currentPage}`;
-
-  return {
+return {
     title,
     description,
     alternates: {
@@ -304,6 +303,20 @@ export async function generateMetadata({
       url: canonicalUrl,
       siteName: "Top Dog Leads",
       type: "website",
+      images: [                                   
+        {
+          url: "https://topdoglead.com/logo.png",
+          width: 512,
+          height: 512,
+          alt: "Top Dog Leads",
+        },
+      ],
+    },
+    twitter: {                                     
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://topdoglead.com/logo.png"],
     },
   };
 }

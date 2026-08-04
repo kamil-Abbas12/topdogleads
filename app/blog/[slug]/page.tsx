@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { blogs } from "@/data/blogs";
+import { industries as productIndustries } from "@/data/products";
+
 import styles from "./PostContent.module.css";
 export async function generateMetadata({
   params,
@@ -49,8 +51,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const related = [...blogs]
     .filter((b) => b.slug !== blog.slug)
-    .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime())
-    .slice(0, 2);
+    .sort((a, b) => {
+      const aShared = a.tags?.filter((t) => blog.tags?.includes(t)).length ?? 0;
+      const bShared = b.tags?.filter((t) => blog.tags?.includes(t)).length ?? 0;
+      if (aShared !== bShared) return bShared - aShared;
+      return new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime();
+    })
+    .slice(0, 4);
   const isOutsourcingBlog = slug === "outsourcing-lead-generation-experts";
 
 
@@ -174,7 +181,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           />
         </article>
 
-        {/* Related posts */}
        {/* Related posts */}
         {related.length > 0 && (
           <section className="mt-16" aria-label="Related articles">
@@ -206,7 +212,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           </section>
         )}
-
+    <section className="mt-12" aria-label="Explore lead types">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Explore Lead Types</h2>
+          <div className="flex flex-wrap gap-3">
+            {productIndustries.slice(0, 6).map((i) => (
+              <Link
+                key={i.slug}
+                href={`/industry/${i.slug}/sales`}
+                className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-violet-300 hover:text-violet-700 transition"
+              >
+                {i.name} Leads
+              </Link>
+            ))}
+          </div>
+        </section>
         {/* CTA */}
         <section
           className="mt-16 rounded-2xl bg-[#1c2d56] p-8 text-center"
