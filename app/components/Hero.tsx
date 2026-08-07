@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
+// @ts-ignore: CSS module declaration not available in this project setup
 import "swiper/css";
 import { manrope } from "@/lib/fonts";
 
@@ -58,9 +59,15 @@ const Hero = () => {
               {/* LEFT CONTENT */}
               <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
 
-                <h1 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
-                  {slide.title}
-                </h1>
+              {i === 0 ? (
+  <h1 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
+    {slide.title}
+  </h1>
+) : (
+  <h2 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
+    {slide.title}
+  </h2>
+)}
 
                 <p className={`${manrope.className} text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0`}>
                   {slide.desc}
