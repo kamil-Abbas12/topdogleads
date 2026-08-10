@@ -72,12 +72,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google AdSense — raw script tag, server-rendered directly in <head> */}
-        <script
+        {/* ✅ Google AdSense — Next.js Script with beforeInteractive so it still
+            renders in <head>, but Next dedupes/manages it instead of a raw tag */}
+        <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
           crossOrigin="anonymous"
-        ></script>
+          strategy="beforeInteractive"
+        />
       </head>
       <body>
         <ChunkErrorHandler />
