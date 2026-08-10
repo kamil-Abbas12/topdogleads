@@ -71,14 +71,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Google AdSense — must be in <head> per AdSense requirements */}
+        <Script
+          async
+          id="google-adsense"
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
-                <ChunkErrorHandler />
-
+        <ChunkErrorHandler />
         <Navbar />
         {children}
         <Footer />
 
-        {/* ✅ Google Analytics GA4 */}
+        {/* GA4 and Ahrefs can stay in body, they don't have this requirement */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YCKFKX373P"
           strategy="afterInteractive"
@@ -92,16 +101,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* ✅ Google AdSense */}
-       {/* ✅ Google AdSense — deferred further since it's not needed for first paint */}
-<Script
-  id="google-adsense"
-  strategy="lazyOnload"
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4964907484456279"
-  crossOrigin="anonymous"
-/>
-
-        {/* ✅ Ahrefs Analytics */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="JkhARxLMNh+CptEmB0KYzw"
