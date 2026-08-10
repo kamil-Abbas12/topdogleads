@@ -103,30 +103,29 @@ const nextConfig: NextConfig = {
 
   // ── Headers for Performance ───────────────────────────────────
   async headers() {
-    return [
-      // ✅ Next.js build assets — hashed filenames, safe to cache forever
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
-      // ✅ Your own static/public assets (logo, favicon, fonts you host yourself)
-      {
-        source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
-      // Everything else (HTML pages) — short cache is correct here, content changes
-      {
-        source: "/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
-        ],
-      },
-    ];
-  },
+  return [
+    {
+      source: "/_next/static/:path*",
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+      ],
+    },
+    {
+      source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+      ],
+    },
+    {
+      // Exclude _next/static and hashed public assets so this
+      // doesn't stomp on the rules above
+      source: "/((?!_next/static|.*\\.(?:svg|jpg|jpeg|png|webp|avif|ico|woff2)$).*)",
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+      ],
+    },
+  ];
+},
 };
 
 export default nextConfig;
