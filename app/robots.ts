@@ -53,6 +53,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://topdoglead.com/sitemap.xml",
-    host: "topdoglead.com",
   };
 }
