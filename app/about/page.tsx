@@ -23,7 +23,7 @@ openGraph: {
     type: "website",
     images: [
       {
-        url: "https://topdoglead.com/about1.jpg",
+        url: "https://topdoglead.com/top-dog-leads-about-team.webp",
         width: 1200,
         height: 800,
         alt: "Top Dog Leads pay per call lead generation",
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <div className="relative w-full">
               <div className="relative ml-auto w-full max-w-xl aspect-[16/9]">
                 <Image
-                  src="/about1.jpg"
+                  src="/top-dog-leads-about-team.webp"
                   width={600}
                   height={400}
                   alt="Pay per call lead generation services"

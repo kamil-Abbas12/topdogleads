@@ -86,7 +86,7 @@ const Grow = () => {
         {/* Right Image */}
         <div className="w-full lg:w-1/2 flex justify-center mt-6 xl:mt-0">
           <Image
-            src="/fuel.jpeg"
+            src="/pay-per-call-lead-generation-growth.webp"
             alt="Business owner growing revenue with Top Dog Leads pay-per-call marketing campaigns"
             width={420}
             height={200}

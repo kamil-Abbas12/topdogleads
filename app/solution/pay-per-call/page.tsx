@@ -68,7 +68,7 @@ title: "Pay Per Call Lead Generation Services USA",
     siteName: "Top Dog Leads",
     images: [
       {
-        url: "https://topdoglead.com/about1.jpg",
+        url: "https://topdoglead.com/top-dog-leads-about-team.webp",
         width: 1200,
         height: 800,
         alt: "Top Dog Leads pay per call lead generation services",
@@ -82,7 +82,7 @@ title: "Pay Per Call Lead Generation Services USA",
     title: "Pay Per Call Lead Generation Services USA | Top Dog Leads",
     description:
       "Get exclusive inbound calls from high-intent customers with Top Dog Leads.",
-    images: ["https://topdoglead.com/about1.jpg"],
+    images: ["https://topdoglead.com/top-dog-leads-about-team.webp"],
   },
 };
 
@@ -308,7 +308,7 @@ export default function PayPerCallPage() {
 
           <div className="w-full flex justify-center">
             <Image
-              src="/custom.webp"
+              src="/custom-lead-generation-solutions.webp"
               alt="Business owner receiving qualified inbound phone calls from real prospects"
               width={1200}
               height={900}
@@ -367,7 +367,7 @@ export default function PayPerCallPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 py-16 grid lg:grid-cols-2 gap-12 items-center">
           <div className="w-full flex justify-center order-2 lg:order-1">
             <Image
-              src="/fuel.jpeg"
+              src="/pay-per-call-lead-generation-growth.webp"
               alt="Pay per call campaign optimization and qualified lead generation strategy"
               width={1200}
               height={900}

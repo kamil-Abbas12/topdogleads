@@ -37,23 +37,28 @@ function StatusPill({ status }: { status: string }) {
   );
 }
 
-export default function DashboardClient({ email }: { email: string }) {
+export default function DashboardClient({ sessionId }: { sessionId: string }) {
   const [profile, setProfile] = useState<{ name: string; email: string; company?: string | null } | null>(null);
   const [purchases, setPurchases] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!email) return;
+    if (!sessionId) return;
 
     setLoading(true);
-    fetch(`/api/dashboard?email=${encodeURIComponent(email)}`)
+    fetch(`/api/dashboard?session_id=${encodeURIComponent(sessionId)}`)
       .then((r) => r.json())
       .then((d) => {
+        if (d.error) {
+          setError(d.error);
+          return;
+        }
         setProfile(d.profile);
         setPurchases(d.purchases || []);
       })
       .finally(() => setLoading(false));
-  }, [email]);
+  }, [sessionId]);
 
   const totals = useMemo(() => {
     const totalSpent = purchases.reduce((acc, p) => acc + (Number(p.amount) || 0), 0);
@@ -61,18 +66,22 @@ export default function DashboardClient({ email }: { email: string }) {
     return { totalSpent, count: purchases.length, last };
   }, [purchases]);
 
-  if (!email) {
+  if (!sessionId || error) {
     return (
       <main className="min-h-[70vh] bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border bg-white p-8">
             <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-            <p className="mt-2 text-slate-600">Missing email. Please return from checkout success page.</p>
+            <p className="mt-2 text-slate-600">
+              {error || "We couldn't verify this session. Please return here from your checkout confirmation email or the checkout success page."}
+            </p>
           </div>
         </div>
       </main>
     );
   }
+
+  const email = profile?.email || "";
 
   return (
     <main className="min-h-[80vh] bg-slate-50">

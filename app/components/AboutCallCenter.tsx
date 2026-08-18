@@ -61,7 +61,7 @@ export default function AboutCallCenter() {
           {/* Main Image */}
           <div className="relative w-[380px] h-[520px] rounded overflow-hidden shadow-xl">
             <Image
-              src="/callc1.jpg"
+              src="/pay-per-call-center-team-1.webp"
               alt="agent"
               fill
               className="object-cover"
@@ -71,7 +71,7 @@ export default function AboutCallCenter() {
           {/* Top Small Image */}
           <div className="absolute top-0 right-0 w-44 h-32 rounded overflow-hidden shadow-lg">
             <Image
-              src="/callc2.jpg"
+              src="/pay-per-call-center-team-2.webp"
               alt="agent"
               fill
               className="object-cover"
@@ -81,7 +81,7 @@ export default function AboutCallCenter() {
           {/* Bottom Small Image */}
           <div className="absolute bottom-10 right-0 w-44 h-32 rounded overflow-hidden shadow-lg">
             <Image
-              src="/callc3.jpg"
+              src="/pay-per-call-center-team-3.webp"
               alt="agent"
               fill
               className="object-cover"

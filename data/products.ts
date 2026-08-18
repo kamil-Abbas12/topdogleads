@@ -2,7 +2,7 @@ export const industries = [
     {
     slug: "auto-insurance",
     name: "Auto Insurance Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -77,7 +77,7 @@ export const industries = [
    {
     slug: "final-expense",
     name: "Final Expense Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -152,7 +152,7 @@ export const industries = [
    {
     slug: "home-insurance",
     name: "Home Insurance Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -227,7 +227,7 @@ export const industries = [
     {
     slug: "solar",
     name: "Solar Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -302,7 +302,7 @@ export const industries = [
   {
     slug: "medicare-insurance",
     name: "Medicare Insurance Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -377,7 +377,7 @@ export const industries = [
     {
     slug: "motor-vehicle-accident",
     name: "Motor Vehicle Accident Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -452,7 +452,7 @@ export const industries = [
     {
     slug: "pest-control",
     name: "Pest Control Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {
@@ -527,7 +527,7 @@ export const industries = [
      {
     slug: "roofing",
     name: "Roofing Leads",
-    image: "/purple.jpg",
+    image: "/lead-generation-product-bundle.webp",
 
     plans: [
       {

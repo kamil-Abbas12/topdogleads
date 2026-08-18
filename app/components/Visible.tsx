@@ -15,7 +15,7 @@ const Visible = () => {
         {/* LEFT IMAGE */}
         <div className="relative left w-full lg:w-1/2 flex justify-center">
           <Image
-            src="/customer.jpg"
+            src="/satisfied-lead-generation-customer.webp"
             alt="Local business owner receiving qualified customer calls through Top Dog Leads"
             width={420}
             height={290}

@@ -11,6 +11,16 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Escape user-supplied text before it goes into an HTML email body.
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 const SERVICE_LABELS: Record<string, string> = {
   "final-expense": "Final Expense",
   "medicare-insurance": "Medicare Insurance",
@@ -74,6 +84,16 @@ export async function POST(req: Request) {
       );
     }
 
+    if (message.length > 5000) {
+      return NextResponse.json(
+        { success: false, message: "Message is too long" },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br/>");
+
     // Save to DB
     await Contact.create({
       name,
@@ -93,7 +113,7 @@ export async function POST(req: Request) {
             <h1 style="color:#fff;margin:0;font-size:24px;">Top Dog Leads</h1>
           </div>
           <div style="padding:40px;">
-            <h2 style="margin-top:0;">Hi ${name}, we'll be in touch!</h2>
+            <h2 style="margin-top:0;">Hi ${safeName}, we'll be in touch!</h2>
             <p style="color:#444;line-height:1.6;">
               Thank you for reaching out. We've received your inquiry about
               <strong>${serviceLabel}</strong> and one of our specialists
@@ -101,7 +121,7 @@ export async function POST(req: Request) {
             </p>
             <div style="background:#f5f7ff;border-left:4px solid #1c2d56;padding:16px 20px;margin:24px 0;border-radius:0 6px 6px 0;">
               <p style="margin:0 0 8px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Your message</p>
-              <p style="margin:0;color:#1a1a1a;">${message}</p>
+              <p style="margin:0;color:#1a1a1a;">${safeMessage}</p>
             </div>
             <p style="color:#444;line-height:1.6;">
               If you have any urgent questions, feel free to call us directly.
@@ -119,7 +139,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"Top Dog Leads Contact Form" <${process.env.GMAIL_USER}>`,
       to: "topdogleadsbackend@gmail.com",
-      subject: `New Lead: ${serviceLabel} — ${name}`,
+      subject: `New Lead: ${serviceLabel} — ${safeName}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;">
           <div style="background:#1c2d56;padding:24px 32px;">
@@ -129,7 +149,7 @@ export async function POST(req: Request) {
             <table style="width:100%;border-collapse:collapse;">
               <tr>
                 <td style="padding:12px 0;border-bottom:1px solid #eee;font-size:13px;color:#888;width:140px;text-transform:uppercase;letter-spacing:.08em;">Name</td>
-                <td style="padding:12px 0;border-bottom:1px solid #eee;font-weight:600;">${name}</td>
+                <td style="padding:12px 0;border-bottom:1px solid #eee;font-weight:600;">${safeName}</td>
               </tr>
               <tr>
                 <td style="padding:12px 0;border-bottom:1px solid #eee;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Email</td>
@@ -143,7 +163,7 @@ export async function POST(req: Request) {
               </tr>
               <tr>
                 <td style="padding:12px 0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;vertical-align:top;">Message</td>
-                <td style="padding:12px 0;line-height:1.6;">${message}</td>
+                <td style="padding:12px 0;line-height:1.6;">${safeMessage}</td>
               </tr>
             </table>
           </div>

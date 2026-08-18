@@ -58,7 +58,7 @@ const { slug, planId, email, company, buyerName, planTitle } = await req.json();
     // also prefill Stripe email UI
     customer_email: email,
 
-    success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&email=${email}`,
+    success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${appUrl}/checkout/cancel`,
   });
 

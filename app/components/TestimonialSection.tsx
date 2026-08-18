@@ -44,7 +44,7 @@ export default function TestimonialSection() {
           {/* LEFT IMAGE */}
           <div className="relative w-full flex justify-center">
             <Image
-              src="/test.jpg"
+              src="/customer-testimonial-photo.webp"
               alt="testimonial"
               width={550}
               height={550}

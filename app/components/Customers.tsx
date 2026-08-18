@@ -35,7 +35,7 @@ const Customers = () => {
         {/* Image */}
         <div className="relative left w-full xl:w-1/2 flex justify-center mt-8 xl:mt-0">
           <Image
-            src="/calls.jpg"
+            src="/pay-per-call-lead-generation-calls.webp"
             alt="Over 300,000 customer calls delivered by Top Dog Leads pay-per-call marketing"
             width={420}
             height={276}
