@@ -29,9 +29,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // ── Canonical domain — www → apex in a single hop ────────────
-      // Matches www.topdoglead.com regardless of http/https, so a
-      // request never has to bounce through an intermediate hop
-      // before landing on the final https://topdoglead.com/ URL.
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.topdoglead.com" }],
@@ -45,10 +42,19 @@ const nextConfig: NextConfig = {
       { source: "/our-products", destination: "/solution/pay-per-call", permanent: true },
       { source: "/photo-gallery", destination: "/", permanent: true },
       { source: "/tabs", destination: "/", permanent: true },
-      { source: "/home-10", destination: "/", permanent: true },
       { source: "/wishlist", destination: "/", permanent: true },
       { source: "/ppc-services", destination: "/services/inbound-call-marketing", permanent: true },
       { source: "/smm-services", destination: "/services/inbound-call-marketing", permanent: true },
+
+      // ── WordPress "home" theme demo variants ─────────────────────
+      // ADDED: previously only /home-10 was redirected; the others
+      // were blocked in robots.txt with no redirect, so they just 404'd.
+      { source: "/home-10", destination: "/", permanent: true },
+      { source: "/home-agency", destination: "/", permanent: true },
+      { source: "/home-leads", destination: "/", permanent: true },
+      { source: "/home-03", destination: "/", permanent: true },
+      { source: "/home-05", destination: "/", permanent: true },
+      { source: "/home-07", destination: "/", permanent: true },
 
       // ── WordPress portfolio taxonomies ───────────────────────────
       { source: "/portfolio-category/:slug*", destination: "/", permanent: true },
@@ -67,6 +73,12 @@ const nextConfig: NextConfig = {
       { source: "/product/auto-insurance-leads", destination: "/industry/auto-insurance", permanent: true },
       { source: "/product/solar-leads", destination: "/industry/solar", permanent: true },
       { source: "/product/:slug*", destination: "/solution/pay-per-call", permanent: true },
+
+      // ── WordPress shop / product-category taxonomies ─────────────
+      // ADDED: previously blocked in robots.txt with no redirect.
+      { source: "/product-category/:slug*", destination: "/services", permanent: true },
+      { source: "/shop", destination: "/services", permanent: true },
+      { source: "/shop/:slug*", destination: "/services", permanent: true },
 
       // ── WordPress feed URLs (fixes 308 validation failures) ──────
       { source: "/portfolio-category/:slug*/feed/", destination: "/", permanent: true },
@@ -103,29 +115,29 @@ const nextConfig: NextConfig = {
 
   // ── Headers for Performance ───────────────────────────────────
   async headers() {
-  return [
-    {
-      source: "/_next/static/:path*",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
-    },
-    {
-      source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
-    },
-    {
-      // Exclude _next/static and hashed public assets so this
-      // doesn't stomp on the rules above
-      source: "/((?!_next/static|.*\\.(?:svg|jpg|jpeg|png|webp|avif|ico|woff2)$).*)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
-      ],
-    },
-  ];
-},
+    return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/:path*.(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // Exclude _next/static and hashed public assets so this
+        // doesn't stomp on the rules above
+        source: "/((?!_next/static|.*\\.(?:svg|jpg|jpeg|png|webp|avif|ico|woff2)$).*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

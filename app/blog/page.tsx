@@ -251,8 +251,9 @@ export default async function BlogPage({
                 <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
                   <time dateTime={blog.dateISO} itemProp="datePublished">{blog.date}</time>
                   <span aria-hidden="true">•</span>
-                  <span itemProp="author">{blog.author}</span>
-                  <span aria-hidden="true">•</span>
+<span itemProp="author" itemScope itemType="https://schema.org/Organization">
+  <span itemProp="name">{blog.author}</span>
+</span>                  <span aria-hidden="true">•</span>
                   <span>00 Comments</span>
                 </div>
 
