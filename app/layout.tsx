@@ -71,22 +71,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* ✅ Google AdSense — Next.js Script with beforeInteractive so it still
-            renders in <head>, but Next dedupes/manages it instead of a raw tag */}
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-          crossOrigin="anonymous"
-          strategy="beforeInteractive"
-        />
-      </head>
       <body>
         <ChunkErrorHandler />
         <Navbar />
         {children}
         <Footer />
-
+        {/* ✅ Google AdSense — lazy, non-blocking */}
+       <Script
+  async
+  src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+  crossOrigin="anonymous"
+  strategy="afterInteractive"
+/>
         {/* ✅ Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YCKFKX373P"
@@ -100,7 +96,6 @@ export default function RootLayout({
             gtag('config', 'G-YCKFKX373P');
           `}
         </Script>
-
         {/* ✅ Ahrefs Analytics */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
