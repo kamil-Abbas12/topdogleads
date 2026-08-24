@@ -74,7 +74,7 @@ export default function RootLayout({
       <body>
         <ChunkErrorHandler />
         <Navbar />
-        {children}
+  <main>{children}</main>
         <Footer />
         {/* ✅ Google AdSense — lazy, non-blocking */}
        <Script

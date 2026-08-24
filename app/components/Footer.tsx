@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
-
+import Image from "next/image";
 type FooterLink = { label: string; href: string };
 
 const resources: FooterLink[] = [
@@ -56,13 +56,15 @@ export default function Footer() {
 
         {/* TOP ROW */}
         <div className="flex items-center justify-between">
-          <Link href="/" aria-label="Top Dog Leads home">
-            <img
-              src="/logo.jpg"
-              alt="Top Dog Leads — Pay-Per-Call Lead Generation"
-              className="w-8 h-auto cursor-pointer"
-            />
-          </Link>
+      <Link href="/" aria-label="Top Dog Leads home">
+  <Image
+    src="/logo.jpg"
+    alt="Top Dog Leads — Pay-Per-Call Lead Generation"
+    width={32}
+    height={32}
+    className="w-8 h-auto cursor-pointer"
+  />
+</Link>
 
           <div className="flex items-center gap-4 xl:pr-40">
             <Link
@@ -108,21 +110,21 @@ export default function Footer() {
               local businesses with high-intent customers. We deliver exclusive,
               real-time leads that convert.
             </p>
-            <address className="mt-5 space-y-1 text-[12px] not-italic">
-              <Link
-                href="mailto:support@topdoglead.com"
-                className="block text-sky-300 hover:text-sky-200 transition-colors"
-              >
-                support@topdoglead.com
-              </Link>
-              <Link
-                href="tel:+16784628013"
-                className="block text-white/90 hover:text-white transition-colors"
-                aria-label="Call Top Dog Leads at +1 678 462 8013"
-              >
-                +1 678 462 8013
-              </Link>
-            </address>
+           <address className="mt-5 space-y-1 text-[12px] not-italic">
+  <Link
+    href="mailto:support@topdoglead.com"
+    className="block py-2 text-sky-300 hover:text-sky-200 transition-colors"
+  >
+    support@topdoglead.com
+  </Link>
+  <Link
+    href="tel:+16784628013"
+    className="block py-2 text-white/90 hover:text-white transition-colors"
+    aria-label="Call Top Dog Leads at +1 678 462 8013"
+  >
+    +1 678 462 8013
+  </Link>
+</address>
             <div className="mt-6 flex items-center gap-5 text-[11px] text-slate-200/70">
               <div className="flex items-center gap-2">
                 <span className="h-5 w-5 rounded-full bg-green-500/90" aria-hidden="true" />
@@ -188,13 +190,13 @@ export default function Footer() {
               Top Dog Leads connects you with high-intent customers through a
               pure pay-per-call model. No setup fee. No monthly fee.
             </p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white text-[12px] font-semibold px-4 py-2 rounded-lg transition"
-              aria-label="Get a free quote from Top Dog Leads"
-            >
-              Get a Free Quote →
-            </Link>
+          <Link
+  href="/contact"
+  className="mt-4 inline-block bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-white text-[12px] font-semibold px-4 py-2 rounded-lg transition"
+  aria-label="Get a free quote from Top Dog Leads"
+>
+  Get a Free Quote →
+</Link>
 
        
           </div>
