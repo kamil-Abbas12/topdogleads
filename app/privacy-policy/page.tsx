@@ -15,6 +15,21 @@ export const metadata = {
     url: "https://topdoglead.com/privacy-policy",
     siteName: "Top Dog Leads",
     type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/og-image.jpg", // use your real OG image path
+        width: 1200,
+        height: 630,
+        alt: "Top Dog Leads",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Top Dog Leads",
+    description:
+      "How Top Dog Leads collects, uses, and protects your personal information.",
+    images: ["https://topdoglead.com/og-image.jpg"],
   },
   robots: {
     index: true,

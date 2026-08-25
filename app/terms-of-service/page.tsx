@@ -10,13 +10,28 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Terms of Service | Top Dog Leads",
-    description:
-      "The terms and conditions governing the use of the Top Dog Leads website and services.",
-    url: "https://topdoglead.com/terms-of-service",
-    siteName: "Top Dog Leads",
-    type: "website",
-  },
+  title: "Terms of Service | Top Dog Leads",
+  description:
+    "The terms and conditions governing the use of the Top Dog Leads website and services.",
+  url: "https://topdoglead.com/terms-of-service",
+  siteName: "Top Dog Leads",
+  type: "website",
+  images: [
+    {
+      url: "https://topdoglead.com/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Top Dog Leads",
+    },
+  ],
+},
+twitter: {
+  card: "summary_large_image",
+  title: "Terms of Service | Top Dog Leads",
+  description:
+    "The terms and conditions governing the use of the Top Dog Leads website and services.",
+  images: ["https://topdoglead.com/og-image.jpg"],
+},
 
   robots: {
     index: true,

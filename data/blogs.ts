@@ -1666,7 +1666,7 @@ metaDescription:
     title: "Inside Our 5-Step Lead Verification Process: How We Eliminate Fraudulent Calls",
     metaTitle: "5-Step Lead Verification Process ",
     metaDescription:
-      "Stop paying for junk calls. See the exact 5-step verification process used to filter TCPA bots, VoIP fraud, and low-intent traffic before it ever reaches the buyer.",
+  "Stop paying for junk calls. See the 5-step process used to filter TCPA bots, VoIP fraud, and low-intent traffic before it reaches the buyer.",
     keywords: [
       "lead verification process",
       "fraudulent call filtering",
