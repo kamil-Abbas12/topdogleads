@@ -247,10 +247,10 @@ export default function PrivacyPolicyPage() {
 
           <div className="pt-4 flex flex-col sm:flex-row gap-3">
             <Link
-              href="/terms-of-use"
+              href="/terms-of-service"
               className="inline-flex justify-center rounded-full bg-[#1c2d56] px-6 py-3 text-white font-semibold hover:bg-blue-700 transition"
             >
-              View Terms of Use
+              View Terms of Service
             </Link>
             <Link
               href="/"
