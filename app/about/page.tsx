@@ -48,12 +48,14 @@ export default function AboutPage() {
             logo: "https://topdoglead.com/logo.png",
             description:
               "Top Dog Leads provides pay per call lead generation and inbound marketing services.",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Casper",
-              addressRegion: "Wyoming",
-              addressCountry: "US",
-            },
+   address: {
+  "@type": "PostalAddress",
+  streetAddress: "5830 E 2nd St",
+  addressLocality: "Pompano Beach",
+  addressRegion: "FL",
+  postalCode: "33060",
+  addressCountry: "US",
+},
           }),
         }}
       />

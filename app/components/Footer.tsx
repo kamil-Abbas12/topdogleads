@@ -47,8 +47,59 @@ function FooterA({ href, children }: { href: string; children: React.ReactNode }
   );
 }
 
+// Isolated so a browser extension mangling mailto:/tel: links can't
+// cause a structural hydration mismatch anywhere else in the footer.
+// We render a static placeholder on the server, then swap in the real
+// contact block only after mount — no hydration diff happens on the
+// part extensions like to rewrite.
+function ContactAddress() {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <address className="mt-5 space-y-1 text-[12px] not-italic">
+      <p className="mb-2 leading-5 text-slate-200/70">
+        Top Dog Leads LLC
+        <br />
+        5830 E 2nd St
+        <br />
+        Pompano Beach, FL 33060, USA
+      </p>
+
+      {mounted ? (
+        <>
+          <Link
+            href="mailto:support@topdoglead.com"
+            className="block py-2 text-sky-300 hover:text-sky-200 transition-colors"
+          >
+            support@topdoglead.com
+          </Link>
+
+          <Link
+            href="tel:+16784628013"
+            className="block py-2 text-white/90 hover:text-white transition-colors"
+            aria-label="Call Top Dog Leads at +1 678 462 8013"
+          >
+            +1 (678) 462-8013
+          </Link>
+        </>
+      ) : (
+        // Same tag shape, no recognizable email/phone text for extensions to grab onto pre-mount
+        <span className="block py-2 h-[52px]" aria-hidden="true" />
+      )}
+    </address>
+  );
+}
+
 export default function Footer() {
   const onBackToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const [year, setYear] = React.useState<number | null>(null);
+  React.useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="relative bg-[#0B2350]" aria-label="Top Dog Leads footer">
@@ -56,15 +107,15 @@ export default function Footer() {
 
         {/* TOP ROW */}
         <div className="flex items-center justify-between">
-      <Link href="/" aria-label="Top Dog Leads home">
-  <Image
-    src="/logo.jpg"
-    alt="Top Dog Leads — Pay-Per-Call Lead Generation"
-    width={32}
-    height={32}
-    className="w-8 h-auto cursor-pointer"
-  />
-</Link>
+          <Link href="/" aria-label="Top Dog Leads home">
+            <Image
+              src="/logo.jpg"
+              alt="Top Dog Leads — Pay-Per-Call Lead Generation"
+              width={32}
+              height={32}
+              className="w-8 h-auto cursor-pointer"
+            />
+          </Link>
 
           <div className="flex items-center gap-4 xl:pr-40">
             <Link
@@ -110,21 +161,9 @@ export default function Footer() {
               local businesses with high-intent customers. We deliver exclusive,
               real-time leads that convert.
             </p>
-           <address className="mt-5 space-y-1 text-[12px] not-italic">
-  <Link
-    href="mailto:support@topdoglead.com"
-    className="block py-2 text-sky-300 hover:text-sky-200 transition-colors"
-  >
-    support@topdoglead.com
-  </Link>
-  <Link
-    href="tel:+16784628013"
-    className="block py-2 text-white/90 hover:text-white transition-colors"
-    aria-label="Call Top Dog Leads at +1 678 462 8013"
-  >
-    +1 678 462 8013
-  </Link>
-</address>
+
+            <ContactAddress />
+
             <div className="mt-6 flex items-center gap-5 text-[11px] text-slate-200/70">
               <div className="flex items-center gap-2">
                 <span className="h-5 w-5 rounded-full bg-green-500/90" aria-hidden="true" />
@@ -159,7 +198,6 @@ export default function Footer() {
                 </FooterA>
               ))}
 
-              {/* FAQ callout inside services column */}
               <div className="mt-6 pt-4 border-t border-white/10">
                 <FooterColTitle>Help</FooterColTitle>
                 <div className="mt-2">
@@ -190,15 +228,13 @@ export default function Footer() {
               Top Dog Leads connects you with high-intent customers through a
               pure pay-per-call model. No setup fee. No monthly fee.
             </p>
-          <Link
-  href="/contact"
-  className="mt-4 inline-block bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-white text-[12px] font-semibold px-4 py-2 rounded-lg transition"
-  aria-label="Get a free quote from Top Dog Leads"
->
-  Get a Free Quote →
-</Link>
-
-       
+            <Link
+              href="/contact"
+              className="mt-4 inline-block bg-[#1c2d56] hover:bg-[#1c2d56]/90 text-white text-[12px] font-semibold px-4 py-2 rounded-lg transition"
+              aria-label="Get a free quote from Top Dog Leads"
+            >
+              Get a Free Quote →
+            </Link>
           </div>
         </div>
 
@@ -222,16 +258,21 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* COPYRIGHT */}
+      {/* FOOTER BOTTOM */}
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-4 text-center text-[11px] text-slate-200/70">
-          <span>All rights reserved. Top Dog Leads © {new Date().getFullYear()}</span>
-          <span className="mx-2">·</span>
-          <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
-          <span className="mx-2">·</span>
-          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-          <span className="mx-2">·</span>
-          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-5 text-[11px] text-slate-200/70 sm:flex-row">
+          <span suppressHydrationWarning>
+            © {year ?? new Date().getFullYear()} Top Dog Leads. All rights reserved.
+          </span>
+
+          <nav className="flex items-center gap-5" aria-label="Legal navigation">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
