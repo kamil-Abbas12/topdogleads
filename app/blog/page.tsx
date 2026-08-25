@@ -4,31 +4,58 @@ import Image from "next/image";
 import { blogs } from "@/data/blogs";
 import { Facebook, Twitter, Linkedin, Video } from "lucide-react";
 
-// ✅ Rich, keyword-targeted metadata for the blog index page
-export const metadata: Metadata = {
-  title: "Insurance & Pay-Per-Call Leads Blog | Top Dog Leads",
-  description:
-    "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.",
-  openGraph: {
-    title: "Leads Generation Blog | Top Dog Leads",
-    description:
-      "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
-    url: "https://topdoglead.com/blog",
-    siteName: "Top Dog Leads",
-    type: "website",
-    images: [
-      {
-        url: "https://topdoglead.com/logo.png",
-        width: 512,
-        height: 512,
-        alt: "Top Dog Leads",
-      },
-    ],
-  },
-  alternates: {
-    canonical: "https://topdoglead.com/blog",
-  },
-};
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
+  const page = Math.max(1, Number(resolvedSearchParams?.page ?? "1") || 1);
+
+  const baseTitle = "Insurance & Pay-Per-Call Leads Blog | Top Dog Leads";
+  const baseDescription =
+    "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.";
+
+  const title = page === 1 ? baseTitle : `${baseTitle} | Page ${page}`;
+  const description =
+    page === 1
+      ? baseDescription
+      : `${baseDescription} — Page ${page}.`;
+
+  const canonicalUrl =
+    page === 1
+      ? "https://topdoglead.com/blog"
+      : `https://topdoglead.com/blog?page=${page}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: page === 1 ? "Leads Generation Blog | Top Dog Leads" : `Leads Generation Blog | Page ${page} | Top Dog Leads`,
+      description:
+        "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
+      url: canonicalUrl,
+      siteName: "Top Dog Leads",
+      type: "website",
+      images: [
+        {
+          url: "https://topdoglead.com/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Top Dog Leads",
+        },
+      ],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+   
+    robots: page > 1 ? { index: false, follow: true } : { index: true, follow: true },
+  };
+}
+
+
 
 // ✅ ISR — regenerate at most once per hour instead of rendering fresh on every request
 export const revalidate = 3600;
