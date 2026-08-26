@@ -1,21 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 // ─── ALL FAQ DATA ─────────────────────────────────────────────────────────────
-type Faq = {
-  q: string;
-  a: string;
-  link?: { label: string; href: string };
-};
-
-type Section = {
-  id: string;
-  heading: string;
-  color: "blue" | "green" | "purple" | "orange" | "teal" | "indigo";
-  faqs: Faq[];
-};
-
-const sections: Section[] = [
+const sections = [
   {
     id: "general",
     heading: "General Questions",
@@ -260,7 +248,11 @@ const sections: Section[] = [
   },
 ];
 
-const colorMap: Record<Section["color"], { bg: string; text: string; border: string; dot: string }> = {
+// ─── PAGINATION CONFIG ────────────────────────────────────────────────────────
+const SECTIONS_PER_PAGE = 2;
+const totalPages = Math.ceil(sections.length / SECTIONS_PER_PAGE);
+
+const colorMap: Record<string, { bg: string; text: string; border: string; dot: string }> = {
   blue:   { bg: "bg-blue-50",   text: "text-blue-700",   border: "border-blue-200",   dot: "bg-blue-500" },
   green:  { bg: "bg-green-50",  text: "text-green-700",  border: "border-green-200",  dot: "bg-green-500" },
   purple: { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200", dot: "bg-purple-500" },
@@ -269,44 +261,70 @@ const colorMap: Record<Section["color"], { bg: string; text: string; border: str
   indigo: { bg: "bg-indigo-50", text: "text-indigo-700", border: "border-indigo-200", dot: "bg-indigo-500" },
 };
 
+// ─── METADATA (FIXED - unique descriptions per page) ─────────────────────────
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}): Promise<Metadata> {
+  const { page } = await searchParams;
+  const currentPage = Math.max(1, Math.min(Number(page) || 1, totalPages));
+
+  // ✅ UNIQUE descriptions per page (fixes duplicate flagging)
+  const descriptionMap: Record<number, string> = {
+    1: "Pay-per-call lead generation FAQs: how it works, pricing, call quality, and getting started with Top Dog Leads for insurance, solar, roofing, and more.",
+    2: "Answers about pricing, fees, contracts, budgets, and volume discounts for pay-per-call leads from Top Dog Leads.",
+    3: "Call quality, compliance, TCPA guidelines, call recordings, and exclusivity guarantees for Top Dog Leads pay-per-call campaigns.",
+  };
+
+  const title =
+    currentPage === 1
+      ? "Pay-Per-Call Lead Generation FAQs | Top Dog Leads"
+      : `Pay-Per-Call FAQs – Page ${currentPage} | Top Dog Leads`;
+
+  const description =
+    descriptionMap[currentPage] ||
+    "Frequently asked questions about Top Dog Leads pay-per-call lead generation.";
+
+  // ✅ Single source of truth for the URL — used by both canonical and og:url
+  const canonicalUrl =
+    currentPage === 1
+      ? "https://topdoglead.com/faq"
+      : `https://topdoglead.com/faq?page=${currentPage}`;
+return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "Top Dog Leads",
+      type: "website",
+      images: [                                   
+        {
+          url: "https://topdoglead.com/logo.png",
+          width: 512,
+          height: 512,
+          alt: "Top Dog Leads",
+        },
+      ],
+    },
+    twitter: {                                     
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://topdoglead.com/logo.png"],
+    },
+  };
+}
+
+
+
+// ─── JSON-LD (page 1 only — all FAQs for Google rich results) ────────────────
 const allFaqs = sections.flatMap((s) => s.faqs);
-
-// ✅ static, no revalidate needed — content only changes when you edit the file
-export const revalidate = 3600;
-
-export const metadata: Metadata = {
-  title: "Pay-Per-Call Lead Generation FAQs | Top Dog Leads",
-  description:
-    "Pay-per-call lead generation FAQs: how it works, pricing, call quality, compliance, and getting started with Top Dog Leads for insurance, solar, roofing, and more.",
-  alternates: {
-    canonical: "https://topdoglead.com/faq",
-  },
-  openGraph: {
-    title: "Pay-Per-Call Lead Generation FAQs | Top Dog Leads",
-    description:
-      "Everything you need to know about buying pay-per-call leads for auto insurance, Medicare, solar, roofing, final expense, and more.",
-    url: "https://topdoglead.com/faq",
-    siteName: "Top Dog Leads",
-    type: "website",
-    images: [
-      {
-        url: "https://topdoglead.com/logo.png",
-        width: 512,
-        height: 512,
-        alt: "Top Dog Leads",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pay-Per-Call Lead Generation FAQs | Top Dog Leads",
-    description:
-      "Everything you need to know about buying pay-per-call leads for auto insurance, Medicare, solar, roofing, final expense, and more.",
-    images: ["https://topdoglead.com/logo.png"],
-  },
-};
-
-// ✅ schema now matches ALL visible content on the page — no mismatch
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -317,13 +335,32 @@ const faqSchema = {
   })),
 };
 
-export default function FAQPage() {
+// ─── PAGE ─────────────────────────────────────────────────────────────────────
+export default async function FAQPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page } = await searchParams;
+  const currentPage = Math.max(1, Math.min(Number(page) || 1, totalPages));
+  if (Number(page) > totalPages) notFound();
+
+  const pageSections = sections.slice(
+    (currentPage - 1) * SECTIONS_PER_PAGE,
+    currentPage * SECTIONS_PER_PAGE
+  );
+  const prevPage = currentPage > 1 ? currentPage - 1 : null;
+  const nextPage = currentPage < totalPages ? currentPage + 1 : null;
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {/* JSON-LD only on page 1 */}
+      {currentPage === 1 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <main>
         {/* ── HERO ──────────────────────────────────────────────── */}
@@ -340,31 +377,41 @@ export default function FAQPage() {
               auto insurance, Medicare, solar, roofing, final expense, and more.
             </p>
 
-            {/* Section jump links — all on the same page now */}
+            {/* All section jump links */}
             <div className="flex flex-wrap justify-center gap-2">
-              {sections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className="text-xs px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition"
-                >
-                  {s.heading}
-                </a>
-              ))}
+              {sections.map((s, i) => {
+                const sPage = Math.floor(i / SECTIONS_PER_PAGE) + 1;
+                const href =
+                  sPage === 1 ? `#${s.id}` : `/faq?page=${sPage}#${s.id}`;
+                return (
+                  <a
+                    key={s.id}
+                    href={href}
+                    className={`text-xs px-3 py-1.5 rounded-full transition ${
+                      sPage === currentPage
+                        ? "bg-white text-[#0B2350] font-semibold"
+                        : "bg-white/10 hover:bg-white/20 text-white"
+                    }`}
+                  >
+                    {s.heading}
+                  </a>
+                );
+              })}
             </div>
 
+            {/* Page indicator */}
             <p className="text-slate-400 text-xs mt-4">
-              {allFaqs.length} questions across {sections.length} topics
+              Page {currentPage} of {totalPages} · {allFaqs.length} total questions
             </p>
           </div>
         </section>
 
         {/* ── FAQ SECTIONS ──────────────────────────────────────── */}
         <div className="max-w-4xl mx-auto px-6 py-16 space-y-20">
-          {sections.map((section) => {
+          {pageSections.map((section) => {
             const c = colorMap[section.color];
             return (
-              <section key={section.id} id={section.id} className="scroll-mt-24">
+              <section key={section.id} id={section.id}>
                 <div
                   className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${c.bg} ${c.border} border mb-6`}
                 >
@@ -404,12 +451,12 @@ export default function FAQPage() {
                         <p className="text-gray-700 text-sm leading-relaxed">
                           {faq.a}
                         </p>
-                        {faq.link && (
+                        {"link" in faq && (faq as any).link && (
                           <Link
-                            href={faq.link.href}
-                            className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-teal-700 hover:underline"
+                            href={(faq as any).link.href}
+                            className={`inline-flex items-center gap-1 mt-3 text-sm font-medium text-teal-700 hover:underline`}
                           >
-                            {faq.link.label} →
+                            {(faq as any).link.label} →
                           </Link>
                         )}
                       </div>
@@ -419,6 +466,60 @@ export default function FAQPage() {
               </section>
             );
           })}
+
+          {/* ── PAGINATION ────────────────────────────────────── */}
+          <nav
+            className="flex items-center justify-between pt-4 border-t border-gray-200"
+            aria-label="FAQ pagination"
+          >
+            {/* Prev */}
+            {prevPage ? (
+              <Link
+                href={prevPage === 1 ? "/faq" : `/faq?page=${prevPage}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Previous
+              </Link>
+            ) : (
+              <div />
+            )}
+
+            {/* Page numbers */}
+            <div className="flex items-center gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                <Link
+                  key={p}
+                  href={p === 1 ? "/faq" : `/faq?page=${p}`}
+                  className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium transition ${
+                    p === currentPage
+                      ? "bg-[#1c2d56] text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                  aria-current={p === currentPage ? "page" : undefined}
+                >
+                  {p}
+                </Link>
+              ))}
+            </div>
+
+            {/* Next */}
+            {nextPage ? (
+              <Link
+                href={`/faq?page=${nextPage}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1c2d56] text-white text-sm font-medium hover:bg-[#162245] transition"
+              >
+                Next
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            ) : (
+              <div />
+            )}
+          </nav>
 
           {/* ── CTA ───────────────────────────────────────────── */}
           <section className="bg-[#0B2350] rounded-2xl px-8 py-12 text-center">
