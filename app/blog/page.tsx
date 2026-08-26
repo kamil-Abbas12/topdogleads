@@ -13,7 +13,7 @@ export async function generateMetadata({
   const resolvedSearchParams = await searchParams;
   const page = Math.max(1, Number(resolvedSearchParams?.page ?? "1") || 1);
 
-  const baseTitle = "Insurance & Pay-Per-Call Leads Blog | Top Dog Leads";
+  const baseTitle = "Insurance & Pay-Per-Call Leads Blog";
   const baseDescription =
     "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.";
 
