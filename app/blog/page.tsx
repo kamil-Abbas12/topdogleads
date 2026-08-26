@@ -1,68 +1,18 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/data/blogs";
-import { Facebook, Twitter, Linkedin, Video } from "lucide-react";
-
-
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}): Promise<Metadata> {
-  const resolvedSearchParams = await searchParams;
-  const page = Math.max(1, Number(resolvedSearchParams?.page ?? "1") || 1);
-
-  const baseTitle = "Insurance & Pay-Per-Call Leads Blog";
-  const baseDescription =
-    "Read expert articles on insurance leads generation, pay-per-call marketing, and business growth strategies from Top Dog Leads.";
-
-  const title = page === 1 ? baseTitle : `${baseTitle} | Page ${page}`;
-  const description =
-    page === 1
-      ? baseDescription
-      : `${baseDescription} — Page ${page}.`;
-
-  const canonicalUrl =
-    page === 1
-      ? "https://topdoglead.com/blog"
-      : `https://topdoglead.com/blog?page=${page}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title: page === 1 ? "Leads Generation Blog | Top Dog Leads" : `Leads Generation Blog | Page ${page} | Top Dog Leads`,
-      description:
-        "Expert tips on pay-per-call leads, insurance marketing, and scalable business growth.",
-      url: canonicalUrl,
-      siteName: "Top Dog Leads",
-      type: "website",
-      images: [
-        {
-          url: "https://topdoglead.com/og-image.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Top Dog Leads",
-        },
-      ],
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-   
-    robots: page > 1 ? { index: false, follow: true } : { index: true, follow: true },
-  };
-}
-
-
-
-// ✅ ISR — regenerate at most once per hour instead of rendering fresh on every request
-export const revalidate = 3600;
 
 const PAGE_SIZE = 4;
 
-function Sidebar({ sortedBlogs }: { sortedBlogs: typeof blogs }) {
+const sortedBlogs = [...blogs].sort(
+  (a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime()
+);
+const totalPages = Math.max(1, Math.ceil(sortedBlogs.length / PAGE_SIZE));
+
+function Sidebar() {
   const recent = sortedBlogs.slice(0, 3);
   const categories = [
     { name: "Auto Insurance", count: sortedBlogs.filter((b) => b.category === "Auto Insurance").length },
@@ -190,50 +140,50 @@ function Sidebar({ sortedBlogs }: { sortedBlogs: typeof blogs }) {
   );
 }
 
-function Pagination({ page, totalPages }: { page: number; totalPages: number }) {
+function Pagination({
+  page,
+  setPage,
+}: {
+  page: number;
+  setPage: (p: number) => void;
+}) {
   return (
-    <nav aria-label="Blog pagination" className="flex items-center gap-3 justify-center pt-8 ">
-      <Link
-        href={`/blog?page=${Math.max(1, page - 1)}`}
+    <nav aria-label="Blog pagination" className="flex items-center gap-3 justify-center pt-8">
+      <button
+        type="button"
+        onClick={() => setPage(Math.max(1, page - 1))}
+        disabled={page <= 1}
         aria-label="Go to previous page"
         className={`rounded-xl border border-gray-900 bg-white text-gray-800 px-4 py-2 text-sm font-semibold ${
           page <= 1 ? "pointer-events-none opacity-50" : "hover:bg-gray-50"
         }`}
       >
         Prev
-      </Link>
+      </button>
 
       <div className="text-sm text-gray-600">
         Page <span className="font-bold text-slate-900">{page}</span> of{" "}
         <span className="font-bold text-slate-900">{totalPages}</span>
       </div>
 
-      <Link
-        href={`/blog?page=${Math.min(totalPages, page + 1)}`}
+      <button
+        type="button"
+        onClick={() => setPage(Math.min(totalPages, page + 1))}
+        disabled={page >= totalPages}
         aria-label="Go to next page"
-        className={`rounded-xl border border-gray-900 bg-white text-gray-800  px-4 py-2 text-sm font-semibold ${
+        className={`rounded-xl border border-gray-900 bg-white text-gray-800 px-4 py-2 text-sm font-semibold ${
           page >= totalPages ? "pointer-events-none opacity-50" : "hover:bg-gray-50"
         }`}
       >
         Next
-      </Link>
+      </button>
     </nav>
   );
 }
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}) {
-  const resolvedSearchParams = await searchParams;
-  const page = Math.max(1, Number(resolvedSearchParams?.page ?? "1") || 1);
+export default function BlogPage() {
+  const [page, setPage] = useState(1);
 
-  const sortedBlogs = [...blogs].sort(
-    (a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime()
-  );
-
-  const totalPages = Math.max(1, Math.ceil(sortedBlogs.length / PAGE_SIZE));
   const start = (page - 1) * PAGE_SIZE;
   const items = sortedBlogs.slice(start, start + PAGE_SIZE);
 
@@ -270,7 +220,7 @@ export default async function BlogPage({
                       sizes="(max-width: 1024px) 100vw, 640px"
                       className="w-full h-[260px] sm:h-[300px] md:h-[320px] object-cover"
                       itemProp="image"
-                      priority={index === 0}
+                      priority={page === 1 && index === 0}
                     />
                   </div>
                 </Link>
@@ -278,10 +228,9 @@ export default async function BlogPage({
                 <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
                   <time dateTime={blog.dateISO} itemProp="datePublished">{blog.date}</time>
                   <span aria-hidden="true">•</span>
-<span itemProp="author" itemScope itemType="https://schema.org/Organization">
-  <span itemProp="name">{blog.author}</span>
-</span>                  <span aria-hidden="true">•</span>
-                  <span>00 Comments</span>
+                  <span itemProp="author" itemScope itemType="https://schema.org/Organization">
+                    <span itemProp="name">{blog.author}</span>
+                  </span>
                 </div>
 
                 <h2
@@ -309,10 +258,10 @@ export default async function BlogPage({
             );
           })}
 
-          <Pagination page={page} totalPages={totalPages} />
+          <Pagination page={page} setPage={setPage} />
         </div>
 
-        <Sidebar sortedBlogs={sortedBlogs} />
+        <Sidebar />
       </div>
     </main>
   );

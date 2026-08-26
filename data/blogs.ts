@@ -1,5 +1,28 @@
-export const blogs = [
-  {
+   export type BlogFaq = {
+  question: string;
+  answer: string;
+};
+ 
+export type Blog = {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
+  caption: string[];
+  content: string;
+  image: string;
+  imageAlt?: string;
+  date: string;
+  dateISO: string;
+  dateModifiedISO?: string; // ✅ optional — fixes the dateModifiedISO error
+  author: string;
+  category?: string;
+  tags?: string[];
+  faqs?: BlogFaq[]; // ✅ optional — fixes the faqs errors
+};
+   export const blogs: Blog[] = [  {
+
     slug: "auto-insurance-leads-peace-of-mind",
     title: "Auto Insurance Leads: Finding Peace of Mind in Coverage",
     metaTitle: "Auto Insurance Leads — Protection Beyond the Moment",
