@@ -261,20 +261,46 @@ const colorMap: Record<string, { bg: string; text: string; border: string; dot: 
   indigo: { bg: "bg-indigo-50", text: "text-indigo-700", border: "border-indigo-200", dot: "bg-indigo-500" },
 };
 
-// ─── METADATA (FIXED - unique descriptions per page) ─────────────────────────
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}): Promise<Metadata> {
-  const { page } = await searchParams;
-  const currentPage = Math.max(1, Math.min(Number(page) || 1, totalPages));
+// ─── STATIC GENERATION ─────────────────────────────────────────────────────────
+// Fully static: no per-request work, no reason for this route to be dynamic.
+// This is what actually fixes the "936ms TTFB / too slow" flag — the old
+// version awaited `searchParams`, which opts the whole route into on-demand
+// SSR even though the data never changes.
+export const dynamic = "force-static";
+export const dynamicParams = false;
 
-  // ✅ UNIQUE descriptions per page (fixes duplicate flagging)
+// params.page is undefined for /faq, ["2"] for /faq/2, ["3"] for /faq/3
+export async function generateStaticParams() {
+  return [
+    { page: undefined },
+    ...Array.from({ length: totalPages - 1 }, (_, i) => ({
+      page: [String(i + 2)],
+    })),
+  ];
+}
+
+function resolvePage(pageParam?: string[]): number {
+  if (!pageParam || pageParam.length === 0) return 1;
+  const n = Number(pageParam[0]);
+  if (!Number.isInteger(n) || n < 1 || n > totalPages) return -1; // invalid
+  if (pageParam[0] === "1") return -1; // /faq/1 should not exist — canonical is /faq
+  return n;
+}
+
+// ─── METADATA ──────────────────────────────────────────────────────────────────
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ page?: string[] }>;
+}): Promise<Metadata> {
+  const { page } = await params;
+  const currentPage = resolvePage(page);
+  if (currentPage === -1) return {};
+
   const descriptionMap: Record<number, string> = {
     1: "Pay-per-call lead generation FAQs: how it works, pricing, call quality, and getting started with Top Dog Leads for insurance, solar, roofing, and more.",
-    2: "Answers about pricing, fees, contracts, budgets, and volume discounts for pay-per-call leads from Top Dog Leads.",
-    3: "Call quality, compliance, TCPA guidelines, call recordings, and exclusivity guarantees for Top Dog Leads pay-per-call campaigns.",
+    2: "Answers about call quality, TCPA compliance, call recordings, exclusivity, and getting started with Top Dog Leads pay-per-call campaigns.",
+    3: "Industry-specific pay-per-call FAQs plus ROI, close rates, and reporting for Top Dog Leads campaigns across insurance, solar, and roofing.",
   };
 
   const title =
@@ -286,12 +312,12 @@ export async function generateMetadata({
     descriptionMap[currentPage] ||
     "Frequently asked questions about Top Dog Leads pay-per-call lead generation.";
 
-  // ✅ Single source of truth for the URL — used by both canonical and og:url
   const canonicalUrl =
     currentPage === 1
       ? "https://topdoglead.com/faq"
-      : `https://topdoglead.com/faq?page=${currentPage}`;
-return {
+      : `https://topdoglead.com/faq/${currentPage}`;
+
+  return {
     title,
     description,
     alternates: {
@@ -303,7 +329,7 @@ return {
       url: canonicalUrl,
       siteName: "Top Dog Leads",
       type: "website",
-      images: [                                   
+      images: [
         {
           url: "https://topdoglead.com/logo.png",
           width: 512,
@@ -312,7 +338,7 @@ return {
         },
       ],
     },
-    twitter: {                                     
+    twitter: {
       card: "summary_large_image",
       title,
       description,
@@ -320,8 +346,6 @@ return {
     },
   };
 }
-
-
 
 // ─── JSON-LD (page 1 only — all FAQs for Google rich results) ────────────────
 const allFaqs = sections.flatMap((s) => s.faqs);
@@ -337,13 +361,13 @@ const faqSchema = {
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 export default async function FAQPage({
-  searchParams,
+  params,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  params: Promise<{ page?: string[] }>;
 }) {
-  const { page } = await searchParams;
-  const currentPage = Math.max(1, Math.min(Number(page) || 1, totalPages));
-  if (Number(page) > totalPages) notFound();
+  const { page } = await params;
+  const currentPage = resolvePage(page);
+  if (currentPage === -1) notFound();
 
   const pageSections = sections.slice(
     (currentPage - 1) * SECTIONS_PER_PAGE,
@@ -351,6 +375,16 @@ export default async function FAQPage({
   );
   const prevPage = currentPage > 1 ? currentPage - 1 : null;
   const nextPage = currentPage < totalPages ? currentPage + 1 : null;
+
+  const pageHref = (p: number) => (p === 1 ? "/faq" : `/faq/${p}`);
+
+  // Unique H1 per page — this is what fixes the "Duplicates" flag. Page 1 keeps
+  // the plain brand heading; later pages name the sections they actually cover
+  // so no two pages share identical H1 text.
+  const h1 =
+    currentPage === 1
+      ? "Frequently Asked Questions"
+      : `FAQs: ${pageSections.map((s) => s.heading).join(" & ")}`;
 
   return (
     <>
@@ -370,7 +404,7 @@ export default async function FAQPage({
               Help Center
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-              Frequently Asked Questions
+              {h1}
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
               Everything you need to know about buying pay-per-call leads for
@@ -382,7 +416,7 @@ export default async function FAQPage({
               {sections.map((s, i) => {
                 const sPage = Math.floor(i / SECTIONS_PER_PAGE) + 1;
                 const href =
-                  sPage === 1 ? `#${s.id}` : `/faq?page=${sPage}#${s.id}`;
+                  sPage === currentPage ? `#${s.id}` : `${pageHref(sPage)}#${s.id}`;
                 return (
                   <a
                     key={s.id}
@@ -475,7 +509,7 @@ export default async function FAQPage({
             {/* Prev */}
             {prevPage ? (
               <Link
-                href={prevPage === 1 ? "/faq" : `/faq?page=${prevPage}`}
+                href={pageHref(prevPage)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -492,7 +526,7 @@ export default async function FAQPage({
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                 <Link
                   key={p}
-                  href={p === 1 ? "/faq" : `/faq?page=${p}`}
+                  href={pageHref(p)}
                   className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium transition ${
                     p === currentPage
                       ? "bg-[#1c2d56] text-white"
@@ -508,7 +542,7 @@ export default async function FAQPage({
             {/* Next */}
             {nextPage ? (
               <Link
-                href={`/faq?page=${nextPage}`}
+                href={pageHref(nextPage)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1c2d56] text-white text-sm font-medium hover:bg-[#162245] transition"
               >
                 Next

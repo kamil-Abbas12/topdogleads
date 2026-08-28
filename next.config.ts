@@ -110,6 +110,12 @@ const nextConfig: NextConfig = {
       // ── Duplicate/unwanted industry pages ────────────────────────
       { source: "/industry/health-insurance", destination: "/industry/home-insurance", permanent: true },
       { source: "/industry/life-insurance", destination: "/industry/final-expense", permanent: true },
+      {
+  source: '/faq',
+  has: [{ type: 'query', key: 'page', value: '(?<page>.*)' }],
+  destination: '/faq/:page',
+  permanent: true,
+}
     ];
   },
 
