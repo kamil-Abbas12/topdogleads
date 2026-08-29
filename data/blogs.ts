@@ -2201,10 +2201,10 @@ metaDescription:
 <h2>For Pest Control Companies: Reach These Homeowners First</h2>
 <p>Searches for "how to get rid of mice" spike every fall as rodents move indoors for warmth — and a large share of those homeowners end up calling a professional within days. Pest control businesses can <a href="/industry/pest-control">buy exclusive, verified pest control leads</a> to connect with these callers while their problem is still active, rather than competing for the same search traffic from scratch.</p>
 `,
-  image: "/pest-control-lead-generation.png",
+  image: "/pest-control-lead-generation.webp",
   imageAlt:
     "Mouse near a baseboard gap in a home — how to get rid of mice and seal entry points",
-  date: "Aug 26, 2026",
+  date: "Aug 29, 2026",
   dateISO: "2026-08-26",
   author: "Top Dog Leads LLC",
   category: "Pest Control",
