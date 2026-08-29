@@ -2049,7 +2049,7 @@ metaDescription:
   image: "/solar-lead-generation.webp",
   imageAlt:
     "Solar shingles installed on a residential roof — solar shingle cost and whether solar roofing is worth it",
-  date: "Aug 28, 2026",
+  date: "Aug 29, 2026",
   dateISO: "2026-08-28",
   author: "Top Dog Leads LLC",
   category: "Solar",
@@ -2125,10 +2125,10 @@ metaDescription:
 <h2>For Pest Control Companies: This Is Where the Calls Come From</h2>
 <p>Homeowners searching "how to get rid of ants" today are the same homeowners calling a local exterminator tomorrow when DIY doesn't hold. Pest control businesses looking to reach these homeowners directly can <a href="/industry/pest-control">buy verified, pay-per-call pest control leads</a> and get connected to callers who are already past the DIY stage and ready to book a visit.</p>
 `,
-  image: "/pest-control-lead-generation.webp",
+  image: "/how-to-get-rid-of-ants-guide.webp",
   imageAlt:
     "Ant trail on a kitchen counter — how to get rid of ants naturally and when to call pest control",
-  date: "Aug 27, 2026",
+  date: "Aug 29, 2026",
   dateISO: "2026-08-27",
   author: "Top Dog Leads LLC",
   category: "Pest Control",
@@ -2201,7 +2201,7 @@ metaDescription:
 <h2>For Pest Control Companies: Reach These Homeowners First</h2>
 <p>Searches for "how to get rid of mice" spike every fall as rodents move indoors for warmth — and a large share of those homeowners end up calling a professional within days. Pest control businesses can <a href="/industry/pest-control">buy exclusive, verified pest control leads</a> to connect with these callers while their problem is still active, rather than competing for the same search traffic from scratch.</p>
 `,
-  image: "/pest.png",
+  image: "/pest-control-lead-generation.png",
   imageAlt:
     "Mouse near a baseboard gap in a home — how to get rid of mice and seal entry points",
   date: "Aug 26, 2026",
