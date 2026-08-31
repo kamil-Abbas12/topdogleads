@@ -2005,9 +2005,9 @@ metaDescription:
 {
   slug: "solar-shingle-cost-2026-is-it-worth-it",
   title: "Solar Shingle Cost in 2026: Is Solar Roofing Worth It?",
-  metaTitle: "Solar Shingle Cost in 2026 — Is Solar Roofing Worth It?",
-  metaDescription:
-    "What do solar shingles cost in 2026, and are they worth it compared to traditional panels? A full cost breakdown, plus what the demand means for solar companies.",
+  metaTitle: "Solar Shingle Cost in 2026: Is It Worth It?",
+    metaDescription:
+    "What do solar shingles cost in 2026 — and are they worth it vs. traditional panels? A full cost breakdown, plus what the demand means for solar companies.",
   keywords: [
     "solar shingle cost",
     "solar power shingles cost",

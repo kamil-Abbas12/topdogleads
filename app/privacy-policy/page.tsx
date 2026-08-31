@@ -173,22 +173,25 @@ export default function PrivacyPolicyPage() {
               the Site functions. You can learn more about, or opt out of, interest-based advertising
               at{" "}
               <a
-                href="https://www.aboutads.info/choices/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-700 underline"
-              >
-                aboutads.info/choices
-              </a>{" "}
+                
+  href="https://optout.aboutads.info/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-700 underline"
+>
+  aboutads.info/choices
+</a>
+               {" "}
               and{" "}
               <a
-                href="https://adssettings.google.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-700 underline"
-              >
-                Google Ad Settings
-              </a>
+                
+  href="https://myadcenter.google.com/personalizationoff"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-700 underline"
+>
+  Google Ad Settings
+</a>
               .
             </p>
           </div>

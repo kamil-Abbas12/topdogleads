@@ -43,6 +43,7 @@ const nextConfig: NextConfig = {
       { source: "/photo-gallery", destination: "/", permanent: true },
       { source: "/tabs", destination: "/", permanent: true },
       { source: "/wishlist", destination: "/", permanent: true },
+      { source: "/home-06", destination: "/", permanent: true },
       { source: "/ppc-services", destination: "/services/inbound-call-marketing", permanent: true },
       { source: "/smm-services", destination: "/services/inbound-call-marketing", permanent: true },
 

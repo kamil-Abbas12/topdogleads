@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faq/3`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
    { url: `${baseUrl}/privacy-policy`, lastModified: new Date("2026-03-01"), changeFrequency: "yearly", priority: 0.3 },
 { url: `${baseUrl}/terms-of-service`, lastModified: new Date("2026-03-01"), changeFrequency: "yearly", priority: 0.3 },
+{ url: `${baseUrl}/hospital-indemnity-insurance`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     ...industryPages,
     ...salesPages,
     ...blogPosts,

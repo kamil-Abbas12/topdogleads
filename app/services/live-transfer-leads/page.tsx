@@ -257,15 +257,62 @@ export default function LiveTransferPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://topdoglead.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://topdoglead.com/services" },
-              { "@type": "ListItem", position: 3, name: "Live Transfer Leads", item: "https://topdoglead.com/services/live-transfer-leads" },
-            ],
-          }),
+               __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Live Transfer Leads",
+        alternateName: [
+          "Live Transfer Lead Generation",
+          "Real-Time Phone Leads",
+          "Warm Transfer Leads",
+          "Pre-Qualified Live Call Transfers",
+          "Exclusive Live Transfer Leads USA",
+        ],
+        serviceType: "Lead Generation",
+        provider: {
+          "@type": "Organization",
+          name: "Top Dog Leads",
+          url: "https://topdoglead.com",
+          logo: "https://topdoglead.com/logo.png",
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "sales",
+            telephone: "+1 678 462 8013",
+            areaServed: "US",
+            availableLanguage: "English",
+          },
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "United States",
+        },
+        description:
+          "Real-time TCPA-compliant live transfer leads for insurance agents, Medicare brokers, solar companies, auto insurance, final expense, debt relief, and home services. Pre-qualified prospects are screened and transferred live to your sales agents across the USA. No contracts. Custom lead filters. Replacement guarantee.",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Live Transfer Lead Verticals",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Health Insurance Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medicare Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Solar Energy Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Auto Insurance Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Final Expense Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Debt Relief Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Security Live Transfer Leads" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Services Live Transfer Leads" } },
+          ],
+        },
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          areaServed: "US",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            description: "Per live transfer call. Volume pricing available.",
+          },
+        },
+      }),
         }}
       />
 

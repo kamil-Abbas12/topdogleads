@@ -4,8 +4,39 @@ import { Facebook, Twitter, Linkedin, Mail } from "lucide-react";
 import HospitalLeadForm from "../components/HospitalLeadForm";
 
 export const metadata = {
-title: "Hospital Indemnity Insurance Explained | Top Dog Leads",
-  description: "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
+  title: "Hospital Indemnity Insurance Explained | Top Dog Leads",
+  description:
+    "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
+  alternates: {
+    canonical: "https://topdoglead.com/hospital-indemnity-insurance",
+  },
+  openGraph: {
+    title: "Hospital Indemnity Insurance Explained | Top Dog Leads",
+    description:
+      "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
+    url: "https://topdoglead.com/hospital-indemnity-insurance",
+    siteName: "Top Dog Leads",
+    type: "website",
+    images: [
+      {
+        url: "https://topdoglead.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Top Dog Leads",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hospital Indemnity Insurance Explained | Top Dog Leads",
+    description:
+      "Learn what hospital indemnity insurance covers, who needs it, and how it can help pay for costs your health plan doesn't.",
+    images: ["https://topdoglead.com/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const usesList = [
@@ -84,12 +115,12 @@ export default function HospitalIndemnityInsurancePage() {
           Standard health insurance doesn't cover everything. We cover the gaps.
         </p>
         <p className="text-gray-700 text-base leading-relaxed mb-12">
-          Unexpected hospital visits come with unexpected expenses. Hospital indemnity insurance provides direct cash payouts to help handle deductibles, copays, or daily living expenses while you recover giving you total financial peace of mind when you need it most.
+          Unexpected hospital visits come with unexpected expenses. Hospital indemnity insurance provides direct cash payouts to help handle deductibles, copays, or daily living expenses while you recover, giving you total financial peace of mind when you need it most.
         </p>
 
         {/* Defined */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          How Hospital Indemnity Insurance Protects Your Wallet ?
+          How Hospital Indemnity Insurance Protects Your Wallet?
         </h2>
         <p className="text-gray-700 text-base leading-relaxed mb-12">
         Unlike standard health coverage, hospital indemnity insurance cuts a check directly to you, not the medical provider. There are no restrictions and no fine print on how you use it. Once you receive the cash, you can spend it on medical bills, rent, or everyday expenses.
