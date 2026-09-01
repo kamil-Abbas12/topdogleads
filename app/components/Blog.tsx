@@ -1,6 +1,7 @@
 "use client";
 
 import { blogs } from "@/data/blogs";
+import { getExcerpt } from "@/lib/excerpt";
 import { manrope } from "@/lib/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -67,8 +68,8 @@ const Blog = () => {
                 {blog.title}
               </h3>
 
-              <p className="text-gray-500 mt-3 text-sm leading-relaxed line-clamp-3">
-                {blog.caption[0]}
+              <p className="text-gray-500 mt-3 text-sm leading-relaxed line-clamp-4">
+                {getExcerpt(blog.content, 220)}
               </p>
 
               <Link
@@ -76,7 +77,7 @@ const Blog = () => {
                 aria-label={`Read full article: ${blog.title}`}
                 className="mt-auto pt-6 text-blue-900 font-semibold hover:underline w-fit"
               >
-                Read More →
+                Read More<span className="sr-only"> about {blog.title}</span> →
               </Link>
             </div>
           </li>

@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/data/blogs";
+import { getExcerpt } from "@/lib/excerpt";
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 6;
 
 const sortedBlogs = [...blogs].sort(
   (a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime()
@@ -241,10 +242,10 @@ export default function BlogPage() {
                 </h2>
 
                 <p
-                  className="text-gray-600 leading-relaxed line-clamp-2"
+                  className="text-gray-600 leading-relaxed line-clamp-4"
                   itemProp="description"
                 >
-                  {blog.caption?.[0]}
+                  {getExcerpt(blog.content, 260)}
                 </p>
 
                 <Link
@@ -252,7 +253,7 @@ export default function BlogPage() {
                   aria-label={`Read full article: ${blog.title}`}
                   className="inline-flex items-center justify-center rounded-md bg-[#1c2d56] px-6 py-3 text-sm font-bold text-white hover:bg-[#1c2d56]/90"
                 >
-                  Read More
+                  Read More<span className="sr-only"> about {blog.title}</span>
                 </Link>
               </article>
             );

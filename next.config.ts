@@ -108,6 +108,12 @@ const nextConfig: NextConfig = {
       { source: "/about-us", destination: "/about", permanent: true },
       { source: "/blog/:slug*/feed/", destination: "/blog/:slug*", permanent: true },
 
+      // ── Legacy URLs still getting traffic per GA, no current internal link ──
+      { source: "/blog/auto-insurance-breakdowns", destination: "/blog/auto-insurance-leads-peace-of-mind", permanent: true },
+      { source: "/team", destination: "/about", permanent: true },
+      // TODO: confirm the right target post for this one — defaulting to /blog for now
+      { source: "/blog/insurance-leads-growth", destination: "/blog", permanent: true },
+
       // ── Duplicate/unwanted industry pages ────────────────────────
       { source: "/industry/health-insurance", destination: "/industry/home-insurance", permanent: true },
       { source: "/industry/life-insurance", destination: "/industry/final-expense", permanent: true },
@@ -123,6 +129,19 @@ const nextConfig: NextConfig = {
   // ── Headers for Performance ───────────────────────────────────
   async headers() {
     return [
+      {
+        // HSTS — tells browsers to only ever hit this domain over HTTPS,
+        // even if someone types http:// or follows an old http:// link.
+        // Applied site-wide since the site is fully served over HTTPS
+        // (the www → apex redirect above already forces https).
+        source: "/:path*",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+        ],
+      },
       {
         source: "/_next/static/:path*",
         headers: [

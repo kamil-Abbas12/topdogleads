@@ -62,15 +62,27 @@ export default async function BlogPostPage({
   const prevPost = currentIndex > 0 ? blogs[currentIndex - 1] : null;
   const nextPost = currentIndex < blogs.length - 1 ? blogs[currentIndex + 1] : null;
 
-  const related = [...blogs]
+   const related = [...blogs]
     .filter((b) => b.slug !== blog.slug)
-    .sort((a, b) => {
-      const aShared = a.tags?.filter((t) => blog.tags?.includes(t)).length ?? 0;
-      const bShared = b.tags?.filter((t) => blog.tags?.includes(t)).length ?? 0;
-      if (aShared !== bShared) return bShared - aShared;
-      return new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime();
+    .map((b) => {
+      const sharedTags =
+        b.tags?.filter((t) => blog.tags?.includes(t)).length ?? 0;
+      const sameCategory =
+        b.category && blog.category && b.category === blog.category ? 1 : 0;
+      const sharedKeywords =
+        b.keywords?.filter((k) => blog.keywords?.includes(k)).length ?? 0;
+
+      const score = sharedTags * 3 + sameCategory * 2 + sharedKeywords;
+      return { post: b, score };
     })
-    .slice(0, 4);
+    .sort((a, b) => {
+      if (a.score !== b.score) return b.score - a.score;
+      return (
+        new Date(b.post.dateISO).getTime() - new Date(a.post.dateISO).getTime()
+      );
+    })
+    .slice(0, 4)
+    .map((r) => r.post);
 
   const { contentWithIds, headings } = extractToc(blog.content);
 

@@ -40,6 +40,15 @@ const Hero = () => {
       aria-label="Top Dog Leads — Pay-Per-Call Lead Generation"
       className="relative w-full overflow-x-hidden bg-white px-4 sm:px-6 lg:px-12 xl:px-25 py-12 lg:py-20"
     >
+      {/*
+        The page's single H1 lives here, outside the carousel.
+        Swiper's loop mode clones slides in the DOM to make the loop seamless,
+        so an H1 placed inside a slide gets duplicated — and if the H1 were
+        tied to the active slide instead, it would disappear from the page
+        entirely once the carousel rotated away from slide 0.
+      */}
+      <h1 className="sr-only">{slides[0].title}</h1>
+
       <Swiper
         modules={[Autoplay]}
         loop
@@ -59,15 +68,9 @@ const Hero = () => {
               {/* LEFT CONTENT */}
               <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
 
-              {i === 0 ? (
-  <h1 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
-    {slide.title}
-  </h1>
-) : (
-  <h2 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
-    {slide.title}
-  </h2>
-)}
+              <h2 className="text-gray-900 text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight">
+                {slide.title}
+              </h2>
 
                 <p className={`${manrope.className} text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0`}>
                   {slide.desc}

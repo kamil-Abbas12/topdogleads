@@ -106,7 +106,7 @@ export default function IndustryClient() {
         {/* LEFT SIDE */}
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-gray-900">
-            Live Leads. Live Calls. Start Today
+            Live {industry.name} Leads. Live Calls. Start Today
           </h1>
           <div className="w-full max-w-lg">
             <Image
@@ -158,7 +158,7 @@ export default function IndustryClient() {
                   onClick={handleCtaClick}
                   className="bg-[#1c2d56] text-white px-6 py-3 lg:px-12 rounded-md cursor-pointer hover:bg-[#141f3f] transition font-semibold"
                 >
-                  Get Calls
+                  Get Leads Now
                 </button>
                 
                 <Link 
@@ -239,6 +239,34 @@ export default function IndustryClient() {
             </div>
           )}
         </div>
+
+        {/* ABOUT THIS INDUSTRY — unique per-industry body copy so this page
+            carries real content instead of just the lead form (fixes low
+            word count / text-to-HTML ratio flagged across industry pages) */}
+        {(industry.description || industry.benefits) && (
+          <div className="lg:col-span-2 space-y-6 border-t border-gray-100 pt-10">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Why {industry.name} Businesses Choose Top Dog Leads
+            </h2>
+            {industry.description && (
+              <p className="text-gray-600 max-w-3xl leading-relaxed">
+                {industry.description}
+              </p>
+            )}
+            {industry.benefits && industry.benefits.length > 0 && (
+              <ul className="grid sm:grid-cols-3 gap-4 max-w-3xl" role="list">
+                {industry.benefits.map((b) => (
+                  <li
+                    key={b}
+                    className="rounded-xl bg-gray-50 border border-gray-100 p-4 text-sm text-gray-700"
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

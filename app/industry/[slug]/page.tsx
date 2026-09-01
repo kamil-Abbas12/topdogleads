@@ -12,7 +12,7 @@ export async function generateMetadata({
   if (!industry) return {};
 
   return {
-    title: `Buy ${industry.name} Leads | Live Calls `,
+    title: `${industry.name} Leads | Live Transfer Calls`,
     description: `Get high-intent ${industry.name} leads delivered live to your phone. Real-time calls, verified prospects. Start today with Top Dog Leads.`,
     keywords: `${industry.name} leads, live ${industry.name} calls, buy ${industry.name} leads, ${industry.name} lead generation`,
     openGraph: {
