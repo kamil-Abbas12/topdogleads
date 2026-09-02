@@ -1,7 +1,13 @@
 import { industries } from "@/data/industries";
 import IndustryClient from "./IndustryClient";
 
-// ✅ generateMetadata works here because this file has NO "use client"
+// ✅ Pre-render all industry pages at build time instead of on every request
+export async function generateStaticParams() {
+  return industries.map((industry) => ({
+    slug: industry.slug,
+  }));
+}
+
 export async function generateMetadata({
   params,
 }: {
