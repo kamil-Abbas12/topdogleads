@@ -107,7 +107,7 @@ const nextConfig: NextConfig = {
       { source: "/contact-us", destination: "/contact", permanent: true },
       { source: "/about-us", destination: "/about", permanent: true },
       { source: "/blog/:slug*/feed/", destination: "/blog/:slug*", permanent: true },
-
+{ source: "/mva-leads-page", destination: "/industry/motor-vehicle-accident", permanent: true },
       // ── Legacy URLs still getting traffic per GA, no current internal link ──
       { source: "/blog/auto-insurance-breakdowns", destination: "/blog/auto-insurance-leads-peace-of-mind", permanent: true },
       { source: "/team", destination: "/about", permanent: true },

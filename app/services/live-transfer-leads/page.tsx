@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-title: "Live Transfer Leads USA",
+  title: "Live Transfer Leads USA",
   description:
     "Buy live transfer leads for insurance, Medicare, solar, and auto. Pre-qualified prospects transferred live to your sales agents. TCPA compliant, no contracts.",
   keywords: [
@@ -78,7 +78,8 @@ title: "Live Transfer Leads USA",
     canonical: "https://topdoglead.com/services/live-transfer-leads",
   },
   openGraph: {
-    title: "Live Transfer Leads Services USA | Real-Time Qualified Calls | Top Dog Leads",
+    title:
+      "Live Transfer Leads Services USA | Real-Time Qualified Calls | Top Dog Leads",
     description:
       "Connect instantly with pre-screened buyers through real-time call transfers. No cold calling. No wasted time. Just live, ready-to-buy prospects for insurance, Medicare, solar & more.",
     url: "https://topdoglead.com/services/live-transfer-leads",
@@ -102,7 +103,12 @@ title: "Live Transfer Leads USA",
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
   },
 };
 
@@ -215,14 +221,49 @@ const faqs = [
 ];
 
 const competitors = [
-  { feature: "Real-Time Transfer",        topdog: true, typical: false, generic: false },
-  { feature: "TCPA Compliance Docs",      topdog: true, typical: true,  generic: false },
-  { feature: "Custom Lead Filters",       topdog: true, typical: false, generic: false },
-  { feature: "No Long-Term Contracts",    topdog: true, typical: false, generic: false },
-  { feature: "Dedicated Account Manager", topdog: true, typical: true,  generic: false },
-  { feature: "Replacement Guarantee",     topdog: true, typical: false, generic: false },
-  { feature: "Same-Day Setup",            topdog: true, typical: false, generic: false },
-  { feature: "Multi-Vertical Coverage",   topdog: true, typical: true,  generic: false },
+  {
+    feature: "Real-Time Transfer",
+    topdog: true,
+    typical: false,
+    generic: false,
+  },
+  {
+    feature: "TCPA Compliance Docs",
+    topdog: true,
+    typical: true,
+    generic: false,
+  },
+  {
+    feature: "Custom Lead Filters",
+    topdog: true,
+    typical: false,
+    generic: false,
+  },
+  {
+    feature: "No Long-Term Contracts",
+    topdog: true,
+    typical: false,
+    generic: false,
+  },
+  {
+    feature: "Dedicated Account Manager",
+    topdog: true,
+    typical: true,
+    generic: false,
+  },
+  {
+    feature: "Replacement Guarantee",
+    topdog: true,
+    typical: false,
+    generic: false,
+  },
+  { feature: "Same-Day Setup", topdog: true, typical: false, generic: false },
+  {
+    feature: "Multi-Vertical Coverage",
+    topdog: true,
+    typical: true,
+    generic: false,
+  },
 ];
 
 const testimonials = [
@@ -252,67 +293,115 @@ const testimonials = [
 export default function LiveTransferPage() {
   return (
     <main className="bg-white text-gray-900 font-sans">
-
       {/* ── STRUCTURED DATA: BreadcrumbList ──────────────────── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-               __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Live Transfer Leads",
-        alternateName: [
-          "Live Transfer Lead Generation",
-          "Real-Time Phone Leads",
-          "Warm Transfer Leads",
-          "Pre-Qualified Live Call Transfers",
-          "Exclusive Live Transfer Leads USA",
-        ],
-        serviceType: "Lead Generation",
-        provider: {
-          "@type": "Organization",
-          name: "Top Dog Leads",
-          url: "https://topdoglead.com",
-          logo: "https://topdoglead.com/logo.png",
-          contactPoint: {
-            "@type": "ContactPoint",
-            contactType: "sales",
-            telephone: "+1 678 462 8013",
-            areaServed: "US",
-            availableLanguage: "English",
-          },
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "United States",
-        },
-        description:
-          "Real-time TCPA-compliant live transfer leads for insurance agents, Medicare brokers, solar companies, auto insurance, final expense, debt relief, and home services. Pre-qualified prospects are screened and transferred live to your sales agents across the USA. No contracts. Custom lead filters. Replacement guarantee.",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Live Transfer Lead Verticals",
-          itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Health Insurance Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medicare Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Solar Energy Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Auto Insurance Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Final Expense Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Debt Relief Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Security Live Transfer Leads" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Services Live Transfer Leads" } },
-          ],
-        },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          areaServed: "US",
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "USD",
-            description: "Per live transfer call. Volume pricing available.",
-          },
-        },
-      }),
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Live Transfer Leads",
+            alternateName: [
+              "Live Transfer Lead Generation",
+              "Real-Time Phone Leads",
+              "Warm Transfer Leads",
+              "Pre-Qualified Live Call Transfers",
+              "Exclusive Live Transfer Leads USA",
+            ],
+            serviceType: "Lead Generation",
+            provider: {
+              "@type": "Organization",
+              name: "Top Dog Leads",
+              url: "https://topdoglead.com",
+              logo: "https://topdoglead.com/logo.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                telephone: "+1 678 462 8013",
+                areaServed: "US",
+                availableLanguage: "English",
+              },
+            },
+            areaServed: {
+              "@type": "Country",
+              name: "United States",
+            },
+            description:
+              "Real-time TCPA-compliant live transfer leads for insurance agents, Medicare brokers, solar companies, auto insurance, final expense, debt relief, and home services. Pre-qualified prospects are screened and transferred live to your sales agents across the USA. No contracts. Custom lead filters. Replacement guarantee.",
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Live Transfer Lead Verticals",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Health Insurance Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Medicare Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Solar Energy Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Auto Insurance Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Final Expense Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Debt Relief Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Home Security Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Home Services Live Transfer Leads",
+                  },
+                },
+              ],
+            },
+            offers: {
+              "@type": "Offer",
+              availability: "https://schema.org/InStock",
+              areaServed: "US",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                priceCurrency: "USD",
+                description:
+                  "Per live transfer call. Volume pricing available.",
+              },
+            },
+          }),
         }}
       />
 
@@ -330,7 +419,11 @@ export default function LiveTransferPage() {
             keywords:
               "live transfer leads, buy live transfer leads, real-time leads, warm transfer leads, insurance live transfer leads, Medicare live transfer leads, solar live transfer leads, TCPA compliant live transfers, exclusive live transfer leads, pre-qualified phone leads",
             inLanguage: "en-US",
-            isPartOf: { "@type": "WebSite", url: "https://topdoglead.com", name: "Top Dog Leads" },
+            isPartOf: {
+              "@type": "WebSite",
+              url: "https://topdoglead.com",
+              name: "Top Dog Leads",
+            },
             about: {
               "@type": "Thing",
               name: "Live Transfer Lead Generation",
@@ -363,17 +456,20 @@ export default function LiveTransferPage() {
             </span>
 
             <h1 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight">
-              Live Transfer<br />
-              <span className="text-orange-400">Leads</span> That<br />
+              Live Transfer
+              <br />
+              <span className="text-orange-400">Leads</span> That
+              <br />
               Actually Close
             </h1>
 
             {/* Screen-reader keyword block — boosts LSI coverage without visual clutter */}
             <p className="sr-only">
-              Buy exclusive live transfer leads for insurance agents, Medicare brokers, solar
-              companies, auto insurance, final expense, debt relief, and home services across
-              the USA. Real-time, TCPA-compliant, pre-qualified warm transfer phone leads
-              delivered directly to your sales agents. No contracts. 24-hour setup.
+              Buy exclusive live transfer leads for insurance agents, Medicare
+              brokers, solar companies, auto insurance, final expense, debt
+              relief, and home services across the USA. Real-time,
+              TCPA-compliant, pre-qualified warm transfer phone leads delivered
+              directly to your sales agents. No contracts. 24-hour setup.
             </p>
 
             <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-lg">
@@ -381,8 +477,8 @@ export default function LiveTransferPage() {
               <strong className="text-white">live transfer leads</strong>, a
               pre-qualified buyer is on the line before your phone even rings —
               ready to talk, ready to buy. The highest-intent{" "}
-              <strong className="text-white">real-time phone leads</strong> available
-              for insurance, Medicare, solar, auto, and more.
+              <strong className="text-white">real-time phone leads</strong>{" "}
+              available for insurance, Medicare, solar, auto, and more.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -414,7 +510,9 @@ export default function LiveTransferPage() {
                 key={s.label}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-4xl font-black text-orange-400">{s.value}</div>
+                <div className="text-4xl font-black text-orange-400">
+                  {s.value}
+                </div>
                 <div className="mt-2 text-sm text-gray-300">{s.label}</div>
               </div>
             ))}
@@ -430,25 +528,34 @@ export default function LiveTransferPage() {
               What Are Live Transfer Leads?
             </span>
             <h2 className="mt-3 text-3xl lg:text-4xl font-black leading-tight">
-              What Are Live Transfer Leads? The Highest-Intent Phone Leads in Sales
+              What Are Live Transfer Leads? The Highest-Intent Phone Leads in
+              Sales
             </h2>
             <p className="mt-5 text-gray-600 leading-relaxed">
-              A <strong>live transfer lead</strong> is a <strong>real-time phone connection</strong>{" "}
-              between your sales agent and a prospect who has <em>just</em> expressed
-              interest in your product or service. Our trained agents call the consumer,
+              A <strong>live transfer lead</strong> is a{" "}
+              <strong>real-time phone connection</strong> between your sales
+              agent and a prospect who has <em>just</em> expressed interest in
+              your product or service. Our trained agents call the consumer,
               verify their intent and qualifications, then transfer the{" "}
-              <strong>warm, pre-qualified call</strong> directly to your team — all within seconds.
+              <strong>warm, pre-qualified call</strong> directly to your team —
+              all within seconds.
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              Unlike traditional <strong>internet leads</strong> — where you receive a form fill and
-              hope the person answers when you call back — <strong>live transfers</strong> put a warm,
-              engaged buyer on your line instantly. There's no lag, no ghosting, and no
-              wasted dials. Just live conversations with high-intent people who want what you sell.
+              Unlike traditional <strong>internet leads</strong> — where you
+              receive a form fill and hope the person answers when you call back
+              — <strong>live transfers</strong> put a warm, engaged buyer on
+              your line instantly. There's no lag, no ghosting, and no wasted
+              dials. Just live conversations with high-intent people who want
+              what you sell.
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              According to industry research, <strong>78% of consumers buy from the
-              first company to respond</strong> to their inquiry. With{" "}
-              <strong>exclusive live transfer leads</strong> from Top Dog, that company is always you.
+              According to industry research,{" "}
+              <strong>
+                78% of consumers buy from the first company to respond
+              </strong>{" "}
+              to their inquiry. With{" "}
+              <strong>exclusive live transfer leads</strong> from Top Dog, that
+              company is always you.
             </p>
           </div>
 
@@ -471,7 +578,13 @@ export default function LiveTransferPage() {
                   className={`grid grid-cols-3 gap-2 text-sm ${i === 0 ? "font-bold text-gray-500 uppercase text-xs" : "text-gray-700"}`}
                 >
                   <span className={i === 0 ? "" : "font-medium"}>{feat}</span>
-                  <span className={i === 0 ? "text-orange-600" : "text-green-700 font-semibold"}>
+                  <span
+                    className={
+                      i === 0
+                        ? "text-orange-600"
+                        : "text-green-700 font-semibold"
+                    }
+                  >
                     {live}
                   </span>
                   <span className={i === 0 ? "" : "text-gray-400"}>{form}</span>
@@ -493,8 +606,8 @@ export default function LiveTransferPage() {
               How Our Live Transfer Leads Work
             </h2>
             <p className="mt-4 text-gray-400">
-              From intent to conversation in under 30 seconds. Here's exactly what
-              happens before a call lands on your agent's desk.
+              From intent to conversation in under 30 seconds. Here's exactly
+              what happens before a call lands on your agent's desk.
             </p>
           </div>
 
@@ -510,7 +623,9 @@ export default function LiveTransferPage() {
                     {step.step}
                   </div>
                   <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -528,8 +643,8 @@ export default function LiveTransferPage() {
             Live Transfer Leads for Every High-Ticket Sales Vertical
           </h2>
           <p className="mt-4 text-gray-600">
-            Top Dog Leads serves agents, agencies, and businesses across the most
-            lucrative phone-sales industries in the United States.
+            Top Dog Leads serves agents, agencies, and businesses across the
+            most lucrative phone-sales industries in the United States.
           </p>
         </div>
 
@@ -543,14 +658,19 @@ export default function LiveTransferPage() {
               <h3 className="font-bold text-lg mb-2 group-hover:text-orange-600 transition-colors">
                 {ind.title}
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{ind.desc}</p>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {ind.desc}
+              </p>
             </div>
           ))}
         </div>
 
         <p className="text-center mt-8 text-gray-500 text-sm">
           Don't see your industry?{" "}
-          <Link href="/contact" className="text-orange-500 font-semibold hover:underline">
+          <Link
+            href="/contact"
+            className="text-orange-500 font-semibold hover:underline"
+          >
             Contact us
           </Link>{" "}
           — we likely have a program for you.
@@ -568,8 +688,8 @@ export default function LiveTransferPage() {
               How We Compare to Other Lead Providers
             </h2>
             <p className="mt-4 text-gray-600">
-              Not all live transfer programs are equal. See why sales teams across
-              the country choose Top Dog over the competition.
+              Not all live transfer programs are equal. See why sales teams
+              across the country choose Top Dog over the competition.
             </p>
           </div>
 
@@ -577,12 +697,18 @@ export default function LiveTransferPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 pr-4 font-bold text-gray-700 w-1/2">Feature</th>
+                  <th className="text-left py-4 pr-4 font-bold text-gray-700 w-1/2">
+                    Feature
+                  </th>
                   <th className="py-4 px-4 font-bold text-orange-600 bg-orange-50 rounded-t-xl">
                     🐾 Top Dog Leads
                   </th>
-                  <th className="py-4 px-4 font-bold text-gray-500">Typical Lead Agencies</th>
-                  <th className="py-4 px-4 font-bold text-gray-400">Generic Lead Vendors</th>
+                  <th className="py-4 px-4 font-bold text-gray-500">
+                    Typical Lead Agencies
+                  </th>
+                  <th className="py-4 px-4 font-bold text-gray-400">
+                    Generic Lead Vendors
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -591,7 +717,9 @@ export default function LiveTransferPage() {
                     key={row.feature}
                     className={`border-b border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}
                   >
-                    <td className="py-3.5 pr-4 font-medium text-gray-800">{row.feature}</td>
+                    <td className="py-3.5 pr-4 font-medium text-gray-800">
+                      {row.feature}
+                    </td>
                     <td className="py-3.5 px-4 text-center bg-orange-50/50">
                       {row.topdog ? (
                         <span className="text-green-600 font-bold">✓</span>
@@ -632,10 +760,10 @@ export default function LiveTransferPage() {
               Why Top-Performing Sales Teams Buy Live Transfer Leads
             </h2>
             <p className="mt-5 text-gray-600 leading-relaxed">
-              The math is simple: the faster you reach an interested prospect, the more
-              likely you are to close. Live transfers make that equation automatic.
-              Here's what agents and agencies consistently report after switching from
-              traditional lead generation:
+              The math is simple: the faster you reach an interested prospect,
+              the more likely you are to close. Live transfers make that
+              equation automatic. Here's what agents and agencies consistently
+              report after switching from traditional lead generation:
             </p>
 
             <ul className="mt-8 space-y-5">
@@ -672,10 +800,14 @@ export default function LiveTransferPage() {
                 },
               ].map((b) => (
                 <li key={b.title} className="flex gap-4">
-                  <span className="text-2xl flex-shrink-0 mt-0.5">{b.icon}</span>
+                  <span className="text-2xl flex-shrink-0 mt-0.5">
+                    {b.icon}
+                  </span>
                   <div>
                     <h3 className="font-bold text-gray-900">{b.title}</h3>
-                    <p className="mt-1 text-gray-500 text-sm leading-relaxed">{b.desc}</p>
+                    <p className="mt-1 text-gray-500 text-sm leading-relaxed">
+                      {b.desc}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -685,10 +817,12 @@ export default function LiveTransferPage() {
           {/* CTA card */}
           <div className="sticky top-8">
             <div className="bg-gradient-to-br from-[#0a1628] to-[#0d2044] text-white rounded-3xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-black">Ready to Receive Live Calls?</h3>
+              <h3 className="text-2xl font-black">
+                Ready to Receive Live Calls?
+              </h3>
               <p className="mt-3 text-gray-300 text-sm leading-relaxed">
-                Join hundreds of agents and agencies getting live transfer leads from
-                Top Dog. Setup takes less than 24 hours.
+                Join hundreds of agents and agencies getting live transfer leads
+                from Top Dog. Setup takes less than 24 hours.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm">
@@ -700,7 +834,10 @@ export default function LiveTransferPage() {
                   "TCPA compliance docs on every lead",
                   "Replacement guarantee on bad calls",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-gray-300">
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-gray-300"
+                  >
                     <span className="text-orange-400 font-bold">✓</span>
                     {item}
                   </li>
@@ -716,7 +853,10 @@ export default function LiveTransferPage() {
 
               <p className="mt-4 text-center text-xs text-gray-500">
                 Or call us:{" "}
-                <a href="tel:+16784628013" className="text-orange-400 font-semibold hover:underline">
+                <a
+                  href="tel:+16784628013"
+                  className="text-orange-400 font-semibold hover:underline"
+                >
                   1-678-462-8013
                 </a>
               </p>
@@ -729,9 +869,14 @@ export default function LiveTransferPage() {
                 { icon: "🏆", label: "Top Rated" },
                 { icon: "🔒", label: "Secure & Private" },
               ].map((b) => (
-                <div key={b.label} className="bg-gray-50 border border-gray-200 rounded-xl py-4 px-2">
+                <div
+                  key={b.label}
+                  className="bg-gray-50 border border-gray-200 rounded-xl py-4 px-2"
+                >
                   <div className="text-2xl">{b.icon}</div>
-                  <div className="mt-1 text-xs font-semibold text-gray-600">{b.label}</div>
+                  <div className="mt-1 text-xs font-semibold text-gray-600">
+                    {b.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -759,10 +904,14 @@ export default function LiveTransferPage() {
               >
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: t.stars }).map((_, i) => (
-                    <span key={i} className="text-orange-400">★</span>
+                    <span key={i} className="text-orange-400">
+                      ★
+                    </span>
                   ))}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed italic">"{t.quote}"</p>
+                <p className="text-gray-300 text-sm leading-relaxed italic">
+                  "{t.quote}"
+                </p>
                 <div className="mt-5 border-t border-white/10 pt-4">
                   <p className="font-bold text-white">{t.name}</p>
                   <p className="text-gray-500 text-sm">{t.company}</p>
@@ -787,92 +936,113 @@ export default function LiveTransferPage() {
             What Makes a Lead a "Live Transfer"?
           </h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            The term "live transfer lead" refers to a specific lead delivery mechanism
-            where a human agent confirms a prospect's intent and transfers them — in
-            real time, while they're still on the phone — to your sales team. This is
-            fundamentally different from a <strong>web lead</strong> (where someone
-            fills out a form and you call them later) or an <strong>aged lead</strong>
-            (where you buy a list of contacts who expressed interest days or weeks ago).
+            The term "live transfer lead" refers to a specific lead delivery
+            mechanism where a human agent confirms a prospect's intent and
+            transfers them — in real time, while they're still on the phone — to
+            your sales team. This is fundamentally different from a{" "}
+            <strong>web lead</strong> (where someone fills out a form and you
+            call them later) or an <strong>aged lead</strong>
+            (where you buy a list of contacts who expressed interest days or
+            weeks ago).
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            The key distinction is <em>immediacy and warm handoff</em>. The prospect
-            hasn't had time to shop around, get distracted, or forget why they were
-            interested. You're catching them at the peak of their intent — the most
-            valuable moment in any sales cycle.
+            The key distinction is <em>immediacy and warm handoff</em>. The
+            prospect hasn't had time to shop around, get distracted, or forget
+            why they were interested. You're catching them at the peak of their
+            intent — the most valuable moment in any sales cycle.
           </p>
 
           <h3 className="mt-10 text-xl font-bold not-prose">
             Who Should Buy Live Transfer Leads?
           </h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            Live transfer leads are ideal for any business where the primary sales
-            channel is an outbound or inbound phone conversation. They're especially
-            powerful for:
+            Live transfer leads are ideal for any business where the primary
+            sales channel is an outbound or inbound phone conversation. They're
+            especially powerful for:
           </p>
           <ul className="mt-4 text-gray-600 space-y-2">
-            <li><strong>Insurance agents and agencies</strong> in health, life, Medicare, and auto verticals</li>
-            <li><strong>Solar installation companies</strong> targeting homeowners</li>
-            <li><strong>Mortgage brokers and loan officers</strong> seeking refinance or purchase leads</li>
-            <li><strong>Debt relief companies</strong> working with high-balance consumers</li>
-            <li><strong>Home services businesses</strong> including security, HVAC, and roofing</li>
+            <li>
+              <strong>Insurance agents and agencies</strong> in health, life,
+              Medicare, and auto verticals
+            </li>
+            <li>
+              <strong>Solar installation companies</strong> targeting homeowners
+            </li>
+            <li>
+              <strong>Mortgage brokers and loan officers</strong> seeking
+              refinance or purchase leads
+            </li>
+            <li>
+              <strong>Debt relief companies</strong> working with high-balance
+              consumers
+            </li>
+            <li>
+              <strong>Home services businesses</strong> including security,
+              HVAC, and roofing
+            </li>
           </ul>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            If your business closes deals over the phone and your conversion rate depends
-            on speaking with prospects quickly, live transfer leads will almost certainly
-            improve your economics.
+            If your business closes deals over the phone and your conversion
+            rate depends on speaking with prospects quickly, live transfer leads
+            will almost certainly improve your economics.
           </p>
 
           <h3 className="mt-10 text-xl font-bold not-prose">
             How to Maximize Your ROI from Live Transfer Leads
           </h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            To get the most from live transfer leads, your team should be trained to
-            treat every incoming transfer as a warm handoff — not a cold call. Here
-            are best practices Top Dog's highest-performing clients follow:
+            To get the most from live transfer leads, your team should be
+            trained to treat every incoming transfer as a warm handoff — not a
+            cold call. Here are best practices Top Dog's highest-performing
+            clients follow:
           </p>
           <ul className="mt-4 text-gray-600 space-y-3">
             <li>
-              <strong>Answer every call within 3 rings.</strong> The prospect has been
-              primed by our agent. Any delay introduces doubt.
+              <strong>Answer every call within 3 rings.</strong> The prospect
+              has been primed by our agent. Any delay introduces doubt.
             </li>
             <li>
-              <strong>Open with the transfer context.</strong> "Hi [Name], I understand
-              you were just speaking with someone about [product] — I'm here to help."
-              This reassures the prospect and keeps momentum.
+              <strong>Open with the transfer context.</strong> "Hi [Name], I
+              understand you were just speaking with someone about [product] —
+              I'm here to help." This reassures the prospect and keeps momentum.
             </li>
             <li>
-              <strong>Don't re-qualify what we've already confirmed.</strong> Trust the
-              screening we've done and move toward discovery and close.
+              <strong>Don't re-qualify what we've already confirmed.</strong>{" "}
+              Trust the screening we've done and move toward discovery and
+              close.
             </li>
             <li>
-              <strong>Track your contact-to-close rate per vertical.</strong> This lets
-              you optimize your filter settings and agent scripts over time.
+              <strong>Track your contact-to-close rate per vertical.</strong>{" "}
+              This lets you optimize your filter settings and agent scripts over
+              time.
             </li>
             <li>
-              <strong>Request replacements on bad transfers promptly.</strong> Our
-              guarantee is there to protect you — use it.
+              <strong>Request replacements on bad transfers promptly.</strong>{" "}
+              Our guarantee is there to protect you — use it.
             </li>
           </ul>
 
           <h3 className="mt-10 text-xl font-bold not-prose">
-            Live Transfer Leads vs. Internet Leads: A Cost-Per-Acquisition Analysis
+            Live Transfer Leads vs. Internet Leads: A Cost-Per-Acquisition
+            Analysis
           </h3>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            On the surface, live transfer leads appear more expensive than web leads.
-            But when you account for contact rate, close rate, and agent time, live
-            transfers almost universally deliver a <strong>lower cost per acquired
-            customer</strong>.
+            On the surface, live transfer leads appear more expensive than web
+            leads. But when you account for contact rate, close rate, and agent
+            time, live transfers almost universally deliver a{" "}
+            <strong>lower cost per acquired customer</strong>.
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            Example: If a web lead costs $10 and has a 25% contact rate and a 10%
-            close rate, your cost per close is $400. If a live transfer costs $45 and
-            has a 90% contact rate and a 25% close rate, your cost per close is $200.
-            The live transfer is <em>half the cost</em> to acquire a customer — despite
-            costing 4.5x more per lead.
+            Example: If a web lead costs $10 and has a 25% contact rate and a
+            10% close rate, your cost per close is $400. If a live transfer
+            costs $45 and has a 90% contact rate and a 25% close rate, your cost
+            per close is $200. The live transfer is <em>half the cost</em> to
+            acquire a customer — despite costing 4.5x more per lead.
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed">
-            This is why top-performing agencies allocate a growing percentage of their
-            lead budget to live transfers each year. The ROI math is undeniable.
+            This is why top-performing agencies allocate a growing percentage of
+            their lead budget to live transfers each year. The ROI math is
+            undeniable.
           </p>
         </article>
       </section>
@@ -933,15 +1103,47 @@ export default function LiveTransferPage() {
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-  { href: "/services/insurances-leads", label: "Insurance Leads", desc: "Health, auto & life insurance leads" },
-  { href: "/industry/medicare-insurance", label: "Medicare Leads", desc: "Exclusive Medicare Advantage & supplement leads" },
-  { href: "/industry/solar", label: "Solar Leads", desc: "Homeowner solar installation leads" },
-  { href: "/industry/final-expense", label: "Final Expense Leads", desc: "Aged 50–85 final expense live transfers" },
-  { href: "/services/live-transfer-leads", label: "Aged Leads", desc: "High-volume aged insurance & solar leads" },
-  { href: "/services/inbound-call-marketing", label: "Internet Leads", desc: "Fresh web-form leads for all verticals" },
-  { href: "/industry/auto-insurance", label: "Auto Insurance Leads", desc: "Real-time auto insurance quote leads" },
-  { href: "/services/insurances-leads", label: "Debt Relief Leads", desc: "Pre-qualified $10K+ debt settlement leads" },
-].map((link) => (
+            {
+              href: "/services/insurances-leads",
+              label: "Insurance Leads",
+              desc: "Health, auto & life insurance leads",
+            },
+            {
+              href: "/industry/medicare-insurance",
+              label: "Medicare Leads",
+              desc: "Exclusive Medicare Advantage & supplement leads",
+            },
+            {
+              href: "/industry/solar",
+              label: "Solar Leads",
+              desc: "Homeowner solar installation leads",
+            },
+            {
+              href: "/industry/final-expense",
+              label: "Final Expense Leads",
+              desc: "Aged 50–85 final expense live transfers",
+            },
+            {
+              href: "/services/live-transfer-leads",
+              label: "Aged Leads",
+              desc: "High-volume aged insurance & solar leads",
+            },
+            {
+              href: "/services/inbound-call-marketing",
+              label: "Internet Leads",
+              desc: "Fresh web-form leads for all verticals",
+            },
+            {
+              href: "/industry/auto-insurance",
+              label: "Auto Insurance Leads",
+              desc: "Real-time auto insurance quote leads",
+            },
+            {
+              href: "/services/insurances-leads",
+              label: "Debt Relief Leads",
+              desc: "Pre-qualified $10K+ debt settlement leads",
+            },
+          ].map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -960,12 +1162,15 @@ export default function LiveTransferPage() {
       <section className="bg-slate-50 text-gray-900 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl lg:text-5xl font-black leading-tight">
-            Stop Chasing Cold Leads.<br />Start Closing Live Transfer Leads.
+            Stop Chasing Cold Leads.
+            <br />
+            Start Closing Live Transfer Leads.
           </h2>
           <p className="mt-6 text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            Join hundreds of insurance agents, Medicare brokers, solar companies, and
-            financial services agencies who've replaced cold outreach with warm,
-            live, pre-qualified phone connections. Setup takes 24 hours.
+            Join hundreds of insurance agents, Medicare brokers, solar
+            companies, and financial services agencies who've replaced cold
+            outreach with warm, live, pre-qualified phone connections. Setup
+            takes 24 hours.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <Link
@@ -983,7 +1188,8 @@ export default function LiveTransferPage() {
             </a>
           </div>
           <p className="mt-6 text-gray-900 text-sm">
-            No contracts · Custom lead filters · TCPA compliant · 24-hour setup · Replacement guarantee
+            No contracts · Custom lead filters · TCPA compliant · 24-hour setup
+            · Replacement guarantee
           </p>
         </div>
       </section>
@@ -1022,21 +1228,67 @@ export default function LiveTransferPage() {
               name: "United States",
             },
             description:
-              "Real-time TCPA-compliant live transfer leads for insurance agents, Medicare brokers, solar companies, auto insurance, final expense, debt relief, and home services. Pre-qualified prospects are screened and transferred live to your sales agents across the USA. No contracts. Custom lead filters. Replacement guarantee.",
-            keywords:
-              "live transfer leads, buy live transfer leads USA, insurance live transfer leads, Medicare live transfer leads, solar live transfer leads, TCPA compliant warm transfer leads, exclusive pre-qualified phone leads, real-time lead generation service",
+              "Real-time TCPA-compliant live transfer leads for insurance agents, Medicare brokers, solar companies, auto insurance, final expense, debt relief, and home services. Pre-qualified prospects are screened and transferred live to your sales agents across the USA. No contracts. Custom lead filters. Replacement guarantee.",            
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "Live Transfer Lead Verticals",
               itemListElement: [
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Health Insurance Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medicare Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Solar Energy Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Auto Insurance Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Final Expense Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Debt Relief Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Security Live Transfer Leads" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Services Live Transfer Leads" } },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Health Insurance Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Medicare Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Solar Energy Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Auto Insurance Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Final Expense Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Debt Relief Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Home Security Live Transfer Leads",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Home Services Live Transfer Leads",
+                  },
+                },
               ],
             },
             offers: {
@@ -1046,7 +1298,8 @@ export default function LiveTransferPage() {
               priceSpecification: {
                 "@type": "PriceSpecification",
                 priceCurrency: "USD",
-                description: "Per live transfer call. Volume pricing available.",
+                description:
+                  "Per live transfer call. Volume pricing available.",
               },
             },
           }),

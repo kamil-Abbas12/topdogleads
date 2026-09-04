@@ -185,9 +185,10 @@ export default function PrivacyPolicyPage() {
               and{" "}
               <a
                 
+ 
   href="https://myadcenter.google.com/personalizationoff"
   target="_blank"
-  rel="noopener noreferrer"
+  rel="nofollow noopener noreferrer"
   className="text-blue-700 underline"
 >
   Google Ad Settings

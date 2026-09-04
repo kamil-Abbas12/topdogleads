@@ -21,7 +21,7 @@ export async function generateMetadata({
   const name = meta?.name ?? productIndustry.name;
 
   return {
-    title: `${name} Lead Pricing & Plans | Top Dog Leads`,
+    title: `${name} Lead Pricing & Plans `,
     description: `Choose a ${name} leads plan. Get high-intent live transfer calls delivered straight to your phone. Verified prospects, real-time delivery.`,
     keywords: `buy ${name} leads, ${name} live transfer leads, ${name} lead generation, exclusive ${name} leads`,
     openGraph: {
