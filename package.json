@@ -15,6 +15,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.24",
     "framer-motion": "^12.38.0",
+    "geoip-lite": "^2.0.3",
     "lucide-react": "^0.563.0",
     "mongoose": "^9.1.6",
     "next": "^16.1.6",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/geoip-lite": "^1.4.4",
     "@types/node": "^20.19.43",
     "@types/nodemailer": "^8.0.0",
     "@types/react": "^19.2.17",

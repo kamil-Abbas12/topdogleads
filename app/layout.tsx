@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ConsentBanner from "./components/ConsentBanner";
 import Script from "next/script";
 import "./globals.css";
 import ChunkErrorHandler from "./chunk-error-handler";
@@ -72,31 +73,61 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Consent Mode v2 defaults — MUST run before GA4/AdSense scripts */}
+        <Script id="consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied',
+              wait_for_update: 500
+            });
+
+            (function() {
+              var stored = document.cookie.match(/tdl_consent=(granted|denied)/);
+              if (stored && stored[1] === 'granted') {
+                gtag('consent', 'update', {
+                  ad_storage: 'granted',
+                  ad_user_data: 'granted',
+                  ad_personalization: 'granted',
+                  analytics_storage: 'granted'
+                });
+              }
+              window.adsbygoogle = window.adsbygoogle || [];
+              window.adsbygoogle.requestNonPersonalizedAds = (stored && stored[1] === 'granted') ? 0 : 1;
+            })();
+          `}
+        </Script>
+
         <ChunkErrorHandler />
         <Navbar />
-  <main>{children}</main>
+        <main>{children}</main>
         <Footer />
-        {/* ✅ Google AdSense — lazy, non-blocking */}
-       <Script
-  async
-  src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-  crossOrigin="anonymous"
-  strategy="afterInteractive"
-/>
-        {/* ✅ Google Analytics GA4 */}
+        <ConsentBanner />
+
+        {/* Google AdSense */}
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YCKFKX373P"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-YCKFKX373P');
           `}
         </Script>
-        {/* ✅ Ahrefs Analytics */}
+        {/* Ahrefs Analytics */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="JkhARxLMNh+CptEmB0KYzw"
