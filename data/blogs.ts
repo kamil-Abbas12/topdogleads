@@ -2461,7 +2461,7 @@ metaDescription:
 `,
     image: "/live-transfer-services-cold-leads-sales-velocity.webp",
     imageAlt: "Live transfer services eliminating cold leads and boosting sales velocity — connected network of high-intent prospects",
-    date: "Sep 8, 2026",
+    date: "Sep 10, 2026",
     dateISO: "2026-09-08",
     author: "Top Dog Leads LLC",
     category: "Lead Generation",
