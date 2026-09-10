@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ConsentBanner from "./components/ConsentBanner";
 import Script from "next/script";
+// @ts-expect-error Global CSS is handled by Next.js during bundling.
 import "./globals.css";
 import ChunkErrorHandler from "./chunk-error-handler";
 
