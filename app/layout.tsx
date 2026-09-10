@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Top Dog Leads is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
 
   keywords: [
-    "Top Dog Leads ",
+    "Top Dog Leads",
     "llc",
     "leads generation agency",
     "digital marketing agency",
