@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import geoip from "geoip-lite";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 const RESTRICTED = new Set([
   // EEA (EU members)
@@ -16,8 +18,18 @@ export async function GET(request: Request) {
   const forwardedFor = request.headers.get("x-forwarded-for");
   const ip = forwardedFor?.split(",")[0]?.trim() || "";
 
-  const geo = ip ? geoip.lookup(ip) : null;
-  const country = geo?.country ?? "";
+  let country = "";
+
+  if (ip) {
+    try {
+      const geoip = (await import("geoip-lite")).default;
+      const geo = geoip.lookup(ip);
+      country = geo?.country ?? "";
+    } catch (err) {
+      console.error("geoip-lite lookup failed:", err);
+    }
+  }
+
   const restricted = RESTRICTED.has(country);
 
   return NextResponse.json({ restricted, country });
