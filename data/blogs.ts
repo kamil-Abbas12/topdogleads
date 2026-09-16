@@ -2342,7 +2342,7 @@ metaDescription:
     {
     slug: "live-transfer-services-eliminate-cold-leads",
     title: "How Live Transfer Services Eliminate Cold Leads and Boost Sales Velocity",
-    metaTitle: "Live Transfer Services: Eliminate Cold Leads & Boost Sales",
+metaTitle: "Live Transfer Services: Cut Cold Leads",
     metaDescription:
       "See how live transfer services eliminate cold leads, cut speed-to-lead delays, and accelerate sales velocity for insurance, home services, and legal intake.",
     keywords: [
@@ -2483,7 +2483,7 @@ metaDescription:
     title: "How to Scale Inbound Call Volumes Without Sacrificing Buyer Qualification",
     metaTitle: "Scale Inbound Call Volume Without Losing Lead Quality",
     metaDescription:
-      "Scaling call traffic without tightening filters overwhelms buyers and tanks conversion. Learn 5 proven ways to grow inbound call volume while protecting buyer qualification.",
+  "Scaling call volume without tightening filters overwhelms buyers. Learn 5 proven ways to grow inbound call traffic while protecting lead quality.",
     keywords: [
       "scale inbound call volume",
       "buyer qualification calls",
