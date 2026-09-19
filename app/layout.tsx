@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Top Dog Leads",
     images: [
       {
-        url: "/logo.png",
+        url: "/og-image.jpg",
         width: 512,
         height: 512,
         alt: "Top Dog Lead Logo",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Top Dog Leads",
     description: "High-quality leads generation for businesses.",
-    images: ["/logo.png"],
+    images: ["/og-image.jpg"], 
   },
 
   icons: {

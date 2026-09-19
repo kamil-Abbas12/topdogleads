@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://topdoglead.com/og-image-blog.jpg",
+        url: "https://topdoglead.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Top Dog Leads Lead Generation Blog",
