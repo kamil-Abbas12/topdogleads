@@ -111,6 +111,11 @@ const nextConfig: NextConfig = {
       // ── Legacy URLs still getting traffic per GA, no current internal link ──
       { source: "/blog/auto-insurance-breakdowns", destination: "/blog/auto-insurance-leads-peace-of-mind", permanent: true },
       { source: "/team", destination: "/about", permanent: true },
+      { source: "/team/:slug*", destination: "/about", permanent: true },
+      { source: "/terms-of-use", destination: "/terms-of-service", permanent: true },
+      { source: "/:year(\\d{4})", destination: "/blog", permanent: true },
+      { source: "/blog/page/:n", destination: "/blog", permanent: true },
+      { source: "/blog/insurance-scale-growth", destination: "/blog", permanent: true },
       // TODO: confirm the right target post for this one — defaulting to /blog for now
       { source: "/blog/insurance-leads-growth", destination: "/blog", permanent: true },
 
