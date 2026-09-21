@@ -125,7 +125,7 @@ export default function Footer() {
               aria-label="Top Dog Leads on Facebook"
               className="text-blue-500/80 hover:text-white transition"
             >
-              <Facebook className="h-5 w-5" aria-hidden="true" />
+              <Facebook className="h-5 w-5" aria-hidden="true" /><span className="sr-only">Facebook</span>
             </Link>
 
             <Link
@@ -135,7 +135,7 @@ export default function Footer() {
               aria-label="Top Dog Leads on Instagram"
               className="text-pink-500/80 hover:text-white transition"
             >
-              <Instagram className="h-5 w-5" aria-hidden="true" />
+              <Instagram className="h-5 w-5" aria-hidden="true" /><span className="sr-only">Instagram</span>
             </Link>
 
             <Link
@@ -145,7 +145,7 @@ export default function Footer() {
               aria-label="Top Dog Leads on LinkedIn"
               className="text-blue-500/80 hover:text-white transition"
             >
-              <Linkedin className="h-5 w-5" aria-hidden="true" />
+              <Linkedin className="h-5 w-5" aria-hidden="true" /><span className="sr-only">LinkedIn</span>
             </Link>
           </div>
         </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { manrope } from "@/lib/fonts";
 
 export const metadata = {
-title: "About Us | Pay Per Call Lead Generation Experts USA",
+title: "About Us | Pay-Per-Call Lead Experts",
   description:
     "Top Dog Leads is a performance marketing agency specializing in pay per call lead generation and high-converting leads for insurance businesses.",
   keywords: [
