@@ -1413,7 +1413,7 @@ metaDescription:
 
 <p><strong>Where to find reliable numbers:</strong> Look at industry-specific aggregators rather than general blogs. Sources like Ruler Analytics, Dynamic Yield, First Page Sage, and Unbounce break down metrics by vertical, traffic source, and device.</p>
 
-<h2>3. Map Your Internal Funnel First</H2>
+<h2>3. Map Your Internal Funnel First</h2>
 <p>External benchmarks tell you if a problem exists; internal benchmarks tell you where it is.</p>
 <p>Instead of looking at one big sitewide or teamwide conversion percentage, map every micro-step in your sales process. A standard sales funnel usually breaks down into specific stages:</p>
 
