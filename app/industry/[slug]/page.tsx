@@ -1,11 +1,9 @@
 import { industries } from "@/data/industries";
 import IndustryClient from "./IndustryClient";
+import IndustryRelatedContent from "./IndustryRelatedContent";
 
-// ✅ Pre-render all industry pages at build time instead of on every request
 export async function generateStaticParams() {
-  return industries.map((industry) => ({
-    slug: industry.slug,
-  }));
+  return industries.map((industry) => ({ slug: industry.slug }));
 }
 
 export async function generateMetadata({
@@ -40,7 +38,81 @@ export async function generateMetadata({
   };
 }
 
-// ✅ Server component — just renders the client component
-export default function IndustryPage() {
-  return <IndustryClient />;
+export default async function IndustryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
+
+  if (!industry) return <IndustryClient />;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: `${industry.name} Leads`,
+        serviceType: `${industry.name} Lead Generation`,
+        description: industry.description,
+        image: `https://topdoglead.com${industry.image}`,
+        url: `https://topdoglead.com/industry/${industry.slug}`,
+        provider: {
+          "@type": "Organization",
+          name: "Top Dog Leads",
+          url: "https://topdoglead.com",
+          telephone: industry.phone,
+        },
+        areaServed: "US",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${industry.name} Lead Benefits`,
+          itemListElement: industry.benefits.map((b, i) => ({
+            "@type": "Offer",
+            position: i + 1,
+            itemOffered: { "@type": "Service", name: b },
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://topdoglead.com" },
+          { "@type": "ListItem", position: 2, name: "Industries", item: "https://topdoglead.com/industry" },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: `${industry.name} Leads`,
+            item: `https://topdoglead.com/industry/${industry.slug}`,
+          },
+        ],
+      },
+      // ✅ Only emit FAQPage schema if faqs actually exist for this industry
+      ...(industry.faqs && industry.faqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: industry.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: { "@type": "Answer", text: f.answer },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <IndustryClient />
+      <IndustryRelatedContent industry={industry} />
+    </>
+  );
 }
