@@ -13,7 +13,8 @@ export default function robots(): MetadataRoute.Robots {
           "/wp-json/",
           "/wp-content/",
           "/wp-includes/",
-          "/shop/add-to-cart*", // cart action URL, never worth crawling
+          // "/shop/add-to-cart*", 
+          // cart action URL, never worth crawling
 
           // ── REMOVED — these now have 301s in next.config.ts and must
           // ── stay crawlable so Googlebot can discover the redirect:
