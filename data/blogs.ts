@@ -2592,7 +2592,7 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
       }
     ],
   },
-  {
+ {
     slug: "hidden-costs-historical-homes-insurance-century-old-properties",
     title: "The Hidden Costs of Historical Homes: Navigating Insurance for Century-Old Properties",
     metaTitle: "Historic Home Insurance: Hidden Costs Explained",
@@ -2650,19 +2650,19 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
   <li>Installing modern fire suppression systems or egress windows</li>
 </ul>
 
-<h3>The Solution: Ordinance or Law Coverage</h3>
+<h3><mark>The Solution: Ordinance or Law Coverage</mark></h3>
 <p>To protect against these compulsory costs, historical property owners should opt for an <strong>Ordinance or Law endorsement</strong>. This add-on covers the additional expense of bringing damaged (and sometimes undamaged) parts of the home into compliance with current building codes during reconstruction.</p>
 
 <h2><mark>3. Key Risk Factors Underwriters Flag</mark></h2>
 <p>When an underwriter evaluates an older home, they inspect specific mechanical systems to gauge risk exposure. Before issuing a standard policy, insurers will frequently require proof that critical updates have taken place.</p>
 
-<h3>Electrical Systems</h3>
+<h3><mark>Electrical Systems</mark></h3>
 <p>Homes built before the 1950s often featured knob and tube or ungrounded aluminum wiring. These legacy systems were designed for low-power households and are major fire hazards when subjected to modern electrical loads. Many carriers will refuse coverage outright until the electrical system is upgraded to modern copper wiring and circuit breakers.</p>
 
-<h3>Plumbing Lines</h3>
+<h3><mark>Plumbing Lines</mark></h3>
 <p>Galvanized steel and lead pipes degrade over time, leading to hidden corrosion, pressure drops, and sudden internal leaks. Insurers often require older lines to be replaced with modern copper or PEX tubing to mitigate water damage claims.</p>
 
-<h3>Roof Integrity and Framing</h3>
+<h3><mark>Roof Integrity and Framing</mark></h3>
 <p>Historic roofs — especially those featuring slate, tile, or cedar shake — require regular maintenance. Because water intrusion is the most frequent source of property claims, underwriters will look closely at the age, flashing, and structural framing of the roof.</p>
 
 <h2><mark>4. Historic Preservation Guidelines and Restrictions</mark></h2>
