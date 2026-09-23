@@ -2625,7 +2625,7 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
 
 <p>If you are planning to purchase or currently own a property built in the early 20th century or earlier, here is what you need to know about navigating the hidden costs and unique mechanics of historical home insurance.</p>
 
-<h2><mark>1. Market Value vs. Reconstruction Cost</mark></h2>
+<h2>1. Market Value vs. Reconstruction Cost</h2>
 <p>The single biggest misconception buyers have when insuring a historic property is assuming their home’s market price dictates their insurance coverage level.</p>
 
 <p>In reality, insurance companies calculate premiums based on <strong>Replacement Cost Value (RCV)</strong> — the actual cost required to rebuild the structure from the ground up using similar materials and craftsmanship.</p>
@@ -2639,7 +2639,7 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
 
 <p>If a home purchases for $400,000, the true reconstruction cost might easily land at $750,000 or more. Underinsuring to match the purchase price leaves you severely exposed in the event of a total loss.</p>
 
-<h2><mark>2. The Legacy Building Code Trap</mark></h2>
+<h2>2. The Legacy Building Code Trap</h2>
 <p>Building codes are updated continuously to improve structural safety, fire resistance, and energy efficiency. When a major portion of an older home is damaged, local building authorities will generally require any rebuilt sections — and sometimes the entire structure — to be brought up to current municipal codes.</p>
 
 <p>Standard homeowners’ insurance policies typically only cover the cost of replacing what was damaged as it originally existed. They do not cover the mandatory, expensive upgrades required by modern codes, such as:</p>
@@ -2650,22 +2650,22 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
   <li>Installing modern fire suppression systems or egress windows</li>
 </ul>
 
-<h3><mark>The Solution: Ordinance or Law Coverage</mark></h3>
+<p><strong>The Solution: Ordinance or Law Coverage</strong></p>
 <p>To protect against these compulsory costs, historical property owners should opt for an <strong>Ordinance or Law endorsement</strong>. This add-on covers the additional expense of bringing damaged (and sometimes undamaged) parts of the home into compliance with current building codes during reconstruction.</p>
 
-<h2><mark>3. Key Risk Factors Underwriters Flag</mark></h2>
+<h2>3. Key Risk Factors Underwriters Flag</h2>
 <p>When an underwriter evaluates an older home, they inspect specific mechanical systems to gauge risk exposure. Before issuing a standard policy, insurers will frequently require proof that critical updates have taken place.</p>
 
-<h3><mark>Electrical Systems</mark></h3>
+<p><strong>Electrical Systems</strong></p>
 <p>Homes built before the 1950s often featured knob and tube or ungrounded aluminum wiring. These legacy systems were designed for low-power households and are major fire hazards when subjected to modern electrical loads. Many carriers will refuse coverage outright until the electrical system is upgraded to modern copper wiring and circuit breakers.</p>
 
-<h3><mark>Plumbing Lines</mark></h3>
+<p><strong>Plumbing Lines</strong></p>
 <p>Galvanized steel and lead pipes degrade over time, leading to hidden corrosion, pressure drops, and sudden internal leaks. Insurers often require older lines to be replaced with modern copper or PEX tubing to mitigate water damage claims.</p>
 
-<h3><mark>Roof Integrity and Framing</mark></h3>
+<p><strong>Roof Integrity and Framing</strong></p>
 <p>Historic roofs — especially those featuring slate, tile, or cedar shake — require regular maintenance. Because water intrusion is the most frequent source of property claims, underwriters will look closely at the age, flashing, and structural framing of the roof.</p>
 
-<h2><mark>4. Historic Preservation Guidelines and Restrictions</mark></h2>
+<h2>4. Historic Preservation Guidelines and Restrictions</h2>
 <p>If your property is listed on a local, state, or national historic register, your repairs and renovations may be subject to strict architectural guidelines enforced by a local <strong>Historic Preservation Commission (HPC)</strong>.</p>
 
 <p>These commissions often dictate:</p>
@@ -2677,7 +2677,7 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
 
 <p>Because these mandates eliminate budget-friendly modern substitutes, repairs can take twice as long and cost three times as much. When setting up your coverage, ensure your agent factors these preservation covenants into your home’s baseline reconstruction estimate.</p>
 
-<h2><mark>Strategic Steps for Insuring a Historic Property</mark></h2>
+<h2>Strategic Steps for Insuring a Historic Property</h2>
 <p>To ensure your investment is adequately protected without overpaying, take the following approach:</p>
 <ol>
   <li><strong>Get a Specialized Historic Appraisal:</strong> Work with an appraiser who specializes in historic architecture to establish an accurate Replacement Cost Value.</li>
