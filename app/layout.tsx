@@ -41,12 +41,12 @@ export const metadata: Metadata = {
       "We help businesses generate high-quality leads using SEO, ads, and marketing strategies.",
     url: "https://topdoglead.com",
     siteName: "Top Dog Leads",
-    images: [
+       images: [
       {
         url: "/og-image.jpg",
-        width: 512,
-        height: 512,
-        alt: "Top Dog Lead Logo",
+        width: 1200,
+        height: 630,
+        alt: "Top Dog Leads — Pay-Per-Call Lead Generation",
       },
     ],
     locale: "en_US",

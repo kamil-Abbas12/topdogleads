@@ -18,9 +18,16 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://topdoglead.com/#organization",
   name: "Top Dog Leads",
+  alternateName: ["Top Dog Leads LLC", "TopDogLead", "Top Dog Lead"],
   url: "https://topdoglead.com",
   logo: "https://topdoglead.com/logo.png",
+  telephone: "+1-678-462-8013",
+  sameAs: [
+    "https://www.facebook.com/TopDogLeadsLLC",
+    "https://www.linkedin.com/company/top-dog-leads-llc/",
+  ],
   description:
     "Top Dog Leads is a digital marketing and lead generation agency helping businesses get high-quality leads through SEO, paid ads, and growth strategies.",
   address: {
@@ -36,12 +43,11 @@ const organizationJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://topdoglead.com/#website",
   name: "Top Dog Leads",
+  alternateName: ["Top Dog Leads LLC", "TopDogLead"],
   url: "https://topdoglead.com",
-  publisher: {
-    "@type": "Organization",
-    name: "Top Dog Leads",
-  },
+  publisher: { "@id": "https://topdoglead.com/#organization" },
 };
 
 export default function Home() {

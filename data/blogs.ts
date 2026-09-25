@@ -1536,9 +1536,9 @@ metaDescription:
 <p>When dealing with high-ticket or complex products, automated keypresses aren't always enough to verify intent. Many performance marketing teams use a dedicated pre-qualification layer — either an internal triage team or a specialized BPO vendor.</p>
 <p>This pre-qualifying step involves a brief, 60-to-90-second conversation with a call center specialist who asks key screening questions:</p>
 <ol>
-  <li>What specific problem are you looking to solve today?</li>
-  <li>Are you the primary decision-maker for this account?</li>
-  <li>What is your estimated timeline for getting started?</li>
+  <li><mark>What specific problem are you looking to solve today?</mark></li>
+  <li><mark>Are you the primary decision-maker for this account?/<mark></li>
+  <li><mark>What is your estimated timeline for getting started?</mark></li>
 </ol>
 <p>Once the call center agent verifies that the caller meets all criteria, they execute a warm transfer to your closer, providing brief context on the caller's needs before passing the line over.</p>
 
@@ -1629,13 +1629,13 @@ metaDescription:
 <h2><mark>Why Lead Spikes Break Traditional Operating Models</mark></h2>
 <p>To understand why a hybrid model works, it helps to look at why purely internal or purely outsourced setups tend to break down during a surge.</p>
 
-<h3>1. The Risk of Over-Staffing vs. Under-Staffing</h3>
+<h3><mark>1. The Risk of Over-Staffing vs. Under-Staffing</mark></h3>
 <p>Staff your internal team to handle peak volume, and you're paying for idle capacity the rest of the time. Staff only for baseline volume, and any sudden influx means long wait times, dropped calls, and burned-out employees.</p>
 
-<h3>2. The Speed-to-Lead Problem</h3>
+<h3><mark>2. The Speed-to-Lead Problem</mark></h3>
 <p>Research consistently shows that contacting an inbound lead within five minutes yields significantly higher conversion rates than waiting even thirty minutes. During a spike, internal teams simply can't sustain that response speed without extra support.</p>
 
-<h3>3. Degradation of Lead Quality</h3>
+<h3><mark>3. Degradation of Lead Quality</mark></h3>
 <p>When agents are overwhelmed by volume, interaction quality drops. Reps rush through calls just to clear the queue, key qualification details get missed, and sales resources end up wasted chasing low-intent leads.</p>
 
 <h2><mark>How Hybrid Outsourcing Absorbs the Shock of Lead Spikes</mark></h2>
@@ -2368,11 +2368,11 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
     content: `
 <p>The standard sales workflow for high-ticket services and inbound lead generation follows a painfully familiar pattern:</p>
 <ol>
-  <li>A prospect submits a web form.</li>
-  <li>The data hits a CRM.</li>
-  <li>An automated email goes out, or a sales representative puts the lead on a dialer queue.</li>
-  <li>The rep calls hours or days later, only to land in voicemail.</li>
-  <li>The lead goes cold.</li>
+  <li><p>A prospect submits a web form.</p></li>
+  <li><p>The data hits a CRM.</p></li>
+  <li><p>An automated email goes out, or a sales representative puts the lead on a dialer queue.</p></li>
+  <li><p>The rep calls hours or days later, only to land in voicemail.</p></li>
+  <li><p>The lead goes cold.</li>
 </ol>
 
 <p>In industries like auto insurance, home services, pest control, and legal intake, traditional web forms routinely bleed revenue. If your sales reps spend half their day chasing non-responders, fake phone numbers, and unmotivated prospects, you don't have a selling problem — you have a transfer problem.</p>
@@ -2680,10 +2680,10 @@ metaTitle: "Live Transfer Services: Cut Cold Leads",
 <h2>Strategic Steps for Insuring a Historic Property</h2>
 <p>To ensure your investment is adequately protected without overpaying, take the following approach:</p>
 <ol>
-  <li><strong>Get a Specialized Historic Appraisal:</strong> Work with an appraiser who specializes in historic architecture to establish an accurate Replacement Cost Value.</li>
-  <li><strong>Explore High-Value and Specialized Carriers:</strong> Standard direct-to-consumer insurers may not understand historic construction nuances. Specialty carriers often offer policies tailored to historic homes, including guaranteed replacement cost endorsements.</li>
-  <li><strong>Document Everything:</strong> Maintain a detailed visual inventory of original features, custom woodwork, and historic architectural elements. Keep records and invoices for any mechanical upgrades (electrical, plumbing, HVAC, roofing).</li>
-  <li><strong>Prioritize Risk Mitigation:</strong> Installing modern monitored fire alarms, water-leak detection systems, and updated electrical panels not only protects the property but can also unlock significant policy discounts.</li>
+  <li><strong>Get a Specialized Historic Appraisal:</strong><p> Work with an appraiser who specializes in historic architecture to establish an accurate Replacement Cost Value.</p></li>
+  <li><strong>Explore High-Value and Specialized Carriers:</strong><p> Standard direct-to-consumer insurers may not understand historic construction nuances. Specialty carriers often offer policies tailored to historic homes, including guaranteed replacement cost endorsements.</p></li>
+  <li><strong>Document Everything:</strong><p> Maintain a detailed visual inventory of original features, custom woodwork, and historic architectural elements. Keep records and invoices for any mechanical upgrades (electrical, plumbing, HVAC, roofing).</p></li>
+  <li><strong>Prioritize Risk Mitigation:</strong><p> Installing modern monitored fire alarms, water-leak detection systems, and updated electrical panels not only protects the property but can also unlock significant policy discounts.</p></li>
 </ol>
 `,
     image: "/historic-home-insurance-century-old-properties.webp",
